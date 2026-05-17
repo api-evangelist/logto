@@ -35,7 +35,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.logto.io
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/logto-io/logto
       - type: OpenAPI
         url: openapi/logto-openapi-original.yml
@@ -46,7 +46,7 @@ common:
     url: https://docs.logto.io
   - type: OpenAPI
     url: https://openapi.logto.io/source.yaml
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/logto-io
 maintainers:
   - FN: Kin Lane
