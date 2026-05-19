@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Account center
+  description: 'Logto API references — Account center. 2 operations. Lead operation: Get account center settings. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Account center
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-account-center
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Account center business capability. Self-contained, no shared references.
+    resources:
+    - name: api-account-center
+      path: /api/account-center
+      operations:
+      - name: getaccountcentersettings
+        method: GET
+        description: Get account center settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateaccountcentersettings
+        method: PATCH
+        description: Update account center settings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-account-center-rest
+    port: 8080
+    description: REST adapter for Logto API references — Account center. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/account-center
+      name: api-account-center
+      description: REST surface for api-account-center.
+      operations:
+      - method: GET
+        name: getaccountcentersettings
+        description: Get account center settings
+        call: logto-account-center.getaccountcentersettings
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateaccountcentersettings
+        description: Update account center settings
+        call: logto-account-center.updateaccountcentersettings
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-account-center-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Account center. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-account-center-settings
+      description: Get account center settings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-account-center.getaccountcentersettings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-account-center-settings
+      description: Update account center settings
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-account-center.updateaccountcentersettings
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

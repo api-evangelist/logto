@@ -1,0 +1,217 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Organization scopes
+  description: 'Logto API references — Organization scopes. 5 operations. Lead operation: Get organization scopes. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Organization scopes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-organization-scopes
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Organization scopes business capability. Self-contained, no shared references.
+    resources:
+    - name: api-organization-scopes
+      path: /api/organization-scopes
+      operations:
+      - name: listorganizationscopes
+        method: GET
+        description: Get organization scopes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+      - name: createorganizationscope
+        method: POST
+        description: Create an organization scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-organization-scopes-id
+      path: /api/organization-scopes/{id}
+      operations:
+      - name: getorganizationscope
+        method: GET
+        description: Get organization scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateorganizationscope
+        method: PATCH
+        description: Update organization scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteorganizationscope
+        method: DELETE
+        description: Delete organization scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-organization-scopes-rest
+    port: 8080
+    description: REST adapter for Logto API references — Organization scopes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/organization-scopes
+      name: api-organization-scopes
+      description: REST surface for api-organization-scopes.
+      operations:
+      - method: GET
+        name: listorganizationscopes
+        description: Get organization scopes
+        call: logto-organization-scopes.listorganizationscopes
+        with:
+          q: rest.q
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createorganizationscope
+        description: Create an organization scope
+        call: logto-organization-scopes.createorganizationscope
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organization-scopes/{id}
+      name: api-organization-scopes-id
+      description: REST surface for api-organization-scopes-id.
+      operations:
+      - method: GET
+        name: getorganizationscope
+        description: Get organization scope
+        call: logto-organization-scopes.getorganizationscope
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateorganizationscope
+        description: Update organization scope
+        call: logto-organization-scopes.updateorganizationscope
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteorganizationscope
+        description: Delete organization scope
+        call: logto-organization-scopes.deleteorganizationscope
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-organization-scopes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Organization scopes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-organization-scopes
+      description: Get organization scopes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-organization-scopes.listorganizationscopes
+      with:
+        q: tools.q
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-organization-scope
+      description: Create an organization scope
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-organization-scopes.createorganizationscope
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization-scope
+      description: Get organization scope
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-organization-scopes.getorganizationscope
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-organization-scope
+      description: Update organization scope
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-organization-scopes.updateorganizationscope
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-organization-scope
+      description: Delete organization scope
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-organization-scopes.deleteorganizationscope
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — User assets
+  description: 'Logto API references — User assets. 2 operations. Lead operation: Upload asset. Self-contained Naftiko capability
+    covering one Logto business surface.'
+  tags:
+  - Logto
+  - User assets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-user-assets
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — User assets business capability. Self-contained, no shared references.
+    resources:
+    - name: api-user-assets
+      path: /api/user-assets
+      operations:
+      - name: createuserasset
+        method: POST
+        description: Upload asset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-user-assets-service-status
+      path: /api/user-assets/service-status
+      operations:
+      - name: getuserassetservicestatus
+        method: GET
+        description: Get service status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-user-assets-rest
+    port: 8080
+    description: REST adapter for Logto API references — User assets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/user-assets
+      name: api-user-assets
+      description: REST surface for api-user-assets.
+      operations:
+      - method: POST
+        name: createuserasset
+        description: Upload asset
+        call: logto-user-assets.createuserasset
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/user-assets/service-status
+      name: api-user-assets-service-status
+      description: REST surface for api-user-assets-service-status.
+      operations:
+      - method: GET
+        name: getuserassetservicestatus
+        description: Get service status
+        call: logto-user-assets.getuserassetservicestatus
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-user-assets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — User assets. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: upload-asset
+      description: Upload asset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-user-assets.createuserasset
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-service-status
+      description: Get service status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-user-assets.getuserassetservicestatus
+      outputParameters:
+      - type: object
+        mapping: $.

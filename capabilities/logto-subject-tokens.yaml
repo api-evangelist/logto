@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Subject tokens
+  description: 'Logto API references — Subject tokens. 1 operations. Lead operation: Create a new subject token.. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Subject tokens
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-subject-tokens
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Subject tokens business capability. Self-contained, no shared references.
+    resources:
+    - name: api-subject-tokens
+      path: /api/subject-tokens
+      operations:
+      - name: createsubjecttoken
+        method: POST
+        description: Create a new subject token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-subject-tokens-rest
+    port: 8080
+    description: REST adapter for Logto API references — Subject tokens. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/subject-tokens
+      name: api-subject-tokens
+      description: REST surface for api-subject-tokens.
+      operations:
+      - method: POST
+        name: createsubjecttoken
+        description: Create a new subject token.
+        call: logto-subject-tokens.createsubjecttoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-subject-tokens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Subject tokens. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-new-subject-token
+      description: Create a new subject token.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-subject-tokens.createsubjecttoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

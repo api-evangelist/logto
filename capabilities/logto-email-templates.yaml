@@ -1,0 +1,259 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Email templates
+  description: 'Logto API references — Email templates. 6 operations. Lead operation: Replace email templates. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Email templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-email-templates
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Email templates business capability. Self-contained, no shared references.
+    resources:
+    - name: api-email-templates
+      path: /api/email-templates
+      operations:
+      - name: replaceemailtemplates
+        method: PUT
+        description: Replace email templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listemailtemplates
+        method: GET
+        description: Get email templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: languageTag
+          in: query
+          type: string
+          description: The language tag of the email template, e.g., `en` or `fr`.
+        - name: templateType
+          in: query
+          type: string
+          description: The type of the email template, e.g. `SignIn` or `ForgotPassword`
+      - name: deleteemailtemplates
+        method: DELETE
+        description: Delete email templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: languageTag
+          in: query
+          type: string
+          description: The language tag of the email template, e.g., `en` or `fr`.
+        - name: templateType
+          in: query
+          type: string
+          description: The type of the email template, e.g. `SignIn` or `ForgotPassword`
+    - name: api-email-templates-id
+      path: /api/email-templates/{id}
+      operations:
+      - name: getemailtemplate
+        method: GET
+        description: Get email template by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteemailtemplate
+        method: DELETE
+        description: Delete an email template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-email-templates-id-details
+      path: /api/email-templates/{id}/details
+      operations:
+      - name: updateemailtemplatedetails
+        method: PATCH
+        description: Update email template details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-email-templates-rest
+    port: 8080
+    description: REST adapter for Logto API references — Email templates. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/email-templates
+      name: api-email-templates
+      description: REST surface for api-email-templates.
+      operations:
+      - method: PUT
+        name: replaceemailtemplates
+        description: Replace email templates
+        call: logto-email-templates.replaceemailtemplates
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listemailtemplates
+        description: Get email templates
+        call: logto-email-templates.listemailtemplates
+        with:
+          languageTag: rest.languageTag
+          templateType: rest.templateType
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteemailtemplates
+        description: Delete email templates
+        call: logto-email-templates.deleteemailtemplates
+        with:
+          languageTag: rest.languageTag
+          templateType: rest.templateType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/email-templates/{id}
+      name: api-email-templates-id
+      description: REST surface for api-email-templates-id.
+      operations:
+      - method: GET
+        name: getemailtemplate
+        description: Get email template by ID
+        call: logto-email-templates.getemailtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteemailtemplate
+        description: Delete an email template
+        call: logto-email-templates.deleteemailtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/email-templates/{id}/details
+      name: api-email-templates-id-details
+      description: REST surface for api-email-templates-id-details.
+      operations:
+      - method: PATCH
+        name: updateemailtemplatedetails
+        description: Update email template details
+        call: logto-email-templates.updateemailtemplatedetails
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-email-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Email templates. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: replace-email-templates
+      description: Replace email templates
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-email-templates.replaceemailtemplates
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-email-templates
+      description: Get email templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-email-templates.listemailtemplates
+      with:
+        languageTag: tools.languageTag
+        templateType: tools.templateType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-email-templates
+      description: Delete email templates
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-email-templates.deleteemailtemplates
+      with:
+        languageTag: tools.languageTag
+        templateType: tools.templateType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-email-template-id
+      description: Get email template by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-email-templates.getemailtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-email-template
+      description: Delete an email template
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-email-templates.deleteemailtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-email-template-details
+      description: Update email template details
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-email-templates.updateemailtemplatedetails
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

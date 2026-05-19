@@ -1,0 +1,273 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — One-time tokens
+  description: 'Logto API references — One-time tokens. 6 operations. Lead operation: Get one-time tokens. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - One-time tokens
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-one-time-tokens
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — One-time tokens business capability. Self-contained, no shared references.
+    resources:
+    - name: api-one-time-tokens
+      path: /api/one-time-tokens
+      operations:
+      - name: listonetimetokens
+        method: GET
+        description: Get one-time tokens
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: email
+          in: query
+          type: string
+          description: Filter one-time tokens by email address.
+        - name: status
+          in: query
+          type: string
+          description: Filter one-time tokens by status.
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+      - name: addonetimetokens
+        method: POST
+        description: Create one-time token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-one-time-tokens-verify
+      path: /api/one-time-tokens/verify
+      operations:
+      - name: verifyonetimetoken
+        method: POST
+        description: Verify one-time token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-one-time-tokens-id
+      path: /api/one-time-tokens/{id}
+      operations:
+      - name: getonetimetoken
+        method: GET
+        description: Get one-time token by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteonetimetoken
+        method: DELETE
+        description: Delete one-time token by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-one-time-tokens-id-status
+      path: /api/one-time-tokens/{id}/status
+      operations:
+      - name: replaceonetimetokenstatus
+        method: PUT
+        description: Update one-time token status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-one-time-tokens-rest
+    port: 8080
+    description: REST adapter for Logto API references — One-time tokens. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/one-time-tokens
+      name: api-one-time-tokens
+      description: REST surface for api-one-time-tokens.
+      operations:
+      - method: GET
+        name: listonetimetokens
+        description: Get one-time tokens
+        call: logto-one-time-tokens.listonetimetokens
+        with:
+          email: rest.email
+          status: rest.status
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addonetimetokens
+        description: Create one-time token
+        call: logto-one-time-tokens.addonetimetokens
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/one-time-tokens/verify
+      name: api-one-time-tokens-verify
+      description: REST surface for api-one-time-tokens-verify.
+      operations:
+      - method: POST
+        name: verifyonetimetoken
+        description: Verify one-time token
+        call: logto-one-time-tokens.verifyonetimetoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/one-time-tokens/{id}
+      name: api-one-time-tokens-id
+      description: REST surface for api-one-time-tokens-id.
+      operations:
+      - method: GET
+        name: getonetimetoken
+        description: Get one-time token by ID
+        call: logto-one-time-tokens.getonetimetoken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteonetimetoken
+        description: Delete one-time token by ID
+        call: logto-one-time-tokens.deleteonetimetoken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/one-time-tokens/{id}/status
+      name: api-one-time-tokens-id-status
+      description: REST surface for api-one-time-tokens-id-status.
+      operations:
+      - method: PUT
+        name: replaceonetimetokenstatus
+        description: Update one-time token status
+        call: logto-one-time-tokens.replaceonetimetokenstatus
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-one-time-tokens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — One-time tokens. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-one-time-tokens
+      description: Get one-time tokens
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-one-time-tokens.listonetimetokens
+      with:
+        email: tools.email
+        status: tools.status
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-one-time-token
+      description: Create one-time token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-one-time-tokens.addonetimetokens
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-one-time-token
+      description: Verify one-time token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-one-time-tokens.verifyonetimetoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-one-time-token-id
+      description: Get one-time token by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-one-time-tokens.getonetimetoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-one-time-token-id
+      description: Delete one-time token by ID
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-one-time-tokens.deleteonetimetoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-one-time-token-status
+      description: Update one-time token status
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-one-time-tokens.replaceonetimetokenstatus
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

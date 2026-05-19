@@ -1,0 +1,515 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Organization roles
+  description: 'Logto API references — Organization roles. 13 operations. Lead operation: Get organization roles. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Organization roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-organization-roles
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Organization roles business capability. Self-contained, no shared references.
+    resources:
+    - name: api-organization-roles
+      path: /api/organization-roles
+      operations:
+      - name: listorganizationroles
+        method: GET
+        description: Get organization roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+      - name: createorganizationrole
+        method: POST
+        description: Create an organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-organization-roles-id
+      path: /api/organization-roles/{id}
+      operations:
+      - name: getorganizationrole
+        method: GET
+        description: Get organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateorganizationrole
+        method: PATCH
+        description: Update organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteorganizationrole
+        method: DELETE
+        description: Delete organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-organization-roles-id-resource-scopes
+      path: /api/organization-roles/{id}/resource-scopes
+      operations:
+      - name: listorganizationroleresourcescopes
+        method: GET
+        description: Get organization role resource scopes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+      - name: createorganizationroleresourcescope
+        method: POST
+        description: Assign resource scopes to organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: replaceorganizationroleresourcescopes
+        method: PUT
+        description: Replace resource scopes for organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-organization-roles-id-resource-scopes-scopeId
+      path: /api/organization-roles/{id}/resource-scopes/{scopeId}
+      operations:
+      - name: deleteorganizationroleresourcescope
+        method: DELETE
+        description: Remove resource scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-organization-roles-id-scopes
+      path: /api/organization-roles/{id}/scopes
+      operations:
+      - name: listorganizationrolescopes
+        method: GET
+        description: Get organization role scopes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+      - name: createorganizationrolescope
+        method: POST
+        description: Assign organization scopes to organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: replaceorganizationrolescopes
+        method: PUT
+        description: Replace organization scopes for organization role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-organization-roles-id-scopes-organizationScopeId
+      path: /api/organization-roles/{id}/scopes/{organizationScopeId}
+      operations:
+      - name: deleteorganizationrolescope
+        method: DELETE
+        description: Remove organization scope
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-organization-roles-rest
+    port: 8080
+    description: REST adapter for Logto API references — Organization roles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/organization-roles
+      name: api-organization-roles
+      description: REST surface for api-organization-roles.
+      operations:
+      - method: GET
+        name: listorganizationroles
+        description: Get organization roles
+        call: logto-organization-roles.listorganizationroles
+        with:
+          q: rest.q
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createorganizationrole
+        description: Create an organization role
+        call: logto-organization-roles.createorganizationrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organization-roles/{id}
+      name: api-organization-roles-id
+      description: REST surface for api-organization-roles-id.
+      operations:
+      - method: GET
+        name: getorganizationrole
+        description: Get organization role
+        call: logto-organization-roles.getorganizationrole
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateorganizationrole
+        description: Update organization role
+        call: logto-organization-roles.updateorganizationrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteorganizationrole
+        description: Delete organization role
+        call: logto-organization-roles.deleteorganizationrole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organization-roles/{id}/resource-scopes
+      name: api-organization-roles-id-resource-scopes
+      description: REST surface for api-organization-roles-id-resource-scopes.
+      operations:
+      - method: GET
+        name: listorganizationroleresourcescopes
+        description: Get organization role resource scopes
+        call: logto-organization-roles.listorganizationroleresourcescopes
+        with:
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createorganizationroleresourcescope
+        description: Assign resource scopes to organization role
+        call: logto-organization-roles.createorganizationroleresourcescope
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: replaceorganizationroleresourcescopes
+        description: Replace resource scopes for organization role
+        call: logto-organization-roles.replaceorganizationroleresourcescopes
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organization-roles/{id}/resource-scopes/{scopeid}
+      name: api-organization-roles-id-resource-scopes-scopeid
+      description: REST surface for api-organization-roles-id-resource-scopes-scopeId.
+      operations:
+      - method: DELETE
+        name: deleteorganizationroleresourcescope
+        description: Remove resource scope
+        call: logto-organization-roles.deleteorganizationroleresourcescope
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organization-roles/{id}/scopes
+      name: api-organization-roles-id-scopes
+      description: REST surface for api-organization-roles-id-scopes.
+      operations:
+      - method: GET
+        name: listorganizationrolescopes
+        description: Get organization role scopes
+        call: logto-organization-roles.listorganizationrolescopes
+        with:
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createorganizationrolescope
+        description: Assign organization scopes to organization role
+        call: logto-organization-roles.createorganizationrolescope
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: replaceorganizationrolescopes
+        description: Replace organization scopes for organization role
+        call: logto-organization-roles.replaceorganizationrolescopes
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organization-roles/{id}/scopes/{organizationscopeid}
+      name: api-organization-roles-id-scopes-organizationscopeid
+      description: REST surface for api-organization-roles-id-scopes-organizationScopeId.
+      operations:
+      - method: DELETE
+        name: deleteorganizationrolescope
+        description: Remove organization scope
+        call: logto-organization-roles.deleteorganizationrolescope
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-organization-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Organization roles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-organization-roles
+      description: Get organization roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.listorganizationroles
+      with:
+        q: tools.q
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-organization-role
+      description: Create an organization role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-organization-roles.createorganizationrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization-role
+      description: Get organization role
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.getorganizationrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-organization-role
+      description: Update organization role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.updateorganizationrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-organization-role
+      description: Delete organization role
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-organization-roles.deleteorganizationrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization-role-resource-scopes
+      description: Get organization role resource scopes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.listorganizationroleresourcescopes
+      with:
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assign-resource-scopes-organization-role
+      description: Assign resource scopes to organization role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-organization-roles.createorganizationroleresourcescope
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replace-resource-scopes-organization-role
+      description: Replace resource scopes for organization role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.replaceorganizationroleresourcescopes
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-resource-scope
+      description: Remove resource scope
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-organization-roles.deleteorganizationroleresourcescope
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization-role-scopes
+      description: Get organization role scopes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.listorganizationrolescopes
+      with:
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assign-organization-scopes-organization-role
+      description: Assign organization scopes to organization role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-organization-roles.createorganizationrolescope
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replace-organization-scopes-organization-role
+      description: Replace organization scopes for organization role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-organization-roles.replaceorganizationrolescopes
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-organization-scope
+      description: Remove organization scope
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-organization-roles.deleteorganizationrolescope
+      outputParameters:
+      - type: object
+        mapping: $.

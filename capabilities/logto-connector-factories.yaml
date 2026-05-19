@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Connector factories
+  description: 'Logto API references — Connector factories. 2 operations. Lead operation: Get connector factories. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Connector factories
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-connector-factories
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Connector factories business capability. Self-contained, no shared references.
+    resources:
+    - name: api-connector-factories
+      path: /api/connector-factories
+      operations:
+      - name: listconnectorfactories
+        method: GET
+        description: Get connector factories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-connector-factories-id
+      path: /api/connector-factories/{id}
+      operations:
+      - name: getconnectorfactory
+        method: GET
+        description: Get connector factory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-connector-factories-rest
+    port: 8080
+    description: REST adapter for Logto API references — Connector factories. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/connector-factories
+      name: api-connector-factories
+      description: REST surface for api-connector-factories.
+      operations:
+      - method: GET
+        name: listconnectorfactories
+        description: Get connector factories
+        call: logto-connector-factories.listconnectorfactories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/connector-factories/{id}
+      name: api-connector-factories-id
+      description: REST surface for api-connector-factories-id.
+      operations:
+      - method: GET
+        name: getconnectorfactory
+        description: Get connector factory
+        call: logto-connector-factories.getconnectorfactory
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-connector-factories-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Connector factories. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-connector-factories
+      description: Get connector factories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-connector-factories.listconnectorfactories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-connector-factory
+      description: Get connector factory
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-connector-factories.getconnectorfactory
+      outputParameters:
+      - type: object
+        mapping: $.

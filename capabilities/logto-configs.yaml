@@ -1,0 +1,610 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Configs
+  description: 'Logto API references — Configs. 15 operations. Lead operation: Get admin console config. Self-contained Naftiko
+    capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Configs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-configs
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Configs business capability. Self-contained, no shared references.
+    resources:
+    - name: api-configs-admin-console
+      path: /api/configs/admin-console
+      operations:
+      - name: getadminconsoleconfig
+        method: GET
+        description: Get admin console config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateadminconsoleconfig
+        method: PATCH
+        description: Update admin console config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-configs-id-token
+      path: /api/configs/id-token
+      operations:
+      - name: getidtokenconfig
+        method: GET
+        description: Get ID token claims configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: upsertidtokenconfig
+        method: PUT
+        description: Upsert ID token claims configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-configs-jwt-customizer
+      path: /api/configs/jwt-customizer
+      operations:
+      - name: listjwtcustomizers
+        method: GET
+        description: Get all JWT customizers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-configs-jwt-customizer-test
+      path: /api/configs/jwt-customizer/test
+      operations:
+      - name: testjwtcustomizer
+        method: POST
+        description: Test JWT customizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-configs-jwt-customizer-tokenTypePath
+      path: /api/configs/jwt-customizer/{tokenTypePath}
+      operations:
+      - name: upsertjwtcustomizer
+        method: PUT
+        description: Create or update JWT customizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tokenTypePath
+          in: path
+          type: string
+          description: The token type to create a JWT customizer for.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: updatejwtcustomizer
+        method: PATCH
+        description: Update JWT customizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tokenTypePath
+          in: path
+          type: string
+          description: The token type to update a JWT customizer for.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getjwtcustomizer
+        method: GET
+        description: Get JWT customizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tokenTypePath
+          in: path
+          type: string
+          description: The token type to get the JWT customizer for.
+          required: true
+      - name: deletejwtcustomizer
+        method: DELETE
+        description: Delete JWT customizer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tokenTypePath
+          in: path
+          type: string
+          description: The token type path to delete the JWT customizer for.
+          required: true
+    - name: api-configs-oidc-session
+      path: /api/configs/oidc/session
+      operations:
+      - name: getoidcsessionconfig
+        method: GET
+        description: Get OIDC session config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateoidcsessionconfig
+        method: PATCH
+        description: Update OIDC session config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-configs-oidc-keyType
+      path: /api/configs/oidc/{keyType}
+      operations:
+      - name: getoidckeys
+        method: GET
+        description: Get OIDC keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: keyType
+          in: path
+          type: string
+          description: Private keys are used to sign OIDC JWTs. Cookie keys are used to sign OIDC cookies. For clients, they
+            do not need to know private keys to verify OIDC JWTs; they
+          required: true
+    - name: api-configs-oidc-keyType-rotate
+      path: /api/configs/oidc/{keyType}/rotate
+      operations:
+      - name: rotateoidckeys
+        method: POST
+        description: Rotate OIDC keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: keyType
+          in: path
+          type: string
+          description: Private keys are used to sign OIDC JWTs. Cookie keys are used to sign OIDC cookies. For clients, they
+            do not need to know private keys to verify OIDC JWTs; they
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-configs-oidc-keyType-keyId
+      path: /api/configs/oidc/{keyType}/{keyId}
+      operations:
+      - name: deleteoidckey
+        method: DELETE
+        description: Delete OIDC key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: keyType
+          in: path
+          type: string
+          description: Private keys are used to sign OIDC JWTs. Cookie keys are used to sign OIDC cookies. For clients, they
+            do not need to know private keys to verify OIDC JWTs; they
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-configs-rest
+    port: 8080
+    description: REST adapter for Logto API references — Configs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/configs/admin-console
+      name: api-configs-admin-console
+      description: REST surface for api-configs-admin-console.
+      operations:
+      - method: GET
+        name: getadminconsoleconfig
+        description: Get admin console config
+        call: logto-configs.getadminconsoleconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateadminconsoleconfig
+        description: Update admin console config
+        call: logto-configs.updateadminconsoleconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/id-token
+      name: api-configs-id-token
+      description: REST surface for api-configs-id-token.
+      operations:
+      - method: GET
+        name: getidtokenconfig
+        description: Get ID token claims configuration
+        call: logto-configs.getidtokenconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: upsertidtokenconfig
+        description: Upsert ID token claims configuration
+        call: logto-configs.upsertidtokenconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/jwt-customizer
+      name: api-configs-jwt-customizer
+      description: REST surface for api-configs-jwt-customizer.
+      operations:
+      - method: GET
+        name: listjwtcustomizers
+        description: Get all JWT customizers
+        call: logto-configs.listjwtcustomizers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/jwt-customizer/test
+      name: api-configs-jwt-customizer-test
+      description: REST surface for api-configs-jwt-customizer-test.
+      operations:
+      - method: POST
+        name: testjwtcustomizer
+        description: Test JWT customizer
+        call: logto-configs.testjwtcustomizer
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/jwt-customizer/{tokentypepath}
+      name: api-configs-jwt-customizer-tokentypepath
+      description: REST surface for api-configs-jwt-customizer-tokenTypePath.
+      operations:
+      - method: PUT
+        name: upsertjwtcustomizer
+        description: Create or update JWT customizer
+        call: logto-configs.upsertjwtcustomizer
+        with:
+          tokenTypePath: rest.tokenTypePath
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatejwtcustomizer
+        description: Update JWT customizer
+        call: logto-configs.updatejwtcustomizer
+        with:
+          tokenTypePath: rest.tokenTypePath
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getjwtcustomizer
+        description: Get JWT customizer
+        call: logto-configs.getjwtcustomizer
+        with:
+          tokenTypePath: rest.tokenTypePath
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletejwtcustomizer
+        description: Delete JWT customizer
+        call: logto-configs.deletejwtcustomizer
+        with:
+          tokenTypePath: rest.tokenTypePath
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/oidc/session
+      name: api-configs-oidc-session
+      description: REST surface for api-configs-oidc-session.
+      operations:
+      - method: GET
+        name: getoidcsessionconfig
+        description: Get OIDC session config
+        call: logto-configs.getoidcsessionconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateoidcsessionconfig
+        description: Update OIDC session config
+        call: logto-configs.updateoidcsessionconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/oidc/{keytype}
+      name: api-configs-oidc-keytype
+      description: REST surface for api-configs-oidc-keyType.
+      operations:
+      - method: GET
+        name: getoidckeys
+        description: Get OIDC keys
+        call: logto-configs.getoidckeys
+        with:
+          keyType: rest.keyType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/oidc/{keytype}/rotate
+      name: api-configs-oidc-keytype-rotate
+      description: REST surface for api-configs-oidc-keyType-rotate.
+      operations:
+      - method: POST
+        name: rotateoidckeys
+        description: Rotate OIDC keys
+        call: logto-configs.rotateoidckeys
+        with:
+          keyType: rest.keyType
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/configs/oidc/{keytype}/{keyid}
+      name: api-configs-oidc-keytype-keyid
+      description: REST surface for api-configs-oidc-keyType-keyId.
+      operations:
+      - method: DELETE
+        name: deleteoidckey
+        description: Delete OIDC key
+        call: logto-configs.deleteoidckey
+        with:
+          keyType: rest.keyType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-configs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Configs. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-admin-console-config
+      description: Get admin console config
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-configs.getadminconsoleconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-admin-console-config
+      description: Update admin console config
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-configs.updateadminconsoleconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-id-token-claims-configuration
+      description: Get ID token claims configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-configs.getidtokenconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: upsert-id-token-claims-configuration
+      description: Upsert ID token claims configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-configs.upsertidtokenconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-all-jwt-customizers
+      description: Get all JWT customizers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-configs.listjwtcustomizers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: test-jwt-customizer
+      description: Test JWT customizer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: logto-configs.testjwtcustomizer
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-update-jwt-customizer
+      description: Create or update JWT customizer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-configs.upsertjwtcustomizer
+      with:
+        tokenTypePath: tools.tokenTypePath
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-jwt-customizer
+      description: Update JWT customizer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-configs.updatejwtcustomizer
+      with:
+        tokenTypePath: tools.tokenTypePath
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-jwt-customizer
+      description: Get JWT customizer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-configs.getjwtcustomizer
+      with:
+        tokenTypePath: tools.tokenTypePath
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-jwt-customizer
+      description: Delete JWT customizer
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-configs.deletejwtcustomizer
+      with:
+        tokenTypePath: tools.tokenTypePath
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-oidc-session-config
+      description: Get OIDC session config
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-configs.getoidcsessionconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-oidc-session-config
+      description: Update OIDC session config
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-configs.updateoidcsessionconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-oidc-keys
+      description: Get OIDC keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-configs.getoidckeys
+      with:
+        keyType: tools.keyType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: rotate-oidc-keys
+      description: Rotate OIDC keys
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-configs.rotateoidckeys
+      with:
+        keyType: tools.keyType
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-oidc-key
+      description: Delete OIDC key
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-configs.deleteoidckey
+      with:
+        keyType: tools.keyType
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,401 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — SAML applications
+  description: 'Logto API references — SAML applications. 10 operations. Lead operation: Create SAML application. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - SAML applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-saml-applications
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — SAML applications business capability. Self-contained, no shared references.
+    resources:
+    - name: api-saml-applications
+      path: /api/saml-applications
+      operations:
+      - name: createsamlapplication
+        method: POST
+        description: Create SAML application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-saml-applications-id
+      path: /api/saml-applications/{id}
+      operations:
+      - name: getsamlapplication
+        method: GET
+        description: Get SAML application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatesamlapplication
+        method: PATCH
+        description: Update SAML application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletesamlapplication
+        method: DELETE
+        description: Delete SAML application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-saml-applications-id-callback
+      path: /api/saml-applications/{id}/callback
+      operations:
+      - name: getsamlapplicationcallback
+        method: GET
+        description: SAML application callback
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: code
+          in: query
+          type: string
+          description: The authorization code from OIDC callback.
+        - name: state
+          in: query
+          type: string
+          description: The state parameter from OIDC callback.
+        - name: redirectUri
+          in: query
+          type: string
+          description: The redirect URI for the callback.
+        - name: error
+          in: query
+          type: string
+        - name: error_description
+          in: query
+          type: string
+    - name: api-saml-applications-id-metadata
+      path: /api/saml-applications/{id}/metadata
+      operations:
+      - name: listsamlapplicationmetadata
+        method: GET
+        description: Get SAML application metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-saml-applications-id-secrets
+      path: /api/saml-applications/{id}/secrets
+      operations:
+      - name: createsamlapplicationsecret
+        method: POST
+        description: Create SAML application secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listsamlapplicationsecrets
+        method: GET
+        description: List SAML application secrets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-saml-applications-id-secrets-secretId
+      path: /api/saml-applications/{id}/secrets/{secretId}
+      operations:
+      - name: deletesamlapplicationsecret
+        method: DELETE
+        description: Delete SAML application secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatesamlapplicationsecret
+        method: PATCH
+        description: Update SAML application secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-saml-applications-rest
+    port: 8080
+    description: REST adapter for Logto API references — SAML applications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/saml-applications
+      name: api-saml-applications
+      description: REST surface for api-saml-applications.
+      operations:
+      - method: POST
+        name: createsamlapplication
+        description: Create SAML application
+        call: logto-saml-applications.createsamlapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/saml-applications/{id}
+      name: api-saml-applications-id
+      description: REST surface for api-saml-applications-id.
+      operations:
+      - method: GET
+        name: getsamlapplication
+        description: Get SAML application
+        call: logto-saml-applications.getsamlapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatesamlapplication
+        description: Update SAML application
+        call: logto-saml-applications.updatesamlapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesamlapplication
+        description: Delete SAML application
+        call: logto-saml-applications.deletesamlapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/saml-applications/{id}/callback
+      name: api-saml-applications-id-callback
+      description: REST surface for api-saml-applications-id-callback.
+      operations:
+      - method: GET
+        name: getsamlapplicationcallback
+        description: SAML application callback
+        call: logto-saml-applications.getsamlapplicationcallback
+        with:
+          code: rest.code
+          state: rest.state
+          redirectUri: rest.redirectUri
+          error: rest.error
+          error_description: rest.error_description
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/saml-applications/{id}/metadata
+      name: api-saml-applications-id-metadata
+      description: REST surface for api-saml-applications-id-metadata.
+      operations:
+      - method: GET
+        name: listsamlapplicationmetadata
+        description: Get SAML application metadata
+        call: logto-saml-applications.listsamlapplicationmetadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/saml-applications/{id}/secrets
+      name: api-saml-applications-id-secrets
+      description: REST surface for api-saml-applications-id-secrets.
+      operations:
+      - method: POST
+        name: createsamlapplicationsecret
+        description: Create SAML application secret
+        call: logto-saml-applications.createsamlapplicationsecret
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listsamlapplicationsecrets
+        description: List SAML application secrets
+        call: logto-saml-applications.listsamlapplicationsecrets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/saml-applications/{id}/secrets/{secretid}
+      name: api-saml-applications-id-secrets-secretid
+      description: REST surface for api-saml-applications-id-secrets-secretId.
+      operations:
+      - method: DELETE
+        name: deletesamlapplicationsecret
+        description: Delete SAML application secret
+        call: logto-saml-applications.deletesamlapplicationsecret
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatesamlapplicationsecret
+        description: Update SAML application secret
+        call: logto-saml-applications.updatesamlapplicationsecret
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-saml-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — SAML applications. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: create-saml-application
+      description: Create SAML application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-saml-applications.createsamlapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-saml-application
+      description: Get SAML application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications.getsamlapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-saml-application
+      description: Update SAML application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications.updatesamlapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-saml-application
+      description: Delete SAML application
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-saml-applications.deletesamlapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: saml-application-callback
+      description: SAML application callback
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications.getsamlapplicationcallback
+      with:
+        code: tools.code
+        state: tools.state
+        redirectUri: tools.redirectUri
+        error: tools.error
+        error_description: tools.error_description
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-saml-application-metadata
+      description: Get SAML application metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications.listsamlapplicationmetadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-saml-application-secret
+      description: Create SAML application secret
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-saml-applications.createsamlapplicationsecret
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-saml-application-secrets
+      description: List SAML application secrets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications.listsamlapplicationsecrets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-saml-application-secret
+      description: Delete SAML application secret
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-saml-applications.deletesamlapplicationsecret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-saml-application-secret
+      description: Update SAML application secret
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications.updatesamlapplicationsecret
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

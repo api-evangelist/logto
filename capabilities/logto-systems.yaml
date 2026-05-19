@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Systems
+  description: 'Logto API references — Systems. 1 operations. Lead operation: Get the application constants.. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Systems
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-systems
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Systems business capability. Self-contained, no shared references.
+    resources:
+    - name: api-systems-application
+      path: /api/systems/application
+      operations:
+      - name: getsystemapplicationconfig
+        method: GET
+        description: Get the application constants.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-systems-rest
+    port: 8080
+    description: REST adapter for Logto API references — Systems. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/systems/application
+      name: api-systems-application
+      description: REST surface for api-systems-application.
+      operations:
+      - method: GET
+        name: getsystemapplicationconfig
+        description: Get the application constants.
+        call: logto-systems.getsystemapplicationconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-systems-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Systems. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-application-constants
+      description: Get the application constants.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-systems.getsystemapplicationconfig
+      outputParameters:
+      - type: object
+        mapping: $.

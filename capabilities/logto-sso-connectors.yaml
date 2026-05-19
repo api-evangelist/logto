@@ -1,0 +1,212 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — SSO connectors
+  description: 'Logto API references — SSO connectors. 5 operations. Lead operation: Create SSO connector. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - SSO connectors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-sso-connectors
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — SSO connectors business capability. Self-contained, no shared references.
+    resources:
+    - name: api-sso-connectors
+      path: /api/sso-connectors
+      operations:
+      - name: createssoconnector
+        method: POST
+        description: Create SSO connector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listssoconnectors
+        method: GET
+        description: List SSO connectors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+    - name: api-sso-connectors-id
+      path: /api/sso-connectors/{id}
+      operations:
+      - name: getssoconnector
+        method: GET
+        description: Get SSO connector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletessoconnector
+        method: DELETE
+        description: Delete SSO connector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatessoconnector
+        method: PATCH
+        description: Update SSO connector
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-sso-connectors-rest
+    port: 8080
+    description: REST adapter for Logto API references — SSO connectors. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/sso-connectors
+      name: api-sso-connectors
+      description: REST surface for api-sso-connectors.
+      operations:
+      - method: POST
+        name: createssoconnector
+        description: Create SSO connector
+        call: logto-sso-connectors.createssoconnector
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listssoconnectors
+        description: List SSO connectors
+        call: logto-sso-connectors.listssoconnectors
+        with:
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/sso-connectors/{id}
+      name: api-sso-connectors-id
+      description: REST surface for api-sso-connectors-id.
+      operations:
+      - method: GET
+        name: getssoconnector
+        description: Get SSO connector
+        call: logto-sso-connectors.getssoconnector
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletessoconnector
+        description: Delete SSO connector
+        call: logto-sso-connectors.deletessoconnector
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatessoconnector
+        description: Update SSO connector
+        call: logto-sso-connectors.updatessoconnector
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-sso-connectors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — SSO connectors. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-sso-connector
+      description: Create SSO connector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-sso-connectors.createssoconnector
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-sso-connectors
+      description: List SSO connectors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-sso-connectors.listssoconnectors
+      with:
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-sso-connector
+      description: Get SSO connector
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-sso-connectors.getssoconnector
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-sso-connector
+      description: Delete SSO connector
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-sso-connectors.deletessoconnector
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-sso-connector
+      description: Update SSO connector
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-sso-connectors.updatessoconnector
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

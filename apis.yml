@@ -1,53 +1,128 @@
 aid: logto
 name: Logto
-description: >-
-  Logto is an open source identity infrastructure platform with authentication,
-  authorization, user management, and multi-tenancy supporting OIDC, OAuth, and
-  SAML.
+description: Logto is an open source identity infrastructure platform with authentication, authorization, user management,
+  and multi-tenancy supporting OIDC, OAuth, and SAML.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Authentication
-  - Authorization
-  - Identity
-  - OIDC
-  - OAuth
-  - SAML
-  - Open Source
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/logto/refs/heads/main/apis.yml
+- Authentication
+- Authorization
+- Identity
+- OIDC
+- OAuth
+- SAML
+- Open Source
+url: https://raw.githubusercontent.com/api-evangelist/logto/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-04-28'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: logto:logto-api
-    name: Logto API
-    description: >-
-      The Logto Management API provides full programmatic access to applications,
-      users, roles, organizations, connectors, sign-in experiences, and tenant
-      configuration. The OpenAPI specification covers Logto Cloud; Logto OSS
-      instances expose the same surface via /api/swagger.json.
-    humanURL: https://docs.logto.io
-    tags:
-      - Authentication
-      - Identity
-      - User Management
-    properties:
-      - type: Documentation
-        url: https://docs.logto.io
-      - type: GitHubRepository
-        url: https://github.com/logto-io/logto
-      - type: OpenAPI
-        url: openapi/logto-openapi-original.yml
-common:
-  - type: Website
-    url: https://logto.io
+- aid: logto:logto-api
+  name: Logto API
+  description: The Logto Management API provides full programmatic access to applications, users, roles, organizations, connectors,
+    sign-in experiences, and tenant configuration. The OpenAPI specification covers Logto Cloud; Logto OSS instances expose
+    the same surface via /api/swagger.json.
+  humanURL: https://docs.logto.io
+  tags:
+  - Authentication
+  - Identity
+  - User Management
+  properties:
   - type: Documentation
     url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
   - type: OpenAPI
-    url: https://openapi.logto.io/source.yaml
-  - type: GitHubOrganization
-    url: https://github.com/logto-io
+    url: openapi/logto-openapi-original.yml
+  - type: NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/logto
+- type: Website
+  url: https://logto.io
+- type: Documentation
+  url: https://docs.logto.io
+- type: OpenAPI
+  url: https://openapi.logto.io/source.yaml
+- type: GitHubOrganization
+  url: https://github.com/logto-io
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

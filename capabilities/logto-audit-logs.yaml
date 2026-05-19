@@ -1,0 +1,135 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Audit logs
+  description: 'Logto API references — Audit logs. 2 operations. Lead operation: Get logs. Self-contained Naftiko capability
+    covering one Logto business surface.'
+  tags:
+  - Logto
+  - Audit logs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-audit-logs
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Audit logs business capability. Self-contained, no shared references.
+    resources:
+    - name: api-logs
+      path: /api/logs
+      operations:
+      - name: listlogs
+        method: GET
+        description: Get logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: query
+          type: string
+          description: Filter logs by user ID.
+        - name: applicationId
+          in: query
+          type: string
+          description: Filter logs by application ID.
+        - name: logKey
+          in: query
+          type: string
+          description: Filter logs by log key.
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+    - name: api-logs-id
+      path: /api/logs/{id}
+      operations:
+      - name: getlog
+        method: GET
+        description: Get log
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-audit-logs-rest
+    port: 8080
+    description: REST adapter for Logto API references — Audit logs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/logs
+      name: api-logs
+      description: REST surface for api-logs.
+      operations:
+      - method: GET
+        name: listlogs
+        description: Get logs
+        call: logto-audit-logs.listlogs
+        with:
+          userId: rest.userId
+          applicationId: rest.applicationId
+          logKey: rest.logKey
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/logs/{id}
+      name: api-logs-id
+      description: REST surface for api-logs-id.
+      operations:
+      - method: GET
+        name: getlog
+        description: Get log
+        call: logto-audit-logs.getlog
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-audit-logs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Audit logs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-logs
+      description: Get logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-audit-logs.listlogs
+      with:
+        userId: tools.userId
+        applicationId: tools.applicationId
+        logKey: tools.logKey
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-log
+      description: Get log
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-audit-logs.getlog
+      outputParameters:
+      - type: object
+        mapping: $.

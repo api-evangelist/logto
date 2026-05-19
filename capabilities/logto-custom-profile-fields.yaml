@@ -1,0 +1,305 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Custom profile fields
+  description: 'Logto API references — Custom profile fields. 7 operations. Lead operation: Get all custom profile fields.
+    Self-contained Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Custom profile fields
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-custom-profile-fields
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Custom profile fields business capability. Self-contained, no shared references.
+    resources:
+    - name: api-custom-profile-fields
+      path: /api/custom-profile-fields
+      operations:
+      - name: listcustomprofilefields
+        method: GET
+        description: Get all custom profile fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcustomprofilefield
+        method: POST
+        description: Create a custom profile field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-custom-profile-fields-batch
+      path: /api/custom-profile-fields/batch
+      operations:
+      - name: createcustomprofilefieldsbatch
+        method: POST
+        description: Batch create custom profile fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-custom-profile-fields-properties-sie-order
+      path: /api/custom-profile-fields/properties/sie-order
+      operations:
+      - name: updatecustomprofilefieldssieorder
+        method: POST
+        description: Update the display order of the custom profile fields in Sign-in Experience.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-custom-profile-fields-name
+      path: /api/custom-profile-fields/{name}
+      operations:
+      - name: getcustomprofilefieldbyname
+        method: GET
+        description: Get a custom profile field by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+      - name: updatecustomprofilefieldbyname
+        method: PUT
+        description: Update a custom profile field by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecustomprofilefieldbyname
+        method: DELETE
+        description: Delete a custom profile field by name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-custom-profile-fields-rest
+    port: 8080
+    description: REST adapter for Logto API references — Custom profile fields. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/custom-profile-fields
+      name: api-custom-profile-fields
+      description: REST surface for api-custom-profile-fields.
+      operations:
+      - method: GET
+        name: listcustomprofilefields
+        description: Get all custom profile fields
+        call: logto-custom-profile-fields.listcustomprofilefields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcustomprofilefield
+        description: Create a custom profile field
+        call: logto-custom-profile-fields.createcustomprofilefield
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/custom-profile-fields/batch
+      name: api-custom-profile-fields-batch
+      description: REST surface for api-custom-profile-fields-batch.
+      operations:
+      - method: POST
+        name: createcustomprofilefieldsbatch
+        description: Batch create custom profile fields
+        call: logto-custom-profile-fields.createcustomprofilefieldsbatch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/custom-profile-fields/properties/sie-order
+      name: api-custom-profile-fields-properties-sie-order
+      description: REST surface for api-custom-profile-fields-properties-sie-order.
+      operations:
+      - method: POST
+        name: updatecustomprofilefieldssieorder
+        description: Update the display order of the custom profile fields in Sign-in Experience.
+        call: logto-custom-profile-fields.updatecustomprofilefieldssieorder
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/custom-profile-fields/{name}
+      name: api-custom-profile-fields-name
+      description: REST surface for api-custom-profile-fields-name.
+      operations:
+      - method: GET
+        name: getcustomprofilefieldbyname
+        description: Get a custom profile field by name
+        call: logto-custom-profile-fields.getcustomprofilefieldbyname
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecustomprofilefieldbyname
+        description: Update a custom profile field by name
+        call: logto-custom-profile-fields.updatecustomprofilefieldbyname
+        with:
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecustomprofilefieldbyname
+        description: Delete a custom profile field by name
+        call: logto-custom-profile-fields.deletecustomprofilefieldbyname
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-custom-profile-fields-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Custom profile fields. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-all-custom-profile-fields
+      description: Get all custom profile fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-custom-profile-fields.listcustomprofilefields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-custom-profile-field
+      description: Create a custom profile field
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-custom-profile-fields.createcustomprofilefield
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batch-create-custom-profile-fields
+      description: Batch create custom profile fields
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-custom-profile-fields.createcustomprofilefieldsbatch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-display-order-custom-profile
+      description: Update the display order of the custom profile fields in Sign-in Experience.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-custom-profile-fields.updatecustomprofilefieldssieorder
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-custom-profile-field-name
+      description: Get a custom profile field by name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-custom-profile-fields.getcustomprofilefieldbyname
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-custom-profile-field-name
+      description: Update a custom profile field by name
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-custom-profile-fields.updatecustomprofilefieldbyname
+      with:
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-custom-profile-field-name
+      description: Delete a custom profile field by name
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-custom-profile-fields.deletecustomprofilefieldbyname
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,133 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — SAML applications auth flow
+  description: 'Logto API references — SAML applications auth flow. 2 operations. Lead operation: Handle SAML authentication
+    request (Redirect binding). Self-contained Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - SAML applications auth flow
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-saml-applications-auth-flow
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — SAML applications auth flow business capability. Self-contained, no shared references.
+    resources:
+    - name: api-saml-id-authn
+      path: /api/saml/{id}/authn
+      operations:
+      - name: getsamlauthn
+        method: GET
+        description: Handle SAML authentication request (Redirect binding)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: SAMLRequest
+          in: query
+          type: string
+          description: The SAML request message.
+          required: true
+        - name: Signature
+          in: query
+          type: string
+          description: The signature of the request.
+        - name: SigAlg
+          in: query
+          type: string
+          description: The signature algorithm.
+        - name: RelayState
+          in: query
+          type: string
+          description: The relay state parameter.
+      - name: createsamlauthn
+        method: POST
+        description: Handle SAML authentication request (POST binding)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-saml-applications-auth-flow-rest
+    port: 8080
+    description: REST adapter for Logto API references — SAML applications auth flow. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/saml/{id}/authn
+      name: api-saml-id-authn
+      description: REST surface for api-saml-id-authn.
+      operations:
+      - method: GET
+        name: getsamlauthn
+        description: Handle SAML authentication request (Redirect binding)
+        call: logto-saml-applications-auth-flow.getsamlauthn
+        with:
+          SAMLRequest: rest.SAMLRequest
+          Signature: rest.Signature
+          SigAlg: rest.SigAlg
+          RelayState: rest.RelayState
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsamlauthn
+        description: Handle SAML authentication request (POST binding)
+        call: logto-saml-applications-auth-flow.createsamlauthn
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-saml-applications-auth-flow-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — SAML applications auth flow. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: handle-saml-authentication-request-redirect
+      description: Handle SAML authentication request (Redirect binding)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-saml-applications-auth-flow.getsamlauthn
+      with:
+        SAMLRequest: tools.SAMLRequest
+        Signature: tools.Signature
+        SigAlg: tools.SigAlg
+        RelayState: tools.RelayState
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: handle-saml-authentication-request-post
+      description: Handle SAML authentication request (POST binding)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-saml-applications-auth-flow.createsamlauthn
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

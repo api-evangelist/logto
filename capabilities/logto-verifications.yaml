@@ -1,0 +1,322 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Verifications
+  description: 'Logto API references — Verifications. 7 operations. Lead operation: Create a record by password. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Verifications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-verifications
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Verifications business capability. Self-contained, no shared references.
+    resources:
+    - name: api-verifications-password
+      path: /api/verifications/password
+      operations:
+      - name: createverificationbypassword
+        method: POST
+        description: Create a record by password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-verifications-social
+      path: /api/verifications/social
+      operations:
+      - name: createverificationbysocial
+        method: POST
+        description: Create a social verification record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-verifications-social-verify
+      path: /api/verifications/social/verify
+      operations:
+      - name: verifyverificationbysocial
+        method: POST
+        description: Verify a social verification record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-verifications-verification-code
+      path: /api/verifications/verification-code
+      operations:
+      - name: createverificationbyverificationcode
+        method: POST
+        description: Create a record by verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-verifications-verification-code-verify
+      path: /api/verifications/verification-code/verify
+      operations:
+      - name: verifyverificationbyverificationcode
+        method: POST
+        description: Verify verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-verifications-web-authn-registration
+      path: /api/verifications/web-authn/registration
+      operations:
+      - name: generatewebauthnregistrationoptions
+        method: POST
+        description: Generate WebAuthn registration options
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-verifications-web-authn-registration-verify
+      path: /api/verifications/web-authn/registration/verify
+      operations:
+      - name: verifywebauthnregistration
+        method: POST
+        description: Verify WebAuthn registration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-verifications-rest
+    port: 8080
+    description: REST adapter for Logto API references — Verifications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/verifications/password
+      name: api-verifications-password
+      description: REST surface for api-verifications-password.
+      operations:
+      - method: POST
+        name: createverificationbypassword
+        description: Create a record by password
+        call: logto-verifications.createverificationbypassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verifications/social
+      name: api-verifications-social
+      description: REST surface for api-verifications-social.
+      operations:
+      - method: POST
+        name: createverificationbysocial
+        description: Create a social verification record
+        call: logto-verifications.createverificationbysocial
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verifications/social/verify
+      name: api-verifications-social-verify
+      description: REST surface for api-verifications-social-verify.
+      operations:
+      - method: POST
+        name: verifyverificationbysocial
+        description: Verify a social verification record
+        call: logto-verifications.verifyverificationbysocial
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verifications/verification-code
+      name: api-verifications-verification-code
+      description: REST surface for api-verifications-verification-code.
+      operations:
+      - method: POST
+        name: createverificationbyverificationcode
+        description: Create a record by verification code
+        call: logto-verifications.createverificationbyverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verifications/verification-code/verify
+      name: api-verifications-verification-code-verify
+      description: REST surface for api-verifications-verification-code-verify.
+      operations:
+      - method: POST
+        name: verifyverificationbyverificationcode
+        description: Verify verification code
+        call: logto-verifications.verifyverificationbyverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verifications/web-authn/registration
+      name: api-verifications-web-authn-registration
+      description: REST surface for api-verifications-web-authn-registration.
+      operations:
+      - method: POST
+        name: generatewebauthnregistrationoptions
+        description: Generate WebAuthn registration options
+        call: logto-verifications.generatewebauthnregistrationoptions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verifications/web-authn/registration/verify
+      name: api-verifications-web-authn-registration-verify
+      description: REST surface for api-verifications-web-authn-registration-verify.
+      operations:
+      - method: POST
+        name: verifywebauthnregistration
+        description: Verify WebAuthn registration
+        call: logto-verifications.verifywebauthnregistration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-verifications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Verifications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-record-password
+      description: Create a record by password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.createverificationbypassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-social-verification-record
+      description: Create a social verification record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.createverificationbysocial
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-social-verification-record
+      description: Verify a social verification record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.verifyverificationbysocial
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-record-verification-code
+      description: Create a record by verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.createverificationbyverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-verification-code
+      description: Verify verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.verifyverificationbyverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generate-webauthn-registration-options
+      description: Generate WebAuthn registration options
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.generatewebauthnregistrationoptions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-webauthn-registration
+      description: Verify WebAuthn registration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verifications.verifywebauthnregistration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

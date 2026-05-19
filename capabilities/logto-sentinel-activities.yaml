@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Sentinel activities
+  description: 'Logto API references — Sentinel activities. 1 operations. Lead operation: Bulk delete sentinel activities.
+    Self-contained Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Sentinel activities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-sentinel-activities
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Sentinel activities business capability. Self-contained, no shared references.
+    resources:
+    - name: api-sentinel-activities-delete
+      path: /api/sentinel-activities/delete
+      operations:
+      - name: deletesentinelactivities
+        method: POST
+        description: Bulk delete sentinel activities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-sentinel-activities-rest
+    port: 8080
+    description: REST adapter for Logto API references — Sentinel activities. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/sentinel-activities/delete
+      name: api-sentinel-activities-delete
+      description: REST surface for api-sentinel-activities-delete.
+      operations:
+      - method: POST
+        name: deletesentinelactivities
+        description: Bulk delete sentinel activities
+        call: logto-sentinel-activities.deletesentinelactivities
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-sentinel-activities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Sentinel activities. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: bulk-delete-sentinel-activities
+      description: Bulk delete sentinel activities
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-sentinel-activities.deletesentinelactivities
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

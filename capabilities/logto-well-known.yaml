@@ -1,0 +1,297 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Well-known
+  description: 'Logto API references — Well-known. 7 operations. Lead operation: Get default account center. Self-contained
+    Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Well-known
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-well-known
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Well-known business capability. Self-contained, no shared references.
+    resources:
+    - name: api-.well-known-account-center
+      path: /api/.well-known/account-center
+      operations:
+      - name: getwellknownaccountcenter
+        method: GET
+        description: Get default account center
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-.well-known-experience
+      path: /api/.well-known/experience
+      operations:
+      - name: getwellknownexperience
+        method: GET
+        description: Get full sign-in experience
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: organizationId
+          in: query
+          type: string
+        - name: appId
+          in: query
+          type: string
+    - name: api-.well-known-experience.openapi.json
+      path: /api/.well-known/experience.openapi.json
+      operations:
+      - name: getwellknownexperienceopenapijson
+        method: GET
+        description: Get Experience API swagger JSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-.well-known-management.openapi.json
+      path: /api/.well-known/management.openapi.json
+      operations:
+      - name: getwellknownmanagementopenapijson
+        method: GET
+        description: Get Management API swagger JSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-.well-known-phrases
+      path: /api/.well-known/phrases
+      operations:
+      - name: getsigninexperiencephrases
+        method: GET
+        description: Get localized phrases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: lng
+          in: query
+          type: string
+          description: The language tag for localization.
+    - name: api-.well-known-sign-in-exp
+      path: /api/.well-known/sign-in-exp
+      operations:
+      - name: getsigninexperienceconfig
+        method: GET
+        description: Get full sign-in experience
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: organizationId
+          in: query
+          type: string
+        - name: appId
+          in: query
+          type: string
+    - name: api-.well-known-user.openapi.json
+      path: /api/.well-known/user.openapi.json
+      operations:
+      - name: getwellknownuseropenapijson
+        method: GET
+        description: Get User API swagger JSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-well-known-rest
+    port: 8080
+    description: REST adapter for Logto API references — Well-known. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/well-known/account-center
+      name: api-well-known-account-center
+      description: REST surface for api-.well-known-account-center.
+      operations:
+      - method: GET
+        name: getwellknownaccountcenter
+        description: Get default account center
+        call: logto-well-known.getwellknownaccountcenter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/well-known/experience
+      name: api-well-known-experience
+      description: REST surface for api-.well-known-experience.
+      operations:
+      - method: GET
+        name: getwellknownexperience
+        description: Get full sign-in experience
+        call: logto-well-known.getwellknownexperience
+        with:
+          organizationId: rest.organizationId
+          appId: rest.appId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/well-known/experience-openapi-json
+      name: api-well-known-experience-openapi-json
+      description: REST surface for api-.well-known-experience.openapi.json.
+      operations:
+      - method: GET
+        name: getwellknownexperienceopenapijson
+        description: Get Experience API swagger JSON
+        call: logto-well-known.getwellknownexperienceopenapijson
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/well-known/management-openapi-json
+      name: api-well-known-management-openapi-json
+      description: REST surface for api-.well-known-management.openapi.json.
+      operations:
+      - method: GET
+        name: getwellknownmanagementopenapijson
+        description: Get Management API swagger JSON
+        call: logto-well-known.getwellknownmanagementopenapijson
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/well-known/phrases
+      name: api-well-known-phrases
+      description: REST surface for api-.well-known-phrases.
+      operations:
+      - method: GET
+        name: getsigninexperiencephrases
+        description: Get localized phrases
+        call: logto-well-known.getsigninexperiencephrases
+        with:
+          lng: rest.lng
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/well-known/sign-in-exp
+      name: api-well-known-sign-in-exp
+      description: REST surface for api-.well-known-sign-in-exp.
+      operations:
+      - method: GET
+        name: getsigninexperienceconfig
+        description: Get full sign-in experience
+        call: logto-well-known.getsigninexperienceconfig
+        with:
+          organizationId: rest.organizationId
+          appId: rest.appId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/well-known/user-openapi-json
+      name: api-well-known-user-openapi-json
+      description: REST surface for api-.well-known-user.openapi.json.
+      operations:
+      - method: GET
+        name: getwellknownuseropenapijson
+        description: Get User API swagger JSON
+        call: logto-well-known.getwellknownuseropenapijson
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-well-known-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Well-known. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-default-account-center
+      description: Get default account center
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getwellknownaccountcenter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-full-sign-experience
+      description: Get full sign-in experience
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getwellknownexperience
+      with:
+        organizationId: tools.organizationId
+        appId: tools.appId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-experience-api-swagger-json
+      description: Get Experience API swagger JSON
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getwellknownexperienceopenapijson
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-management-api-swagger-json
+      description: Get Management API swagger JSON
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getwellknownmanagementopenapijson
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-localized-phrases
+      description: Get localized phrases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getsigninexperiencephrases
+      with:
+        lng: tools.lng
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-full-sign-experience-2
+      description: Get full sign-in experience
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getsigninexperienceconfig
+      with:
+        organizationId: tools.organizationId
+        appId: tools.appId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-api-swagger-json
+      description: Get User API swagger JSON
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-well-known.getwellknownuseropenapijson
+      outputParameters:
+      - type: object
+        mapping: $.

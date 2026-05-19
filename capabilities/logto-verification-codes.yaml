@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Verification codes
+  description: 'Logto API references — Verification codes. 2 operations. Lead operation: Request and send a verification code.
+    Self-contained Naftiko capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Verification codes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-verification-codes
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Verification codes business capability. Self-contained, no shared references.
+    resources:
+    - name: api-verification-codes
+      path: /api/verification-codes
+      operations:
+      - name: createverificationcode
+        method: POST
+        description: Request and send a verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-verification-codes-verify
+      path: /api/verification-codes/verify
+      operations:
+      - name: verifyverificationcode
+        method: POST
+        description: Verify a verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-verification-codes-rest
+    port: 8080
+    description: REST adapter for Logto API references — Verification codes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/verification-codes
+      name: api-verification-codes
+      description: REST surface for api-verification-codes.
+      operations:
+      - method: POST
+        name: createverificationcode
+        description: Request and send a verification code
+        call: logto-verification-codes.createverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/verification-codes/verify
+      name: api-verification-codes-verify
+      description: REST surface for api-verification-codes-verify.
+      operations:
+      - method: POST
+        name: verifyverificationcode
+        description: Verify a verification code
+        call: logto-verification-codes.verifyverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-verification-codes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Verification codes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: request-and-send-verification-code
+      description: Request and send a verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verification-codes.createverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-verification-code
+      description: Verify a verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-verification-codes.verifyverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

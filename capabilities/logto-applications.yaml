@@ -1,0 +1,1098 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Applications
+  description: 'Logto API references — Applications. 28 operations. Lead operation: Get applications. Self-contained Naftiko
+    capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-applications
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: api-applications
+      path: /api/applications
+      operations:
+      - name: listapplications
+        method: GET
+        description: Get applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: types
+          in: query
+          type: string
+          description: An array of application types to filter applications.
+        - name: excludeRoleId
+          in: query
+          type: string
+        - name: excludeOrganizationId
+          in: query
+          type: string
+        - name: isThirdParty
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+        - name: search_params
+          in: query
+          type: object
+          description: Search query parameters.
+      - name: createapplication
+        method: POST
+        description: Create an application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-applicationId-custom-data
+      path: /api/applications/{applicationId}/custom-data
+      operations:
+      - name: updateapplicationcustomdata
+        method: PATCH
+        description: Update application custom data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-applicationId-roles
+      path: /api/applications/{applicationId}/roles
+      operations:
+      - name: listapplicationroles
+        method: GET
+        description: Get application API resource roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+        - name: search_params
+          in: query
+          type: object
+          description: Search query parameters.
+      - name: assignapplicationroles
+        method: POST
+        description: Assign API resource roles to application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: replaceapplicationroles
+        method: PUT
+        description: Update API resource roles for application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-applicationId-roles-roleId
+      path: /api/applications/{applicationId}/roles/{roleId}
+      operations:
+      - name: deleteapplicationrole
+        method: DELETE
+        description: Remove a API resource role from application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-applications-applicationId-sign-in-experience
+      path: /api/applications/{applicationId}/sign-in-experience
+      operations:
+      - name: replaceapplicationsigninexperience
+        method: PUT
+        description: Update application level sign-in experience
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getapplicationsigninexperience
+        method: GET
+        description: Get the application level sign-in experience
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-applications-applicationId-user-consent-scopes
+      path: /api/applications/{applicationId}/user-consent-scopes
+      operations:
+      - name: createapplicationuserconsentscope
+        method: POST
+        description: Assign user consent scopes to application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listapplicationuserconsentscopes
+        method: GET
+        description: List all the user consent scopes of an application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-applications-applicationId-user-consent-scopes-scopeType-scopeId
+      path: /api/applications/{applicationId}/user-consent-scopes/{scopeType}/{scopeId}
+      operations:
+      - name: deleteapplicationuserconsentscope
+        method: DELETE
+        description: Remove user consent scope from application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: scopeType
+          in: path
+          type: string
+          required: true
+    - name: api-applications-id
+      path: /api/applications/{id}
+      operations:
+      - name: getapplication
+        method: GET
+        description: Get application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateapplication
+        method: PATCH
+        description: Update application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteapplication
+        method: DELETE
+        description: Delete application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-applications-id-legacy-secret
+      path: /api/applications/{id}/legacy-secret
+      operations:
+      - name: deleteapplicationlegacysecret
+        method: DELETE
+        description: Delete application legacy secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-applications-id-organizations
+      path: /api/applications/{id}/organizations
+      operations:
+      - name: listapplicationorganizations
+        method: GET
+        description: Get application organizations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+    - name: api-applications-id-protected-app-metadata-custom-domains
+      path: /api/applications/{id}/protected-app-metadata/custom-domains
+      operations:
+      - name: listapplicationprotectedappmetadatacustomdomains
+        method: GET
+        description: Get application custom domains.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createapplicationprotectedappmetadatacustomdomain
+        method: POST
+        description: Add a custom domain to the application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-id-protected-app-metadata-custom-domains-domain
+      path: /api/applications/{id}/protected-app-metadata/custom-domains/{domain}
+      operations:
+      - name: deleteapplicationprotectedappmetadatacustomdomain
+        method: DELETE
+        description: Remove custom domain.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: api-applications-id-secrets
+      path: /api/applications/{id}/secrets
+      operations:
+      - name: listapplicationsecrets
+        method: GET
+        description: Get application secrets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createapplicationsecret
+        method: POST
+        description: Add application secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-id-secrets-name
+      path: /api/applications/{id}/secrets/{name}
+      operations:
+      - name: deleteapplicationsecret
+        method: DELETE
+        description: Delete application secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the secret.
+          required: true
+      - name: updateapplicationsecret
+        method: PATCH
+        description: Update application secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: The name of the secret.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-id-users-userId-consent-organizations
+      path: /api/applications/{id}/users/{userId}/consent-organizations
+      operations:
+      - name: listapplicationuserconsentorganizations
+        method: GET
+        description: List all the user consented organizations of a application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number (starts from 1).
+        - name: page_size
+          in: query
+          type: integer
+          description: Entries per page.
+      - name: replaceapplicationuserconsentorganizations
+        method: PUT
+        description: Grant a list of organization access of a user for a application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: createapplicationuserconsentorganization
+        method: POST
+        description: Grant a list of organization access of a user for a application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-applications-id-users-userId-consent-organizations-organizationId
+      path: /api/applications/{id}/users/{userId}/consent-organizations/{organizationId}
+      operations:
+      - name: deleteapplicationuserconsentorganization
+        method: DELETE
+        description: Revoke a user's access to an organization for a application.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-applications-rest
+    port: 8080
+    description: REST adapter for Logto API references — Applications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/applications
+      name: api-applications
+      description: REST surface for api-applications.
+      operations:
+      - method: GET
+        name: listapplications
+        description: Get applications
+        call: logto-applications.listapplications
+        with:
+          types: rest.types
+          excludeRoleId: rest.excludeRoleId
+          excludeOrganizationId: rest.excludeOrganizationId
+          isThirdParty: rest.isThirdParty
+          page: rest.page
+          page_size: rest.page_size
+          search_params: rest.search_params
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplication
+        description: Create an application
+        call: logto-applications.createapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{applicationid}/custom-data
+      name: api-applications-applicationid-custom-data
+      description: REST surface for api-applications-applicationId-custom-data.
+      operations:
+      - method: PATCH
+        name: updateapplicationcustomdata
+        description: Update application custom data
+        call: logto-applications.updateapplicationcustomdata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{applicationid}/roles
+      name: api-applications-applicationid-roles
+      description: REST surface for api-applications-applicationId-roles.
+      operations:
+      - method: GET
+        name: listapplicationroles
+        description: Get application API resource roles
+        call: logto-applications.listapplicationroles
+        with:
+          page: rest.page
+          page_size: rest.page_size
+          search_params: rest.search_params
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: assignapplicationroles
+        description: Assign API resource roles to application
+        call: logto-applications.assignapplicationroles
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: replaceapplicationroles
+        description: Update API resource roles for application
+        call: logto-applications.replaceapplicationroles
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{applicationid}/roles/{roleid}
+      name: api-applications-applicationid-roles-roleid
+      description: REST surface for api-applications-applicationId-roles-roleId.
+      operations:
+      - method: DELETE
+        name: deleteapplicationrole
+        description: Remove a API resource role from application
+        call: logto-applications.deleteapplicationrole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{applicationid}/sign-in-experience
+      name: api-applications-applicationid-sign-in-experience
+      description: REST surface for api-applications-applicationId-sign-in-experience.
+      operations:
+      - method: PUT
+        name: replaceapplicationsigninexperience
+        description: Update application level sign-in experience
+        call: logto-applications.replaceapplicationsigninexperience
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getapplicationsigninexperience
+        description: Get the application level sign-in experience
+        call: logto-applications.getapplicationsigninexperience
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{applicationid}/user-consent-scopes
+      name: api-applications-applicationid-user-consent-scopes
+      description: REST surface for api-applications-applicationId-user-consent-scopes.
+      operations:
+      - method: POST
+        name: createapplicationuserconsentscope
+        description: Assign user consent scopes to application.
+        call: logto-applications.createapplicationuserconsentscope
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listapplicationuserconsentscopes
+        description: List all the user consent scopes of an application.
+        call: logto-applications.listapplicationuserconsentscopes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{applicationid}/user-consent-scopes/{scopetype}/{scopeid}
+      name: api-applications-applicationid-user-consent-scopes-scopetype-scopeid
+      description: REST surface for api-applications-applicationId-user-consent-scopes-scopeType-scopeId.
+      operations:
+      - method: DELETE
+        name: deleteapplicationuserconsentscope
+        description: Remove user consent scope from application.
+        call: logto-applications.deleteapplicationuserconsentscope
+        with:
+          scopeType: rest.scopeType
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}
+      name: api-applications-id
+      description: REST surface for api-applications-id.
+      operations:
+      - method: GET
+        name: getapplication
+        description: Get application
+        call: logto-applications.getapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateapplication
+        description: Update application
+        call: logto-applications.updateapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapplication
+        description: Delete application
+        call: logto-applications.deleteapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/legacy-secret
+      name: api-applications-id-legacy-secret
+      description: REST surface for api-applications-id-legacy-secret.
+      operations:
+      - method: DELETE
+        name: deleteapplicationlegacysecret
+        description: Delete application legacy secret
+        call: logto-applications.deleteapplicationlegacysecret
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/organizations
+      name: api-applications-id-organizations
+      description: REST surface for api-applications-id-organizations.
+      operations:
+      - method: GET
+        name: listapplicationorganizations
+        description: Get application organizations
+        call: logto-applications.listapplicationorganizations
+        with:
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/protected-app-metadata/custom-domains
+      name: api-applications-id-protected-app-metadata-custom-domains
+      description: REST surface for api-applications-id-protected-app-metadata-custom-domains.
+      operations:
+      - method: GET
+        name: listapplicationprotectedappmetadatacustomdomains
+        description: Get application custom domains.
+        call: logto-applications.listapplicationprotectedappmetadatacustomdomains
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplicationprotectedappmetadatacustomdomain
+        description: Add a custom domain to the application.
+        call: logto-applications.createapplicationprotectedappmetadatacustomdomain
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/protected-app-metadata/custom-domains/{domain}
+      name: api-applications-id-protected-app-metadata-custom-domains-domain
+      description: REST surface for api-applications-id-protected-app-metadata-custom-domains-domain.
+      operations:
+      - method: DELETE
+        name: deleteapplicationprotectedappmetadatacustomdomain
+        description: Remove custom domain.
+        call: logto-applications.deleteapplicationprotectedappmetadatacustomdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/secrets
+      name: api-applications-id-secrets
+      description: REST surface for api-applications-id-secrets.
+      operations:
+      - method: GET
+        name: listapplicationsecrets
+        description: Get application secrets
+        call: logto-applications.listapplicationsecrets
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplicationsecret
+        description: Add application secret
+        call: logto-applications.createapplicationsecret
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/secrets/{name}
+      name: api-applications-id-secrets-name
+      description: REST surface for api-applications-id-secrets-name.
+      operations:
+      - method: DELETE
+        name: deleteapplicationsecret
+        description: Delete application secret
+        call: logto-applications.deleteapplicationsecret
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateapplicationsecret
+        description: Update application secret
+        call: logto-applications.updateapplicationsecret
+        with:
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/users/{userid}/consent-organizations
+      name: api-applications-id-users-userid-consent-organizations
+      description: REST surface for api-applications-id-users-userId-consent-organizations.
+      operations:
+      - method: GET
+        name: listapplicationuserconsentorganizations
+        description: List all the user consented organizations of a application.
+        call: logto-applications.listapplicationuserconsentorganizations
+        with:
+          page: rest.page
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: replaceapplicationuserconsentorganizations
+        description: Grant a list of organization access of a user for a application.
+        call: logto-applications.replaceapplicationuserconsentorganizations
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplicationuserconsentorganization
+        description: Grant a list of organization access of a user for a application.
+        call: logto-applications.createapplicationuserconsentorganization
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/applications/{id}/users/{userid}/consent-organizations/{organizationid}
+      name: api-applications-id-users-userid-consent-organizations-organizationid
+      description: REST surface for api-applications-id-users-userId-consent-organizations-organizationId.
+      operations:
+      - method: DELETE
+        name: deleteapplicationuserconsentorganization
+        description: Revoke a user's access to an organization for a application.
+        call: logto-applications.deleteapplicationuserconsentorganization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Applications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-applications
+      description: Get applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplications
+      with:
+        types: tools.types
+        excludeRoleId: tools.excludeRoleId
+        excludeOrganizationId: tools.excludeOrganizationId
+        isThirdParty: tools.isThirdParty
+        page: tools.page
+        page_size: tools.page_size
+        search_params: tools.search_params
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-application
+      description: Create an application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-applications.createapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-application-custom-data
+      description: Update application custom data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-applications.updateapplicationcustomdata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-application-api-resource-roles
+      description: Get application API resource roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplicationroles
+      with:
+        page: tools.page
+        page_size: tools.page_size
+        search_params: tools.search_params
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assign-api-resource-roles-application
+      description: Assign API resource roles to application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-applications.assignapplicationroles
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-api-resource-roles-application
+      description: Update API resource roles for application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-applications.replaceapplicationroles
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-api-resource-role-application
+      description: Remove a API resource role from application
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplicationrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-application-level-sign-experience
+      description: Update application level sign-in experience
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-applications.replaceapplicationsigninexperience
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-application-level-sign-experience
+      description: Get the application level sign-in experience
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.getapplicationsigninexperience
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assign-user-consent-scopes-application
+      description: Assign user consent scopes to application.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-applications.createapplicationuserconsentscope
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-user-consent-scopes
+      description: List all the user consent scopes of an application.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplicationuserconsentscopes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-user-consent-scope-application
+      description: Remove user consent scope from application.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplicationuserconsentscope
+      with:
+        scopeType: tools.scopeType
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-application
+      description: Get application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.getapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-application
+      description: Update application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-applications.updateapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-application
+      description: Delete application
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-application-legacy-secret
+      description: Delete application legacy secret
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplicationlegacysecret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-application-organizations
+      description: Get application organizations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplicationorganizations
+      with:
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-application-custom-domains
+      description: Get application custom domains.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplicationprotectedappmetadatacustomdomains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-custom-domain-application
+      description: Add a custom domain to the application.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-applications.createapplicationprotectedappmetadatacustomdomain
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-custom-domain
+      description: Remove custom domain.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplicationprotectedappmetadatacustomdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-application-secrets
+      description: Get application secrets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplicationsecrets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-application-secret
+      description: Add application secret
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-applications.createapplicationsecret
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-application-secret
+      description: Delete application secret
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplicationsecret
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-application-secret
+      description: Update application secret
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-applications.updateapplicationsecret
+      with:
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-user-consented-organizations
+      description: List all the user consented organizations of a application.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-applications.listapplicationuserconsentorganizations
+      with:
+        page: tools.page
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: grant-list-organization-access-user
+      description: Grant a list of organization access of a user for a application.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-applications.replaceapplicationuserconsentorganizations
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: grant-list-organization-access-user-2
+      description: Grant a list of organization access of a user for a application.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: logto-applications.createapplicationuserconsentorganization
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-user-s-access-organization-application
+      description: Revoke a user's access to an organization for a application.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: logto-applications.deleteapplicationuserconsentorganization
+      outputParameters:
+      - type: object
+        mapping: $.

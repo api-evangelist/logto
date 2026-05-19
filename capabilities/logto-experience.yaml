@@ -1,0 +1,1440 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Logto API references — Experience
+  description: 'Logto API references — Experience. 36 operations. Lead operation: Init new interaction. Self-contained Naftiko
+    capability covering one Logto business surface.'
+  tags:
+  - Logto
+  - Experience
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOGTO_API_KEY: LOGTO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: logto-experience
+    baseUri: https://[tenant_id].logto.app
+    description: Logto API references — Experience business capability. Self-contained, no shared references.
+    resources:
+    - name: api-experience
+      path: /api/experience
+      operations:
+      - name: initinteraction
+        method: PUT
+        description: Init new interaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-identification
+      path: /api/experience/identification
+      operations:
+      - name: identifyuser
+        method: POST
+        description: Identify user for the current interaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-interaction
+      path: /api/experience/interaction
+      operations:
+      - name: getinteraction
+        method: GET
+        description: Get public interaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-interaction-event
+      path: /api/experience/interaction-event
+      operations:
+      - name: updateinteractionevent
+        method: PUT
+        description: Update interaction event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-preflight-sign-in-passkey-authentication
+      path: /api/experience/preflight/sign-in-passkey/authentication
+      operations:
+      - name: createsigninpasskeyauthentication
+        method: POST
+        description: Create passkey sign-in WebAuthn authentication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-profile
+      path: /api/experience/profile
+      operations:
+      - name: adduserprofile
+        method: POST
+        description: Add user profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-profile-mfa
+      path: /api/experience/profile/mfa
+      operations:
+      - name: bindmfaverification
+        method: POST
+        description: Bind MFA verification by verificationId
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-profile-mfa-mfa-enabled
+      path: /api/experience/profile/mfa/mfa-enabled
+      operations:
+      - name: markmfaenabled
+        method: POST
+        description: Mark MFA as enabled
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-profile-mfa-mfa-skipped
+      path: /api/experience/profile/mfa/mfa-skipped
+      operations:
+      - name: skipmfabindingflow
+        method: POST
+        description: Skip MFA binding flow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-profile-mfa-mfa-suggestion-skipped
+      path: /api/experience/profile/mfa/mfa-suggestion-skipped
+      operations:
+      - name: skipmfasuggestion
+        method: POST
+        description: Skip additional MFA suggestion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-profile-mfa-passkey
+      path: /api/experience/profile/mfa/passkey
+      operations:
+      - name: bindpasskey
+        method: POST
+        description: Bind passkey for sign-in
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-profile-mfa-passkey-skipped
+      path: /api/experience/profile/mfa/passkey-skipped
+      operations:
+      - name: skippasskeybinding
+        method: POST
+        description: Skip passkey binding
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-profile-password
+      path: /api/experience/profile/password
+      operations:
+      - name: resetuserpassword
+        method: PUT
+        description: Reset user password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-sso-connectors
+      path: /api/experience/sso-connectors
+      operations:
+      - name: getenabledssoconnectors
+        method: GET
+        description: Get enabled SSO connectors by the given email's domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: email
+          in: query
+          type: string
+          description: The email address to find the enabled SSO connectors.
+          required: true
+    - name: api-experience-submit
+      path: /api/experience/submit
+      operations:
+      - name: submitinteraction
+        method: POST
+        description: Submit interaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-verification-backup-code-generate
+      path: /api/experience/verification/backup-code/generate
+      operations:
+      - name: generatebackupcodes
+        method: POST
+        description: Generate backup codes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-verification-backup-code-verify
+      path: /api/experience/verification/backup-code/verify
+      operations:
+      - name: verifybackupcode
+        method: POST
+        description: Verify backup code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-mfa-verification-code
+      path: /api/experience/verification/mfa-verification-code
+      operations:
+      - name: createandsendmfaverificationcode
+        method: POST
+        description: Create and send MFA verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-mfa-verification-code-verify
+      path: /api/experience/verification/mfa-verification-code/verify
+      operations:
+      - name: verifymfaverificationcode
+        method: POST
+        description: Verify MFA verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-new-password-identity
+      path: /api/experience/verification/new-password-identity
+      operations:
+      - name: createnewpasswordidentityverification
+        method: POST
+        description: Create new password identity verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-one-time-token-verify
+      path: /api/experience/verification/one-time-token/verify
+      operations:
+      - name: verifyonetimetokenverification
+        method: POST
+        description: Verify one-time token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-password
+      path: /api/experience/verification/password
+      operations:
+      - name: createpasswordverification
+        method: POST
+        description: Create password verification record
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-sign-in-passkey-authentication
+      path: /api/experience/verification/sign-in-passkey/authentication
+      operations:
+      - name: createsigninpasskeyauthenticationwithidentifier
+        method: POST
+        description: Create passkey sign-in WebAuthn authentication with identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-sign-in-passkey-authentication-verify
+      path: /api/experience/verification/sign-in-passkey/authentication/verify
+      operations:
+      - name: verifysigninpasskeyauthentication
+        method: POST
+        description: Verify passkey sign-in WebAuthn authentication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-social-connectorId-authorization-uri
+      path: /api/experience/verification/social/{connectorId}/authorization-uri
+      operations:
+      - name: createsocialverification
+        method: POST
+        description: Create social verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-social-connectorId-verify
+      path: /api/experience/verification/social/{connectorId}/verify
+      operations:
+      - name: verifysocialverification
+        method: POST
+        description: Verify social verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-sso-connectorId-authorization-uri
+      path: /api/experience/verification/sso/{connectorId}/authorization-uri
+      operations:
+      - name: createenterprisessoverification
+        method: POST
+        description: Create enterprise SSO verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-sso-connectorId-verify
+      path: /api/experience/verification/sso/{connectorId}/verify
+      operations:
+      - name: verifyenterprisessoverification
+        method: POST
+        description: Verify enterprise SSO verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-totp-secret
+      path: /api/experience/verification/totp/secret
+      operations:
+      - name: createtotpsecret
+        method: POST
+        description: Create TOTP secret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-verification-totp-verify
+      path: /api/experience/verification/totp/verify
+      operations:
+      - name: verifytotpverification
+        method: POST
+        description: Verify TOTP verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-verification-code
+      path: /api/experience/verification/verification-code
+      operations:
+      - name: createandsendverificationcode
+        method: POST
+        description: Create and send verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-verification-code-verify
+      path: /api/experience/verification/verification-code/verify
+      operations:
+      - name: verifyverificationcodeverification
+        method: POST
+        description: Verify verification code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-web-authn-authentication
+      path: /api/experience/verification/web-authn/authentication
+      operations:
+      - name: createwebauthnauthenticationverification
+        method: POST
+        description: Create WebAuthn authentication verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-verification-web-authn-authentication-verify
+      path: /api/experience/verification/web-authn/authentication/verify
+      operations:
+      - name: verifywebauthnauthenticationverification
+        method: POST
+        description: Verify WebAuthn authentication verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-experience-verification-web-authn-registration
+      path: /api/experience/verification/web-authn/registration
+      operations:
+      - name: createwebauthnregistrationverification
+        method: POST
+        description: Create WebAuthn registration verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-experience-verification-web-authn-registration-verify
+      path: /api/experience/verification/web-authn/registration/verify
+      operations:
+      - name: verifywebauthnregistrationverification
+        method: POST
+        description: Verify WebAuthn registration verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.LOGTO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: logto-experience-rest
+    port: 8080
+    description: REST adapter for Logto API references — Experience. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/experience
+      name: api-experience
+      description: REST surface for api-experience.
+      operations:
+      - method: PUT
+        name: initinteraction
+        description: Init new interaction
+        call: logto-experience.initinteraction
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/identification
+      name: api-experience-identification
+      description: REST surface for api-experience-identification.
+      operations:
+      - method: POST
+        name: identifyuser
+        description: Identify user for the current interaction
+        call: logto-experience.identifyuser
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/interaction
+      name: api-experience-interaction
+      description: REST surface for api-experience-interaction.
+      operations:
+      - method: GET
+        name: getinteraction
+        description: Get public interaction data
+        call: logto-experience.getinteraction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/interaction-event
+      name: api-experience-interaction-event
+      description: REST surface for api-experience-interaction-event.
+      operations:
+      - method: PUT
+        name: updateinteractionevent
+        description: Update interaction event
+        call: logto-experience.updateinteractionevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/preflight/sign-in-passkey/authentication
+      name: api-experience-preflight-sign-in-passkey-authentication
+      description: REST surface for api-experience-preflight-sign-in-passkey-authentication.
+      operations:
+      - method: POST
+        name: createsigninpasskeyauthentication
+        description: Create passkey sign-in WebAuthn authentication
+        call: logto-experience.createsigninpasskeyauthentication
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile
+      name: api-experience-profile
+      description: REST surface for api-experience-profile.
+      operations:
+      - method: POST
+        name: adduserprofile
+        description: Add user profile
+        call: logto-experience.adduserprofile
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/mfa
+      name: api-experience-profile-mfa
+      description: REST surface for api-experience-profile-mfa.
+      operations:
+      - method: POST
+        name: bindmfaverification
+        description: Bind MFA verification by verificationId
+        call: logto-experience.bindmfaverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/mfa/mfa-enabled
+      name: api-experience-profile-mfa-mfa-enabled
+      description: REST surface for api-experience-profile-mfa-mfa-enabled.
+      operations:
+      - method: POST
+        name: markmfaenabled
+        description: Mark MFA as enabled
+        call: logto-experience.markmfaenabled
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/mfa/mfa-skipped
+      name: api-experience-profile-mfa-mfa-skipped
+      description: REST surface for api-experience-profile-mfa-mfa-skipped.
+      operations:
+      - method: POST
+        name: skipmfabindingflow
+        description: Skip MFA binding flow
+        call: logto-experience.skipmfabindingflow
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/mfa/mfa-suggestion-skipped
+      name: api-experience-profile-mfa-mfa-suggestion-skipped
+      description: REST surface for api-experience-profile-mfa-mfa-suggestion-skipped.
+      operations:
+      - method: POST
+        name: skipmfasuggestion
+        description: Skip additional MFA suggestion
+        call: logto-experience.skipmfasuggestion
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/mfa/passkey
+      name: api-experience-profile-mfa-passkey
+      description: REST surface for api-experience-profile-mfa-passkey.
+      operations:
+      - method: POST
+        name: bindpasskey
+        description: Bind passkey for sign-in
+        call: logto-experience.bindpasskey
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/mfa/passkey-skipped
+      name: api-experience-profile-mfa-passkey-skipped
+      description: REST surface for api-experience-profile-mfa-passkey-skipped.
+      operations:
+      - method: POST
+        name: skippasskeybinding
+        description: Skip passkey binding
+        call: logto-experience.skippasskeybinding
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/profile/password
+      name: api-experience-profile-password
+      description: REST surface for api-experience-profile-password.
+      operations:
+      - method: PUT
+        name: resetuserpassword
+        description: Reset user password
+        call: logto-experience.resetuserpassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/sso-connectors
+      name: api-experience-sso-connectors
+      description: REST surface for api-experience-sso-connectors.
+      operations:
+      - method: GET
+        name: getenabledssoconnectors
+        description: Get enabled SSO connectors by the given email's domain
+        call: logto-experience.getenabledssoconnectors
+        with:
+          email: rest.email
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/submit
+      name: api-experience-submit
+      description: REST surface for api-experience-submit.
+      operations:
+      - method: POST
+        name: submitinteraction
+        description: Submit interaction
+        call: logto-experience.submitinteraction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/backup-code/generate
+      name: api-experience-verification-backup-code-generate
+      description: REST surface for api-experience-verification-backup-code-generate.
+      operations:
+      - method: POST
+        name: generatebackupcodes
+        description: Generate backup codes
+        call: logto-experience.generatebackupcodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/backup-code/verify
+      name: api-experience-verification-backup-code-verify
+      description: REST surface for api-experience-verification-backup-code-verify.
+      operations:
+      - method: POST
+        name: verifybackupcode
+        description: Verify backup code
+        call: logto-experience.verifybackupcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/mfa-verification-code
+      name: api-experience-verification-mfa-verification-code
+      description: REST surface for api-experience-verification-mfa-verification-code.
+      operations:
+      - method: POST
+        name: createandsendmfaverificationcode
+        description: Create and send MFA verification code
+        call: logto-experience.createandsendmfaverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/mfa-verification-code/verify
+      name: api-experience-verification-mfa-verification-code-verify
+      description: REST surface for api-experience-verification-mfa-verification-code-verify.
+      operations:
+      - method: POST
+        name: verifymfaverificationcode
+        description: Verify MFA verification code
+        call: logto-experience.verifymfaverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/new-password-identity
+      name: api-experience-verification-new-password-identity
+      description: REST surface for api-experience-verification-new-password-identity.
+      operations:
+      - method: POST
+        name: createnewpasswordidentityverification
+        description: Create new password identity verification
+        call: logto-experience.createnewpasswordidentityverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/one-time-token/verify
+      name: api-experience-verification-one-time-token-verify
+      description: REST surface for api-experience-verification-one-time-token-verify.
+      operations:
+      - method: POST
+        name: verifyonetimetokenverification
+        description: Verify one-time token
+        call: logto-experience.verifyonetimetokenverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/password
+      name: api-experience-verification-password
+      description: REST surface for api-experience-verification-password.
+      operations:
+      - method: POST
+        name: createpasswordverification
+        description: Create password verification record
+        call: logto-experience.createpasswordverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/sign-in-passkey/authentication
+      name: api-experience-verification-sign-in-passkey-authentication
+      description: REST surface for api-experience-verification-sign-in-passkey-authentication.
+      operations:
+      - method: POST
+        name: createsigninpasskeyauthenticationwithidentifier
+        description: Create passkey sign-in WebAuthn authentication with identifier
+        call: logto-experience.createsigninpasskeyauthenticationwithidentifier
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/sign-in-passkey/authentication/verify
+      name: api-experience-verification-sign-in-passkey-authentication-verify
+      description: REST surface for api-experience-verification-sign-in-passkey-authentication-verify.
+      operations:
+      - method: POST
+        name: verifysigninpasskeyauthentication
+        description: Verify passkey sign-in WebAuthn authentication
+        call: logto-experience.verifysigninpasskeyauthentication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/social/{connectorid}/authorization-uri
+      name: api-experience-verification-social-connectorid-authorization-uri
+      description: REST surface for api-experience-verification-social-connectorId-authorization-uri.
+      operations:
+      - method: POST
+        name: createsocialverification
+        description: Create social verification
+        call: logto-experience.createsocialverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/social/{connectorid}/verify
+      name: api-experience-verification-social-connectorid-verify
+      description: REST surface for api-experience-verification-social-connectorId-verify.
+      operations:
+      - method: POST
+        name: verifysocialverification
+        description: Verify social verification
+        call: logto-experience.verifysocialverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/sso/{connectorid}/authorization-uri
+      name: api-experience-verification-sso-connectorid-authorization-uri
+      description: REST surface for api-experience-verification-sso-connectorId-authorization-uri.
+      operations:
+      - method: POST
+        name: createenterprisessoverification
+        description: Create enterprise SSO verification
+        call: logto-experience.createenterprisessoverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/sso/{connectorid}/verify
+      name: api-experience-verification-sso-connectorid-verify
+      description: REST surface for api-experience-verification-sso-connectorId-verify.
+      operations:
+      - method: POST
+        name: verifyenterprisessoverification
+        description: Verify enterprise SSO verification
+        call: logto-experience.verifyenterprisessoverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/totp/secret
+      name: api-experience-verification-totp-secret
+      description: REST surface for api-experience-verification-totp-secret.
+      operations:
+      - method: POST
+        name: createtotpsecret
+        description: Create TOTP secret
+        call: logto-experience.createtotpsecret
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/totp/verify
+      name: api-experience-verification-totp-verify
+      description: REST surface for api-experience-verification-totp-verify.
+      operations:
+      - method: POST
+        name: verifytotpverification
+        description: Verify TOTP verification
+        call: logto-experience.verifytotpverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/verification-code
+      name: api-experience-verification-verification-code
+      description: REST surface for api-experience-verification-verification-code.
+      operations:
+      - method: POST
+        name: createandsendverificationcode
+        description: Create and send verification code
+        call: logto-experience.createandsendverificationcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/verification-code/verify
+      name: api-experience-verification-verification-code-verify
+      description: REST surface for api-experience-verification-verification-code-verify.
+      operations:
+      - method: POST
+        name: verifyverificationcodeverification
+        description: Verify verification code
+        call: logto-experience.verifyverificationcodeverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/web-authn/authentication
+      name: api-experience-verification-web-authn-authentication
+      description: REST surface for api-experience-verification-web-authn-authentication.
+      operations:
+      - method: POST
+        name: createwebauthnauthenticationverification
+        description: Create WebAuthn authentication verification
+        call: logto-experience.createwebauthnauthenticationverification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/web-authn/authentication/verify
+      name: api-experience-verification-web-authn-authentication-verify
+      description: REST surface for api-experience-verification-web-authn-authentication-verify.
+      operations:
+      - method: POST
+        name: verifywebauthnauthenticationverification
+        description: Verify WebAuthn authentication verification
+        call: logto-experience.verifywebauthnauthenticationverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/web-authn/registration
+      name: api-experience-verification-web-authn-registration
+      description: REST surface for api-experience-verification-web-authn-registration.
+      operations:
+      - method: POST
+        name: createwebauthnregistrationverification
+        description: Create WebAuthn registration verification
+        call: logto-experience.createwebauthnregistrationverification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/experience/verification/web-authn/registration/verify
+      name: api-experience-verification-web-authn-registration-verify
+      description: REST surface for api-experience-verification-web-authn-registration-verify.
+      operations:
+      - method: POST
+        name: verifywebauthnregistrationverification
+        description: Verify WebAuthn registration verification
+        call: logto-experience.verifywebauthnregistrationverification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: logto-experience-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Logto API references — Experience. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: init-new-interaction
+      description: Init new interaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-experience.initinteraction
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: identify-user-current-interaction
+      description: Identify user for the current interaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.identifyuser
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-public-interaction-data
+      description: Get public interaction data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-experience.getinteraction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-interaction-event
+      description: Update interaction event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-experience.updateinteractionevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-passkey-sign-webauthn-authentication
+      description: Create passkey sign-in WebAuthn authentication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createsigninpasskeyauthentication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-user-profile
+      description: Add user profile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.adduserprofile
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bind-mfa-verification-verificationid
+      description: Bind MFA verification by verificationId
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.bindmfaverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mark-mfa-enabled
+      description: Mark MFA as enabled
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.markmfaenabled
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: skip-mfa-binding-flow
+      description: Skip MFA binding flow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.skipmfabindingflow
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: skip-additional-mfa-suggestion
+      description: Skip additional MFA suggestion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.skipmfasuggestion
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bind-passkey-sign
+      description: Bind passkey for sign-in
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.bindpasskey
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: skip-passkey-binding
+      description: Skip passkey binding
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.skippasskeybinding
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reset-user-password
+      description: Reset user password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: logto-experience.resetuserpassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-enabled-sso-connectors-given
+      description: Get enabled SSO connectors by the given email's domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: logto-experience.getenabledssoconnectors
+      with:
+        email: tools.email
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: submit-interaction
+      description: Submit interaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.submitinteraction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generate-backup-codes
+      description: Generate backup codes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.generatebackupcodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-backup-code
+      description: Verify backup code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifybackupcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-and-send-mfa-verification
+      description: Create and send MFA verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createandsendmfaverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-mfa-verification-code
+      description: Verify MFA verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifymfaverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-password-identity-verification
+      description: Create new password identity verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createnewpasswordidentityverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-one-time-token
+      description: Verify one-time token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifyonetimetokenverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-password-verification-record
+      description: Create password verification record
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createpasswordverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-passkey-sign-webauthn-authentication-2
+      description: Create passkey sign-in WebAuthn authentication with identifier
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createsigninpasskeyauthenticationwithidentifier
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-passkey-sign-webauthn-authentication
+      description: Verify passkey sign-in WebAuthn authentication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifysigninpasskeyauthentication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-social-verification
+      description: Create social verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createsocialverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-social-verification
+      description: Verify social verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifysocialverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-enterprise-sso-verification
+      description: Create enterprise SSO verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createenterprisessoverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-enterprise-sso-verification
+      description: Verify enterprise SSO verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifyenterprisessoverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-totp-secret
+      description: Create TOTP secret
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createtotpsecret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-totp-verification
+      description: Verify TOTP verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifytotpverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-and-send-verification-code
+      description: Create and send verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createandsendverificationcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-verification-code
+      description: Verify verification code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifyverificationcodeverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-webauthn-authentication-verification
+      description: Create WebAuthn authentication verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createwebauthnauthenticationverification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-webauthn-authentication-verification
+      description: Verify WebAuthn authentication verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifywebauthnauthenticationverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-webauthn-registration-verification
+      description: Create WebAuthn registration verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.createwebauthnregistrationverification
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: verify-webauthn-registration-verification
+      description: Verify WebAuthn registration verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: logto-experience.verifywebauthnregistrationverification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
