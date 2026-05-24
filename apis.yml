@@ -123,6 +123,8 @@ common:
   url: https://openapi.logto.io/source.yaml
 - type: GitHubOrganization
   url: https://github.com/logto-io
+- type: LLMsTxt
+  url: https://openapi.logto.io/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
