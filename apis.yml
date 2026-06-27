@@ -34,83 +34,83 @@ apis:
     url: https://github.com/logto-io/logto
   - type: OpenAPI
     url: openapi/logto-openapi-original.yml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-account-center.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-applications.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-audit-logs.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-authn.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-captcha-provider.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-configs.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-connector-factories.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-connectors.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-custom-phrases.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-custom-profile-fields.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-dashboard.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-domains.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-email-templates.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-experience.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-hooks.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-my-account.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-one-time-tokens.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-organization-invitations.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-organization-roles.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-organization-scopes.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-organizations.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-resources.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-roles.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-saml-applications.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-saml-applications-auth-flow.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-sso-connector-providers.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-sso-connectors.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-secrets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-sentinel-activities.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-sign-in-experience.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-status.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-subject-tokens.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-swagger-json.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-systems.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-user-assets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-users.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-verification-codes.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-verifications.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/logto-well-known.yaml
 common:
 - type: LinkedIn
@@ -123,7 +123,7 @@ common:
   url: https://openapi.logto.io/source.yaml
 - type: GitHubOrganization
   url: https://github.com/logto-io
-- type: LLMsTxt
+- type: LlmsText
   url: https://openapi.logto.io/llms.txt
 maintainers:
 - FN: Kin Lane
