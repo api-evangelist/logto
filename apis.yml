@@ -113,6 +113,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/logto-well-known.yaml
 common:
+- type: OAuthScopes
+  url: scopes/logto-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/logto
 - type: Website
@@ -125,6 +127,8 @@ common:
   url: https://github.com/logto-io
 - type: LlmsText
   url: https://openapi.logto.io/llms.txt
+- url: https://blog.logto.io/rss.xml
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
