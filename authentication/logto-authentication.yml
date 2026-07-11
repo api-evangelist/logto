@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/logto-openapi-original.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: /oidc/token
+    scopes: 1
+  description: |-
+    Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).
+
+    ### Get started
+
+    The API follows the same authentication principles as other API resources in Logt
+  sources:
+  - openapi/logto-openapi-original.yml

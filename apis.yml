@@ -113,6 +113,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/logto-well-known.yaml
 common:
+- type: DomainSecurity
+  url: security/logto-domain-security.yml
+- type: Authentication
+  url: authentication/logto-authentication.yml
 - type: OAuthScopes
   url: scopes/logto-scopes.yml
 - type: LinkedIn
