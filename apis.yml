@@ -113,6 +113,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/logto-well-known.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/logto-agentic-access.yml
 - type: DomainSecurity
   url: security/logto-domain-security.yml
 - type: Authentication
