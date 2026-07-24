@@ -1,0 +1,693 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center Resources API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: Resources
+  description: 'Resources (API resources) represent the APIs that you want to protect with Logto. Each resource has a unique indicator (URI) and a set of scopes (permissions). The resources will be used in the authorization process which conforms to [RFC 8707: Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html).
+
+
+    See [⚔️ Protect your API](https://docs.logto.io/docs/recipes/protect-your-api/) to learn more about how to define API resources and protect your APIs with Logto.'
+paths:
+  /api/resources:
+    get:
+      operationId: ListResources
+      tags:
+      - Resources
+      parameters:
+      - name: includeScopes
+        in: query
+        required: false
+        schema:
+          type: string
+        description: If it's provided with a truthy value (`true`, `1`, `yes`), the scopes of each resource will be included in the response.
+      - name: page
+        in: query
+        description: Page number (starts from 1).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Entries per page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      responses:
+        '200':
+          description: An array of resources.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - name
+                  - indicator
+                  - isDefault
+                  - accessTokenTtl
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      minLength: 1
+                    indicator:
+                      type: string
+                      minLength: 1
+                    isDefault:
+                      type: boolean
+                    accessTokenTtl:
+                      type: number
+                    scopes:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                        - tenantId
+                        - id
+                        - resourceId
+                        - name
+                        - description
+                        - createdAt
+                        properties:
+                          tenantId:
+                            type: string
+                            maxLength: 21
+                          id:
+                            type: string
+                            minLength: 1
+                            maxLength: 21
+                          resourceId:
+                            type: string
+                            minLength: 1
+                            maxLength: 21
+                          name:
+                            type: string
+                            minLength: 1
+                            maxLength: 256
+                          description:
+                            type: string
+                            nullable: true
+                          createdAt:
+                            type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get API resources
+      description: Get API resources in the current tenant with pagination.
+    post:
+      operationId: CreateResource
+      tags:
+      - Resources
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - indicator
+              properties:
+                tenantId:
+                  type: string
+                  maxLength: 21
+                name:
+                  type: string
+                  minLength: 1
+                  description: The name of the resource.
+                indicator:
+                  type: string
+                  minLength: 1
+                  description: The unique resource indicator. Should be a valid URI.
+                accessTokenTtl:
+                  type: number
+                  description: The access token TTL in seconds. It affects the `exp` claim of the access token granted for this resource.
+                  default: 3600
+      responses:
+        '201':
+          description: The created resource.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - indicator
+                - isDefault
+                - accessTokenTtl
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                  indicator:
+                    type: string
+                    minLength: 1
+                  isDefault:
+                    type: boolean
+                  accessTokenTtl:
+                    type: number
+                  scopes:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - tenantId
+                      - id
+                      - resourceId
+                      - name
+                      - description
+                      - createdAt
+                      properties:
+                        tenantId:
+                          type: string
+                          maxLength: 21
+                        id:
+                          type: string
+                          minLength: 1
+                          maxLength: 21
+                        resourceId:
+                          type: string
+                          minLength: 1
+                          maxLength: 21
+                        name:
+                          type: string
+                          minLength: 1
+                          maxLength: 256
+                        description:
+                          type: string
+                          nullable: true
+                        createdAt:
+                          type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: Unprocessable Content
+      summary: Create an API resource
+      description: Create an API resource in the current tenant.
+  /api/resources/{id}:
+    get:
+      operationId: GetResource
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId-root'
+      responses:
+        '200':
+          description: The requested resource.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - indicator
+                - isDefault
+                - accessTokenTtl
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                  indicator:
+                    type: string
+                    minLength: 1
+                  isDefault:
+                    type: boolean
+                  accessTokenTtl:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Get API resource
+      description: Get an API resource details by ID.
+    patch:
+      operationId: UpdateResource
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tenantId:
+                  type: string
+                  maxLength: 21
+                name:
+                  type: string
+                  minLength: 1
+                  description: The updated name of the resource.
+                accessTokenTtl:
+                  type: number
+                  description: The updated access token TTL in seconds.
+      responses:
+        '200':
+          description: The updated resource.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - indicator
+                - isDefault
+                - accessTokenTtl
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                  indicator:
+                    type: string
+                    minLength: 1
+                  isDefault:
+                    type: boolean
+                  accessTokenTtl:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Update API resource
+      description: Update an API resource details by ID with the given data. This method performs a partial update.
+    delete:
+      operationId: DeleteResource
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId-root'
+      responses:
+        '204':
+          description: The resource was deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Delete API resource
+      description: Delete an API resource by ID.
+  /api/resources/{id}/is-default:
+    patch:
+      operationId: UpdateResourceIsDefault
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - isDefault
+              properties:
+                isDefault:
+                  type: boolean
+                  description: The updated value of the `isDefault` property.
+      responses:
+        '200':
+          description: The updated resource.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - indicator
+                - isDefault
+                - accessTokenTtl
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                  indicator:
+                    type: string
+                    minLength: 1
+                  isDefault:
+                    type: boolean
+                  accessTokenTtl:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Set API resource as default
+      description: 'Set an API resource as the default resource for the current tenant.
+
+
+        Each tenant can have only one default API resource. If an API resource is set as default, the previously set default API resource will be set as non-default. See [this section](https://docs.logto.io/docs/references/resources/#default-api) for more information.'
+  /api/resources/{resourceId}/scopes:
+    get:
+      operationId: ListResourceScopes
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId'
+      - name: page
+        in: query
+        description: Page number (starts from 1).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Entries per page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      - name: search_params
+        in: query
+        description: Search query parameters.
+        required: false
+        schema:
+          type: object
+          additionalProperties:
+            type: string
+        explode: true
+      responses:
+        '200':
+          description: An array of scopes for the requested resource.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - resourceId
+                  - name
+                  - description
+                  - createdAt
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    resourceId:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      minLength: 1
+                      maxLength: 256
+                    description:
+                      type: string
+                      nullable: true
+                    createdAt:
+                      type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get API resource scopes
+      description: Get scopes (permissions) defined for an API resource.
+    post:
+      operationId: CreateResourceScope
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: The name of the scope. It should be unique for the resource.
+                description:
+                  type: string
+                  nullable: true
+      responses:
+        '201':
+          description: The created scope.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - resourceId
+                - name
+                - description
+                - createdAt
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  resourceId:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  description:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Content
+      summary: Create API resource scope
+      description: Create a new scope (permission) for an API resource.
+  /api/resources/{resourceId}/scopes/{scopeId}:
+    patch:
+      operationId: UpdateResourceScope
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId'
+      - $ref: '#/components/parameters/scopeId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: The updated name of the scope. It should be unique for the resource.
+                description:
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: The updated scope.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - resourceId
+                - name
+                - description
+                - createdAt
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  resourceId:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  description:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Content
+      summary: Update API resource scope
+      description: Update an API resource scope (permission) for the given resource. This method performs a partial update.
+    delete:
+      operationId: DeleteResourceScope
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/resourceId'
+      - $ref: '#/components/parameters/scopeId'
+      responses:
+        '204':
+          description: The scope was deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Delete API resource scope
+      description: Delete an API resource scope (permission) from the given resource.
+components:
+  parameters:
+    resourceId:
+      in: path
+      description: The unique identifier of the resource.
+      required: true
+      schema:
+        type: string
+      name: resourceId
+    resourceId-root:
+      in: path
+      description: The unique identifier of the resource.
+      required: true
+      schema:
+        type: string
+      name: id
+    scopeId:
+      in: path
+      description: The unique identifier of the scope.
+      required: true
+      schema:
+        type: string
+      name: scopeId
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes

@@ -1,0 +1,2262 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center Custom profile fields API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: Custom profile fields
+  description: An admin feature used to create a customized user profile form, which is used to collect additional user information upon successful registrations.
+paths:
+  /api/custom-profile-fields:
+    get:
+      operationId: ListCustomProfileFields
+      tags:
+      - Custom profile fields
+      parameters: []
+      responses:
+        '200':
+          description: Custom profile fields ordered by sieOrder (Sign-in Experience order).
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - name
+                  - type
+                  - label
+                  - description
+                  - required
+                  - config
+                  - createdAt
+                  - sieOrder
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      minLength: 1
+                      maxLength: 128
+                    type:
+                      type: string
+                      enum:
+                      - Text
+                      - Number
+                      - Date
+                      - Checkbox
+                      - Select
+                      - Url
+                      - Regex
+                      - Address
+                      - Fullname
+                    label:
+                      type: string
+                      maxLength: 128
+                    description:
+                      type: string
+                      maxLength: 256
+                      nullable: true
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      properties:
+                        placeholder:
+                          type: string
+                          maxLength: 256
+                        minLength:
+                          type: number
+                        maxLength:
+                          type: number
+                        minValue:
+                          type: number
+                        maxValue:
+                          type: number
+                        format:
+                          type: string
+                          maxLength: 128
+                        customFormat:
+                          type: string
+                          maxLength: 128
+                        options:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - value
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                        defaultValue:
+                          type: string
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - enabled
+                            - name
+                            - type
+                            - required
+                            properties:
+                              enabled:
+                                type: boolean
+                              name:
+                                type: string
+                              type:
+                                type: string
+                                enum:
+                                - Text
+                                - Number
+                                - Date
+                                - Checkbox
+                                - Select
+                                - Url
+                                - Regex
+                                - Address
+                                - Fullname
+                              label:
+                                type: string
+                                minLength: 1
+                              description:
+                                type: string
+                              required:
+                                type: boolean
+                              config:
+                                type: object
+                                properties:
+                                  placeholder:
+                                    type: string
+                                    maxLength: 256
+                                  minLength:
+                                    type: number
+                                  maxLength:
+                                    type: number
+                                  minValue:
+                                    type: number
+                                  maxValue:
+                                    type: number
+                                  format:
+                                    type: string
+                                    maxLength: 128
+                                  customFormat:
+                                    type: string
+                                    maxLength: 128
+                                  options:
+                                    type: array
+                                    items:
+                                      type: object
+                                      required:
+                                      - value
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                                  defaultValue:
+                                    type: string
+                    createdAt:
+                      type: number
+                    sieOrder:
+                      type: number
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get all custom profile fields
+      description: Get all custom profile fields.
+    post:
+      operationId: CreateCustomProfileField
+      tags:
+      - Custom profile fields
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Text"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                      minLength:
+                        type: number
+                      maxLength:
+                        type: number
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Number"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                      minValue:
+                        type: number
+                      maxValue:
+                        type: number
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Date"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - format
+                    properties:
+                      placeholder:
+                        type: string
+                      format:
+                        type: string
+                      customFormat:
+                        type: string
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Checkbox"'
+                  label:
+                    type: string
+                    minLength: 1
+                  required:
+                    type: boolean
+                    format: 'false'
+                  config:
+                    type: object
+                    required:
+                    - defaultValue
+                    properties:
+                      defaultValue:
+                        oneOf:
+                        - type: string
+                          format: '"true"'
+                        - type: string
+                          format: '"false"'
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                - config
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Select"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - options
+                    properties:
+                      placeholder:
+                        type: string
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - value
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: string
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Url"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                - config
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Regex"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - format
+                    properties:
+                      placeholder:
+                        type: string
+                      format:
+                        type: string
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                - config
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Address"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - parts
+                    properties:
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - type
+                          - required
+                          - name
+                          properties:
+                            enabled:
+                              type: boolean
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                            name:
+                              type: string
+                              enum:
+                              - formatted
+                              - streetAddress
+                              - locality
+                              - region
+                              - postalCode
+                              - country
+              - type: object
+                required:
+                - name
+                - type
+                - required
+                - config
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                    format: '"Fullname"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - parts
+                    properties:
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - type
+                          - required
+                          - name
+                          properties:
+                            enabled:
+                              type: boolean
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                            name:
+                              type: string
+                              enum:
+                              - givenName
+                              - middleName
+                              - familyName
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - type
+                - label
+                - description
+                - required
+                - config
+                - createdAt
+                - sieOrder
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
+                  type:
+                    type: string
+                    enum:
+                    - Text
+                    - Number
+                    - Date
+                    - Checkbox
+                    - Select
+                    - Url
+                    - Regex
+                    - Address
+                    - Fullname
+                  label:
+                    type: string
+                    maxLength: 128
+                  description:
+                    type: string
+                    maxLength: 256
+                    nullable: true
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                        maxLength: 256
+                      minLength:
+                        type: number
+                      maxLength:
+                        type: number
+                      minValue:
+                        type: number
+                      maxValue:
+                        type: number
+                      format:
+                        type: string
+                        maxLength: 128
+                      customFormat:
+                        type: string
+                        maxLength: 128
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - value
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: string
+                      defaultValue:
+                        type: string
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - name
+                          - type
+                          - required
+                          properties:
+                            enabled:
+                              type: boolean
+                            name:
+                              type: string
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                  createdAt:
+                    type: number
+                  sieOrder:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Create a custom profile field
+      description: Create a custom profile field.
+  /api/custom-profile-fields/{name}:
+    get:
+      operationId: GetCustomProfileFieldByName
+      tags:
+      - Custom profile fields
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '200':
+          description: Custom profile field found successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - type
+                - label
+                - description
+                - required
+                - config
+                - createdAt
+                - sieOrder
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
+                  type:
+                    type: string
+                    enum:
+                    - Text
+                    - Number
+                    - Date
+                    - Checkbox
+                    - Select
+                    - Url
+                    - Regex
+                    - Address
+                    - Fullname
+                  label:
+                    type: string
+                    maxLength: 128
+                  description:
+                    type: string
+                    maxLength: 256
+                    nullable: true
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                        maxLength: 256
+                      minLength:
+                        type: number
+                      maxLength:
+                        type: number
+                      minValue:
+                        type: number
+                      maxValue:
+                        type: number
+                      format:
+                        type: string
+                        maxLength: 128
+                      customFormat:
+                        type: string
+                        maxLength: 128
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - value
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: string
+                      defaultValue:
+                        type: string
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - name
+                          - type
+                          - required
+                          properties:
+                            enabled:
+                              type: boolean
+                            name:
+                              type: string
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                  createdAt:
+                    type: number
+                  sieOrder:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Get a custom profile field by name
+      description: Get a custom profile field by name.
+    put:
+      operationId: UpdateCustomProfileFieldByName
+      tags:
+      - Custom profile fields
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - type: object
+                required:
+                - type
+                - required
+                properties:
+                  type:
+                    type: string
+                    format: '"Text"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                      minLength:
+                        type: number
+                      maxLength:
+                        type: number
+              - type: object
+                required:
+                - type
+                - required
+                properties:
+                  type:
+                    type: string
+                    format: '"Number"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                      minValue:
+                        type: number
+                      maxValue:
+                        type: number
+              - type: object
+                required:
+                - type
+                - required
+                properties:
+                  type:
+                    type: string
+                    format: '"Date"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - format
+                    properties:
+                      placeholder:
+                        type: string
+                      format:
+                        type: string
+                      customFormat:
+                        type: string
+              - type: object
+                required:
+                - type
+                - required
+                properties:
+                  type:
+                    type: string
+                    format: '"Checkbox"'
+                  label:
+                    type: string
+                    minLength: 1
+                  required:
+                    type: boolean
+                    format: 'false'
+                  config:
+                    type: object
+                    required:
+                    - defaultValue
+                    properties:
+                      defaultValue:
+                        oneOf:
+                        - type: string
+                          format: '"true"'
+                        - type: string
+                          format: '"false"'
+              - type: object
+                required:
+                - type
+                - required
+                - config
+                properties:
+                  type:
+                    type: string
+                    format: '"Select"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - options
+                    properties:
+                      placeholder:
+                        type: string
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - value
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: string
+              - type: object
+                required:
+                - type
+                - required
+                properties:
+                  type:
+                    type: string
+                    format: '"Url"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+              - type: object
+                required:
+                - type
+                - required
+                - config
+                properties:
+                  type:
+                    type: string
+                    format: '"Regex"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - format
+                    properties:
+                      placeholder:
+                        type: string
+                      format:
+                        type: string
+              - type: object
+                required:
+                - type
+                - required
+                - config
+                properties:
+                  type:
+                    type: string
+                    format: '"Address"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - parts
+                    properties:
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - type
+                          - required
+                          - name
+                          properties:
+                            enabled:
+                              type: boolean
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                            name:
+                              type: string
+                              enum:
+                              - formatted
+                              - streetAddress
+                              - locality
+                              - region
+                              - postalCode
+                              - country
+              - type: object
+                required:
+                - type
+                - required
+                - config
+                properties:
+                  type:
+                    type: string
+                    format: '"Fullname"'
+                  label:
+                    type: string
+                    minLength: 1
+                  description:
+                    type: string
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    required:
+                    - parts
+                    properties:
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - type
+                          - required
+                          - name
+                          properties:
+                            enabled:
+                              type: boolean
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                            name:
+                              type: string
+                              enum:
+                              - givenName
+                              - middleName
+                              - familyName
+      responses:
+        '200':
+          description: Custom profile field updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - type
+                - label
+                - description
+                - required
+                - config
+                - createdAt
+                - sieOrder
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
+                  type:
+                    type: string
+                    enum:
+                    - Text
+                    - Number
+                    - Date
+                    - Checkbox
+                    - Select
+                    - Url
+                    - Regex
+                    - Address
+                    - Fullname
+                  label:
+                    type: string
+                    maxLength: 128
+                  description:
+                    type: string
+                    maxLength: 256
+                    nullable: true
+                  required:
+                    type: boolean
+                  config:
+                    type: object
+                    properties:
+                      placeholder:
+                        type: string
+                        maxLength: 256
+                      minLength:
+                        type: number
+                      maxLength:
+                        type: number
+                      minValue:
+                        type: number
+                      maxValue:
+                        type: number
+                      format:
+                        type: string
+                        maxLength: 128
+                      customFormat:
+                        type: string
+                        maxLength: 128
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - value
+                          properties:
+                            label:
+                              type: string
+                            value:
+                              type: string
+                      defaultValue:
+                        type: string
+                      parts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - enabled
+                          - name
+                          - type
+                          - required
+                          properties:
+                            enabled:
+                              type: boolean
+                            name:
+                              type: string
+                            type:
+                              type: string
+                              enum:
+                              - Text
+                              - Number
+                              - Date
+                              - Checkbox
+                              - Select
+                              - Url
+                              - Regex
+                              - Address
+                              - Fullname
+                            label:
+                              type: string
+                              minLength: 1
+                            description:
+                              type: string
+                            required:
+                              type: boolean
+                            config:
+                              type: object
+                              properties:
+                                placeholder:
+                                  type: string
+                                  maxLength: 256
+                                minLength:
+                                  type: number
+                                maxLength:
+                                  type: number
+                                minValue:
+                                  type: number
+                                maxValue:
+                                  type: number
+                                format:
+                                  type: string
+                                  maxLength: 128
+                                customFormat:
+                                  type: string
+                                  maxLength: 128
+                                options:
+                                  type: array
+                                  items:
+                                    type: object
+                                    required:
+                                    - value
+                                    properties:
+                                      label:
+                                        type: string
+                                      value:
+                                        type: string
+                                defaultValue:
+                                  type: string
+                  createdAt:
+                    type: number
+                  sieOrder:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Update a custom profile field by name
+      description: Update a custom profile field by name.
+    delete:
+      operationId: DeleteCustomProfileFieldByName
+      tags:
+      - Custom profile fields
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      responses:
+        '204':
+          description: Custom profile field deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Delete a custom profile field by name
+      description: Delete a custom profile field by name.
+  /api/custom-profile-fields/batch:
+    post:
+      operationId: CreateCustomProfileFieldsBatch
+      tags:
+      - Custom profile fields
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                oneOf:
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Text"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      properties:
+                        placeholder:
+                          type: string
+                        minLength:
+                          type: number
+                        maxLength:
+                          type: number
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Number"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      properties:
+                        placeholder:
+                          type: string
+                        minValue:
+                          type: number
+                        maxValue:
+                          type: number
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Date"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      required:
+                      - format
+                      properties:
+                        placeholder:
+                          type: string
+                        format:
+                          type: string
+                        customFormat:
+                          type: string
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Checkbox"'
+                    label:
+                      type: string
+                      minLength: 1
+                    required:
+                      type: boolean
+                      format: 'false'
+                    config:
+                      type: object
+                      required:
+                      - defaultValue
+                      properties:
+                        defaultValue:
+                          oneOf:
+                          - type: string
+                            format: '"true"'
+                          - type: string
+                            format: '"false"'
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  - config
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Select"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      required:
+                      - options
+                      properties:
+                        placeholder:
+                          type: string
+                        options:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - value
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Url"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      properties:
+                        placeholder:
+                          type: string
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  - config
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Regex"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      required:
+                      - format
+                      properties:
+                        placeholder:
+                          type: string
+                        format:
+                          type: string
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  - config
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Address"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      required:
+                      - parts
+                      properties:
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - enabled
+                            - type
+                            - required
+                            - name
+                            properties:
+                              enabled:
+                                type: boolean
+                              type:
+                                type: string
+                                enum:
+                                - Text
+                                - Number
+                                - Date
+                                - Checkbox
+                                - Select
+                                - Url
+                                - Regex
+                                - Address
+                                - Fullname
+                              label:
+                                type: string
+                                minLength: 1
+                              description:
+                                type: string
+                              required:
+                                type: boolean
+                              config:
+                                type: object
+                                properties:
+                                  placeholder:
+                                    type: string
+                                    maxLength: 256
+                                  minLength:
+                                    type: number
+                                  maxLength:
+                                    type: number
+                                  minValue:
+                                    type: number
+                                  maxValue:
+                                    type: number
+                                  format:
+                                    type: string
+                                    maxLength: 128
+                                  customFormat:
+                                    type: string
+                                    maxLength: 128
+                                  options:
+                                    type: array
+                                    items:
+                                      type: object
+                                      required:
+                                      - value
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                                  defaultValue:
+                                    type: string
+                              name:
+                                type: string
+                                enum:
+                                - formatted
+                                - streetAddress
+                                - locality
+                                - region
+                                - postalCode
+                                - country
+                - type: object
+                  required:
+                  - name
+                  - type
+                  - required
+                  - config
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                      format: '"Fullname"'
+                    label:
+                      type: string
+                      minLength: 1
+                    description:
+                      type: string
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      required:
+                      - parts
+                      properties:
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - enabled
+                            - type
+                            - required
+                            - name
+                            properties:
+                              enabled:
+                                type: boolean
+                              type:
+                                type: string
+                                enum:
+                                - Text
+                                - Number
+                                - Date
+                                - Checkbox
+                                - Select
+                                - Url
+                                - Regex
+                                - Address
+                                - Fullname
+                              label:
+                                type: string
+                                minLength: 1
+                              description:
+                                type: string
+                              required:
+                                type: boolean
+                              config:
+                                type: object
+                                properties:
+                                  placeholder:
+                                    type: string
+                                    maxLength: 256
+                                  minLength:
+                                    type: number
+                                  maxLength:
+                                    type: number
+                                  minValue:
+                                    type: number
+                                  maxValue:
+                                    type: number
+                                  format:
+                                    type: string
+                                    maxLength: 128
+                                  customFormat:
+                                    type: string
+                                    maxLength: 128
+                                  options:
+                                    type: array
+                                    items:
+                                      type: object
+                                      required:
+                                      - value
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                                  defaultValue:
+                                    type: string
+                              name:
+                                type: string
+                                enum:
+                                - givenName
+                                - middleName
+                                - familyName
+      responses:
+        '201':
+          description: Custom profile fields created successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - name
+                  - type
+                  - label
+                  - description
+                  - required
+                  - config
+                  - createdAt
+                  - sieOrder
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      minLength: 1
+                      maxLength: 128
+                    type:
+                      type: string
+                      enum:
+                      - Text
+                      - Number
+                      - Date
+                      - Checkbox
+                      - Select
+                      - Url
+                      - Regex
+                      - Address
+                      - Fullname
+                    label:
+                      type: string
+                      maxLength: 128
+                    description:
+                      type: string
+                      maxLength: 256
+                      nullable: true
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      properties:
+                        placeholder:
+                          type: string
+                          maxLength: 256
+                        minLength:
+                          type: number
+                        maxLength:
+                          type: number
+                        minValue:
+                          type: number
+                        maxValue:
+                          type: number
+                        format:
+                          type: string
+                          maxLength: 128
+                        customFormat:
+                          type: string
+                          maxLength: 128
+                        options:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - value
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                        defaultValue:
+                          type: string
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - enabled
+                            - name
+                            - type
+                            - required
+                            properties:
+                              enabled:
+                                type: boolean
+                              name:
+                                type: string
+                              type:
+                                type: string
+                                enum:
+                                - Text
+                                - Number
+                                - Date
+                                - Checkbox
+                                - Select
+                                - Url
+                                - Regex
+                                - Address
+                                - Fullname
+                              label:
+                                type: string
+                                minLength: 1
+                              description:
+                                type: string
+                              required:
+                                type: boolean
+                              config:
+                                type: object
+                                properties:
+                                  placeholder:
+                                    type: string
+                                    maxLength: 256
+                                  minLength:
+                                    type: number
+                                  maxLength:
+                                    type: number
+                                  minValue:
+                                    type: number
+                                  maxValue:
+                                    type: number
+                                  format:
+                                    type: string
+                                    maxLength: 128
+                                  customFormat:
+                                    type: string
+                                    maxLength: 128
+                                  options:
+                                    type: array
+                                    items:
+                                      type: object
+                                      required:
+                                      - value
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                                  defaultValue:
+                                    type: string
+                    createdAt:
+                      type: number
+                    sieOrder:
+                      type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Batch create custom profile fields
+      description: Create multiple custom profile fields in a single request (max 20 items).
+  /api/custom-profile-fields/properties/sie-order:
+    post:
+      operationId: UpdateCustomProfileFieldsSieOrder
+      tags:
+      - Custom profile fields
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - order
+              properties:
+                order:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - name
+                    - sieOrder
+                    properties:
+                      name:
+                        type: string
+                      sieOrder:
+                        type: number
+      responses:
+        '200':
+          description: Custom profile fields updated successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - name
+                  - type
+                  - label
+                  - description
+                  - required
+                  - config
+                  - createdAt
+                  - sieOrder
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      minLength: 1
+                      maxLength: 128
+                    type:
+                      type: string
+                      enum:
+                      - Text
+                      - Number
+                      - Date
+                      - Checkbox
+                      - Select
+                      - Url
+                      - Regex
+                      - Address
+                      - Fullname
+                    label:
+                      type: string
+                      maxLength: 128
+                    description:
+                      type: string
+                      maxLength: 256
+                      nullable: true
+                    required:
+                      type: boolean
+                    config:
+                      type: object
+                      properties:
+                        placeholder:
+                          type: string
+                          maxLength: 256
+                        minLength:
+                          type: number
+                        maxLength:
+                          type: number
+                        minValue:
+                          type: number
+                        maxValue:
+                          type: number
+                        format:
+                          type: string
+                          maxLength: 128
+                        customFormat:
+                          type: string
+                          maxLength: 128
+                        options:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - value
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                        defaultValue:
+                          type: string
+                        parts:
+                          type: array
+                          items:
+                            type: object
+                            required:
+                            - enabled
+                            - name
+                            - type
+                            - required
+                            properties:
+                              enabled:
+                                type: boolean
+                              name:
+                                type: string
+                              type:
+                                type: string
+                                enum:
+                                - Text
+                                - Number
+                                - Date
+                                - Checkbox
+                                - Select
+                                - Url
+                                - Regex
+                                - Address
+                                - Fullname
+                              label:
+                                type: string
+                                minLength: 1
+                              description:
+                                type: string
+                              required:
+                                type: boolean
+                              config:
+                                type: object
+                                properties:
+                                  placeholder:
+                                    type: string
+                                    maxLength: 256
+                                  minLength:
+                                    type: number
+                                  maxLength:
+                                    type: number
+                                  minValue:
+                                    type: number
+                                  maxValue:
+                                    type: number
+                                  format:
+                                    type: string
+                                    maxLength: 128
+                                  customFormat:
+                                    type: string
+                                    maxLength: 128
+                                  options:
+                                    type: array
+                                    items:
+                                      type: object
+                                      required:
+                                      - value
+                                      properties:
+                                        label:
+                                          type: string
+                                        value:
+                                          type: string
+                                  defaultValue:
+                                    type: string
+                    createdAt:
+                      type: number
+                    sieOrder:
+                      type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Update the display order of the custom profile fields in Sign-in Experience.
+      description: Update the display order of the custom profile fields in Sign-in Experience.
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes

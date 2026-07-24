@@ -1,0 +1,1161 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center Hooks API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: Hooks
+  description: Hook enables you to effortlessly receive real-time updates regarding specific events, such as user registration, sign-in, or password reset. See [🪝 Webhooks] to get started and learn more.
+paths:
+  /api/hooks:
+    get:
+      operationId: ListHooks
+      tags:
+      - Hooks
+      parameters:
+      - name: includeExecutionStats
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Whether to include execution stats in the response.
+      - name: page
+        in: query
+        description: Page number (starts from 1).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Entries per page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      responses:
+        '200':
+          description: A list of hooks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - name
+                  - event
+                  - events
+                  - config
+                  - signingKey
+                  - enabled
+                  - createdAt
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      maxLength: 256
+                    event:
+                      type: string
+                      enum:
+                      - PostRegister
+                      - PostSignIn
+                      - PostSignInAdaptiveMfaTriggered
+                      - PostResetPassword
+                      - User.Created
+                      - User.Deleted
+                      - User.Data.Updated
+                      - User.SuspensionStatus.Updated
+                      - Role.Created
+                      - Role.Deleted
+                      - Role.Data.Updated
+                      - Role.Scopes.Updated
+                      - Scope.Created
+                      - Scope.Deleted
+                      - Scope.Data.Updated
+                      - Organization.Created
+                      - Organization.Deleted
+                      - Organization.Data.Updated
+                      - Organization.Membership.Updated
+                      - OrganizationRole.Created
+                      - OrganizationRole.Deleted
+                      - OrganizationRole.Data.Updated
+                      - OrganizationRole.Scopes.Updated
+                      - OrganizationScope.Created
+                      - OrganizationScope.Deleted
+                      - OrganizationScope.Data.Updated
+                      - Identifier.Lockout
+                      nullable: true
+                    events:
+                      type: array
+                      items:
+                        type: string
+                        enum:
+                        - PostRegister
+                        - PostSignIn
+                        - PostSignInAdaptiveMfaTriggered
+                        - PostResetPassword
+                        - User.Created
+                        - User.Deleted
+                        - User.Data.Updated
+                        - User.SuspensionStatus.Updated
+                        - Role.Created
+                        - Role.Deleted
+                        - Role.Data.Updated
+                        - Role.Scopes.Updated
+                        - Scope.Created
+                        - Scope.Deleted
+                        - Scope.Data.Updated
+                        - Organization.Created
+                        - Organization.Deleted
+                        - Organization.Data.Updated
+                        - Organization.Membership.Updated
+                        - OrganizationRole.Created
+                        - OrganizationRole.Deleted
+                        - OrganizationRole.Data.Updated
+                        - OrganizationRole.Scopes.Updated
+                        - OrganizationScope.Created
+                        - OrganizationScope.Deleted
+                        - OrganizationScope.Data.Updated
+                        - Identifier.Lockout
+                    config:
+                      type: object
+                      required:
+                      - url
+                      properties:
+                        url:
+                          type: string
+                        headers:
+                          type: object
+                          additionalProperties:
+                            type: string
+                        retries:
+                          type: number
+                    signingKey:
+                      type: string
+                      maxLength: 64
+                    enabled:
+                      type: boolean
+                    createdAt:
+                      type: number
+                    executionStats:
+                      type: object
+                      required:
+                      - successCount
+                      - requestCount
+                      properties:
+                        successCount:
+                          type: number
+                        requestCount:
+                          type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get hooks
+      description: Get a list of hooks with optional pagination.
+    post:
+      operationId: CreateHook
+      tags:
+      - Hooks
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - config
+              properties:
+                tenantId:
+                  type: string
+                  maxLength: 21
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: The name of the hook.
+                event:
+                  type: string
+                  enum:
+                  - PostRegister
+                  - PostSignIn
+                  - PostSignInAdaptiveMfaTriggered
+                  - PostResetPassword
+                  - User.Created
+                  - User.Deleted
+                  - User.Data.Updated
+                  - User.SuspensionStatus.Updated
+                  - Role.Created
+                  - Role.Deleted
+                  - Role.Data.Updated
+                  - Role.Scopes.Updated
+                  - Scope.Created
+                  - Scope.Deleted
+                  - Scope.Data.Updated
+                  - Organization.Created
+                  - Organization.Deleted
+                  - Organization.Data.Updated
+                  - Organization.Membership.Updated
+                  - OrganizationRole.Created
+                  - OrganizationRole.Deleted
+                  - OrganizationRole.Data.Updated
+                  - OrganizationRole.Scopes.Updated
+                  - OrganizationScope.Created
+                  - OrganizationScope.Deleted
+                  - OrganizationScope.Data.Updated
+                  - Identifier.Lockout
+                  deprecated: true
+                  description: Use `events` instead.
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                  description: An array of hook events.
+                config:
+                  type: object
+                  required:
+                  - url
+                  properties:
+                    url:
+                      type: string
+                    headers:
+                      type: object
+                      additionalProperties:
+                        type: string
+                    retries:
+                      type: number
+                      deprecated: true
+                      description: Now the retry times is fixed to 3. Keep for backward compatibility.
+                enabled:
+                  type: boolean
+                createdAt:
+                  type: number
+      responses:
+        '201':
+          description: The hook was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - event
+                - events
+                - config
+                - signingKey
+                - enabled
+                - createdAt
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    maxLength: 256
+                  event:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                    nullable: true
+                  events:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                      - PostRegister
+                      - PostSignIn
+                      - PostSignInAdaptiveMfaTriggered
+                      - PostResetPassword
+                      - User.Created
+                      - User.Deleted
+                      - User.Data.Updated
+                      - User.SuspensionStatus.Updated
+                      - Role.Created
+                      - Role.Deleted
+                      - Role.Data.Updated
+                      - Role.Scopes.Updated
+                      - Scope.Created
+                      - Scope.Deleted
+                      - Scope.Data.Updated
+                      - Organization.Created
+                      - Organization.Deleted
+                      - Organization.Data.Updated
+                      - Organization.Membership.Updated
+                      - OrganizationRole.Created
+                      - OrganizationRole.Deleted
+                      - OrganizationRole.Data.Updated
+                      - OrganizationRole.Scopes.Updated
+                      - OrganizationScope.Created
+                      - OrganizationScope.Deleted
+                      - OrganizationScope.Data.Updated
+                      - Identifier.Lockout
+                  config:
+                    type: object
+                    required:
+                    - url
+                    properties:
+                      url:
+                        type: string
+                      headers:
+                        type: object
+                        additionalProperties:
+                          type: string
+                      retries:
+                        type: number
+                  signingKey:
+                    type: string
+                    maxLength: 64
+                  enabled:
+                    type: boolean
+                  createdAt:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Create a hook
+      description: Create a new hook with the given data.
+  /api/hooks/{id}:
+    get:
+      operationId: GetHook
+      tags:
+      - Hooks
+      parameters:
+      - $ref: '#/components/parameters/hookId-root'
+      - name: includeExecutionStats
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Whether to include execution stats in the response.
+      responses:
+        '200':
+          description: Details of the hook.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - event
+                - events
+                - config
+                - signingKey
+                - enabled
+                - createdAt
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    maxLength: 256
+                  event:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                    nullable: true
+                  events:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                      - PostRegister
+                      - PostSignIn
+                      - PostSignInAdaptiveMfaTriggered
+                      - PostResetPassword
+                      - User.Created
+                      - User.Deleted
+                      - User.Data.Updated
+                      - User.SuspensionStatus.Updated
+                      - Role.Created
+                      - Role.Deleted
+                      - Role.Data.Updated
+                      - Role.Scopes.Updated
+                      - Scope.Created
+                      - Scope.Deleted
+                      - Scope.Data.Updated
+                      - Organization.Created
+                      - Organization.Deleted
+                      - Organization.Data.Updated
+                      - Organization.Membership.Updated
+                      - OrganizationRole.Created
+                      - OrganizationRole.Deleted
+                      - OrganizationRole.Data.Updated
+                      - OrganizationRole.Scopes.Updated
+                      - OrganizationScope.Created
+                      - OrganizationScope.Deleted
+                      - OrganizationScope.Data.Updated
+                      - Identifier.Lockout
+                  config:
+                    type: object
+                    required:
+                    - url
+                    properties:
+                      url:
+                        type: string
+                      headers:
+                        type: object
+                        additionalProperties:
+                          type: string
+                      retries:
+                        type: number
+                  signingKey:
+                    type: string
+                    maxLength: 64
+                  enabled:
+                    type: boolean
+                  createdAt:
+                    type: number
+                  executionStats:
+                    type: object
+                    required:
+                    - successCount
+                    - requestCount
+                    properties:
+                      successCount:
+                        type: number
+                      requestCount:
+                        type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Get hook
+      description: Get hook details by ID.
+    patch:
+      operationId: UpdateHook
+      tags:
+      - Hooks
+      parameters:
+      - $ref: '#/components/parameters/hookId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tenantId:
+                  type: string
+                  maxLength: 21
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: The updated name of the hook.
+                event:
+                  type: string
+                  enum:
+                  - PostRegister
+                  - PostSignIn
+                  - PostSignInAdaptiveMfaTriggered
+                  - PostResetPassword
+                  - User.Created
+                  - User.Deleted
+                  - User.Data.Updated
+                  - User.SuspensionStatus.Updated
+                  - Role.Created
+                  - Role.Deleted
+                  - Role.Data.Updated
+                  - Role.Scopes.Updated
+                  - Scope.Created
+                  - Scope.Deleted
+                  - Scope.Data.Updated
+                  - Organization.Created
+                  - Organization.Deleted
+                  - Organization.Data.Updated
+                  - Organization.Membership.Updated
+                  - OrganizationRole.Created
+                  - OrganizationRole.Deleted
+                  - OrganizationRole.Data.Updated
+                  - OrganizationRole.Scopes.Updated
+                  - OrganizationScope.Created
+                  - OrganizationScope.Deleted
+                  - OrganizationScope.Data.Updated
+                  - Identifier.Lockout
+                  nullable: true
+                  deprecated: true
+                  description: Use `events` instead.
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                  description: An array of updated hook events.
+                config:
+                  type: object
+                  required:
+                  - url
+                  properties:
+                    url:
+                      type: string
+                    headers:
+                      type: object
+                      additionalProperties:
+                        type: string
+                    retries:
+                      type: number
+                      deprecated: true
+                      description: Now the retry times is fixed to 3. Keep for backward compatibility.
+                enabled:
+                  type: boolean
+                createdAt:
+                  type: number
+      responses:
+        '200':
+          description: The hook was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - event
+                - events
+                - config
+                - signingKey
+                - enabled
+                - createdAt
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    maxLength: 256
+                  event:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                    nullable: true
+                  events:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                      - PostRegister
+                      - PostSignIn
+                      - PostSignInAdaptiveMfaTriggered
+                      - PostResetPassword
+                      - User.Created
+                      - User.Deleted
+                      - User.Data.Updated
+                      - User.SuspensionStatus.Updated
+                      - Role.Created
+                      - Role.Deleted
+                      - Role.Data.Updated
+                      - Role.Scopes.Updated
+                      - Scope.Created
+                      - Scope.Deleted
+                      - Scope.Data.Updated
+                      - Organization.Created
+                      - Organization.Deleted
+                      - Organization.Data.Updated
+                      - Organization.Membership.Updated
+                      - OrganizationRole.Created
+                      - OrganizationRole.Deleted
+                      - OrganizationRole.Data.Updated
+                      - OrganizationRole.Scopes.Updated
+                      - OrganizationScope.Created
+                      - OrganizationScope.Deleted
+                      - OrganizationScope.Data.Updated
+                      - Identifier.Lockout
+                  config:
+                    type: object
+                    required:
+                    - url
+                    properties:
+                      url:
+                        type: string
+                      headers:
+                        type: object
+                        additionalProperties:
+                          type: string
+                      retries:
+                        type: number
+                  signingKey:
+                    type: string
+                    maxLength: 64
+                  enabled:
+                    type: boolean
+                  createdAt:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Update hook
+      description: Update hook details by ID with the given data.
+    delete:
+      operationId: DeleteHook
+      tags:
+      - Hooks
+      parameters:
+      - $ref: '#/components/parameters/hookId-root'
+      responses:
+        '204':
+          description: The hook was deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Delete hook
+      description: Delete hook by ID.
+  /api/hooks/{id}/recent-logs:
+    get:
+      operationId: ListHookRecentLogs
+      tags:
+      - Hooks
+      parameters:
+      - $ref: '#/components/parameters/hookId-root'
+      - name: logKey
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The log key to filter logs.
+      - name: page
+        in: query
+        description: Page number (starts from 1).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Entries per page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      responses:
+        '200':
+          description: A list of recent logs for the hook.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - id
+                  - key
+                  - payload
+                  - createdAt
+                  properties:
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    key:
+                      type: string
+                      minLength: 1
+                      maxLength: 128
+                    payload:
+                      type: object
+                      required:
+                      - key
+                      - result
+                      properties:
+                        key:
+                          type: string
+                        result:
+                          type: string
+                          enum:
+                          - Success
+                          - Error
+                        error:
+                          oneOf:
+                          - type: object
+                            additionalProperties:
+                              example: {}
+                          - type: string
+                        ip:
+                          type: string
+                        userAgent:
+                          type: string
+                        userAgentParsed:
+                          type: object
+                          properties:
+                            ua:
+                              type: string
+                            browser:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                version:
+                                  type: string
+                                major:
+                                  type: string
+                                type:
+                                  type: string
+                            device:
+                              type: object
+                              properties:
+                                model:
+                                  type: string
+                                type:
+                                  type: string
+                                vendor:
+                                  type: string
+                            engine:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                version:
+                                  type: string
+                            os:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                version:
+                                  type: string
+                            cpu:
+                              type: object
+                              properties:
+                                architecture:
+                                  type: string
+                        userId:
+                          type: string
+                        applicationId:
+                          type: string
+                        sessionId:
+                          type: string
+                        params:
+                          type: object
+                          additionalProperties:
+                            example: {}
+                    createdAt:
+                      type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get recent logs for a hook
+      description: Get recent logs that match the given query for the specified hook with pagination.
+  /api/hooks/{id}/test:
+    post:
+      operationId: CreateHookTest
+      tags:
+      - Hooks
+      parameters:
+      - $ref: '#/components/parameters/hookId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - events
+              - config
+              properties:
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                  description: An array of hook events for testing.
+                config:
+                  type: object
+                  required:
+                  - url
+                  properties:
+                    url:
+                      type: string
+                    headers:
+                      type: object
+                      additionalProperties:
+                        type: string
+                    retries:
+                      type: number
+                      deprecated: true
+                      description: Now the retry times is fixed to 3. Keep for backward compatibility.
+                  description: The hook configuration for testing.
+                event:
+                  deprecated: true
+                  description: Use `events` instead.
+      responses:
+        '204':
+          description: The hook test was successful.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Content
+      summary: Test hook
+      description: Test the specified hook with the given events and config.
+  /api/hooks/{id}/signing-key:
+    patch:
+      operationId: UpdateHookSigningKey
+      tags:
+      - Hooks
+      parameters:
+      - $ref: '#/components/parameters/hookId-root'
+      responses:
+        '200':
+          description: The signing key for the hook was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - event
+                - events
+                - config
+                - signingKey
+                - enabled
+                - createdAt
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    maxLength: 256
+                  event:
+                    type: string
+                    enum:
+                    - PostRegister
+                    - PostSignIn
+                    - PostSignInAdaptiveMfaTriggered
+                    - PostResetPassword
+                    - User.Created
+                    - User.Deleted
+                    - User.Data.Updated
+                    - User.SuspensionStatus.Updated
+                    - Role.Created
+                    - Role.Deleted
+                    - Role.Data.Updated
+                    - Role.Scopes.Updated
+                    - Scope.Created
+                    - Scope.Deleted
+                    - Scope.Data.Updated
+                    - Organization.Created
+                    - Organization.Deleted
+                    - Organization.Data.Updated
+                    - Organization.Membership.Updated
+                    - OrganizationRole.Created
+                    - OrganizationRole.Deleted
+                    - OrganizationRole.Data.Updated
+                    - OrganizationRole.Scopes.Updated
+                    - OrganizationScope.Created
+                    - OrganizationScope.Deleted
+                    - OrganizationScope.Data.Updated
+                    - Identifier.Lockout
+                    nullable: true
+                  events:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                      - PostRegister
+                      - PostSignIn
+                      - PostSignInAdaptiveMfaTriggered
+                      - PostResetPassword
+                      - User.Created
+                      - User.Deleted
+                      - User.Data.Updated
+                      - User.SuspensionStatus.Updated
+                      - Role.Created
+                      - Role.Deleted
+                      - Role.Data.Updated
+                      - Role.Scopes.Updated
+                      - Scope.Created
+                      - Scope.Deleted
+                      - Scope.Data.Updated
+                      - Organization.Created
+                      - Organization.Deleted
+                      - Organization.Data.Updated
+                      - Organization.Membership.Updated
+                      - OrganizationRole.Created
+                      - OrganizationRole.Deleted
+                      - OrganizationRole.Data.Updated
+                      - OrganizationRole.Scopes.Updated
+                      - OrganizationScope.Created
+                      - OrganizationScope.Deleted
+                      - OrganizationScope.Data.Updated
+                      - Identifier.Lockout
+                  config:
+                    type: object
+                    required:
+                    - url
+                    properties:
+                      url:
+                        type: string
+                      headers:
+                        type: object
+                        additionalProperties:
+                          type: string
+                      retries:
+                        type: number
+                  signingKey:
+                    type: string
+                    maxLength: 64
+                  enabled:
+                    type: boolean
+                  createdAt:
+                    type: number
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Update signing key for a hook
+      description: Update the signing key for the specified hook.
+components:
+  parameters:
+    hookId-root:
+      in: path
+      description: The unique identifier of the hook.
+      required: true
+      schema:
+        type: string
+      name: id
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes

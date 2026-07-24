@@ -1,0 +1,1078 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center SAML applications API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: SAML applications
+  description: SAML (Security Assertion Markup Language) applications represent applications that use SAML protocol for single sign-on (SSO). These endpoints allow you to manage SAML applications, including their configurations and signing certificates.
+paths:
+  /api/saml-applications:
+    post:
+      operationId: CreateSamlApplication
+      tags:
+      - SAML applications
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - nameIdFormat
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: The name of the SAML application.
+                description:
+                  type: string
+                  nullable: true
+                  description: Optional description of the SAML application.
+                customData:
+                  type: object
+                  description: Optional custom data for the application.
+                attributeMapping:
+                  type: object
+                  properties:
+                    sub:
+                      type: string
+                    name:
+                      type: string
+                    given_name:
+                      type: string
+                    family_name:
+                      type: string
+                    middle_name:
+                      type: string
+                    nickname:
+                      type: string
+                    preferred_username:
+                      type: string
+                    profile:
+                      type: string
+                    picture:
+                      type: string
+                    website:
+                      type: string
+                    email:
+                      type: string
+                    email_verified:
+                      type: string
+                    gender:
+                      type: string
+                    birthdate:
+                      type: string
+                    zoneinfo:
+                      type: string
+                    locale:
+                      type: string
+                    phone_number:
+                      type: string
+                    phone_number_verified:
+                      type: string
+                    address:
+                      type: string
+                    updated_at:
+                      type: string
+                    username:
+                      type: string
+                    created_at:
+                      type: string
+                    custom_data:
+                      type: string
+                    identities:
+                      type: string
+                    sso_identities:
+                      type: string
+                    roles:
+                      type: string
+                    organizations:
+                      type: string
+                    organization_data:
+                      type: string
+                    organization_roles:
+                      type: string
+                entityId:
+                  type: string
+                  maxLength: 128
+                  nullable: true
+                acsUrl:
+                  type: string
+                  required:
+                  - binding
+                  - url
+                  properties:
+                    binding:
+                      type: string
+                      enum:
+                      - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+                      - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+                    url:
+                      type: string
+                      format: url
+                  nullable: true
+                  description: The Assertion Consumer Service (ACS) URL where the SAML response will be sent.
+                encryption:
+                  type: object
+                  description: Validator function
+                  nullable: true
+                nameIdFormat:
+                  default: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+                  type: string
+                  enum:
+                  - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+                  - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+                  - urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+                  - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+      responses:
+        '201':
+          description: The SAML application was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - description
+                - type
+                - customData
+                - isThirdParty
+                - createdAt
+                - attributeMapping
+                - entityId
+                - acsUrl
+                - encryption
+                - nameIdFormat
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  description:
+                    type: string
+                    nullable: true
+                  type:
+                    type: string
+                    enum:
+                    - Native
+                    - SPA
+                    - Traditional
+                    - MachineToMachine
+                    - Protected
+                    - SAML
+                  customData:
+                    type: object
+                    description: arbitrary
+                  isThirdParty:
+                    type: boolean
+                  createdAt:
+                    type: number
+                  attributeMapping:
+                    type: object
+                    properties:
+                      sub:
+                        type: string
+                      name:
+                        type: string
+                      given_name:
+                        type: string
+                      family_name:
+                        type: string
+                      middle_name:
+                        type: string
+                      nickname:
+                        type: string
+                      preferred_username:
+                        type: string
+                      profile:
+                        type: string
+                      picture:
+                        type: string
+                      website:
+                        type: string
+                      email:
+                        type: string
+                      email_verified:
+                        type: string
+                      gender:
+                        type: string
+                      birthdate:
+                        type: string
+                      zoneinfo:
+                        type: string
+                      locale:
+                        type: string
+                      phone_number:
+                        type: string
+                      phone_number_verified:
+                        type: string
+                      address:
+                        type: string
+                      updated_at:
+                        type: string
+                      username:
+                        type: string
+                      created_at:
+                        type: string
+                      custom_data:
+                        type: string
+                      identities:
+                        type: string
+                      sso_identities:
+                        type: string
+                      roles:
+                        type: string
+                      organizations:
+                        type: string
+                      organization_data:
+                        type: string
+                      organization_roles:
+                        type: string
+                  entityId:
+                    type: string
+                    maxLength: 128
+                    nullable: true
+                  acsUrl:
+                    type: object
+                    required:
+                    - binding
+                    - url
+                    properties:
+                      binding:
+                        type: string
+                        enum:
+                        - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+                        - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+                      url:
+                        type: string
+                        format: url
+                    nullable: true
+                  encryption:
+                    type: object
+                    description: Validator function
+                    nullable: true
+                  nameIdFormat:
+                    type: string
+                    enum:
+                    - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+                    - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+                    - urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+                    - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+        '400':
+          description: Invalid request body.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: Validation error. The ACS URL is invalid or other validation errors.
+      summary: Create SAML application
+      description: Create a new SAML application with the given configuration. A default signing certificate with 3 years lifetime will be automatically created.
+  /api/saml-applications/{id}:
+    get:
+      operationId: GetSamlApplication
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      responses:
+        '200':
+          description: The SAML application details.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - description
+                - type
+                - customData
+                - isThirdParty
+                - createdAt
+                - attributeMapping
+                - entityId
+                - acsUrl
+                - encryption
+                - nameIdFormat
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  description:
+                    type: string
+                    nullable: true
+                  type:
+                    type: string
+                    enum:
+                    - Native
+                    - SPA
+                    - Traditional
+                    - MachineToMachine
+                    - Protected
+                    - SAML
+                  customData:
+                    type: object
+                    description: arbitrary
+                  isThirdParty:
+                    type: boolean
+                  createdAt:
+                    type: number
+                  attributeMapping:
+                    type: object
+                    properties:
+                      sub:
+                        type: string
+                      name:
+                        type: string
+                      given_name:
+                        type: string
+                      family_name:
+                        type: string
+                      middle_name:
+                        type: string
+                      nickname:
+                        type: string
+                      preferred_username:
+                        type: string
+                      profile:
+                        type: string
+                      picture:
+                        type: string
+                      website:
+                        type: string
+                      email:
+                        type: string
+                      email_verified:
+                        type: string
+                      gender:
+                        type: string
+                      birthdate:
+                        type: string
+                      zoneinfo:
+                        type: string
+                      locale:
+                        type: string
+                      phone_number:
+                        type: string
+                      phone_number_verified:
+                        type: string
+                      address:
+                        type: string
+                      updated_at:
+                        type: string
+                      username:
+                        type: string
+                      created_at:
+                        type: string
+                      custom_data:
+                        type: string
+                      identities:
+                        type: string
+                      sso_identities:
+                        type: string
+                      roles:
+                        type: string
+                      organizations:
+                        type: string
+                      organization_data:
+                        type: string
+                      organization_roles:
+                        type: string
+                  entityId:
+                    type: string
+                    maxLength: 128
+                    nullable: true
+                  acsUrl:
+                    type: object
+                    required:
+                    - binding
+                    - url
+                    properties:
+                      binding:
+                        type: string
+                        enum:
+                        - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+                        - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+                      url:
+                        type: string
+                        format: url
+                    nullable: true
+                  encryption:
+                    type: object
+                    description: Validator function
+                    nullable: true
+                  nameIdFormat:
+                    type: string
+                    enum:
+                    - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+                    - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+                    - urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+                    - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application was not found.
+        '422':
+          description: Unprocessable Content
+      summary: Get SAML application
+      description: Get SAML application details by ID.
+    patch:
+      operationId: UpdateSamlApplication
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: The name of the SAML application.
+                description:
+                  type: string
+                  nullable: true
+                  description: Description of the SAML application.
+                customData:
+                  type: object
+                  description: Custom data for the application.
+                attributeMapping:
+                  type: object
+                  properties:
+                    sub:
+                      type: string
+                    name:
+                      type: string
+                    given_name:
+                      type: string
+                    family_name:
+                      type: string
+                    middle_name:
+                      type: string
+                    nickname:
+                      type: string
+                    preferred_username:
+                      type: string
+                    profile:
+                      type: string
+                    picture:
+                      type: string
+                    website:
+                      type: string
+                    email:
+                      type: string
+                    email_verified:
+                      type: string
+                    gender:
+                      type: string
+                    birthdate:
+                      type: string
+                    zoneinfo:
+                      type: string
+                    locale:
+                      type: string
+                    phone_number:
+                      type: string
+                    phone_number_verified:
+                      type: string
+                    address:
+                      type: string
+                    updated_at:
+                      type: string
+                    username:
+                      type: string
+                    created_at:
+                      type: string
+                    custom_data:
+                      type: string
+                    identities:
+                      type: string
+                    sso_identities:
+                      type: string
+                    roles:
+                      type: string
+                    organizations:
+                      type: string
+                    organization_data:
+                      type: string
+                    organization_roles:
+                      type: string
+                entityId:
+                  type: string
+                  maxLength: 128
+                  nullable: true
+                acsUrl:
+                  type: string
+                  required:
+                  - binding
+                  - url
+                  properties:
+                    binding:
+                      type: string
+                      enum:
+                      - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+                      - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+                    url:
+                      type: string
+                      format: url
+                  nullable: true
+                  description: The Assertion Consumer Service (ACS) URL.
+                encryption:
+                  type: object
+                  description: Validator function
+                  nullable: true
+                nameIdFormat:
+                  type: string
+                  enum:
+                  - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+                  - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+                  - urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+                  - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+      responses:
+        '200':
+          description: The SAML application was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - description
+                - type
+                - customData
+                - isThirdParty
+                - createdAt
+                - attributeMapping
+                - entityId
+                - acsUrl
+                - encryption
+                - nameIdFormat
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  description:
+                    type: string
+                    nullable: true
+                  type:
+                    type: string
+                    enum:
+                    - Native
+                    - SPA
+                    - Traditional
+                    - MachineToMachine
+                    - Protected
+                    - SAML
+                  customData:
+                    type: object
+                    description: arbitrary
+                  isThirdParty:
+                    type: boolean
+                  createdAt:
+                    type: number
+                  attributeMapping:
+                    type: object
+                    properties:
+                      sub:
+                        type: string
+                      name:
+                        type: string
+                      given_name:
+                        type: string
+                      family_name:
+                        type: string
+                      middle_name:
+                        type: string
+                      nickname:
+                        type: string
+                      preferred_username:
+                        type: string
+                      profile:
+                        type: string
+                      picture:
+                        type: string
+                      website:
+                        type: string
+                      email:
+                        type: string
+                      email_verified:
+                        type: string
+                      gender:
+                        type: string
+                      birthdate:
+                        type: string
+                      zoneinfo:
+                        type: string
+                      locale:
+                        type: string
+                      phone_number:
+                        type: string
+                      phone_number_verified:
+                        type: string
+                      address:
+                        type: string
+                      updated_at:
+                        type: string
+                      username:
+                        type: string
+                      created_at:
+                        type: string
+                      custom_data:
+                        type: string
+                      identities:
+                        type: string
+                      sso_identities:
+                        type: string
+                      roles:
+                        type: string
+                      organizations:
+                        type: string
+                      organization_data:
+                        type: string
+                      organization_roles:
+                        type: string
+                  entityId:
+                    type: string
+                    maxLength: 128
+                    nullable: true
+                  acsUrl:
+                    type: object
+                    required:
+                    - binding
+                    - url
+                    properties:
+                      binding:
+                        type: string
+                        enum:
+                        - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+                        - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+                      url:
+                        type: string
+                        format: url
+                    nullable: true
+                  encryption:
+                    type: object
+                    description: Validator function
+                    nullable: true
+                  nameIdFormat:
+                    type: string
+                    enum:
+                    - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+                    - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+                    - urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+                    - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application was not found.
+        '422':
+          description: Validation error.
+      summary: Update SAML application
+      description: Update SAML application details by ID.
+    delete:
+      operationId: DeleteSamlApplication
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      responses:
+        '204':
+          description: The SAML application was deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application was not found.
+        '422':
+          description: The specified application is not a SAML application.
+      summary: Delete SAML application
+      description: Delete a SAML application by ID.
+  /api/saml-applications/{id}/secrets:
+    post:
+      operationId: CreateSamlApplicationSecret
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - lifeSpanInYears
+              properties:
+                lifeSpanInYears:
+                  type: integer
+                  minimum: 1
+                  description: The lifetime of the certificate in years (minimum 1 year).
+      responses:
+        '201':
+          description: The signing certificate was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - id
+                - certificate
+                - createdAt
+                - expiresAt
+                - active
+                - fingerprints
+                properties:
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  certificate:
+                    type: string
+                    minLength: 1
+                  createdAt:
+                    type: number
+                  expiresAt:
+                    type: number
+                  active:
+                    type: boolean
+                  fingerprints:
+                    type: object
+                    required:
+                    - sha256
+                    properties:
+                      sha256:
+                        type: object
+                        required:
+                        - formatted
+                        - unformatted
+                        properties:
+                          formatted:
+                            type: string
+                          unformatted:
+                            type: string
+        '400':
+          description: Invalid request body.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application was not found.
+      summary: Create SAML application secret
+      description: Create a new signing certificate for the SAML application.
+    get:
+      operationId: ListSamlApplicationSecrets
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      responses:
+        '200':
+          description: A list of signing certificates.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - id
+                  - certificate
+                  - createdAt
+                  - expiresAt
+                  - active
+                  - fingerprints
+                  properties:
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                      description: The ID of the signing certificate.
+                    certificate:
+                      type: string
+                      minLength: 1
+                      description: The X.509 certificate in PEM format.
+                    createdAt:
+                      type: number
+                    expiresAt:
+                      type: string
+                      format: date-time
+                      description: The expiration time of the certificate.
+                    active:
+                      type: boolean
+                    fingerprints:
+                      type: object
+                      required:
+                      - sha256
+                      properties:
+                        sha256:
+                          type: object
+                          required:
+                          - formatted
+                          - unformatted
+                          properties:
+                            formatted:
+                              type: string
+                            unformatted:
+                              type: string
+                    fingerprint:
+                      type: string
+                      description: The SHA-256 fingerprint of the certificate.
+                    isActive:
+                      type: boolean
+                      description: Whether this certificate is currently active.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application was not found.
+      summary: List SAML application secrets
+      description: Get all signing certificates of the SAML application.
+  /api/saml-applications/{id}/secrets/{secretId}:
+    delete:
+      operationId: DeleteSamlApplicationSecret
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      - $ref: '#/components/parameters/secretId'
+      responses:
+        '204':
+          description: The signing certificate was deleted successfully.
+        '400':
+          description: Cannot delete an active certificate.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application or certificate was not found.
+      summary: Delete SAML application secret
+      description: Delete a signing certificate of the SAML application. Active certificates cannot be deleted.
+    patch:
+      operationId: UpdateSamlApplicationSecret
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      - $ref: '#/components/parameters/secretId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - active
+              properties:
+                active:
+                  type: boolean
+                  description: Whether the certificate is active.
+      responses:
+        '200':
+          description: The signing certificate was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - id
+                - certificate
+                - createdAt
+                - expiresAt
+                - active
+                - fingerprints
+                properties:
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  certificate:
+                    type: string
+                    minLength: 1
+                  createdAt:
+                    type: number
+                  expiresAt:
+                    type: number
+                  active:
+                    type: boolean
+                  fingerprints:
+                    type: object
+                    required:
+                    - sha256
+                    properties:
+                      sha256:
+                        type: object
+                        required:
+                        - formatted
+                        - unformatted
+                        properties:
+                          formatted:
+                            type: string
+                          unformatted:
+                            type: string
+        '400':
+          description: Invalid request body.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: The SAML application or certificate was not found.
+      summary: Update SAML application secret
+      description: Update the status of a signing certificate.
+  /api/saml-applications/{id}/metadata:
+    get:
+      operationId: ListSamlApplicationMetadata
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      responses:
+        '200':
+          description: The SAML metadata XML.
+          content:
+            application/json:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+        '404':
+          description: The SAML application was not found.
+      summary: Get SAML application metadata
+      description: Get the SAML metadata XML for the application.
+  /api/saml-applications/{id}/callback:
+    get:
+      operationId: GetSamlApplicationCallback
+      tags:
+      - SAML applications
+      parameters:
+      - $ref: '#/components/parameters/samlApplicationId-root'
+      - name: code
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The authorization code from OIDC callback.
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The state parameter from OIDC callback.
+      - name: redirectUri
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The redirect URI for the callback.
+      - name: error
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: error_description
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns an HTML form that automatically submits the SAML response.
+          content:
+            application/json: {}
+        '400':
+          description: Invalid request or OIDC error.
+        '404':
+          description: The SAML application was not found.
+      summary: SAML application callback
+      description: Handle the OIDC callback for SAML application and generate SAML response.
+components:
+  parameters:
+    secretId:
+      in: path
+      description: The unique identifier of the secret.
+      required: true
+      schema:
+        type: string
+      name: secretId
+    samlApplicationId-root:
+      in: path
+      description: The unique identifier of the saml application.
+      required: true
+      schema:
+        type: string
+      name: id
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes

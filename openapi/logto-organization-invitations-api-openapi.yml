@@ -1,0 +1,515 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center Organization invitations API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: Organization invitations
+  description: Organization invitations are used to invite users to join an organization. They are sent via email and contain a link that the user can click to accept the invitation and join the organization.
+paths:
+  /api/organization-invitations/{id}:
+    get:
+      operationId: GetOrganizationInvitation
+      tags:
+      - Organization invitations
+      parameters:
+      - $ref: '#/components/parameters/organizationInvitationId-root'
+      responses:
+        '200':
+          description: The organization invitation, also contains the organization roles to be assigned to the user when they accept the invitation.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - inviterId
+                - invitee
+                - acceptedUserId
+                - organizationId
+                - status
+                - createdAt
+                - updatedAt
+                - expiresAt
+                - organizationRoles
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  inviterId:
+                    type: string
+                    maxLength: 21
+                    nullable: true
+                  invitee:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  acceptedUserId:
+                    type: string
+                    maxLength: 21
+                    nullable: true
+                  organizationId:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  status:
+                    type: string
+                    enum:
+                    - Pending
+                    - Accepted
+                    - Expired
+                    - Revoked
+                  createdAt:
+                    type: number
+                  updatedAt:
+                    type: number
+                  expiresAt:
+                    type: number
+                  organizationRoles:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - id
+                      - name
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Get organization invitation
+      description: Get an organization invitation by ID.
+    delete:
+      operationId: DeleteOrganizationInvitation
+      tags:
+      - Organization invitations
+      parameters:
+      - $ref: '#/components/parameters/organizationInvitationId-root'
+      responses:
+        '204':
+          description: The organization invitation was deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Delete organization invitation
+      description: Delete an organization invitation by ID.
+  /api/organization-invitations:
+    get:
+      operationId: ListOrganizationInvitations
+      tags:
+      - Organization invitations
+      parameters:
+      - name: organizationId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: inviterId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: invitee
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of organization invitations, each item also contains the organization roles to be assigned to the user when they accept the invitation.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - inviterId
+                  - invitee
+                  - acceptedUserId
+                  - organizationId
+                  - status
+                  - createdAt
+                  - updatedAt
+                  - expiresAt
+                  - organizationRoles
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    inviterId:
+                      type: string
+                      maxLength: 21
+                      nullable: true
+                    invitee:
+                      type: string
+                      minLength: 1
+                      maxLength: 256
+                    acceptedUserId:
+                      type: string
+                      maxLength: 21
+                      nullable: true
+                    organizationId:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    status:
+                      type: string
+                      enum:
+                      - Pending
+                      - Accepted
+                      - Expired
+                      - Revoked
+                    createdAt:
+                      type: number
+                    updatedAt:
+                      type: number
+                    expiresAt:
+                      type: number
+                    organizationRoles:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                        - id
+                        - name
+                        properties:
+                          id:
+                            type: string
+                          name:
+                            type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get organization invitations
+      description: Get organization invitations.
+    post:
+      operationId: CreateOrganizationInvitation
+      tags:
+      - Organization invitations
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - invitee
+              - organizationId
+              - expiresAt
+              - messagePayload
+              properties:
+                inviterId:
+                  type: string
+                  maxLength: 21
+                  nullable: true
+                  description: The ID of the user who is inviting the user to join the organization.
+                invitee:
+                  type: string
+                  format: email
+                  description: The email address of the user to invite to join the organization.
+                organizationId:
+                  type: string
+                  minLength: 1
+                  maxLength: 21
+                  description: The ID of the organization to invite the user to join.
+                expiresAt:
+                  type: number
+                  description: The epoch time in milliseconds when the invitation expires.
+                organizationRoleIds:
+                  type: array
+                  items:
+                    type: string
+                  description: The IDs of the organization roles to assign to the user when they accept the invitation.
+                messagePayload:
+                  default: false
+                  oneOf:
+                  - type: object
+                    properties:
+                      code:
+                        type: string
+                      link:
+                        type: string
+                      locale:
+                        type: string
+                      uiLocales:
+                        type: string
+                  - type: boolean
+                    format: 'false'
+                  description: The message payload for the "OrganizationInvitation" template to use when sending the invitation via email. If it is `false`, the invitation will not be sent via email.
+        description: The organization invitation to create.
+      responses:
+        '201':
+          description: The organization invitation was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - inviterId
+                - invitee
+                - acceptedUserId
+                - organizationId
+                - status
+                - createdAt
+                - updatedAt
+                - expiresAt
+                - organizationRoles
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  inviterId:
+                    type: string
+                    maxLength: 21
+                    nullable: true
+                  invitee:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  acceptedUserId:
+                    type: string
+                    maxLength: 21
+                    nullable: true
+                  organizationId:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  status:
+                    type: string
+                    enum:
+                    - Pending
+                    - Accepted
+                    - Expired
+                    - Revoked
+                  createdAt:
+                    type: number
+                  updatedAt:
+                    type: number
+                  expiresAt:
+                    type: number
+                  organizationRoles:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - id
+                      - name
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        '400':
+          description: The organization invitation could not be created. This can happen if the input is invalid or if the expiration date is in the past.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: Unprocessable Content
+        '501':
+          description: No email connector is configured for the tenant.
+      summary: Create organization invitation
+      description: Create an organization invitation and optionally send it via email. The tenant should have an email connector configured if you want to send the invitation via email at this point.
+  /api/organization-invitations/{id}/message:
+    post:
+      operationId: CreateOrganizationInvitationMessage
+      tags:
+      - Organization invitations
+      parameters:
+      - $ref: '#/components/parameters/organizationInvitationId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                link:
+                  type: string
+                locale:
+                  type: string
+                uiLocales:
+                  type: string
+        description: The message payload for the "OrganizationInvitation" template to use when sending the invitation via email.
+      responses:
+        '204':
+          description: The invitation message was resent successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Resend invitation message
+      description: Resend the invitation message to the invitee.
+  /api/organization-invitations/{id}/status:
+    put:
+      operationId: ReplaceOrganizationInvitationStatus
+      tags:
+      - Organization invitations
+      parameters:
+      - $ref: '#/components/parameters/organizationInvitationId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - status
+              properties:
+                acceptedUserId:
+                  type: string
+                  maxLength: 21
+                  nullable: true
+                  description: The ID of the user who accepted the organization invitation. Required if the status is "Accepted".
+                status:
+                  type: string
+                  enum:
+                  - Accepted
+                  - Revoked
+                  description: The status of the organization invitation.
+        description: The organization invitation status to update.
+      responses:
+        '200':
+          description: The organization invitation status was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - inviterId
+                - invitee
+                - acceptedUserId
+                - organizationId
+                - status
+                - createdAt
+                - updatedAt
+                - expiresAt
+                - organizationRoles
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  inviterId:
+                    type: string
+                    maxLength: 21
+                    nullable: true
+                  invitee:
+                    type: string
+                    minLength: 1
+                    maxLength: 256
+                  acceptedUserId:
+                    type: string
+                    maxLength: 21
+                    nullable: true
+                  organizationId:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  status:
+                    type: string
+                    enum:
+                    - Pending
+                    - Accepted
+                    - Expired
+                    - Revoked
+                  createdAt:
+                    type: number
+                  updatedAt:
+                    type: number
+                  expiresAt:
+                    type: number
+                  organizationRoles:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - id
+                      - name
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: The organization invitation status could not be updated. This can happen if the current status is not "Pending" or if the status is "Accepted" and the accepted user ID is not provided.
+      summary: Update organization invitation status
+      description: Update the status of an organization invitation by ID.
+components:
+  parameters:
+    organizationInvitationId-root:
+      in: path
+      description: The unique identifier of the organization invitation.
+      required: true
+      schema:
+        type: string
+      name: id
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes

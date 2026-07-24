@@ -1,0 +1,135 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center Authn API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: Authn
+  description: Authentication endpoints for third-party integrations and identity providers.
+paths:
+  /api/authn/hasura:
+    get:
+      operationId: GetHasuraAuth
+      tags:
+      - Authn
+      parameters:
+      - name: resource
+        in: query
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      - name: unauthorizedRole
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The authenticated user claims in Hasura format. See [Hasura docs](https://hasura.io/docs/latest/auth/authentication/webhook/#webhook-response) for more information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  X-Hasura-User-Id:
+                    type: string
+                  X-Hasura-Role:
+                    type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      security: []
+      summary: Hasura auth hook endpoint
+      description: The `HASURA_GRAPHQL_AUTH_HOOK` endpoint for Hasura auth. Use this endpoint to integrate Hasura's [webhook authentication flow](https://hasura.io/docs/latest/auth/authentication/webhook/).
+  /api/authn/saml/{connectorId}:
+    post:
+      operationId: AssertSaml
+      tags:
+      - Authn
+      parameters:
+      - $ref: '#/components/parameters/connectorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: arbitrary
+      responses:
+        '302':
+          description: Redirect to the endpoint to complete the authentication flow.
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      security: []
+      summary: SAML ACS endpoint (social)
+      description: 'The Assertion Consumer Service (ACS) endpoint for Simple Assertion Markup Language (SAML) social connectors.
+
+
+        SAML social connectors are deprecated. Use the SSO SAML connector instead.'
+      deprecated: true
+  /api/authn/single-sign-on/saml/{connectorId}:
+    post:
+      operationId: AssertSingleSignOnSaml
+      tags:
+      - Authn
+      parameters:
+      - $ref: '#/components/parameters/connectorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - SAMLResponse
+              properties:
+                RelayState:
+                  type: string
+                  description: SAML standard parameter that will be transmitted between the identity provider and the service provider. It will be used as the session ID (jti) of the user's Logto authentication session. This API will use this session ID to retrieve the SSO connector authentication session from the database.
+                SAMLResponse:
+                  type: string
+                  description: The SAML assertion response from the identity provider (IdP).
+      responses:
+        '302':
+          description: Redirect to the endpoint to complete the authentication flow.
+        '400':
+          description: Invalid SAML assertion response.
+        '404':
+          description: Invalid SSO connector ID or SSO connector authentication session not found.
+      security: []
+      summary: SAML ACS endpoint (SSO)
+      description: 'The Assertion Consumer Service (ACS) endpoint for Simple Assertion Markup Language (SAML) single sign-on (SSO) connectors.
+
+
+        This endpoint is used to complete the SAML SSO authentication flow. It receives the SAML assertion response from the identity provider (IdP) and redirects the user to complete the authentication flow.'
+components:
+  parameters:
+    connectorId:
+      in: path
+      description: The unique identifier of the connector.
+      required: true
+      schema:
+        type: string
+      name: connectorId
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes

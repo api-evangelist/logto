@@ -1,0 +1,303 @@
+openapi: 3.0.1
+info:
+  title: Logto API references Account center Organization scopes API
+  description: 'API references for Logto services.
+
+
+    Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.'
+  version: Cloud
+servers:
+- url: https://[tenant_id].logto.app/
+  description: Logto endpoint address.
+security:
+- OAuth2:
+  - all
+tags:
+- name: Organization scopes
+  description: 'Organization scopes (permissions) are used to define actions that can be performed on a organization. Every organization scope is a part of the organization template.
+
+
+    Organization scopes will only be meaningful within an organization context. For example, a user may have a `read` scope for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/) to get started with organizations and organization template.'
+paths:
+  /api/organization-scopes:
+    get:
+      operationId: ListOrganizationScopes
+      tags:
+      - Organization scopes
+      parameters:
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number (starts from 1).
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        description: Entries per page.
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      responses:
+        '200':
+          description: A list of organization scopes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - tenantId
+                  - id
+                  - name
+                  - description
+                  properties:
+                    tenantId:
+                      type: string
+                      maxLength: 21
+                    id:
+                      type: string
+                      minLength: 1
+                      maxLength: 21
+                    name:
+                      type: string
+                      minLength: 1
+                      maxLength: 128
+                    description:
+                      type: string
+                      maxLength: 256
+                      nullable: true
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      summary: Get organization scopes
+      description: Get organization scopes that match with optional pagination.
+    post:
+      operationId: CreateOrganizationScope
+      tags:
+      - Organization scopes
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                tenantId:
+                  type: string
+                  maxLength: 21
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                  description: The name of the organization scope. It must be unique within the organization template.
+                description:
+                  type: string
+                  maxLength: 256
+                  nullable: true
+                  description: The description of the organization scope.
+      responses:
+        '201':
+          description: The organization scope was created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - description
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
+                  description:
+                    type: string
+                    maxLength: 256
+                    nullable: true
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: The organization scope name is already in use.
+      summary: Create an organization scope
+      description: Create a new organization scope with the given data.
+  /api/organization-scopes/{id}:
+    get:
+      operationId: GetOrganizationScope
+      tags:
+      - Organization scopes
+      parameters:
+      - $ref: '#/components/parameters/organizationScopeId-root'
+      responses:
+        '200':
+          description: The organization scope data for the given ID.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - description
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
+                  description:
+                    type: string
+                    maxLength: 256
+                    nullable: true
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Get organization scope
+      description: Get organization scope details by ID.
+    patch:
+      operationId: UpdateOrganizationScope
+      tags:
+      - Organization scopes
+      parameters:
+      - $ref: '#/components/parameters/organizationScopeId-root'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tenantId:
+                  type: string
+                  maxLength: 21
+                id:
+                  type: string
+                  minLength: 1
+                  maxLength: 21
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                  description: The updated name of the organization scope. It must be unique within the organization template.
+                description:
+                  type: string
+                  maxLength: 256
+                  nullable: true
+                  description: The updated description of the organization scope.
+      responses:
+        '200':
+          description: The organization scope was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tenantId
+                - id
+                - name
+                - description
+                properties:
+                  tenantId:
+                    type: string
+                    maxLength: 21
+                  id:
+                    type: string
+                    minLength: 1
+                    maxLength: 21
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
+                  description:
+                    type: string
+                    maxLength: 256
+                    nullable: true
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: The organization scope name is already in use.
+      summary: Update organization scope
+      description: Update organization scope details by ID with the given data.
+    delete:
+      operationId: DeleteOrganizationScope
+      tags:
+      - Organization scopes
+      parameters:
+      - $ref: '#/components/parameters/organizationScopeId-root'
+      responses:
+        '204':
+          description: The organization scope was deleted successfully.
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      summary: Delete organization scope
+      description: Delete organization scope by ID.
+components:
+  parameters:
+    organizationScopeId-root:
+      in: path
+      description: The unique identifier of the organization scope.
+      required: true
+      schema:
+        type: string
+      name: id
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: "Logto Management API is a comprehensive set of REST APIs that gives you the full control over Logto to suit your product needs and tech stack. To see the full guide on Management API interactions, visit [Interact with Management API](https://docs.logto.io/docs/recipes/interact-with-management-api/).\n\n### Get started\n\nThe API follows the same authentication principles as other API resources in Logto, with some slight differences. To use Logto Management API:\n\n1. A machine-to-machine (M2M) application needs to be created.\n2. A machine-to-machine (M2M) role with Management API permission `all` needs to be assigned to the application.\n\nOnce you have them set up, you can use the `client_credentials` grant type to fetch an access token and use it to authenticate your requests to the Logto Management API.\n\n### Fetch an access token\n\nTo fetch an access token, you need to make a `POST` request to the `/oidc/token` endpoint of your Logto tenant.\n\nFor Logto Cloud users, the base URL is your Logto endpoint, i.e. `https://[tenant-id].logto.app`. The tenant ID can be found in the following places:\n\n- The first path segment of the URL when you are signed in to Logto Cloud. For example, if the URL is `https://cloud.logto.io/foo/get-started`, the tenant ID is `foo`.\n- In the \"Settings\" tab of Logto Cloud.\n\nThe request should follow the OAuth 2.0 [client credentials](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) grant type. Here is a non-normative example of how to fetch an access token:\n\n```bash\ncurl --location \\\n  --request POST 'https://[tenant-id].logto.app/oidc/token' \\\n  --header 'Content-Type: application/x-www-form-urlencoded' \\\n  --data-urlencode 'grant_type=client_credentials' \\\n  --data-urlencode 'client_id=[app-id]' \\\n  --data-urlencode 'client_secret=[app-secret]' \\\n  --data-urlencode 'resource=https://[tenant-id].logto.app/api' \\\n  --data-urlencode 'scope=all'\n```\n\nReplace `[tenant-id]`, `[app-id]`, and `[app-secret]` with your Logto tenant ID, application ID, and application secret, respectively.\n\nThe response will be like:\n\n```json\n{\n  \"access_token\": \"eyJhbG...2g\", // Use this value for accessing the Logto Management API\n  \"expires_in\": 3600, // Token expiration in seconds\n  \"token_type\": \"Bearer\", // Token type for your request when using the access token\n  \"scope\": \"all\" // Scope `all` for Logto Management API\n}\n```\n\n### Use the access token\n\nOnce you have the access token, you can use it to authenticate your requests to the Logto Management API. The access token should be included in the `Authorization` header of your requests with the `Bearer` authentication scheme.\n\nHere is an example of how to list the first page of users in your Logto tenant:\n\n```bash\ncurl --location \\\n  --request GET 'https://[tenant-id].logto.app/api/users' \\\n  --header 'Authorization: Bearer eyJhbG...2g'\n```\n\nReplace `[tenant-id]` with your Logto tenant ID and `eyJhbG...2g` with the access token you fetched earlier."
+      flows:
+        clientCredentials:
+          tokenUrl: /oidc/token
+          scopes:
+            all: All scopes
