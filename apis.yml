@@ -3,7 +3,20 @@ name: Logto
 description: Logto is an open source identity infrastructure platform with authentication, authorization, user management,
   and multi-tenancy supporting OIDC, OAuth, and SAML.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/logto.png
 tags:
 - Authentication
 - Authorization
@@ -17,23 +30,3603 @@ created: '2026-03-25'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: logto:logto-api
-  name: Logto API
-  description: The Logto Management API provides full programmatic access to applications, users, roles, organizations, connectors,
-    sign-in experiences, and tenant configuration. The OpenAPI specification covers Logto Cloud; Logto OSS instances expose
-    the same surface via /api/swagger.json.
+- aid: logto:logto-account-center-api
+  name: Logto Account center API
+  description: Customize your account API settings.
   humanURL: https://docs.logto.io
   tags:
-  - Authentication
-  - Identity
-  - User Management
+  - Account center
   properties:
+  - type: OpenAPI
+    url: openapi/logto-account-center-api-openapi.yml
   - type: Documentation
     url: https://docs.logto.io
   - type: GitHubRepository
     url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-applications-api
+  name: Logto Applications API
+  description: >-
+    Application represents your registered software program or service that has been authorized to access
+    user information and perform actions on behalf of users within the system. Currently, Logto supports
+    four types of applications:
+
+
+    - Traditional web
+
+
+    - Single-page app
+
+    - Native app
+
+    - Machine-to-machine app.
+
+
+    Depending on the application type, it may have different authentication flows and access to the system.
+    See [🔗 Integrate Logto in your application](https://docs.logto.io/docs/recipes/integrate-logto/) to
+    learn more about how to integrate Logto into your application.
+
+
+    Role-based access control (RBAC) is supported for machine-to-machine applications. See [🔐 Role-based
+    access control (RBAC)](https://docs.logto.io/docs/recipes/rbac/) to get started with role-based access
+    control.
+  humanURL: https://docs.logto.io
+  tags:
+  - Applications
+  properties:
   - type: OpenAPI
-    url: openapi/logto-openapi-original.yml
+    url: openapi/logto-applications-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-audit-logs-api
+  name: Logto Audit logs API
+  description: >-
+    Audit logs are used to track end-user activities in Logto sign-in experience and other flows. It does
+    not include activities in Logto Console.
+  humanURL: https://docs.logto.io
+  tags:
+  - Audit logs
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-audit-logs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-authn-api
+  name: Logto Authn API
+  description: Authentication endpoints for third-party integrations and identity providers.
+  humanURL: https://docs.logto.io
+  tags:
+  - Authn
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-authn-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-captcha-provider-api
+  name: Logto Captcha provider API
+  description: Setup the captcha provider.
+  humanURL: https://docs.logto.io
+  tags:
+  - Captcha provider
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-captcha-provider-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-configs-api
+  name: Logto Configs API
+  description: >-
+    Endpoints for managing Logto global configurations for the tenant, such as admin console config and
+    OIDC signing keys.
+
+
+    See [🔑 Signing keys](https://docs.logto.io/docs/recipes/signing-keys-rotation/) to learn more about
+    signing keys and key rotation.
+  humanURL: https://docs.logto.io
+  tags:
+  - Configs
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-configs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-connector-factories-api
+  name: Logto Connector factories API
+  description: >-
+    Connector factories are used to create connectors. They can be treated as preconfigured templates
+    for connectors.
+  humanURL: https://docs.logto.io
+  tags:
+  - Connector factories
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-connector-factories-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-connectors-api
+  name: Logto Connectors API
+  description: >-
+    Connectors are the bridge between Logto and other third-party vendors who provide short message service
+    (SMS), email service, or user information on wildly accepted social media.
+
+
+    To learn more about connectors, please see [🪛 Configure connectors](https://docs.logto.io/docs/recipes/configure-connectors/).
+  humanURL: https://docs.logto.io
+  tags:
+  - Connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-connectors-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-custom-phrases-api
+  name: Logto Custom phrases API
+  description: >-
+    Endpoints for managing custom phrases that allow you to customize the phrases displayed in the sign-in
+    experience.
+
+
+    See [Localized language](https://docs.logto.io/docs/recipes/customize-sie/localized-language/) to
+    learn more about custom phrases for localization.
+  humanURL: https://docs.logto.io
+  tags:
+  - Custom phrases
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-custom-phrases-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-custom-profile-fields-api
+  name: Logto Custom profile fields API
+  description: >-
+    An admin feature used to create a customized user profile form, which is used to collect additional
+    user information upon successful registrations.
+  humanURL: https://docs.logto.io
+  tags:
+  - Custom profile fields
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-custom-profile-fields-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-dashboard-api
+  name: Logto Dashboard API
+  description: >-
+    Endpoints that power the dashboard page of Console to show the statistics of the current tenant.
+  humanURL: https://docs.logto.io
+  tags:
+  - Dashboard
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-dashboard-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-domains-api
+  name: Logto Domains API
+  description: >-
+    Custom domain lets you present a consistent brand by having your own domain name on the sign-in and
+    registration pages. See [🌍 Custom domain](https://docs.logto.io/docs/recipes/custom-domain/) for more
+    details.
+  humanURL: https://docs.logto.io
+  tags:
+  - Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-domains-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-email-templates-api
+  name: Logto Email templates API
+  description: >-
+    Manage custom i18n email templates for various types of emails, such as sign-in verification codes
+    and password resets.
+  humanURL: https://docs.logto.io
+  tags:
+  - Email templates
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-email-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-experience-api
+  name: Logto Experience API
+  description: >-
+    The Experience endpoints allow end-users to interact with Logto for identity verification and profile
+    completion.
+  humanURL: https://docs.logto.io
+  tags:
+  - Experience
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-experience-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-hooks-api
+  name: Logto Hooks API
+  description: >-
+    Hook enables you to effortlessly receive real-time updates regarding specific events, such as user
+    registration, sign-in, or password reset. See [🪝 Webhooks] to get started and learn more.
+  humanURL: https://docs.logto.io
+  tags:
+  - Hooks
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-hooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-my-account-api
+  name: Logto My account API
+  description: >-
+    Account routes provide functionality for managing user profile for the end user to interact directly
+    with access tokens.
+  humanURL: https://docs.logto.io
+  tags:
+  - My account
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-my-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-one-time-tokens-api
+  name: Logto One-time tokens API
+  description: >-
+    One-time tokens are used for various authentication and verification purposes. They are typically
+    sent via email and have an expiration time.
+  humanURL: https://docs.logto.io
+  tags:
+  - One-time tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-one-time-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-organization-invitations-api
+  name: Logto Organization invitations API
+  description: >-
+    Organization invitations are used to invite users to join an organization. They are sent via email
+    and contain a link that the user can click to accept the invitation and join the organization.
+  humanURL: https://docs.logto.io
+  tags:
+  - Organization invitations
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-organization-invitations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-organization-roles-api
+  name: Logto Organization roles API
+  description: >-
+    Organization roles are used to define a set of organization scopes that can be assigned to users.
+    Every organization role is a part of the organization template.
+
+
+    Organization roles will only be meaningful within an organization context. For example, a user may
+    have an `admin` role for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/)
+    to get started with organizations and organization template.
+  humanURL: https://docs.logto.io
+  tags:
+  - Organization roles
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-organization-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-organization-scopes-api
+  name: Logto Organization scopes API
+  description: >-
+    Organization scopes (permissions) are used to define actions that can be performed on a organization.
+    Every organization scope is a part of the organization template.
+
+
+    Organization scopes will only be meaningful within an organization context. For example, a user may
+    have a `read` scope for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/)
+    to get started with organizations and organization template.
+  humanURL: https://docs.logto.io
+  tags:
+  - Organization scopes
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-organization-scopes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-organizations-api
+  name: Logto Organizations API
+  description: >-
+    Organization is a concept that brings together multiple identities (mostly users). Logto supports
+    multiple organizations, and each organization can have multiple users.
+
+
+    Every organization shares the same set (organization template) of roles and permissions. Each user
+    can have different roles in different organizations. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/)
+    to get started with organizations and organization template.
+  humanURL: https://docs.logto.io
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-resources-api
+  name: Logto Resources API
+  description: >-
+    Resources (API resources) represent the APIs that you want to protect with Logto. Each resource has
+    a unique indicator (URI) and a set of scopes (permissions). The resources will be used in the authorization
+    process which conforms to [RFC 8707: Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html).
+
+
+    See [⚔️ Protect your API](https://docs.logto.io/docs/recipes/protect-your-api/) to learn more about
+    how to define API resources and protect your APIs with Logto.
+  humanURL: https://docs.logto.io
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-resources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-roles-api
+  name: Logto Roles API
+  description: >-
+    Role management for API resource RBAC (role-based access control). See [🔐 Role-based access control
+    (RBAC)](https://docs.logto.io/docs/recipes/rbac/) to get started with role-based access control.
+  humanURL: https://docs.logto.io
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-roles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-saml-applications-api
+  name: Logto SAML applications API
+  description: >-
+    SAML (Security Assertion Markup Language) applications represent applications that use SAML protocol
+    for single sign-on (SSO). These endpoints allow you to manage SAML applications, including their configurations
+    and signing certificates.
+  humanURL: https://docs.logto.io
+  tags:
+  - SAML applications
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-saml-applications-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-saml-applications-auth-flow-api
+  name: Logto SAML applications auth flow API
+  description: Endpoints for SAML (Security Assertion Markup Language) applications auth flow.
+  humanURL: https://docs.logto.io
+  tags:
+  - SAML applications auth flow
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-saml-applications-auth-flow-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-secrets-api
+  name: Logto Secrets API
+  description: >-
+    Secrets are used to store sensitive information such as API keys, third-party tokens, and other confidential
+    data in Logto's Secret Vault.
+  humanURL: https://docs.logto.io
+  tags:
+  - Secrets
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-secrets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-sentinel-activities-api
+  name: Logto Sentinel activities API
+  description: >-
+    Sentinel activities are used to track and manage user authentication attempts, including successful
+    and failed attempts. Based on your sentinel policy settings, Logto will automatically block users
+    after a certain number of failed attempts. This helps to prevent unauthorized access and protect sensitive
+    data.
+  humanURL: https://docs.logto.io
+  tags:
+  - Sentinel activities
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-sentinel-activities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-sign-in-experience-api
+  name: Logto Sign-in experience API
+  description: >-
+    Endpoints for customizing Logto sign-in experience. See [🎨 Customize sign-in experience](https://docs.logto.io/docs/recipes/customize-sie/)
+    to learn more about how the configuration works and reflects on the user interface.
+  humanURL: https://docs.logto.io
+  tags:
+  - Sign-in experience
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-sign-in-experience-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-sso-connector-providers-api
+  name: Logto SSO connector providers API
+  description: >-
+    Endpoints for SSO (single sign-on) connector providers.
+
+
+    SSO connector providers provide the metadata and configuration templates for creating SSO connectors.
+  humanURL: https://docs.logto.io
+  tags:
+  - SSO connector providers
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-sso-connector-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-sso-connectors-api
+  name: Logto SSO connectors API
+  description: >-
+    Endpoints for managing single sign-on (SSO) connectors. Your sign-in experience can use these well-configured
+    SSO connectors to authenticate users and sync user attributes from external identity providers (IdPs).
+
+
+    SSO connectors are created by SSO connector provider factories.
+  humanURL: https://docs.logto.io
+  tags:
+  - SSO connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-sso-connectors-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-status-api
+  name: Logto Status API
+  description: Endpoints for health check.
+  humanURL: https://docs.logto.io
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-status-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-subject-tokens-api
+  name: Logto Subject tokens API
+  description: >-
+    The subject token API provides the ability to create a new subject token for the use of impersonating
+    the user.
+  humanURL: https://docs.logto.io
+  tags:
+  - Subject tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-subject-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-swagger-json-api
+  name: Logto Swagger.json API
+  description: Endpoints for the Swagger JSON document.
+  humanURL: https://docs.logto.io
+  tags:
+  - Swagger.json
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-swagger-json-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-systems-api
+  name: Logto Systems API
+  description: Endpoints for system constants and information.
+  humanURL: https://docs.logto.io
+  tags:
+  - Systems
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-systems-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-user-assets-api
+  name: Logto User assets API
+  description: Endpoints for managing user uploaded assets.
+  humanURL: https://docs.logto.io
+  tags:
+  - User assets
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-user-assets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-users-api
+  name: Logto Users API
+  description: >-
+    Endpoints for user management. Including creating, updating, deleting, and querying users with flexible
+    filters. In addition to the endpoints, see [🧑‍🚀 Manage users](https://docs.logto.io/docs/recipes/manage-users/)
+    for more insights.
+  humanURL: https://docs.logto.io
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-verification-codes-api
+  name: Logto Verification codes API
+  description: >-
+    Endpoints for handling verification codes. It is helpful when building a custom profile page in your
+    app. See [👤 User profile](https://docs.logto.io/docs/recipes/user-profile/#optional-validate-verification-code)
+    for more details.
+
+
+    Note: Before you call the endpoints, you need to setup your email/SMS connector first.
+  humanURL: https://docs.logto.io
+  tags:
+  - Verification codes
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-verification-codes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-verifications-api
+  name: Logto Verifications API
+  description: >-
+    Endpoints for creating and validating verification records, which can be used in Profile routes.
+  humanURL: https://docs.logto.io
+  tags:
+  - Verifications
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-verifications-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
+  - type: X-NaftikoCapability
+    url: capabilities/logto-account-center.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-audit-logs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-authn.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-captcha-provider.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-configs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connector-factories.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-phrases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-custom-profile-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-dashboard.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-domains.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-email-templates.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-hooks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-my-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-one-time-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-invitations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organization-scopes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-organizations.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-roles.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-saml-applications-auth-flow.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connector-providers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sso-connectors.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-secrets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sentinel-activities.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-sign-in-experience.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-status.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-subject-tokens.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-swagger-json.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-systems.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-user-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-users.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verification-codes.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-verifications.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/logto-well-known.yaml
+- aid: logto:logto-well-known-api
+  name: Logto Well-known API
+  description: >-
+    Well-Known routes provide information and resources that can be discovered by clients without the
+    need for authentication.
+  humanURL: https://docs.logto.io
+  tags:
+  - Well-known
+  properties:
+  - type: OpenAPI
+    url: openapi/logto-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://docs.logto.io
+  - type: GitHubRepository
+    url: https://github.com/logto-io/logto
   - type: X-NaftikoCapability
     url: capabilities/logto-account-center.yaml
   - type: X-NaftikoCapability
