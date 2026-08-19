@@ -1,0 +1,339 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Organization roles API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organization roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ]
+          },
+          "docs": "Get organization role details by ID."
+        },
+        {
+          "info": {
+            "name": "Update organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update organization role details by ID with the given data."
+        },
+        {
+          "info": {
+            "name": "Delete organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ]
+          },
+          "docs": "Delete organization role by ID."
+        },
+        {
+          "info": {
+            "name": "Get organization roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/organization-roles",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get organization roles with pagination."
+        },
+        {
+          "info": {
+            "name": "Create an organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/organization-roles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new organization role with the given data."
+        },
+        {
+          "info": {
+            "name": "Get organization role scopes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/scopes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get organization scopes that are assigned to the specified organization role with optional pagination."
+        },
+        {
+          "info": {
+            "name": "Assign organization scopes to organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/scopes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign organization scopes to the specified organization role"
+        },
+        {
+          "info": {
+            "name": "Replace organization scopes for organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/scopes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace all organization scopes that are assigned to the specified organization role with the given organization scopes. This effectively removes all existing organization scope assignments and replaces them with the new ones."
+        },
+        {
+          "info": {
+            "name": "Remove organization scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/scopes/:organizationScopeId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              },
+              {
+                "name": "organizationScopeId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization scope."
+              }
+            ]
+          },
+          "docs": "Remove a organization scope assignment from the specified organization role."
+        },
+        {
+          "info": {
+            "name": "Get organization role resource scopes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/resource-scopes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get resource scopes that are assigned to the specified organization role with optional pagination."
+        },
+        {
+          "info": {
+            "name": "Assign resource scopes to organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/resource-scopes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign resource scopes to the specified organization role"
+        },
+        {
+          "info": {
+            "name": "Replace resource scopes for organization role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/resource-scopes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace all resource scopes that are assigned to the specified organization role with the given resource scopes. This effectively removes all existing organization scope assignments and replaces them with the new ones."
+        },
+        {
+          "info": {
+            "name": "Remove resource scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/organization-roles/:id/resource-scopes/:scopeId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization role."
+              },
+              {
+                "name": "scopeId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the scope."
+              }
+            ]
+          },
+          "docs": "Remove a resource scope assignment from the specified organization role."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

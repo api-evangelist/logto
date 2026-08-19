@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center SSO connectors API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSO connectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List SSO connectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/sso-connectors",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get SSO connectors with pagination. In addition to the raw SSO connector data, a copy of fetched or parsed IdP configs and a copy of connector provider's data will be attached."
+        },
+        {
+          "info": {
+            "name": "Create SSO connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/sso-connectors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an new SSO connector instance for a given provider."
+        },
+        {
+          "info": {
+            "name": "Get SSO connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/sso-connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the sso connector."
+              }
+            ]
+          },
+          "docs": "Get SSO connector data by ID. In addition to the raw SSO connector data, a copy of fetched or parsed IdP configs and a copy of connector provider's data will be attached."
+        },
+        {
+          "info": {
+            "name": "Update SSO connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/sso-connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the sso connector."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an SSO connector by ID. This method performs a partial update."
+        },
+        {
+          "info": {
+            "name": "Delete SSO connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/sso-connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the sso connector."
+              }
+            ]
+          },
+          "docs": "Delete an SSO connector by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

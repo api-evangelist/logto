@@ -1,0 +1,3306 @@
+{
+  "item": [
+    {
+      "id": "fb62f1d3-d8e8-4c99-903f-ce34a82df20b",
+      "name": "SAML applications",
+      "description": {
+        "content": "SAML (Security Assertion Markup Language) applications represent applications that use SAML protocol for single sign-on (SSO). These endpoints allow you to manage SAML applications, including their configurations and signing certificates.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8c1150e-ecc9-4830-b293-02fa334b15e7",
+          "name": "Create SAML application",
+          "request": {
+            "name": "Create SAML application",
+            "description": {
+              "content": "Create a new SAML application with the given configuration. A default signing certificate with 3 years lifetime will be automatically created.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "896fb246-e99c-4744-8af1-94a99a1c4bd7",
+              "name": "The SAML application was created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"type\": \"MachineToMachine\",\n  \"customData\": {},\n  \"isThirdParty\": true,\n  \"createdAt\": 9486.284150363108,\n  \"attributeMapping\": {\n    \"sub\": \"string\",\n    \"name\": \"string\",\n    \"given_name\": \"string\",\n    \"family_name\": \"string\",\n    \"middle_name\": \"string\",\n    \"nickname\": \"string\",\n    \"preferred_username\": \"string\",\n    \"profile\": \"string\",\n    \"picture\": \"string\",\n    \"website\": \"string\",\n    \"email\": \"string\",\n    \"email_verified\": \"string\",\n    \"gender\": \"string\",\n    \"birthdate\": \"string\",\n    \"zoneinfo\": \"string\",\n    \"locale\": \"string\",\n    \"phone_number\": \"string\",\n    \"phone_number_verified\": \"string\",\n    \"address\": \"string\",\n    \"updated_at\": \"string\",\n    \"username\": \"string\",\n    \"created_at\": \"string\",\n    \"custom_data\": \"string\",\n    \"identities\": \"string\",\n    \"sso_identities\": \"string\",\n    \"roles\": \"string\",\n    \"organizations\": \"string\",\n    \"organization_data\": \"string\",\n    \"organization_roles\": \"string\"\n  },\n  \"entityId\": \"string\",\n  \"acsUrl\": {\n    \"binding\": \"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\",\n    \"url\": \"string\"\n  },\n  \"encryption\": {},\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "553ea586-7878-4b99-91cc-4b3d32f0c30f",
+              "name": "Invalid request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38fca0f7-945c-4c3d-bd99-19f6236447fc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84c88fef-92da-4806-81e7-dfe1c4e848cc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "850f28f3-a328-4d80-b4c4-ba2455ea273e",
+              "name": "Validation error. The ACS URL is invalid or other validation errors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f46e649-086c-4c85-a314-20601e149802",
+          "name": "Get SAML application",
+          "request": {
+            "name": "Get SAML application",
+            "description": {
+              "content": "Get SAML application details by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d36d5dc-45c1-4f58-ad21-f4aa0ca7ac30",
+              "name": "The SAML application details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"type\": \"MachineToMachine\",\n  \"customData\": {},\n  \"isThirdParty\": true,\n  \"createdAt\": 9486.284150363108,\n  \"attributeMapping\": {\n    \"sub\": \"string\",\n    \"name\": \"string\",\n    \"given_name\": \"string\",\n    \"family_name\": \"string\",\n    \"middle_name\": \"string\",\n    \"nickname\": \"string\",\n    \"preferred_username\": \"string\",\n    \"profile\": \"string\",\n    \"picture\": \"string\",\n    \"website\": \"string\",\n    \"email\": \"string\",\n    \"email_verified\": \"string\",\n    \"gender\": \"string\",\n    \"birthdate\": \"string\",\n    \"zoneinfo\": \"string\",\n    \"locale\": \"string\",\n    \"phone_number\": \"string\",\n    \"phone_number_verified\": \"string\",\n    \"address\": \"string\",\n    \"updated_at\": \"string\",\n    \"username\": \"string\",\n    \"created_at\": \"string\",\n    \"custom_data\": \"string\",\n    \"identities\": \"string\",\n    \"sso_identities\": \"string\",\n    \"roles\": \"string\",\n    \"organizations\": \"string\",\n    \"organization_data\": \"string\",\n    \"organization_roles\": \"string\"\n  },\n  \"entityId\": \"string\",\n  \"acsUrl\": {\n    \"binding\": \"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\",\n    \"url\": \"string\"\n  },\n  \"encryption\": {},\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e99f6e69-66e8-41dd-82c1-3689c4580ffc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05aa326f-c4a5-4ae1-b194-511df45ae7b6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2416fe4e-0787-422e-8232-8db02e2ef8af",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e3bf19f-75c3-433a-9dbc-b47f283795c5",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d37e5369-0403-4adc-8adf-d87dec0999f4",
+              "name": "Unprocessable Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c1f14e0-42b2-4d6a-9c26-4c3e4d0a38af",
+          "name": "Update SAML application",
+          "request": {
+            "name": "Update SAML application",
+            "description": {
+              "content": "Update SAML application details by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ecdb630-1401-4114-92d4-c04cf3bcdaa4",
+              "name": "The SAML application was updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"type\": \"MachineToMachine\",\n  \"customData\": {},\n  \"isThirdParty\": true,\n  \"createdAt\": 9486.284150363108,\n  \"attributeMapping\": {\n    \"sub\": \"string\",\n    \"name\": \"string\",\n    \"given_name\": \"string\",\n    \"family_name\": \"string\",\n    \"middle_name\": \"string\",\n    \"nickname\": \"string\",\n    \"preferred_username\": \"string\",\n    \"profile\": \"string\",\n    \"picture\": \"string\",\n    \"website\": \"string\",\n    \"email\": \"string\",\n    \"email_verified\": \"string\",\n    \"gender\": \"string\",\n    \"birthdate\": \"string\",\n    \"zoneinfo\": \"string\",\n    \"locale\": \"string\",\n    \"phone_number\": \"string\",\n    \"phone_number_verified\": \"string\",\n    \"address\": \"string\",\n    \"updated_at\": \"string\",\n    \"username\": \"string\",\n    \"created_at\": \"string\",\n    \"custom_data\": \"string\",\n    \"identities\": \"string\",\n    \"sso_identities\": \"string\",\n    \"roles\": \"string\",\n    \"organizations\": \"string\",\n    \"organization_data\": \"string\",\n    \"organization_roles\": \"string\"\n  },\n  \"entityId\": \"string\",\n  \"acsUrl\": {\n    \"binding\": \"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\",\n    \"url\": \"string\"\n  },\n  \"encryption\": {},\n  \"nameIdFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e65a7017-8dc0-48bd-8f48-88082cbf94d9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a97ae229-d45c-4ba5-a8ef-5e3915f39771",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4881d6e3-a978-460f-97b2-c4d2523c5293",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3764635-69d7-47f5-9eae-04756ea767b9",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6f3e473-ca4f-4fd8-a3d6-ca0dba6c16d5",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customData\": \"<object>\",\n  \"attributeMapping\": {\n    \"sub\": \"<string>\",\n    \"name\": \"<string>\",\n    \"given_name\": \"<string>\",\n    \"family_name\": \"<string>\",\n    \"middle_name\": \"<string>\",\n    \"nickname\": \"<string>\",\n    \"preferred_username\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"picture\": \"<string>\",\n    \"website\": \"<string>\",\n    \"email\": \"<string>\",\n    \"email_verified\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"zoneinfo\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"phone_number_verified\": \"<string>\",\n    \"address\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"username\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"custom_data\": \"<string>\",\n    \"identities\": \"<string>\",\n    \"sso_identities\": \"<string>\",\n    \"roles\": \"<string>\",\n    \"organizations\": \"<string>\",\n    \"organization_data\": \"<string>\",\n    \"organization_roles\": \"<string>\"\n  },\n  \"entityId\": \"<string>\",\n  \"acsUrl\": {\n    \"binding\": \"<string>\",\n    \"url\": \"<url>\"\n  },\n  \"encryption\": \"<object>\",\n  \"nameIdFormat\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a93fb98-d398-420f-a80e-f2a66923e049",
+          "name": "Delete SAML application",
+          "request": {
+            "name": "Delete SAML application",
+            "description": {
+              "content": "Delete a SAML application by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52c9fb5d-3251-491b-b9ad-2b1c671547b4",
+              "name": "The SAML application was deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29abd63d-53b6-46cb-a8ca-f8dff92b0cab",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3fbb1f37-de86-4899-888c-e8e8a6c34f50",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "79fcef38-c025-420e-bd40-4fc9e4162ad5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f92f3bcb-4c94-41ee-b9b1-822b848cc07b",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc156c93-d57f-4546-bbcb-3471ef012974",
+              "name": "The specified application is not a SAML application.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f644775b-6dde-4086-8ed2-b3241892caa3",
+          "name": "Create SAML application secret",
+          "request": {
+            "name": "Create SAML application secret",
+            "description": {
+              "content": "Create a new signing certificate for the SAML application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id",
+                "secrets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"lifeSpanInYears\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c337ae0-8954-4b85-84f8-cb9e814255af",
+              "name": "The signing certificate was created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lifeSpanInYears\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"certificate\": \"string\",\n  \"createdAt\": 8459.911901424939,\n  \"expiresAt\": 6655.23122983773,\n  \"active\": true,\n  \"fingerprints\": {\n    \"sha256\": {\n      \"formatted\": \"string\",\n      \"unformatted\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ecf9da0-78b6-4ae1-b084-2a0dab64f04a",
+              "name": "Invalid request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lifeSpanInYears\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a8cb6c7-841d-4294-baac-2f979e4c30cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lifeSpanInYears\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3480ec62-acfd-474d-b766-5ab0778393b5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lifeSpanInYears\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd1a9ea2-7ca7-4f9b-b426-fce2d0832ce6",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lifeSpanInYears\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c93db79-9984-4022-addf-ac10fb0a7d23",
+          "name": "List SAML application secrets",
+          "request": {
+            "name": "List SAML application secrets",
+            "description": {
+              "content": "Get all signing certificates of the SAML application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id",
+                "secrets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9a17291-5c05-4b1c-a1bb-54adda2a2b9b",
+              "name": "A list of signing certificates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"str\",\n    \"certificate\": \"string\",\n    \"createdAt\": 3156.269982662476,\n    \"expiresAt\": \"2001-12-21T14:03:47.659Z\",\n    \"active\": false,\n    \"fingerprints\": {\n      \"sha256\": {\n        \"formatted\": \"string\",\n        \"unformatted\": \"string\"\n      }\n    },\n    \"fingerprint\": \"string\",\n    \"isActive\": false\n  },\n  {\n    \"id\": \"string\",\n    \"certificate\": \"string\",\n    \"createdAt\": 1087.0204566264251,\n    \"expiresAt\": \"1962-08-28T15:27:33.763Z\",\n    \"active\": false,\n    \"fingerprints\": {\n      \"sha256\": {\n        \"formatted\": \"string\",\n        \"unformatted\": \"string\"\n      }\n    },\n    \"fingerprint\": \"string\",\n    \"isActive\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a908003c-d773-4bff-936f-3850358afc17",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b19653e0-9df1-4f1c-8b7b-0454b64f93eb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3487ab57-1df4-4d54-850b-17f40b8665c0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd2ab02b-098f-487a-b2b0-c4ea0055f6c5",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99ab625b-1bdd-44f7-b667-55b5c9c2bb40",
+          "name": "Delete SAML application secret",
+          "request": {
+            "name": "Delete SAML application secret",
+            "description": {
+              "content": "Delete a signing certificate of the SAML application. Active certificates cannot be deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id",
+                "secrets",
+                ":secretId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "secretId",
+                  "description": "(Required) The unique identifier of the secret."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fa15cff-419b-4512-bb53-f08a81634e45",
+              "name": "The signing certificate was deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f462350d-4ab2-4258-93b3-df2b17765821",
+              "name": "Cannot delete an active certificate.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2979055-cd2e-4aee-9890-9f0b63187a45",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c17b5db1-b6ec-4b63-980e-388cebfb22a0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a1bfd56-eb49-4a4f-9d3e-15b00ff28aec",
+              "name": "The SAML application or certificate was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d70f157-ca3e-4201-9eda-cdb7f16a1921",
+          "name": "Update SAML application secret",
+          "request": {
+            "name": "Update SAML application secret",
+            "description": {
+              "content": "Update the status of a signing certificate.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id",
+                "secrets",
+                ":secretId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "secretId",
+                  "description": "(Required) The unique identifier of the secret."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1b27243-5ff2-44d7-8574-d15d5c687ac9",
+              "name": "The signing certificate was updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"certificate\": \"string\",\n  \"createdAt\": 8459.911901424939,\n  \"expiresAt\": 6655.23122983773,\n  \"active\": true,\n  \"fingerprints\": {\n    \"sha256\": {\n      \"formatted\": \"string\",\n      \"unformatted\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a197474b-f47f-4af7-a662-c165ed104a7a",
+              "name": "Invalid request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "63feb749-e125-4a27-8d39-1fa4269b961c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44f30d39-35bd-475f-984a-fe29b48e883d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f57052b-5a7d-461f-8ba6-0955e1572c63",
+              "name": "The SAML application or certificate was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "secrets",
+                    ":secretId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "secretId",
+                      "description": "(Required) The unique identifier of the secret."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f53395d-e9fe-40aa-84be-7b99bc9c70ab",
+          "name": "Get SAML application metadata",
+          "request": {
+            "name": "Get SAML application metadata",
+            "description": {
+              "content": "Get the SAML metadata XML for the application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ae86375-0cbb-46d3-b9df-7205476fb6ee",
+              "name": "The SAML metadata XML.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d486b45d-5f70-4ef2-b29d-94524cad32e9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a0c3c1cf-f6b7-48c9-85bd-da1ec00c5fbd",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63dd0d6e-cc5c-409a-b908-0cc7dd5eea3f",
+          "name": "SAML application callback",
+          "request": {
+            "name": "SAML application callback",
+            "description": {
+              "content": "Handle the OIDC callback for SAML application and generate SAML response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml-applications",
+                ":id",
+                "callback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "The authorization code from OIDC callback."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "The state parameter from OIDC callback."
+                },
+                {
+                  "disabled": false,
+                  "key": "redirectUri",
+                  "value": "<string>",
+                  "description": "The redirect URI for the callback."
+                },
+                {
+                  "disabled": false,
+                  "key": "error",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "error_description",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the saml application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93ce04bc-3627-485c-91f3-e6405a514cf3",
+              "name": "Returns an HTML form that automatically submits the SAML response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "callback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirectUri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e901ad4a-d7ef-47c7-bdc7-3a40366d6068",
+              "name": "Invalid request or OIDC error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "callback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirectUri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "684abb43-0884-40f4-aac1-ee38222eba1e",
+              "name": "The SAML application was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml-applications",
+                    ":id",
+                    "callback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirectUri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the saml application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e85fd214-44f3-4afc-ba86-259e415c1865",
+    "name": "Logto API references Account center SAML applications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

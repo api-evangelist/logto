@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center SSO connector providers API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSO connector providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all the supported SSO connector provider details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/sso-connector-providers"
+          },
+          "docs": "Get a complete list of supported SSO connector providers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

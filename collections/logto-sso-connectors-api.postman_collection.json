@@ -1,0 +1,1629 @@
+{
+  "item": [
+    {
+      "id": "cbda7c57-c64c-4033-bbae-8de0183ac995",
+      "name": "SSO connectors",
+      "description": {
+        "content": "Endpoints for managing single sign-on (SSO) connectors. Your sign-in experience can use these well-configured SSO connectors to authenticate users and sync user attributes from external identity providers (IdPs).\n\nSSO connectors are created by SSO connector provider factories.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c2473e0-a4b8-4d6f-b5f5-07518bbf5d2f",
+          "name": "Create SSO connector",
+          "request": {
+            "name": "Create SSO connector",
+            "description": {
+              "content": "Create an new SSO connector instance for a given provider.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sso-connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59daa525-0d5b-473c-91ca-61c28d02cd2d",
+              "name": "The created SSO connector.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"providerName\": \"string\",\n  \"connectorName\": \"string\",\n  \"config\": {},\n  \"domains\": [\n    \"string\",\n    \"string\"\n  ],\n  \"branding\": {\n    \"displayName\": \"string\",\n    \"logo\": \"string\",\n    \"darkLogo\": \"string\"\n  },\n  \"syncProfile\": false,\n  \"enableTokenStorage\": false,\n  \"createdAt\": 9040.9001619336\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3173f418-0587-47f5-b7ed-49bb74d6ffd0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea86f14b-556c-408b-a06e-f73d9e7a732b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02529a16-b563-47bc-b906-9780436b580c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1def3dd-cd65-4a39-b4c1-b3180e76b1c3",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2d708f2-9096-4a58-9f78-2aee76441804",
+              "name": "At lease one of the given input fields is invalid or IdP connection cannot be verified with the given config.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"providerName\": \"<string>\",\n  \"connectorName\": \"<string>\",\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b63167f-f4d7-4ebb-b92a-5594210773dd",
+          "name": "List SSO connectors",
+          "request": {
+            "name": "List SSO connectors",
+            "description": {
+              "content": "Get SSO connectors with pagination. In addition to the raw SSO connector data, a copy of fetched or parsed IdP configs and a copy of connector provider's data will be attached.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sso-connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (starts from 1)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "20",
+                  "description": "Entries per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0101e25f-677b-430d-8b21-c276e59d811e",
+              "name": "A list of SSO connectors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"string\",\n    \"providerName\": \"OIDC\",\n    \"connectorName\": \"string\",\n    \"config\": {},\n    \"domains\": [\n      \"string\",\n      \"string\"\n    ],\n    \"branding\": {\n      \"displayName\": \"string\",\n      \"logo\": \"string\",\n      \"darkLogo\": \"string\"\n    },\n    \"syncProfile\": true,\n    \"enableTokenStorage\": false,\n    \"createdAt\": 7343.205938877205,\n    \"name\": \"string\",\n    \"providerType\": \"oidc\",\n    \"providerLogo\": \"string\",\n    \"providerLogoDark\": \"string\",\n    \"providerConfig\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  },\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"string\",\n    \"providerName\": \"OIDC\",\n    \"connectorName\": \"string\",\n    \"config\": {},\n    \"domains\": [\n      \"string\",\n      \"string\"\n    ],\n    \"branding\": {\n      \"displayName\": \"string\",\n      \"logo\": \"string\",\n      \"darkLogo\": \"string\"\n    },\n    \"syncProfile\": true,\n    \"enableTokenStorage\": false,\n    \"createdAt\": 9461.789203117294,\n    \"name\": \"string\",\n    \"providerType\": \"saml\",\n    \"providerLogo\": \"string\",\n    \"providerLogoDark\": \"string\",\n    \"providerConfig\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4a7c26f-3733-40d1-bbb2-a267aeb48c5c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "932fdf54-ca53-436e-a900-64486723d57d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "112ec7ec-6a60-4755-80ab-82b45eca2c8c",
+          "name": "Get SSO connector",
+          "request": {
+            "name": "Get SSO connector",
+            "description": {
+              "content": "Get SSO connector data by ID. In addition to the raw SSO connector data, a copy of fetched or parsed IdP configs and a copy of connector provider's data will be attached.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sso-connectors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the sso connector."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a4a07ea-f6f5-4f53-8a8a-40065bb4a856",
+              "name": "The SSO connector data with the given ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"providerName\": \"GoogleWorkspace\",\n  \"connectorName\": \"string\",\n  \"config\": {},\n  \"domains\": [\n    \"string\",\n    \"string\"\n  ],\n  \"branding\": {\n    \"displayName\": \"string\",\n    \"logo\": \"string\",\n    \"darkLogo\": \"string\"\n  },\n  \"syncProfile\": true,\n  \"enableTokenStorage\": true,\n  \"createdAt\": 821.1186099293288,\n  \"name\": \"string\",\n  \"providerType\": \"saml\",\n  \"providerLogo\": \"string\",\n  \"providerLogoDark\": \"string\",\n  \"providerConfig\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "505aa703-a710-4357-a175-096ee492092c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a95a7f66-9fde-4635-83d4-3821de2e5981",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c929320-dca9-4cb6-8b4c-e0bae342296b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c52ea3d-3d5d-42b3-85c0-188534d19eea",
+              "name": "SSO connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba898dfb-8ec2-45e3-b517-b520c40c1aa6",
+          "name": "Delete SSO connector",
+          "request": {
+            "name": "Delete SSO connector",
+            "description": {
+              "content": "Delete an SSO connector by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sso-connectors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the sso connector."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26ba78c8-923f-4a35-bab6-ba99d5ed2d3f",
+              "name": "SSO connector deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c4ff999-2ac3-4496-b573-e6d4a8eb07e0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1f0967f-4732-4015-b09f-d1bc6292840e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "732c6555-5c30-4472-b839-2efccb30d12e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ce40263-2549-439e-b1d9-c8a77c40989f",
+              "name": "SSO connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1eb5b30-94c4-47a0-b3af-76c2cb09eb98",
+          "name": "Update SSO connector",
+          "request": {
+            "name": "Update SSO connector",
+            "description": {
+              "content": "Update an SSO connector by ID. This method performs a partial update.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sso-connectors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the sso connector."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "448a6b27-10f4-4726-b41e-a1f65db72897",
+              "name": "The updated SSO connector.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"providerName\": \"GoogleWorkspace\",\n  \"connectorName\": \"string\",\n  \"config\": {},\n  \"domains\": [\n    \"string\",\n    \"string\"\n  ],\n  \"branding\": {\n    \"displayName\": \"string\",\n    \"logo\": \"string\",\n    \"darkLogo\": \"string\"\n  },\n  \"syncProfile\": true,\n  \"enableTokenStorage\": true,\n  \"createdAt\": 821.1186099293288,\n  \"name\": \"string\",\n  \"providerType\": \"saml\",\n  \"providerLogo\": \"string\",\n  \"providerLogoDark\": \"string\",\n  \"providerConfig\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97690c75-b65d-4505-b103-2619e626dfd2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06b05b2d-cc0c-4156-b471-2e2748363529",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8961e76e-17ad-4218-a770-11b320f991dc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e69b538-5494-4c14-95ed-ba7ac3c3e2d9",
+              "name": "SSO connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b531850b-1779-446f-97a0-b38921af1526",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0399d73e-bdd3-4dc6-bdbf-3795db9a2407",
+              "name": "At lease one of the update fields is invalid or IdP connection can not be verified with the given connection config.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sso-connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the sso connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branding\": {\n    \"displayName\": \"<string>\",\n    \"logo\": \"<string>\",\n    \"darkLogo\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"connectorName\": \"<string>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "984850a4-a7ea-44d4-9cb7-532953fe38aa",
+    "name": "Logto API references Account center SSO connectors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

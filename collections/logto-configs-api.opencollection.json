@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Configs API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get admin console config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/configs/admin-console"
+          },
+          "docs": "Get the global configuration object for Logto Console."
+        },
+        {
+          "info": {
+            "name": "Update admin console config",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/configs/admin-console",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the global configuration object for Logto Console. This method performs a partial update."
+        },
+        {
+          "info": {
+            "name": "Get OIDC session config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/configs/oidc/session"
+          },
+          "docs": "Get the OIDC session configuration for the tenant. "
+        },
+        {
+          "info": {
+            "name": "Update OIDC session config",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/configs/oidc/session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the OIDC session configuration for the tenant. This method performs a partial update. If the configuration does not exist, it will be created."
+        },
+        {
+          "info": {
+            "name": "Get OIDC keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/configs/oidc/:keyType",
+            "params": [
+              {
+                "name": "keyType",
+                "value": "",
+                "type": "path",
+                "description": "Private keys are used to sign OIDC JWTs. Cookie keys are used to sign OIDC cookies. For clients, they do not need to know private keys to verify OIDC JWTs; they can use public keys from the JWKS endpoint instead."
+              }
+            ]
+          },
+          "docs": "Get OIDC signing keys by key type. The actual key will be redacted from the result."
+        },
+        {
+          "info": {
+            "name": "Delete OIDC key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/configs/oidc/:keyType/:keyId",
+            "params": [
+              {
+                "name": "keyType",
+                "value": "",
+                "type": "path",
+                "description": "Private keys are used to sign OIDC JWTs. Cookie keys are used to sign OIDC cookies. For clients, they do not need to know private keys to verify OIDC JWTs; they can use public keys from the JWKS endpoint instead."
+              },
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the key."
+              }
+            ]
+          },
+          "docs": "Delete an OIDC signing key by key type and key ID."
+        },
+        {
+          "info": {
+            "name": "Rotate OIDC keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/configs/oidc/:keyType/rotate",
+            "params": [
+              {
+                "name": "keyType",
+                "value": "",
+                "type": "path",
+                "description": "Private keys are used to sign OIDC JWTs. Cookie keys are used to sign OIDC cookies. For clients, they do not need to know private keys to verify OIDC JWTs; they can use public keys from the JWKS endpoint instead."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A new key will be generated and prepend to the list of keys.\n\nOnly two recent keys will be kept. The oldest key will be automatically removed if there are more than two keys."
+        },
+        {
+          "info": {
+            "name": "Get JWT customizer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/configs/jwt-customizer/:tokenTypePath",
+            "params": [
+              {
+                "name": "tokenTypePath",
+                "value": "",
+                "type": "path",
+                "description": "The token type to get the JWT customizer for."
+              }
+            ]
+          },
+          "docs": "Get the JWT customizer for the given token type."
+        },
+        {
+          "info": {
+            "name": "Create or update JWT customizer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/configs/jwt-customizer/:tokenTypePath",
+            "params": [
+              {
+                "name": "tokenTypePath",
+                "value": "",
+                "type": "path",
+                "description": "The token type to create a JWT customizer for."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a JWT customizer for the given token type."
+        },
+        {
+          "info": {
+            "name": "Update JWT customizer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/configs/jwt-customizer/:tokenTypePath",
+            "params": [
+              {
+                "name": "tokenTypePath",
+                "value": "",
+                "type": "path",
+                "description": "The token type to update a JWT customizer for."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the JWT customizer for the given token type."
+        },
+        {
+          "info": {
+            "name": "Delete JWT customizer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/configs/jwt-customizer/:tokenTypePath",
+            "params": [
+              {
+                "name": "tokenTypePath",
+                "value": "",
+                "type": "path",
+                "description": "The token type path to delete the JWT customizer for."
+              }
+            ]
+          },
+          "docs": "Delete the JWT customizer for the given token type."
+        },
+        {
+          "info": {
+            "name": "Get all JWT customizers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/configs/jwt-customizer"
+          },
+          "docs": "Get all JWT customizers for the tenant."
+        },
+        {
+          "info": {
+            "name": "Test JWT customizer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/configs/jwt-customizer/test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test the JWT customizer script with the given sample context and sample token payload."
+        },
+        {
+          "info": {
+            "name": "Get ID token claims configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/configs/id-token"
+          },
+          "docs": "Get the ID token extended claims configuration for the tenant. This configuration controls which extended claims (e.g., `custom_data`, `identities`, `roles`, `organizations`, `organization_roles`) are included in ID tokens."
+        },
+        {
+          "info": {
+            "name": "Upsert ID token claims configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/configs/id-token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update the ID token extended claims configuration for the tenant. This controls which extended claims are included in ID tokens when the corresponding scopes are requested."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

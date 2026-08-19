@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Organization invitations API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organization invitations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/organization-invitations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization invitation."
+              }
+            ]
+          },
+          "docs": "Get an organization invitation by ID."
+        },
+        {
+          "info": {
+            "name": "Delete organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/organization-invitations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization invitation."
+              }
+            ]
+          },
+          "docs": "Delete an organization invitation by ID."
+        },
+        {
+          "info": {
+            "name": "Get organization invitations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/organization-invitations",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "inviterId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "invitee",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get organization invitations."
+        },
+        {
+          "info": {
+            "name": "Create organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/organization-invitations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an organization invitation and optionally send it via email. The tenant should have an email connector configured if you want to send the invitation via email at this point."
+        },
+        {
+          "info": {
+            "name": "Resend invitation message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/organization-invitations/:id/message",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization invitation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resend the invitation message to the invitee."
+        },
+        {
+          "info": {
+            "name": "Update organization invitation status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/organization-invitations/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization invitation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of an organization invitation by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

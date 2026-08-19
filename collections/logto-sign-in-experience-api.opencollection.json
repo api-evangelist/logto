@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Sign-in experience API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sign-in experience",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get default sign-in experience settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/sign-in-exp"
+          },
+          "docs": "Get the default sign-in experience settings."
+        },
+        {
+          "info": {
+            "name": "Update default sign-in experience settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/sign-in-exp",
+            "params": [
+              {
+                "name": "removeUnusedDemoSocialConnector",
+                "value": "",
+                "type": "query",
+                "description": "Whether to remove unused demo social connectors. (These demo social connectors are only used during cloud user onboarding)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the default sign-in experience settings with the provided data."
+        },
+        {
+          "info": {
+            "name": "Check if a password meets the password policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/sign-in-exp/default/check-password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check if a password meets the password policy in the sign-in experience settings."
+        },
+        {
+          "info": {
+            "name": "Upload custom UI assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/sign-in-exp/default/custom-ui-assets",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a zip file containing custom web assets such as HTML, CSS, and JavaScript files, then replace the default sign-in experience with the custom UI assets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

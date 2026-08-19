@@ -1,0 +1,740 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Applications API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications",
+            "params": [
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "An array of application types to filter applications."
+              },
+              {
+                "name": "excludeRoleId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludeOrganizationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdParty",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              },
+              {
+                "name": "search_params",
+                "value": "",
+                "type": "query",
+                "description": "Search query parameters."
+              }
+            ]
+          },
+          "docs": "Get applications that match the given query with pagination."
+        },
+        {
+          "info": {
+            "name": "Create an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new application with the given data."
+        },
+        {
+          "info": {
+            "name": "Get application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "Get application details by ID."
+        },
+        {
+          "info": {
+            "name": "Update application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update application details by ID with the given data."
+        },
+        {
+          "info": {
+            "name": "Delete application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "Delete application by ID."
+        },
+        {
+          "info": {
+            "name": "Update application custom data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/custom-data",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the custom data of an application."
+        },
+        {
+          "info": {
+            "name": "Get application API resource roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/roles",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              },
+              {
+                "name": "search_params",
+                "value": "",
+                "type": "query",
+                "description": "Search query parameters."
+              }
+            ]
+          },
+          "docs": "Get API resource roles assigned to the specified application with pagination."
+        },
+        {
+          "info": {
+            "name": "Assign API resource roles to application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/roles",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign API resource roles to the specified application. The API resource roles will be added to the existing API resource roles."
+        },
+        {
+          "info": {
+            "name": "Update API resource roles for application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/roles",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update API resource roles assigned to the specified application. This will replace the existing API resource roles."
+        },
+        {
+          "info": {
+            "name": "Remove a API resource role from application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/roles/:roleId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the role."
+              }
+            ]
+          },
+          "docs": "Remove a API resource role from the specified application."
+        },
+        {
+          "info": {
+            "name": "Get application custom domains.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/protected-app-metadata/custom-domains",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "Get custom domains of the specified application, the application type should be protected app."
+        },
+        {
+          "info": {
+            "name": "Add a custom domain to the application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/protected-app-metadata/custom-domains",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a custom domain to the application. You'll need to setup DNS record later."
+        },
+        {
+          "info": {
+            "name": "Remove custom domain.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/protected-app-metadata/custom-domains/:domain",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove custom domain from the specified application."
+        },
+        {
+          "info": {
+            "name": "Get application organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/organizations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get the list of organizations that an application is associated with."
+        },
+        {
+          "info": {
+            "name": "Delete application legacy secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/legacy-secret",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "Delete the legacy secret for the application and replace it with a new internal secret.\n\nNote: This operation does not \"really\" delete the legacy secret because it is still needed for internal validation. We may remove the display of the legacy secret (the `secret` field in the application response) in the future."
+        },
+        {
+          "info": {
+            "name": "Get application secrets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/secrets",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "Get all the secrets for the application."
+        },
+        {
+          "info": {
+            "name": "Add application secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/secrets",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new secret for the application."
+        },
+        {
+          "info": {
+            "name": "Update application secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/secrets/:name",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a secret for the application by name."
+        },
+        {
+          "info": {
+            "name": "Delete application secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/secrets/:name",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the secret."
+              }
+            ]
+          },
+          "docs": "Delete a secret for the application by name."
+        },
+        {
+          "info": {
+            "name": "List all the user consent scopes of an application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/user-consent-scopes",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "List all the user consent scopes of an application by application id"
+        },
+        {
+          "info": {
+            "name": "Assign user consent scopes to application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/user-consent-scopes",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign the user consent scopes to an application by application id"
+        },
+        {
+          "info": {
+            "name": "Remove user consent scope from application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/user-consent-scopes/:scopeType/:scopeId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "scopeType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scopeId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the scope."
+              }
+            ]
+          },
+          "docs": "Remove the user consent scope from an application by application id, scope type and scope id"
+        },
+        {
+          "info": {
+            "name": "Get the application level sign-in experience",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/sign-in-experience",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ]
+          },
+          "docs": "Get application level sign-in experience for a given application. \n - Only branding properties and terms links customization is supported for now. \n\n - Only third-party applications can have the sign-in experience customization for now."
+        },
+        {
+          "info": {
+            "name": "Update application level sign-in experience",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/applications/:applicationId/sign-in-experience",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update application level sign-in experience for the specified application. Create a new sign-in experience if it does not exist. \n - Only branding properties and terms links customization is supported for now. \n\n - Only third-party applications can be customized for now. \n\n - Application level sign-in experience customization is optional, if provided, it will override the default branding and terms links."
+        },
+        {
+          "info": {
+            "name": "List all the user consented organizations of a application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/users/:userId/consent-organizations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "List all the user consented organizations for a application by application id and user id."
+        },
+        {
+          "info": {
+            "name": "Grant a list of organization access of a user for a application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/users/:userId/consent-organizations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grant a list of organization access of a user for a application by application id and user id. <br/> The user must be a member of all the organizations. <br/> Only third-party application needs to be granted access to organizations, all the other applications can request for all the organizations' access by default."
+        },
+        {
+          "info": {
+            "name": "Grant a list of organization access of a user for a application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/users/:userId/consent-organizations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grant a list of organization access of a user for a application by application id and user id. <br/> The user must be a member of all the organizations. <br/> Only third-party application needs to be granted access to organizations, all the other applications can request for all the organizations' access by default."
+        },
+        {
+          "info": {
+            "name": "Revoke a user's access to an organization for a application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/applications/:id/users/:userId/consent-organizations/:organizationId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the application."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the user."
+              },
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the organization."
+              }
+            ]
+          },
+          "docs": "Revoke a user's access to an organization for a application by application id, user id and organization id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

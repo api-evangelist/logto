@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Hooks API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get hooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/hooks",
+            "params": [
+              {
+                "name": "includeExecutionStats",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include execution stats in the response."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get a list of hooks with optional pagination."
+        },
+        {
+          "info": {
+            "name": "Create a hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/hooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new hook with the given data."
+        },
+        {
+          "info": {
+            "name": "Get hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/hooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hook."
+              },
+              {
+                "name": "includeExecutionStats",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include execution stats in the response."
+              }
+            ]
+          },
+          "docs": "Get hook details by ID."
+        },
+        {
+          "info": {
+            "name": "Update hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/hooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hook."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update hook details by ID with the given data."
+        },
+        {
+          "info": {
+            "name": "Delete hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/hooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hook."
+              }
+            ]
+          },
+          "docs": "Delete hook by ID."
+        },
+        {
+          "info": {
+            "name": "Get recent logs for a hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/hooks/:id/recent-logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hook."
+              },
+              {
+                "name": "logKey",
+                "value": "",
+                "type": "query",
+                "description": "The log key to filter logs."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get recent logs that match the given query for the specified hook with pagination."
+        },
+        {
+          "info": {
+            "name": "Test hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/hooks/:id/test",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hook."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test the specified hook with the given events and config."
+        },
+        {
+          "info": {
+            "name": "Update signing key for a hook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/hooks/:id/signing-key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hook."
+              }
+            ]
+          },
+          "docs": "Update the signing key for the specified hook."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

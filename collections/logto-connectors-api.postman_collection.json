@@ -1,0 +1,2249 @@
+{
+  "item": [
+    {
+      "id": "9799ad86-dc55-4e99-8bf6-a62ce3fc8a78",
+      "name": "Connectors",
+      "description": {
+        "content": "Connectors are the bridge between Logto and other third-party vendors who provide short message service (SMS), email service, or user information on wildly accepted social media.\n\nTo learn more about connectors, please see [🪛 Configure connectors](https://docs.logto.io/docs/recipes/configure-connectors/).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "efd6bdaf-5bf3-4630-8fed-4cf34f2b067d",
+          "name": "Create connector",
+          "request": {
+            "name": "Create connector",
+            "description": {
+              "content": "Create a connector with the given data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"connectorId\": \"<string>\",\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\",\n  \"id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6a71289-9c21-4f4c-bd0a-a8f6794e184b",
+              "name": "The created connector.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectorId\": \"<string>\",\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\",\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"syncProfile\": false,\n  \"enableTokenStorage\": true,\n  \"config\": {},\n  \"metadata\": {\n    \"target\": \"string\",\n    \"name\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\"\n  },\n  \"connectorId\": \"string\",\n  \"target\": \"string\",\n  \"name\": {},\n  \"description\": {},\n  \"logo\": \"string\",\n  \"logoDark\": \"string\",\n  \"readme\": \"string\",\n  \"platform\": \"Native\",\n  \"type\": \"Email\",\n  \"configTemplate\": \"string\",\n  \"formItems\": [\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": false,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": false\n    },\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": true,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": true\n    }\n  ],\n  \"customData\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"fromEmail\": \"string\",\n  \"isStandard\": true,\n  \"isTokenStorageSupported\": false,\n  \"isDemo\": false,\n  \"extraInfo\": {\n    \"key_0\": {}\n  },\n  \"usage\": 8858.906914721945\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aff12695-e80e-485e-90f8-c7dcc0c4dbc7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectorId\": \"<string>\",\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\",\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee476d89-54f3-40b8-9a60-6849646f59e0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectorId\": \"<string>\",\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\",\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a90df750-f71f-4614-bc45-e5dd0f1d004b",
+              "name": "The tenant has reached the maximum number of connectors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectorId\": \"<string>\",\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\",\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0bddcfa0-1bd3-4a4b-91fa-65dcec74388c",
+              "name": "Invalid request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectorId\": \"<string>\",\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\",\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc82c2e4-bc08-4f99-a799-6f052ef2da01",
+          "name": "Get connectors",
+          "request": {
+            "name": "Get connectors",
+            "description": {
+              "content": "Get all connectors in the current tenant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "target",
+                  "value": "<string>",
+                  "description": "Filter connectors by target."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b12e853-56bd-487c-8c7f-16f383554879",
+              "name": "An array of connectors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"syncProfile\": true,\n    \"enableTokenStorage\": true,\n    \"config\": {},\n    \"metadata\": {\n      \"target\": \"string\",\n      \"name\": {},\n      \"logo\": \"string\",\n      \"logoDark\": \"string\"\n    },\n    \"connectorId\": \"string\",\n    \"target\": \"string\",\n    \"name\": {},\n    \"description\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\",\n    \"readme\": \"string\",\n    \"platform\": \"Web\",\n    \"type\": \"Social\",\n    \"configTemplate\": \"string\",\n    \"formItems\": [\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": true,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": true,\n        \"isDevFeature\": true\n      },\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": true,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": true,\n        \"isDevFeature\": false\n      }\n    ],\n    \"customData\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"fromEmail\": \"string\",\n    \"isStandard\": false,\n    \"isTokenStorageSupported\": true,\n    \"isDemo\": false,\n    \"extraInfo\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"usage\": 7658.01873136109\n  },\n  {\n    \"id\": \"string\",\n    \"syncProfile\": true,\n    \"enableTokenStorage\": false,\n    \"config\": {},\n    \"metadata\": {\n      \"target\": \"string\",\n      \"name\": {},\n      \"logo\": \"string\",\n      \"logoDark\": \"string\"\n    },\n    \"connectorId\": \"string\",\n    \"target\": \"string\",\n    \"name\": {},\n    \"description\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\",\n    \"readme\": \"string\",\n    \"platform\": \"Web\",\n    \"type\": \"Sms\",\n    \"configTemplate\": \"string\",\n    \"formItems\": [\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": true,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": false,\n        \"isDevFeature\": true\n      },\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": true,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": false,\n        \"isDevFeature\": true\n      }\n    ],\n    \"customData\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"fromEmail\": \"string\",\n    \"isStandard\": true,\n    \"isTokenStorageSupported\": true,\n    \"isDemo\": false,\n    \"extraInfo\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"usage\": 2853.7761857580335\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f71acded-eae8-4425-80fc-0ce299a3d619",
+              "name": "The target only allows one connector to exist, but there are multiple connectors with this target.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "084f09fa-d30c-4dd4-86b6-ad988f52e464",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a2e1aaf-ea9d-40a1-93d3-0b4cb9248fb6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "target",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6115313-c2d2-4ec9-beac-2705293a9b24",
+          "name": "Get connector",
+          "request": {
+            "name": "Get connector",
+            "description": {
+              "content": "Get connector data by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the connector."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee102e75-9767-4387-8f29-2a6d34649456",
+              "name": "The connector data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"syncProfile\": false,\n  \"enableTokenStorage\": true,\n  \"config\": {},\n  \"metadata\": {\n    \"target\": \"string\",\n    \"name\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\"\n  },\n  \"connectorId\": \"string\",\n  \"target\": \"string\",\n  \"name\": {},\n  \"description\": {},\n  \"logo\": \"string\",\n  \"logoDark\": \"string\",\n  \"readme\": \"string\",\n  \"platform\": \"Native\",\n  \"type\": \"Email\",\n  \"configTemplate\": \"string\",\n  \"formItems\": [\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": false,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": false\n    },\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": true,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": true\n    }\n  ],\n  \"customData\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"fromEmail\": \"string\",\n  \"isStandard\": true,\n  \"isTokenStorageSupported\": false,\n  \"isDemo\": false,\n  \"extraInfo\": {\n    \"key_0\": {}\n  },\n  \"usage\": 8858.906914721945\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b7c3a62-03ec-427c-a1b7-86f24d18c309",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeb5a1fc-68d8-4219-9da3-f526223535ef",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "944cc030-d2df-45d3-b393-7fea857ce5be",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "128e9977-cd73-41e6-b2e5-e965606273f5",
+              "name": "Connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b45ba11-340e-435d-a795-d22771fb7c11",
+          "name": "Update connector",
+          "request": {
+            "name": "Update connector",
+            "description": {
+              "content": "Update connector by ID with the given data. This methods performs a partial update.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the connector."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c9b2ad2-da43-4185-b899-73c8c14fe6b8",
+              "name": "The updated connector.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"syncProfile\": false,\n  \"enableTokenStorage\": true,\n  \"config\": {},\n  \"metadata\": {\n    \"target\": \"string\",\n    \"name\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\"\n  },\n  \"connectorId\": \"string\",\n  \"target\": \"string\",\n  \"name\": {},\n  \"description\": {},\n  \"logo\": \"string\",\n  \"logoDark\": \"string\",\n  \"readme\": \"string\",\n  \"platform\": \"Native\",\n  \"type\": \"Email\",\n  \"configTemplate\": \"string\",\n  \"formItems\": [\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": false,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": false\n    },\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": true,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": true\n    }\n  ],\n  \"customData\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"fromEmail\": \"string\",\n  \"isStandard\": true,\n  \"isTokenStorageSupported\": false,\n  \"isDemo\": false,\n  \"extraInfo\": {\n    \"key_0\": {}\n  },\n  \"usage\": 8858.906914721945\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a9fd13b-c8ae-4a54-b7dc-df1ffd257815",
+              "name": "Invalid request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c34da14-749a-46a3-97bd-4bbc1e40809e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2257fe71-6779-4efb-8b91-042ab9427e8a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f9e4164-4604-4743-9363-927fffdbd538",
+              "name": "Connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41f8a1d2-0f5a-4802-b310-dcb294a239e4",
+              "name": "Patch operation triggered a connector conflict.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"metadata\": {\n    \"target\": \"<string>\",\n    \"name\": \"<object>\",\n    \"logo\": \"<string>\",\n    \"logoDark\": \"<string>\"\n  },\n  \"syncProfile\": \"<boolean>\",\n  \"enableTokenStorage\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "420a3247-2a46-4711-a61f-d3615c52b6a8",
+          "name": "Delete connector",
+          "request": {
+            "name": "Delete connector",
+            "description": {
+              "content": "Delete connector by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the connector."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c7b9e80-1ef0-4e6d-91c5-59bb964d436a",
+              "name": "The connector has been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "185c915a-1c2d-4ccb-ad12-8fc40044b0e1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8602a604-0850-48a4-8a33-8f50b60c34dd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3cbfcb7-77bb-42ef-b181-c8d72e62f731",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1b1dfed8-89ee-4981-b307-626f07733dd6",
+              "name": "Connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34427bd5-eecd-415d-a281-cbadf839703d",
+          "name": "Test passwordless connector",
+          "request": {
+            "name": "Test passwordless connector",
+            "description": {
+              "content": "Test a passwordless (email or SMS) connector by sending a test message to the given phone number or email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors",
+                ":factoryId",
+                "test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "factoryId",
+                  "description": "(Required) The unique identifier of the factory."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<object>\",\n  \"phone\": \"<regex>\",\n  \"email\": \"<regex>\",\n  \"locale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27828b13-dfbd-4402-ac58-f9fc52667997",
+              "name": "Test message was sent successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":factoryId",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "factoryId",
+                      "description": "(Required) The unique identifier of the factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"phone\": \"<regex>\",\n  \"email\": \"<regex>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41b959e3-d983-4956-a743-5673796b651e",
+              "name": "Invalid request body (e.g. wrong phone number, email or config).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":factoryId",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "factoryId",
+                      "description": "(Required) The unique identifier of the factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"phone\": \"<regex>\",\n  \"email\": \"<regex>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da267c0f-2e8e-4c24-b724-0d7ace7b6aa1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":factoryId",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "factoryId",
+                      "description": "(Required) The unique identifier of the factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"phone\": \"<regex>\",\n  \"email\": \"<regex>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f78f3f9-c797-49c4-9b2e-976cc88ba68d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":factoryId",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "factoryId",
+                      "description": "(Required) The unique identifier of the factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"phone\": \"<regex>\",\n  \"email\": \"<regex>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "883fd23e-7cff-4205-bf11-8f201109a9a5",
+              "name": "Connector not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":factoryId",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "factoryId",
+                      "description": "(Required) The unique identifier of the factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"phone\": \"<regex>\",\n  \"email\": \"<regex>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9eaaf2ac-dbef-4772-8ad0-1dc8e5167117",
+          "name": "Get connector's authorization URI",
+          "request": {
+            "name": "Get connector's authorization URI",
+            "description": {
+              "content": "Get authorization URI for specified connector by providing redirect URI and randomly generated state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connectors",
+                ":connectorId",
+                "authorization-uri"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "connectorId",
+                  "description": "(Required) The unique identifier of the connector."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"state\": \"<string>\",\n  \"redirectUri\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4484462d-bc73-48af-944f-922e7e561594",
+              "name": "Successfully built authorization URI.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":connectorId",
+                    "authorization-uri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "connectorId",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"<string>\",\n  \"redirectUri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"redirectTo\": \"string\",\n  \"redirectUri\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4865d16-740b-485a-9b2a-b3a953876b17",
+              "name": "Unable to build authorization URI.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":connectorId",
+                    "authorization-uri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "connectorId",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"<string>\",\n  \"redirectUri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40a502b4-1aad-4aab-9e50-99e4cadc1c62",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":connectorId",
+                    "authorization-uri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "connectorId",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"<string>\",\n  \"redirectUri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "212a0703-0fcc-47b9-808d-a5860d08c7a5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":connectorId",
+                    "authorization-uri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "connectorId",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"<string>\",\n  \"redirectUri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee57bf45-bbbb-4206-a367-0e60466a83a8",
+              "name": "The connector with the specified ID does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connectors",
+                    ":connectorId",
+                    "authorization-uri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "connectorId",
+                      "description": "(Required) The unique identifier of the connector."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"<string>\",\n  \"redirectUri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d113315-2ff4-4e8a-86bc-61390054a2f0",
+    "name": "Logto API references Account center Connectors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

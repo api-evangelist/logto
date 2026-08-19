@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Authn API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Hasura auth hook endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/authn/hasura",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unauthorizedRole",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The `HASURA_GRAPHQL_AUTH_HOOK` endpoint for Hasura auth. Use this endpoint to integrate Hasura's [webhook authentication flow](https://hasura.io/docs/latest/auth/authentication/webhook/)."
+        },
+        {
+          "info": {
+            "name": "SAML ACS endpoint (social)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/authn/saml/:connectorId",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Assertion Consumer Service (ACS) endpoint for Simple Assertion Markup Language (SAML) social connectors.\n\nSAML social connectors are deprecated. Use the SSO SAML connector instead."
+        },
+        {
+          "info": {
+            "name": "SAML ACS endpoint (SSO)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/authn/single-sign-on/saml/:connectorId",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The Assertion Consumer Service (ACS) endpoint for Simple Assertion Markup Language (SAML) single sign-on (SSO) connectors.\n\nThis endpoint is used to complete the SAML SSO authentication flow. It receives the SAML assertion response from the identity provider (IdP) and redirects the user to complete the authentication flow."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,267 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center SAML applications API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SAML applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create SAML application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/saml-applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new SAML application with the given configuration. A default signing certificate with 3 years lifetime will be automatically created."
+        },
+        {
+          "info": {
+            "name": "Get SAML application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              }
+            ]
+          },
+          "docs": "Get SAML application details by ID."
+        },
+        {
+          "info": {
+            "name": "Update SAML application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update SAML application details by ID."
+        },
+        {
+          "info": {
+            "name": "Delete SAML application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              }
+            ]
+          },
+          "docs": "Delete a SAML application by ID."
+        },
+        {
+          "info": {
+            "name": "List SAML application secrets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id/secrets",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              }
+            ]
+          },
+          "docs": "Get all signing certificates of the SAML application."
+        },
+        {
+          "info": {
+            "name": "Create SAML application secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id/secrets",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new signing certificate for the SAML application."
+        },
+        {
+          "info": {
+            "name": "Update SAML application secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id/secrets/:secretId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              },
+              {
+                "name": "secretId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the secret."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a signing certificate."
+        },
+        {
+          "info": {
+            "name": "Delete SAML application secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id/secrets/:secretId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              },
+              {
+                "name": "secretId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the secret."
+              }
+            ]
+          },
+          "docs": "Delete a signing certificate of the SAML application. Active certificates cannot be deleted."
+        },
+        {
+          "info": {
+            "name": "Get SAML application metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id/metadata",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              }
+            ]
+          },
+          "docs": "Get the SAML metadata XML for the application."
+        },
+        {
+          "info": {
+            "name": "SAML application callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/saml-applications/:id/callback",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the saml application."
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "The authorization code from OIDC callback."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state parameter from OIDC callback."
+              },
+              {
+                "name": "redirectUri",
+                "value": "",
+                "type": "query",
+                "description": "The redirect URI for the callback."
+              },
+              {
+                "name": "error",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error_description",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Handle the OIDC callback for SAML application and generate SAML response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center One-time tokens API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "One-time tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get one-time tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/one-time-tokens",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter one-time tokens by email address."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter one-time tokens by status."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (starts from 1)."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Entries per page."
+              }
+            ]
+          },
+          "docs": "Get a list of one-time tokens, filtering by email and status, with optional pagination."
+        },
+        {
+          "info": {
+            "name": "Create one-time token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/one-time-tokens",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new one-time token associated with an email address. The token can be used for verification purposes and has an expiration time."
+        },
+        {
+          "info": {
+            "name": "Get one-time token by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/one-time-tokens/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the one time token."
+              }
+            ]
+          },
+          "docs": "Get a one-time token by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete one-time token by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/one-time-tokens/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the one time token."
+              }
+            ]
+          },
+          "docs": "Delete a one-time token by its ID."
+        },
+        {
+          "info": {
+            "name": "Verify one-time token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/one-time-tokens/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a one-time token associated with an email address. If the token is valid and not expired, it will be marked as consumed."
+        },
+        {
+          "info": {
+            "name": "Update one-time token status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/one-time-tokens/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the one time token."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a one-time token by its ID. This can be used to mark the token as consumed or expired."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

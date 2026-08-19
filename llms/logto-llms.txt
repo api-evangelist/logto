@@ -1,0 +1,852 @@
+# Logto API references
+
+OpenAPI file: https://openapi.logto.io/source.json
+
+## Description
+
+This is version `Cloud` of this API documentation. Last update on Aug 4, 2026.
+API references for Logto services.
+
+Note: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.
+
+## Servers
+
+- Logto endpoint address.: https://[tenant_id].logto.app (Logto endpoint address.)
+
+
+## Topics
+
+### [Authentications](https://openapi.logto.io/authentication.md)
+
+
+
+## Endpoints
+
+### [Account center](https://openapi.logto.io/group/endpoint-account-center.md)
+
+- [Get account center settings](https://openapi.logto.io/operation/operation-getaccountcentersettings.md)
+
+- [Update account center settings](https://openapi.logto.io/operation/operation-updateaccountcentersettings.md)
+
+
+### [Applications](https://openapi.logto.io/group/endpoint-applications.md)
+
+- [Get applications](https://openapi.logto.io/operation/operation-listapplications.md)
+
+- [Create an application](https://openapi.logto.io/operation/operation-createapplication.md)
+
+- [Get application](https://openapi.logto.io/operation/operation-getapplication.md)
+
+- [Delete application](https://openapi.logto.io/operation/operation-deleteapplication.md)
+
+- [Update application](https://openapi.logto.io/operation/operation-updateapplication.md)
+
+- [Update application custom data](https://openapi.logto.io/operation/operation-updateapplicationcustomdata.md)
+
+- [Get application access-control rules](https://openapi.logto.io/operation/operation-getapplicationaccesscontrol.md)
+
+- [Replace application access-control rules](https://openapi.logto.io/operation/operation-replaceapplicationaccesscontrol.md)
+
+- [Get application API resource roles](https://openapi.logto.io/operation/operation-listapplicationroles.md)
+
+- [Update API resource roles for application](https://openapi.logto.io/operation/operation-replaceapplicationroles.md)
+
+- [Assign API resource roles to application](https://openapi.logto.io/operation/operation-assignapplicationroles.md)
+
+- [Remove a API resource role from application](https://openapi.logto.io/operation/operation-deleteapplicationrole.md)
+
+- [Get application custom domains.](https://openapi.logto.io/operation/operation-listapplicationprotectedappmetadatacustomdomains.md)
+
+- [Add a custom domain to the application.](https://openapi.logto.io/operation/operation-createapplicationprotectedappmetadatacustomdomain.md)
+
+- [Remove custom domain.](https://openapi.logto.io/operation/operation-deleteapplicationprotectedappmetadatacustomdomain.md)
+
+- [Get application organizations](https://openapi.logto.io/operation/operation-listapplicationorganizations.md)
+
+- [Delete application legacy secret](https://openapi.logto.io/operation/operation-deleteapplicationlegacysecret.md)
+
+- [Get application secrets](https://openapi.logto.io/operation/operation-listapplicationsecrets.md)
+
+- [Add application secret](https://openapi.logto.io/operation/operation-createapplicationsecret.md)
+
+- [Delete application secret](https://openapi.logto.io/operation/operation-deleteapplicationsecret.md)
+
+- [Update application secret](https://openapi.logto.io/operation/operation-updateapplicationsecret.md)
+
+- [List all the user consent scopes of an application.](https://openapi.logto.io/operation/operation-listapplicationuserconsentscopes.md)
+
+- [Assign user consent scopes to application.](https://openapi.logto.io/operation/operation-createapplicationuserconsentscope.md)
+
+- [Remove user consent scope from application.](https://openapi.logto.io/operation/operation-deleteapplicationuserconsentscope.md)
+
+- [Get the application level sign-in experience](https://openapi.logto.io/operation/operation-getapplicationsigninexperience.md)
+
+- [Update application level sign-in experience](https://openapi.logto.io/operation/operation-replaceapplicationsigninexperience.md)
+
+- [List all the user consented organizations of a application.](https://openapi.logto.io/operation/operation-listapplicationuserconsentorganizations.md)
+
+- [Grant a list of organization access of a user for a application.](https://openapi.logto.io/operation/operation-replaceapplicationuserconsentorganizations.md)
+
+- [Grant a list of organization access of a user for a application.](https://openapi.logto.io/operation/operation-createapplicationuserconsentorganization.md)
+
+- [Revoke a user's access to an organization for a application.](https://openapi.logto.io/operation/operation-deleteapplicationuserconsentorganization.md)
+
+
+### [Audit logs](https://openapi.logto.io/group/endpoint-audit-logs.md)
+
+- [Get logs](https://openapi.logto.io/operation/operation-listlogs.md)
+
+- [Get log](https://openapi.logto.io/operation/operation-getlog.md)
+
+
+### [Authn](https://openapi.logto.io/group/endpoint-authn.md)
+
+- [Hasura auth hook endpoint](https://openapi.logto.io/operation/operation-gethasuraauth.md)
+
+- [SAML ACS endpoint (social)](https://openapi.logto.io/operation/operation-assertsaml.md)
+
+- [SAML ACS endpoint (SSO)](https://openapi.logto.io/operation/operation-assertsinglesignonsaml.md)
+
+
+### [Captcha provider](https://openapi.logto.io/group/endpoint-captcha-provider.md)
+
+- [Get captcha provider](https://openapi.logto.io/operation/operation-getcaptchaprovider.md)
+
+- [Update captcha provider](https://openapi.logto.io/operation/operation-updatecaptchaprovider.md)
+
+- [Delete captcha provider](https://openapi.logto.io/operation/operation-deletecaptchaprovider.md)
+
+
+### [Configs](https://openapi.logto.io/group/endpoint-configs.md)
+
+- [Get admin console config](https://openapi.logto.io/operation/operation-getadminconsoleconfig.md)
+
+- [Update admin console config](https://openapi.logto.io/operation/operation-updateadminconsoleconfig.md)
+
+- [Get OIDC session config](https://openapi.logto.io/operation/operation-getoidcsessionconfig.md)
+
+- [Update OIDC session config](https://openapi.logto.io/operation/operation-updateoidcsessionconfig.md)
+
+- [Get OIDC keys](https://openapi.logto.io/operation/operation-getoidckeys.md)
+
+- [Delete OIDC key](https://openapi.logto.io/operation/operation-deleteoidckey.md)
+
+- [Rotate OIDC keys](https://openapi.logto.io/operation/operation-rotateoidckeys.md)
+
+- [Get JWT customizer](https://openapi.logto.io/operation/operation-getjwtcustomizer.md)
+
+- [Create or update JWT customizer](https://openapi.logto.io/operation/operation-upsertjwtcustomizer.md)
+
+- [Delete JWT customizer](https://openapi.logto.io/operation/operation-deletejwtcustomizer.md)
+
+- [Update JWT customizer](https://openapi.logto.io/operation/operation-updatejwtcustomizer.md)
+
+- [Get all JWT customizers](https://openapi.logto.io/operation/operation-listjwtcustomizers.md)
+
+- [Test JWT customizer](https://openapi.logto.io/operation/operation-testjwtcustomizer.md)
+
+- [Get ID token claims configuration](https://openapi.logto.io/operation/operation-getidtokenconfig.md)
+
+- [Upsert ID token claims configuration](https://openapi.logto.io/operation/operation-upsertidtokenconfig.md)
+
+- [Get all actions](https://openapi.logto.io/operation/operation-listactions.md)
+
+- [Test action](https://openapi.logto.io/operation/operation-testaction.md)
+
+- [Get action](https://openapi.logto.io/operation/operation-getaction.md)
+
+- [Create or update action](https://openapi.logto.io/operation/operation-upsertaction.md)
+
+- [Delete action](https://openapi.logto.io/operation/operation-deleteaction.md)
+
+- [Update action](https://openapi.logto.io/operation/operation-updateaction.md)
+
+
+### [Connector factories](https://openapi.logto.io/group/endpoint-connector-factories.md)
+
+- [Get connector factories](https://openapi.logto.io/operation/operation-listconnectorfactories.md)
+
+- [Get connector factory](https://openapi.logto.io/operation/operation-getconnectorfactory.md)
+
+
+### [Connectors](https://openapi.logto.io/group/endpoint-connectors.md)
+
+- [Get connectors](https://openapi.logto.io/operation/operation-listconnectors.md)
+
+- [Create connector](https://openapi.logto.io/operation/operation-createconnector.md)
+
+- [Get connector](https://openapi.logto.io/operation/operation-getconnector.md)
+
+- [Delete connector](https://openapi.logto.io/operation/operation-deleteconnector.md)
+
+- [Update connector](https://openapi.logto.io/operation/operation-updateconnector.md)
+
+- [Test passwordless connector](https://openapi.logto.io/operation/operation-createconnectortest.md)
+
+- [Get connector's authorization URI](https://openapi.logto.io/operation/operation-createconnectorauthorizationuri.md)
+
+
+### [Custom phrases](https://openapi.logto.io/group/endpoint-custom-phrases.md)
+
+- [Get all custom phrases](https://openapi.logto.io/operation/operation-listcustomphrases.md)
+
+- [Get custom phrases](https://openapi.logto.io/operation/operation-getcustomphrase.md)
+
+- [Upsert custom phrases](https://openapi.logto.io/operation/operation-replacecustomphrase.md)
+
+- [Delete custom phrase](https://openapi.logto.io/operation/operation-deletecustomphrase.md)
+
+
+### [Custom profile fields](https://openapi.logto.io/group/endpoint-custom-profile-fields.md)
+
+- [Get all custom profile fields](https://openapi.logto.io/operation/operation-listcustomprofilefields.md)
+
+- [Create a custom profile field](https://openapi.logto.io/operation/operation-createcustomprofilefield.md)
+
+- [Get a custom profile field by name](https://openapi.logto.io/operation/operation-getcustomprofilefieldbyname.md)
+
+- [Update a custom profile field by name](https://openapi.logto.io/operation/operation-updatecustomprofilefieldbyname.md)
+
+- [Delete a custom profile field by name](https://openapi.logto.io/operation/operation-deletecustomprofilefieldbyname.md)
+
+- [Batch create custom profile fields](https://openapi.logto.io/operation/operation-createcustomprofilefieldsbatch.md)
+
+- [Update the display order of the custom profile fields in Sign-in Experience.](https://openapi.logto.io/operation/operation-updatecustomprofilefieldssieorder.md)
+
+
+### [Dashboard](https://openapi.logto.io/group/endpoint-dashboard.md)
+
+- [Get total user count](https://openapi.logto.io/operation/operation-gettotalusercount.md)
+
+- [Get new user count](https://openapi.logto.io/operation/operation-getnewusercounts.md)
+
+- [Get active user data](https://openapi.logto.io/operation/operation-getactiveusercounts.md)
+
+
+### [Domains](https://openapi.logto.io/group/endpoint-domains.md)
+
+- [Get domains](https://openapi.logto.io/operation/operation-listdomains.md)
+
+- [Create domain](https://openapi.logto.io/operation/operation-createdomain.md)
+
+- [Get domain](https://openapi.logto.io/operation/operation-getdomain.md)
+
+- [Delete domain](https://openapi.logto.io/operation/operation-deletedomain.md)
+
+- [Get domain verification files](https://openapi.logto.io/operation/operation-listdomainverificationfiles.md)
+
+- [Replace domain verification files](https://openapi.logto.io/operation/operation-replacedomainverificationfiles.md)
+
+- [Cleanup stale domains](https://openapi.logto.io/operation/operation-cleanupdomains.md)
+
+
+### [Email templates](https://openapi.logto.io/group/endpoint-email-templates.md)
+
+- [Get email templates](https://openapi.logto.io/operation/operation-listemailtemplates.md)
+
+- [Replace email templates](https://openapi.logto.io/operation/operation-replaceemailtemplates.md)
+
+- [Delete email templates](https://openapi.logto.io/operation/operation-deleteemailtemplates.md)
+
+- [Get email template by ID](https://openapi.logto.io/operation/operation-getemailtemplate.md)
+
+- [Delete an email template](https://openapi.logto.io/operation/operation-deleteemailtemplate.md)
+
+- [Update email template details](https://openapi.logto.io/operation/operation-updateemailtemplatedetails.md)
+
+
+### [Experience](https://openapi.logto.io/group/endpoint-experience.md)
+
+- [Init new interaction](https://openapi.logto.io/operation/operation-initinteraction.md)
+
+- [Update interaction event](https://openapi.logto.io/operation/operation-updateinteractionevent.md)
+
+- [Identify user for the current interaction](https://openapi.logto.io/operation/operation-identifyuser.md)
+
+- [Submit interaction](https://openapi.logto.io/operation/operation-submitinteraction.md)
+
+- [Get public interaction data](https://openapi.logto.io/operation/operation-getinteraction.md)
+
+- [Create password verification record](https://openapi.logto.io/operation/operation-createpasswordverification.md)
+
+- [Create and send verification code](https://openapi.logto.io/operation/operation-createandsendverificationcode.md)
+
+- [Verify verification code](https://openapi.logto.io/operation/operation-verifyverificationcodeverification.md)
+
+- [Create and send MFA verification code](https://openapi.logto.io/operation/operation-createandsendmfaverificationcode.md)
+
+- [Verify MFA verification code](https://openapi.logto.io/operation/operation-verifymfaverificationcode.md)
+
+- [Create social verification](https://openapi.logto.io/operation/operation-createsocialverification.md)
+
+- [Verify social verification](https://openapi.logto.io/operation/operation-verifysocialverification.md)
+
+- [Create enterprise SSO verification](https://openapi.logto.io/operation/operation-createenterprisessoverification.md)
+
+- [Verify enterprise SSO verification](https://openapi.logto.io/operation/operation-verifyenterprisessoverification.md)
+
+- [Create TOTP secret](https://openapi.logto.io/operation/operation-createtotpsecret.md)
+
+- [Verify TOTP verification](https://openapi.logto.io/operation/operation-verifytotpverification.md)
+
+- [Create WebAuthn registration verification](https://openapi.logto.io/operation/operation-createwebauthnregistrationverification.md)
+
+- [Verify WebAuthn registration verification](https://openapi.logto.io/operation/operation-verifywebauthnregistrationverification.md)
+
+- [Create WebAuthn authentication verification](https://openapi.logto.io/operation/operation-createwebauthnauthenticationverification.md)
+
+- [Verify WebAuthn authentication verification](https://openapi.logto.io/operation/operation-verifywebauthnauthenticationverification.md)
+
+- [Create passkey sign-in WebAuthn authentication with identifier](https://openapi.logto.io/operation/operation-createsigninpasskeyauthenticationwithidentifier.md)
+
+- [Verify passkey sign-in WebAuthn authentication](https://openapi.logto.io/operation/operation-verifysigninpasskeyauthentication.md)
+
+- [Generate backup codes](https://openapi.logto.io/operation/operation-generatebackupcodes.md)
+
+- [Verify backup code](https://openapi.logto.io/operation/operation-verifybackupcode.md)
+
+- [Create new password identity verification](https://openapi.logto.io/operation/operation-createnewpasswordidentityverification.md)
+
+- [Verify one-time token](https://openapi.logto.io/operation/operation-verifyonetimetokenverification.md)
+
+- [Add user profile](https://openapi.logto.io/operation/operation-adduserprofile.md)
+
+- [Upload avatar during register interaction](https://openapi.logto.io/operation/operation-uploadexperienceavatar.md)
+
+- [Reset user password](https://openapi.logto.io/operation/operation-resetuserpassword.md)
+
+- [Mark MFA as enabled](https://openapi.logto.io/operation/operation-markmfaenabled.md)
+
+- [Skip MFA binding flow](https://openapi.logto.io/operation/operation-skipmfabindingflow.md)
+
+- [Skip additional MFA suggestion](https://openapi.logto.io/operation/operation-skipmfasuggestion.md)
+
+- [Skip passkey binding](https://openapi.logto.io/operation/operation-skippasskeybinding.md)
+
+- [Bind passkey for sign-in](https://openapi.logto.io/operation/operation-bindpasskey.md)
+
+- [Bind MFA verification by verificationId](https://openapi.logto.io/operation/operation-bindmfaverification.md)
+
+- [Get enabled SSO connectors by the given email's domain](https://openapi.logto.io/operation/operation-getenabledssoconnectors.md)
+
+- [Create passkey sign-in WebAuthn authentication](https://openapi.logto.io/operation/operation-createsigninpasskeyauthentication.md)
+
+
+### [Hooks](https://openapi.logto.io/group/endpoint-hooks.md)
+
+- [Get hooks](https://openapi.logto.io/operation/operation-listhooks.md)
+
+- [Create a hook](https://openapi.logto.io/operation/operation-createhook.md)
+
+- [Get hook](https://openapi.logto.io/operation/operation-gethook.md)
+
+- [Delete hook](https://openapi.logto.io/operation/operation-deletehook.md)
+
+- [Update hook](https://openapi.logto.io/operation/operation-updatehook.md)
+
+- [Get recent logs for a hook](https://openapi.logto.io/operation/operation-listhookrecentlogs.md)
+
+- [Test hook](https://openapi.logto.io/operation/operation-createhooktest.md)
+
+- [Update signing key for a hook](https://openapi.logto.io/operation/operation-updatehooksigningkey.md)
+
+
+### [My account](https://openapi.logto.io/group/endpoint-my-account.md)
+
+- [Get profile](https://openapi.logto.io/operation/operation-getprofile.md)
+
+- [Update profile](https://openapi.logto.io/operation/operation-updateprofile.md)
+
+- [Update other profile](https://openapi.logto.io/operation/operation-updateotherprofile.md)
+
+- [Update password](https://openapi.logto.io/operation/operation-updatepassword.md)
+
+- [Get MFA settings](https://openapi.logto.io/operation/operation-getmfasettings.md)
+
+- [Update MFA settings](https://openapi.logto.io/operation/operation-updatemfasettings.md)
+
+- [Get logto config](https://openapi.logto.io/operation/operation-getlogtoconfig.md)
+
+- [Update logto config](https://openapi.logto.io/operation/operation-updatelogtoconfig.md)
+
+- [Retrieve the access token issued by a third-party social provider](https://openapi.logto.io/operation/operation-getsocialidentityaccesstoken.md)
+
+- [Update the access token for a social identity by verification ID](https://openapi.logto.io/operation/operation-updatesocialidentityaccesstokenbyverificationid.md)
+
+- [Retrieve the access token issued by a third-party enterprise SSO provider](https://openapi.logto.io/operation/operation-getenterprisessoidentityaccesstoken.md)
+
+- [Update primary email](https://openapi.logto.io/operation/operation-updateprimaryemail.md)
+
+- [Delete primary email](https://openapi.logto.io/operation/operation-deleteprimaryemail.md)
+
+- [Update primary phone](https://openapi.logto.io/operation/operation-updateprimaryphone.md)
+
+- [Delete primary phone](https://openapi.logto.io/operation/operation-deleteprimaryphone.md)
+
+- [Replace a user identity](https://openapi.logto.io/operation/operation-replacemyaccountidentity.md)
+
+- [Add a user identity](https://openapi.logto.io/operation/operation-adduseridentities.md)
+
+- [Delete a user identity](https://openapi.logto.io/operation/operation-deleteidentity.md)
+
+- [Get MFA verifications](https://openapi.logto.io/operation/operation-getmfaverifications.md)
+
+- [Add a MFA verification](https://openapi.logto.io/operation/operation-addmfaverification.md)
+
+- [Create or replace the authenticator app](https://openapi.logto.io/operation/operation-createorreplacetotpmfaverification.md)
+
+- [Generate a TOTP secret](https://openapi.logto.io/operation/operation-generatetotpsecret.md)
+
+- [Generate backup codes](https://openapi.logto.io/operation/operation-generatemyaccountbackupcodes.md)
+
+- [Get backup codes](https://openapi.logto.io/operation/operation-getbackupcodes.md)
+
+- [Update a MFA verification name](https://openapi.logto.io/operation/operation-updatemfaverificationname.md)
+
+- [Delete an MFA verification](https://openapi.logto.io/operation/operation-deletemfaverification.md)
+
+- [Get all active sessions](https://openapi.logto.io/operation/operation-getsessions.md)
+
+- [Revoke a session by ID](https://openapi.logto.io/operation/operation-deletesessionbyid.md)
+
+- [Get all active grants](https://openapi.logto.io/operation/operation-getgrants.md)
+
+- [Revoke a grant by ID](https://openapi.logto.io/operation/operation-deletegrantbyid.md)
+
+- [Upload account avatar](https://openapi.logto.io/operation/operation-uploadaccountavatar.md)
+
+
+### [One-time tokens](https://openapi.logto.io/group/endpoint-one-time-tokens.md)
+
+- [Get one-time tokens](https://openapi.logto.io/operation/operation-listonetimetokens.md)
+
+- [Create one-time token](https://openapi.logto.io/operation/operation-addonetimetokens.md)
+
+- [Get one-time token by ID](https://openapi.logto.io/operation/operation-getonetimetoken.md)
+
+- [Delete one-time token by ID](https://openapi.logto.io/operation/operation-deleteonetimetoken.md)
+
+- [Verify one-time token](https://openapi.logto.io/operation/operation-verifyonetimetoken.md)
+
+- [Update one-time token status](https://openapi.logto.io/operation/operation-replaceonetimetokenstatus.md)
+
+
+### [Organization invitations](https://openapi.logto.io/group/endpoint-organization-invitations.md)
+
+- [Get organization invitation](https://openapi.logto.io/operation/operation-getorganizationinvitation.md)
+
+- [Delete organization invitation](https://openapi.logto.io/operation/operation-deleteorganizationinvitation.md)
+
+- [Get organization invitations](https://openapi.logto.io/operation/operation-listorganizationinvitations.md)
+
+- [Create organization invitation](https://openapi.logto.io/operation/operation-createorganizationinvitation.md)
+
+- [Resend invitation message](https://openapi.logto.io/operation/operation-createorganizationinvitationmessage.md)
+
+- [Update organization invitation status](https://openapi.logto.io/operation/operation-replaceorganizationinvitationstatus.md)
+
+
+### [Organization roles](https://openapi.logto.io/group/endpoint-organization-roles.md)
+
+- [Get organization role](https://openapi.logto.io/operation/operation-getorganizationrole.md)
+
+- [Delete organization role](https://openapi.logto.io/operation/operation-deleteorganizationrole.md)
+
+- [Update organization role](https://openapi.logto.io/operation/operation-updateorganizationrole.md)
+
+- [Get organization roles](https://openapi.logto.io/operation/operation-listorganizationroles.md)
+
+- [Create an organization role](https://openapi.logto.io/operation/operation-createorganizationrole.md)
+
+- [Get organization role scopes](https://openapi.logto.io/operation/operation-listorganizationrolescopes.md)
+
+- [Replace organization scopes for organization role](https://openapi.logto.io/operation/operation-replaceorganizationrolescopes.md)
+
+- [Assign organization scopes to organization role](https://openapi.logto.io/operation/operation-createorganizationrolescope.md)
+
+- [Remove organization scope](https://openapi.logto.io/operation/operation-deleteorganizationrolescope.md)
+
+- [Get organization role resource scopes](https://openapi.logto.io/operation/operation-listorganizationroleresourcescopes.md)
+
+- [Replace resource scopes for organization role](https://openapi.logto.io/operation/operation-replaceorganizationroleresourcescopes.md)
+
+- [Assign resource scopes to organization role](https://openapi.logto.io/operation/operation-createorganizationroleresourcescope.md)
+
+- [Remove resource scope](https://openapi.logto.io/operation/operation-deleteorganizationroleresourcescope.md)
+
+
+### [Organization scopes](https://openapi.logto.io/group/endpoint-organization-scopes.md)
+
+- [Get organization scopes](https://openapi.logto.io/operation/operation-listorganizationscopes.md)
+
+- [Create an organization scope](https://openapi.logto.io/operation/operation-createorganizationscope.md)
+
+- [Get organization scope](https://openapi.logto.io/operation/operation-getorganizationscope.md)
+
+- [Delete organization scope](https://openapi.logto.io/operation/operation-deleteorganizationscope.md)
+
+- [Update organization scope](https://openapi.logto.io/operation/operation-updateorganizationscope.md)
+
+
+### [Organizations](https://openapi.logto.io/group/endpoint-organizations.md)
+
+- [Get organizations](https://openapi.logto.io/operation/operation-listorganizations.md)
+
+- [Create an organization](https://openapi.logto.io/operation/operation-createorganization.md)
+
+- [Get organization](https://openapi.logto.io/operation/operation-getorganization.md)
+
+- [Delete organization](https://openapi.logto.io/operation/operation-deleteorganization.md)
+
+- [Update organization](https://openapi.logto.io/operation/operation-updateorganization.md)
+
+- [Get organization user members](https://openapi.logto.io/operation/operation-listorganizationusers.md)
+
+- [Replace organization user members](https://openapi.logto.io/operation/operation-replaceorganizationusers.md)
+
+- [Add user members to organization](https://openapi.logto.io/operation/operation-addorganizationusers.md)
+
+- [Remove user member from organization](https://openapi.logto.io/operation/operation-deleteorganizationuser.md)
+
+- [Assign roles to organization user members](https://openapi.logto.io/operation/operation-assignorganizationrolestousers.md)
+
+- [Get roles for a user in an organization](https://openapi.logto.io/operation/operation-listorganizationuserroles.md)
+
+- [Update roles for a user in an organization](https://openapi.logto.io/operation/operation-replaceorganizationuserroles.md)
+
+- [Assign roles to a user in an organization](https://openapi.logto.io/operation/operation-assignorganizationrolestouser.md)
+
+- [Remove a role from a user in an organization](https://openapi.logto.io/operation/operation-deleteorganizationuserrole.md)
+
+- [Get scopes for a user in an organization tailored by the organization roles](https://openapi.logto.io/operation/operation-listorganizationuserscopes.md)
+
+- [Get organization applications](https://openapi.logto.io/operation/operation-listorganizationapplications.md)
+
+- [Replace organization applications](https://openapi.logto.io/operation/operation-replaceorganizationapplications.md)
+
+- [Add organization application](https://openapi.logto.io/operation/operation-addorganizationapplications.md)
+
+- [Remove organization application](https://openapi.logto.io/operation/operation-deleteorganizationapplication.md)
+
+- [Assign roles to applications in an organization](https://openapi.logto.io/operation/operation-assignorganizationrolestoapplications.md)
+
+- [Get organization application roles](https://openapi.logto.io/operation/operation-listorganizationapplicationroles.md)
+
+- [Replace organization application roles](https://openapi.logto.io/operation/operation-replaceorganizationapplicationroles.md)
+
+- [Add organization application role](https://openapi.logto.io/operation/operation-assignorganizationrolestoapplication.md)
+
+- [Remove organization application role](https://openapi.logto.io/operation/operation-deleteorganizationapplicationrole.md)
+
+- [Get organization JIT email domains](https://openapi.logto.io/operation/operation-listorganizationjitemaildomains.md)
+
+- [Replace organization JIT email domains](https://openapi.logto.io/operation/operation-replaceorganizationjitemaildomains.md)
+
+- [Add organization JIT email domain](https://openapi.logto.io/operation/operation-createorganizationjitemaildomain.md)
+
+- [Remove organization JIT email domain](https://openapi.logto.io/operation/operation-deleteorganizationjitemaildomain.md)
+
+- [Get organization JIT default roles](https://openapi.logto.io/operation/operation-listorganizationjitroles.md)
+
+- [Replace organization JIT default roles](https://openapi.logto.io/operation/operation-replaceorganizationjitroles.md)
+
+- [Add organization JIT default roles](https://openapi.logto.io/operation/operation-createorganizationjitrole.md)
+
+- [Remove organization JIT default role](https://openapi.logto.io/operation/operation-deleteorganizationjitrole.md)
+
+- [Get organization JIT SSO connectors](https://openapi.logto.io/operation/operation-listorganizationjitssoconnectors.md)
+
+- [Replace organization JIT SSO connectors](https://openapi.logto.io/operation/operation-replaceorganizationjitssoconnectors.md)
+
+- [Add organization JIT SSO connectors](https://openapi.logto.io/operation/operation-createorganizationjitssoconnector.md)
+
+- [Remove organization JIT SSO connector](https://openapi.logto.io/operation/operation-deleteorganizationjitssoconnector.md)
+
+
+### [Resources](https://openapi.logto.io/group/endpoint-resources.md)
+
+- [Get API resources](https://openapi.logto.io/operation/operation-listresources.md)
+
+- [Create an API resource](https://openapi.logto.io/operation/operation-createresource.md)
+
+- [Get API resource](https://openapi.logto.io/operation/operation-getresource.md)
+
+- [Delete API resource](https://openapi.logto.io/operation/operation-deleteresource.md)
+
+- [Update API resource](https://openapi.logto.io/operation/operation-updateresource.md)
+
+- [Set API resource as default](https://openapi.logto.io/operation/operation-updateresourceisdefault.md)
+
+- [Get API resource scopes](https://openapi.logto.io/operation/operation-listresourcescopes.md)
+
+- [Create API resource scope](https://openapi.logto.io/operation/operation-createresourcescope.md)
+
+- [Delete API resource scope](https://openapi.logto.io/operation/operation-deleteresourcescope.md)
+
+- [Update API resource scope](https://openapi.logto.io/operation/operation-updateresourcescope.md)
+
+
+### [Roles](https://openapi.logto.io/group/endpoint-roles.md)
+
+- [Get roles](https://openapi.logto.io/operation/operation-listroles.md)
+
+- [Create a role](https://openapi.logto.io/operation/operation-createrole.md)
+
+- [Get role](https://openapi.logto.io/operation/operation-getrole.md)
+
+- [Delete role](https://openapi.logto.io/operation/operation-deleterole.md)
+
+- [Update role](https://openapi.logto.io/operation/operation-updaterole.md)
+
+- [Get role users](https://openapi.logto.io/operation/operation-listroleusers.md)
+
+- [Assign role to users](https://openapi.logto.io/operation/operation-createroleuser.md)
+
+- [Remove role from user](https://openapi.logto.io/operation/operation-deleteroleuser.md)
+
+- [Get role applications](https://openapi.logto.io/operation/operation-listroleapplications.md)
+
+- [Assign role to applications](https://openapi.logto.io/operation/operation-createroleapplication.md)
+
+- [Remove role from application](https://openapi.logto.io/operation/operation-deleteroleapplication.md)
+
+- [Get role scopes](https://openapi.logto.io/operation/operation-listrolescopes.md)
+
+- [Link scopes to role](https://openapi.logto.io/operation/operation-createrolescope.md)
+
+- [Unlink scope from role](https://openapi.logto.io/operation/operation-deleterolescope.md)
+
+
+### [SAML applications](https://openapi.logto.io/group/endpoint-saml-applications.md)
+
+- [Create SAML application](https://openapi.logto.io/operation/operation-createsamlapplication.md)
+
+- [Get SAML application](https://openapi.logto.io/operation/operation-getsamlapplication.md)
+
+- [Delete SAML application](https://openapi.logto.io/operation/operation-deletesamlapplication.md)
+
+- [Update SAML application](https://openapi.logto.io/operation/operation-updatesamlapplication.md)
+
+- [List SAML application secrets](https://openapi.logto.io/operation/operation-listsamlapplicationsecrets.md)
+
+- [Create SAML application secret](https://openapi.logto.io/operation/operation-createsamlapplicationsecret.md)
+
+- [Delete SAML application secret](https://openapi.logto.io/operation/operation-deletesamlapplicationsecret.md)
+
+- [Update SAML application secret](https://openapi.logto.io/operation/operation-updatesamlapplicationsecret.md)
+
+- [Get SAML application metadata](https://openapi.logto.io/operation/operation-listsamlapplicationmetadata.md)
+
+- [SAML application callback](https://openapi.logto.io/operation/operation-getsamlapplicationcallback.md)
+
+
+### [SAML applications auth flow](https://openapi.logto.io/group/endpoint-saml-applications-auth-flow.md)
+
+- [Handle SAML authentication request (Redirect binding)](https://openapi.logto.io/operation/operation-getsamlauthn.md)
+
+- [Handle SAML authentication request (POST binding)](https://openapi.logto.io/operation/operation-createsamlauthn.md)
+
+
+### [Secrets](https://openapi.logto.io/group/endpoint-secrets.md)
+
+- [Delete secret](https://openapi.logto.io/operation/operation-deletesecret.md)
+
+
+### [Sentinel activities](https://openapi.logto.io/group/endpoint-sentinel-activities.md)
+
+- [Bulk delete sentinel activities](https://openapi.logto.io/operation/operation-deletesentinelactivities.md)
+
+
+### [Sign-in experience](https://openapi.logto.io/group/endpoint-sign-in-experience.md)
+
+- [Get default sign-in experience settings](https://openapi.logto.io/operation/operation-getsigninexp.md)
+
+- [Update default sign-in experience settings](https://openapi.logto.io/operation/operation-updatesigninexp.md)
+
+- [Check if a password meets the password policy](https://openapi.logto.io/operation/operation-checkpasswordwithdefaultsigninexperience.md)
+
+- [Upload custom UI assets](https://openapi.logto.io/operation/operation-uploadcustomuiassets.md)
+
+- [Get username case-sensitivity conflicts](https://openapi.logto.io/operation/operation-getusernamecasesensitivityconflicts.md)
+
+
+### [SSO connector providers](https://openapi.logto.io/group/endpoint-sso-connector-providers.md)
+
+- [List all the supported SSO connector provider details](https://openapi.logto.io/operation/operation-listssoconnectorproviders.md)
+
+
+### [SSO connectors](https://openapi.logto.io/group/endpoint-sso-connectors.md)
+
+- [List SSO connectors](https://openapi.logto.io/operation/operation-listssoconnectors.md)
+
+- [Create SSO connector](https://openapi.logto.io/operation/operation-createssoconnector.md)
+
+- [Get SSO connector](https://openapi.logto.io/operation/operation-getssoconnector.md)
+
+- [Delete SSO connector](https://openapi.logto.io/operation/operation-deletessoconnector.md)
+
+- [Update SSO connector](https://openapi.logto.io/operation/operation-updatessoconnector.md)
+
+- [List SP signing keys](https://openapi.logto.io/operation/operation-listssoconnectorsigningkeys.md)
+
+- [Create an SP signing key](https://openapi.logto.io/operation/operation-createssoconnectorsigningkey.md)
+
+- [Delete an SP signing key](https://openapi.logto.io/operation/operation-deletessoconnectorsigningkey.md)
+
+- [Activate or deactivate an SP signing key](https://openapi.logto.io/operation/operation-updatessoconnectorsigningkey.md)
+
+
+### [Status](https://openapi.logto.io/group/endpoint-status.md)
+
+- [Health check](https://openapi.logto.io/operation/operation-getstatus.md)
+
+
+### [Subject tokens](https://openapi.logto.io/group/endpoint-subject-tokens.md)
+
+- [Create a new subject token.](https://openapi.logto.io/operation/operation-createsubjecttoken.md)
+
+
+### [Swagger.json](https://openapi.logto.io/group/endpoint-swagger-json.md)
+
+- [Get Swagger JSON](https://openapi.logto.io/operation/operation-getswaggerjson.md)
+
+
+### [Systems](https://openapi.logto.io/group/endpoint-systems.md)
+
+- [Get the application constants.](https://openapi.logto.io/operation/operation-getsystemapplicationconfig.md)
+
+
+### [User assets](https://openapi.logto.io/group/endpoint-user-assets.md)
+
+- [Get service status](https://openapi.logto.io/operation/operation-getuserassetservicestatus.md)
+
+- [Upload asset](https://openapi.logto.io/operation/operation-createuserasset.md)
+
+
+### [Users](https://openapi.logto.io/group/endpoint-users.md)
+
+- [Get user](https://openapi.logto.io/operation/operation-getuser.md)
+
+- [Delete user](https://openapi.logto.io/operation/operation-deleteuser.md)
+
+- [Update user](https://openapi.logto.io/operation/operation-updateuser.md)
+
+- [Get user custom data](https://openapi.logto.io/operation/operation-listusercustomdata.md)
+
+- [Update user custom data](https://openapi.logto.io/operation/operation-updateusercustomdata.md)
+
+- [Get user logto config](https://openapi.logto.io/operation/operation-listuserlogtoconfigs.md)
+
+- [Update user logto config](https://openapi.logto.io/operation/operation-updateuserlogtoconfigs.md)
+
+- [Update user profile](https://openapi.logto.io/operation/operation-updateuserprofile.md)
+
+- [Get users](https://openapi.logto.io/operation/operation-listusers.md)
+
+- [Create user](https://openapi.logto.io/operation/operation-createuser.md)
+
+- [Update user password](https://openapi.logto.io/operation/operation-updateuserpassword.md)
+
+- [Update user password expiration](https://openapi.logto.io/operation/operation-updateuserpasswordexpiration.md)
+
+- [Verify user password](https://openapi.logto.io/operation/operation-verifyuserpassword.md)
+
+- [Check if user has password](https://openapi.logto.io/operation/operation-getuserhaspassword.md)
+
+- [Update user suspension status](https://openapi.logto.io/operation/operation-updateuserissuspended.md)
+
+- [Get roles for user](https://openapi.logto.io/operation/operation-listuserroles.md)
+
+- [Update roles for user](https://openapi.logto.io/operation/operation-replaceuserroles.md)
+
+- [Assign roles to user](https://openapi.logto.io/operation/operation-assignuserroles.md)
+
+- [Remove role from user](https://openapi.logto.io/operation/operation-deleteuserrole.md)
+
+- [Retrieve a user's social identity and associated token storage .](https://openapi.logto.io/operation/operation-getuseridentity.md)
+
+- [Update social identity of user](https://openapi.logto.io/operation/operation-replaceuseridentity.md)
+
+- [Delete social identity from user](https://openapi.logto.io/operation/operation-deleteuseridentity.md)
+
+- [Link social identity to user](https://openapi.logto.io/operation/operation-createuseridentity.md)
+
+- [Get organizations for a user](https://openapi.logto.io/operation/operation-listuserorganizations.md)
+
+- [Get user active grants](https://openapi.logto.io/operation/operation-listusergrants.md)
+
+- [Revoke a user grant](https://openapi.logto.io/operation/operation-deleteusergrant.md)
+
+- [Get user's MFA verifications](https://openapi.logto.io/operation/operation-listusermfaverifications.md)
+
+- [Create an MFA verification for a user](https://openapi.logto.io/operation/operation-createusermfaverification.md)
+
+- [Delete an MFA verification for a user](https://openapi.logto.io/operation/operation-deleteusermfaverification.md)
+
+- [Get personal access tokens](https://openapi.logto.io/operation/operation-listuserpersonalaccesstokens.md)
+
+- [Add personal access token](https://openapi.logto.io/operation/operation-createuserpersonalaccesstoken.md)
+
+- [Update personal access token](https://openapi.logto.io/operation/operation-updatepersonalaccesstokenname.md)
+
+- [Delete personal access token](https://openapi.logto.io/operation/operation-deleteuserpersonalaccesstoken.md)
+
+- [Update personal access token](https://openapi.logto.io/operation/operation-updateuserpersonalaccesstoken.md)
+
+- [Delete personal access token](https://openapi.logto.io/operation/operation-deletepersonalaccesstokenpost.md)
+
+- [Retrieve a user's enterprise SSO identity and associated token secret (if token storage is enabled).](https://openapi.logto.io/operation/operation-getuserssoidentity.md)
+
+- [Retrieve social identities, enterprise SSO identities and associated token secret (if token storage is enabled) for a user.](https://openapi.logto.io/operation/operation-listuserallidentities.md)
+
+- [Get user active sessions](https://openapi.logto.io/operation/operation-listusersessions.md)
+
+- [Get user active session](https://openapi.logto.io/operation/operation-getusersession.md)
+
+- [Revoke a user session](https://openapi.logto.io/operation/operation-deleteusersession.md)
+
+
+### [Verification codes](https://openapi.logto.io/group/endpoint-verification-codes.md)
+
+- [Request and send a verification code](https://openapi.logto.io/operation/operation-createverificationcode.md)
+
+- [Verify a verification code](https://openapi.logto.io/operation/operation-verifyverificationcode.md)
+
+
+### [Verifications](https://openapi.logto.io/group/endpoint-verifications.md)
+
+- [Create a record by password](https://openapi.logto.io/operation/operation-createverificationbypassword.md)
+
+- [Create a record by verification code](https://openapi.logto.io/operation/operation-createverificationbyverificationcode.md)
+
+- [Verify verification code](https://openapi.logto.io/operation/operation-verifyverificationbyverificationcode.md)
+
+- [Create a social verification record](https://openapi.logto.io/operation/operation-createverificationbysocial.md)
+
+- [Verify a social verification record](https://openapi.logto.io/operation/operation-verifyverificationbysocial.md)
+
+- [Generate WebAuthn registration options](https://openapi.logto.io/operation/operation-generatewebauthnregistrationoptions.md)
+
+- [Verify WebAuthn registration](https://openapi.logto.io/operation/operation-verifywebauthnregistration.md)
+
+
+### [Well-known](https://openapi.logto.io/group/endpoint-well-known.md)
+
+- [Get full sign-in experience](https://openapi.logto.io/operation/operation-getsigninexperienceconfig.md)
+
+- [Get localized phrases](https://openapi.logto.io/operation/operation-getsigninexperiencephrases.md)
+
+- [Get full sign-in experience](https://openapi.logto.io/operation/operation-getwellknownexperience.md)
+
+- [Get default account center](https://openapi.logto.io/operation/operation-getwellknownaccountcenter.md)
+
+- [Get Management API swagger JSON](https://openapi.logto.io/operation/operation-getwellknownmanagementopenapijson.md)
+
+- [Get Experience API swagger JSON](https://openapi.logto.io/operation/operation-getwellknownexperienceopenapijson.md)
+
+- [Get User API swagger JSON](https://openapi.logto.io/operation/operation-getwellknownuseropenapijson.md)
+
+
+
+
+[Powered by Bump.sh](https://bump.sh)

@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Connectors API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get connectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/connectors",
+            "params": [
+              {
+                "name": "target",
+                "value": "",
+                "type": "query",
+                "description": "Filter connectors by target."
+              }
+            ]
+          },
+          "docs": "Get all connectors in the current tenant."
+        },
+        {
+          "info": {
+            "name": "Create connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/connectors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a connector with the given data."
+        },
+        {
+          "info": {
+            "name": "Get connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ]
+          },
+          "docs": "Get connector data by ID"
+        },
+        {
+          "info": {
+            "name": "Update connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update connector by ID with the given data. This methods performs a partial update."
+        },
+        {
+          "info": {
+            "name": "Delete connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ]
+          },
+          "docs": "Delete connector by ID."
+        },
+        {
+          "info": {
+            "name": "Test passwordless connector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/connectors/:factoryId/test",
+            "params": [
+              {
+                "name": "factoryId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the factory."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Test a passwordless (email or SMS) connector by sending a test message to the given phone number or email address."
+        },
+        {
+          "info": {
+            "name": "Get connector's authorization URI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/connectors/:connectorId/authorization-uri",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get authorization URI for specified connector by providing redirect URI and randomly generated state."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

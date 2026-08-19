@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Connector factories API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connector factories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get connector factories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/connector-factories"
+          },
+          "docs": "Get all connector factories data available in Logto."
+        },
+        {
+          "info": {
+            "name": "Get connector factory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/connector-factories/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector factory."
+              }
+            ]
+          },
+          "docs": "Get connector factory by the given ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

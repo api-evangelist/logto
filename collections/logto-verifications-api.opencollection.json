@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Verifications API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a record by password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a verification record by verifying the password."
+        },
+        {
+          "info": {
+            "name": "Create a record by verification code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/verification-code",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a verification record and send the code to the specified identifier. The code verification can be used to verify the given identifier."
+        },
+        {
+          "info": {
+            "name": "Verify verification code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/verification-code/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify the provided verification code against the identifier. If successful, the verification record will be marked as verified."
+        },
+        {
+          "info": {
+            "name": "Create a social verification record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/social",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a social verification record and return the authorization URI."
+        },
+        {
+          "info": {
+            "name": "Verify a social verification record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/social/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a social verification record by callback connector data, and save the user information to the record."
+        },
+        {
+          "info": {
+            "name": "Generate WebAuthn registration options",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/web-authn/registration"
+          },
+          "docs": "Generate WebAuthn registration options for the user to register a new WebAuthn device."
+        },
+        {
+          "info": {
+            "name": "Verify WebAuthn registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verifications/web-authn/registration/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify the WebAuthn registration by the user's response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

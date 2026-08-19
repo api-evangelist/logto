@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Custom phrases API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom phrases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all custom phrases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/custom-phrases"
+          },
+          "docs": "Get all custom phrases for all languages."
+        },
+        {
+          "info": {
+            "name": "Get custom phrases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/custom-phrases/:languageTag",
+            "params": [
+              {
+                "name": "languageTag",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get custom phrases for the specified language tag."
+        },
+        {
+          "info": {
+            "name": "Upsert custom phrases",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/custom-phrases/:languageTag",
+            "params": [
+              {
+                "name": "languageTag",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert custom phrases for the specified language tag. Upsert means that if the custom phrases already exist, they will be updated. Otherwise, they will be created."
+        },
+        {
+          "info": {
+            "name": "Delete custom phrase",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/custom-phrases/:languageTag",
+            "params": [
+              {
+                "name": "languageTag",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete custom phrases for the specified language tag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Verification codes API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verification codes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request and send a verification code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verification-codes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a verification code for the provided identifier (email/phone).\nif you're using email as the identifier, you need to setup your email connector first.\nif you're using phone as the identifier, you need to setup your SMS connector first."
+        },
+        {
+          "info": {
+            "name": "Verify a verification code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/verification-codes/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a verification code for a specified identifier.\nif you're using email as the identifier, you need to setup your email connector first.\nif you're using phone as the identifier, you need to setup your SMS connector first."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

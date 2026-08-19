@@ -1,0 +1,821 @@
+{
+  "item": [
+    {
+      "id": "774daa5f-a3e3-46f5-ad15-692881449ecb",
+      "name": "Well-known",
+      "description": {
+        "content": "Well-Known routes provide information and resources that can be discovered by clients without the need for authentication.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af022fa0-e4e8-408f-adfb-830e2d5fed05",
+          "name": "Get full sign-in experience",
+          "request": {
+            "name": "Get full sign-in experience",
+            "description": {
+              "content": "Get the full sign-in experience configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "sign-in-exp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organizationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "appId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1dbea1d-c555-4ba1-b232-c1f83447de19",
+              "name": "The full sign-in experience configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"color\": {\n    \"primaryColor\": \"/#55beb0/i\",\n    \"isDarkModeEnabled\": true,\n    \"darkPrimaryColor\": \"/#4f4890/i\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"string\",\n    \"darkLogoUrl\": \"string\",\n    \"favicon\": \"string\",\n    \"darkFavicon\": \"string\"\n  },\n  \"hideLogtoBranding\": false,\n  \"languageInfo\": {\n    \"autoDetect\": false,\n    \"fallbackLanguage\": \"cb-IQ\"\n  },\n  \"termsOfUseUrl\": \"string\",\n  \"privacyPolicyUrl\": \"string\",\n  \"agreeToTermsPolicy\": \"Manual\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"username\",\n        \"password\": true,\n        \"verificationCode\": false,\n        \"isPasswordPrimary\": true\n      },\n      {\n        \"identifier\": \"username\",\n        \"password\": false,\n        \"verificationCode\": true,\n        \"isPasswordPrimary\": true\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"phone\",\n      \"email\"\n    ],\n    \"password\": true,\n    \"verify\": false,\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"username\",\n        \"verify\": false\n      },\n      {\n        \"identifier\": \"phone\",\n        \"verify\": true\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": false,\n    \"skipRequiredIdentifiers\": true\n  },\n  \"socialSignInConnectorTargets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"signInMode\": \"SignInAndRegister\",\n  \"customCss\": \"string\",\n  \"customContent\": {\n    \"key_0\": \"string\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"string\",\n    \"createdAt\": 7830.8957859610455\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"EmailVerificationCode\",\n      \"Totp\"\n    ],\n    \"policy\": \"Mandatory\",\n    \"organizationRequiredMfaPolicy\": \"NoPrompt\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": false\n  },\n  \"singleSignOnEnabled\": true,\n  \"supportEmail\": \"string\",\n  \"supportWebsiteUrl\": \"string\",\n  \"unknownSessionRedirectUrl\": \"string\",\n  \"captchaPolicy\": {\n    \"enabled\": true\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": 3301.726462305048,\n    \"lockoutDuration\": 3781.1172779350845\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": false,\n    \"blockSubaddressing\": false,\n    \"customBlocklist\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"passkeySignIn\": {\n    \"enabled\": true,\n    \"showPasskeyButton\": true,\n    \"allowAutofill\": false\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"string\"\n    },\n    {\n      \"name\": \"string\"\n    }\n  ],\n  \"socialConnectors\": [\n    {\n      \"id\": \"string\",\n      \"target\": \"string\",\n      \"name\": {},\n      \"logo\": \"string\",\n      \"logoDark\": \"string\",\n      \"platform\": \"Native\",\n      \"fromEmail\": \"string\",\n      \"isStandard\": false,\n      \"isTokenStorageSupported\": true\n    },\n    {\n      \"id\": \"string\",\n      \"target\": \"string\",\n      \"name\": {},\n      \"logo\": \"string\",\n      \"logoDark\": \"string\",\n      \"platform\": \"Universal\",\n      \"fromEmail\": \"string\",\n      \"isStandard\": false,\n      \"isTokenStorageSupported\": false\n    }\n  ],\n  \"ssoConnectors\": [\n    {\n      \"id\": \"string\",\n      \"connectorName\": \"string\",\n      \"logo\": \"string\",\n      \"darkLogo\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"connectorName\": \"string\",\n      \"logo\": \"string\",\n      \"darkLogo\": \"string\"\n    }\n  ],\n  \"forgotPassword\": {\n    \"phone\": true,\n    \"email\": true\n  },\n  \"isDevelopmentTenant\": true,\n  \"customProfileFields\": [\n    {\n      \"tenantId\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Regex\",\n      \"label\": \"string\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"config\": {\n        \"placeholder\": \"string\",\n        \"minLength\": 2106.7371456548476,\n        \"maxLength\": 1789.1716639949107,\n        \"minValue\": 1202.4761220339342,\n        \"maxValue\": 8319.030861482917,\n        \"format\": \"string\",\n        \"customFormat\": \"string\",\n        \"options\": [\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          }\n        ],\n        \"defaultValue\": \"string\",\n        \"parts\": [\n          {\n            \"enabled\": true,\n            \"name\": \"string\",\n            \"type\": \"Url\",\n            \"required\": false,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 3562.9906846292556,\n              \"maxLength\": 5986.433133809527,\n              \"minValue\": 1747.619641100867,\n              \"maxValue\": 8125.834186427654,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          },\n          {\n            \"enabled\": false,\n            \"name\": \"string\",\n            \"type\": \"Text\",\n            \"required\": true,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 6748.184386795047,\n              \"maxLength\": 925.3898593189447,\n              \"minValue\": 2146.0990297217695,\n              \"maxValue\": 5275.25790285721,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          }\n        ]\n      },\n      \"createdAt\": 299.4936083226862,\n      \"sieOrder\": 9607.423458888285\n    },\n    {\n      \"tenantId\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Checkbox\",\n      \"label\": \"string\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"config\": {\n        \"placeholder\": \"string\",\n        \"minLength\": 7247.379982052734,\n        \"maxLength\": 3145.9363711830633,\n        \"minValue\": 8537.750205285794,\n        \"maxValue\": 8993.450976037304,\n        \"format\": \"string\",\n        \"customFormat\": \"string\",\n        \"options\": [\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          }\n        ],\n        \"defaultValue\": \"string\",\n        \"parts\": [\n          {\n            \"enabled\": true,\n            \"name\": \"string\",\n            \"type\": \"Url\",\n            \"required\": false,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 735.6325705825883,\n              \"maxLength\": 5864.045211285073,\n              \"minValue\": 8656.399078260494,\n              \"maxValue\": 9292.114627174133,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          },\n          {\n            \"enabled\": false,\n            \"name\": \"string\",\n            \"type\": \"Url\",\n            \"required\": true,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 9290.977356140054,\n              \"maxLength\": 9208.771675869124,\n              \"minValue\": 4132.282854098929,\n              \"maxValue\": 678.9853419875025,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          }\n        ]\n      },\n      \"createdAt\": 6434.829616165591,\n      \"sieOrder\": 7178.092415897522\n    }\n  ],\n  \"googleOneTap\": {\n    \"clientId\": \"string\",\n    \"connectorId\": \"string\",\n    \"isEnabled\": true,\n    \"autoSelect\": false,\n    \"closeOnTapOutside\": false,\n    \"itpSupport\": false\n  },\n  \"captchaConfig\": {\n    \"type\": \"Turnstile\",\n    \"siteKey\": \"string\",\n    \"domain\": \"string\",\n    \"mode\": \"invisible\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21eef612-407d-459f-8ffe-7c04889cad0a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04d47ef3-a232-4424-b0ff-69e1389e0548",
+          "name": "Get localized phrases",
+          "request": {
+            "name": "Get localized phrases",
+            "description": {
+              "content": "Get localized phrases based on the specified language.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "phrases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<string>",
+                  "description": "The language tag for localization."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a9f38ef-2504-4895-99b2-c20de87f8534",
+              "name": "Localized phrases for the specified language.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "phrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lng",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1275c2de-e2f5-45d4-ae0c-b7c55223776f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "phrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lng",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "663b4b61-bb75-48f9-b1fa-7ec3b6de0d65",
+          "name": "Get full sign-in experience",
+          "request": {
+            "name": "Get full sign-in experience",
+            "description": {
+              "content": "Get the full sign-in experience configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "experience"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organizationId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "appId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcca475d-c9a7-4131-92fe-390861e78c77",
+              "name": "The full sign-in experience configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "experience"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"color\": {\n    \"primaryColor\": \"/#55beb0/i\",\n    \"isDarkModeEnabled\": true,\n    \"darkPrimaryColor\": \"/#4f4890/i\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"string\",\n    \"darkLogoUrl\": \"string\",\n    \"favicon\": \"string\",\n    \"darkFavicon\": \"string\"\n  },\n  \"hideLogtoBranding\": false,\n  \"languageInfo\": {\n    \"autoDetect\": false,\n    \"fallbackLanguage\": \"cb-IQ\"\n  },\n  \"termsOfUseUrl\": \"string\",\n  \"privacyPolicyUrl\": \"string\",\n  \"agreeToTermsPolicy\": \"Manual\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"username\",\n        \"password\": true,\n        \"verificationCode\": false,\n        \"isPasswordPrimary\": true\n      },\n      {\n        \"identifier\": \"username\",\n        \"password\": false,\n        \"verificationCode\": true,\n        \"isPasswordPrimary\": true\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"phone\",\n      \"email\"\n    ],\n    \"password\": true,\n    \"verify\": false,\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"username\",\n        \"verify\": false\n      },\n      {\n        \"identifier\": \"phone\",\n        \"verify\": true\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": false,\n    \"skipRequiredIdentifiers\": true\n  },\n  \"socialSignInConnectorTargets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"signInMode\": \"SignInAndRegister\",\n  \"customCss\": \"string\",\n  \"customContent\": {\n    \"key_0\": \"string\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"string\",\n    \"createdAt\": 7830.8957859610455\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"EmailVerificationCode\",\n      \"Totp\"\n    ],\n    \"policy\": \"Mandatory\",\n    \"organizationRequiredMfaPolicy\": \"NoPrompt\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": false\n  },\n  \"singleSignOnEnabled\": true,\n  \"supportEmail\": \"string\",\n  \"supportWebsiteUrl\": \"string\",\n  \"unknownSessionRedirectUrl\": \"string\",\n  \"captchaPolicy\": {\n    \"enabled\": true\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": 3301.726462305048,\n    \"lockoutDuration\": 3781.1172779350845\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": false,\n    \"blockSubaddressing\": false,\n    \"customBlocklist\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"passkeySignIn\": {\n    \"enabled\": true,\n    \"showPasskeyButton\": true,\n    \"allowAutofill\": false\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"string\"\n    },\n    {\n      \"name\": \"string\"\n    }\n  ],\n  \"socialConnectors\": [\n    {\n      \"id\": \"string\",\n      \"target\": \"string\",\n      \"name\": {},\n      \"logo\": \"string\",\n      \"logoDark\": \"string\",\n      \"platform\": \"Native\",\n      \"fromEmail\": \"string\",\n      \"isStandard\": false,\n      \"isTokenStorageSupported\": true\n    },\n    {\n      \"id\": \"string\",\n      \"target\": \"string\",\n      \"name\": {},\n      \"logo\": \"string\",\n      \"logoDark\": \"string\",\n      \"platform\": \"Universal\",\n      \"fromEmail\": \"string\",\n      \"isStandard\": false,\n      \"isTokenStorageSupported\": false\n    }\n  ],\n  \"ssoConnectors\": [\n    {\n      \"id\": \"string\",\n      \"connectorName\": \"string\",\n      \"logo\": \"string\",\n      \"darkLogo\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"connectorName\": \"string\",\n      \"logo\": \"string\",\n      \"darkLogo\": \"string\"\n    }\n  ],\n  \"forgotPassword\": {\n    \"phone\": true,\n    \"email\": true\n  },\n  \"isDevelopmentTenant\": true,\n  \"customProfileFields\": [\n    {\n      \"tenantId\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Regex\",\n      \"label\": \"string\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"config\": {\n        \"placeholder\": \"string\",\n        \"minLength\": 2106.7371456548476,\n        \"maxLength\": 1789.1716639949107,\n        \"minValue\": 1202.4761220339342,\n        \"maxValue\": 8319.030861482917,\n        \"format\": \"string\",\n        \"customFormat\": \"string\",\n        \"options\": [\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          }\n        ],\n        \"defaultValue\": \"string\",\n        \"parts\": [\n          {\n            \"enabled\": true,\n            \"name\": \"string\",\n            \"type\": \"Url\",\n            \"required\": false,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 3562.9906846292556,\n              \"maxLength\": 5986.433133809527,\n              \"minValue\": 1747.619641100867,\n              \"maxValue\": 8125.834186427654,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          },\n          {\n            \"enabled\": false,\n            \"name\": \"string\",\n            \"type\": \"Text\",\n            \"required\": true,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 6748.184386795047,\n              \"maxLength\": 925.3898593189447,\n              \"minValue\": 2146.0990297217695,\n              \"maxValue\": 5275.25790285721,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          }\n        ]\n      },\n      \"createdAt\": 299.4936083226862,\n      \"sieOrder\": 9607.423458888285\n    },\n    {\n      \"tenantId\": \"string\",\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Checkbox\",\n      \"label\": \"string\",\n      \"description\": \"string\",\n      \"required\": true,\n      \"config\": {\n        \"placeholder\": \"string\",\n        \"minLength\": 7247.379982052734,\n        \"maxLength\": 3145.9363711830633,\n        \"minValue\": 8537.750205285794,\n        \"maxValue\": 8993.450976037304,\n        \"format\": \"string\",\n        \"customFormat\": \"string\",\n        \"options\": [\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"label\": \"string\"\n          }\n        ],\n        \"defaultValue\": \"string\",\n        \"parts\": [\n          {\n            \"enabled\": true,\n            \"name\": \"string\",\n            \"type\": \"Url\",\n            \"required\": false,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 735.6325705825883,\n              \"maxLength\": 5864.045211285073,\n              \"minValue\": 8656.399078260494,\n              \"maxValue\": 9292.114627174133,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          },\n          {\n            \"enabled\": false,\n            \"name\": \"string\",\n            \"type\": \"Url\",\n            \"required\": true,\n            \"label\": \"string\",\n            \"description\": \"string\",\n            \"config\": {\n              \"placeholder\": \"string\",\n              \"minLength\": 9290.977356140054,\n              \"maxLength\": 9208.771675869124,\n              \"minValue\": 4132.282854098929,\n              \"maxValue\": 678.9853419875025,\n              \"format\": \"string\",\n              \"customFormat\": \"string\",\n              \"options\": [\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                },\n                {\n                  \"value\": \"string\",\n                  \"label\": \"string\"\n                }\n              ],\n              \"defaultValue\": \"string\"\n            }\n          }\n        ]\n      },\n      \"createdAt\": 6434.829616165591,\n      \"sieOrder\": 7178.092415897522\n    }\n  ],\n  \"googleOneTap\": {\n    \"clientId\": \"string\",\n    \"connectorId\": \"string\",\n    \"isEnabled\": true,\n    \"autoSelect\": false,\n    \"closeOnTapOutside\": false,\n    \"itpSupport\": false\n  },\n  \"captchaConfig\": {\n    \"type\": \"Turnstile\",\n    \"siteKey\": \"string\",\n    \"domain\": \"string\",\n    \"mode\": \"invisible\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50032f18-60c4-491a-b8bd-eab34e9ab092",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "experience"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f976b311-f291-468b-ac3d-c32f42f7dfe0",
+          "name": "Get default account center",
+          "request": {
+            "name": "Get default account center",
+            "description": {
+              "content": "Get the default account center configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "account-center"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd2cc37f-bbc2-45cb-8854-524a25d88e86",
+              "name": "The default account center configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"enabled\": false,\n  \"fields\": {\n    \"name\": \"Edit\",\n    \"avatar\": \"Off\",\n    \"profile\": \"ReadOnly\",\n    \"email\": \"Edit\",\n    \"phone\": \"ReadOnly\",\n    \"password\": \"ReadOnly\",\n    \"username\": \"ReadOnly\",\n    \"social\": \"Off\",\n    \"customData\": \"ReadOnly\",\n    \"mfa\": \"Edit\",\n    \"session\": \"Edit\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"deleteAccountUrl\": \"string\",\n  \"customCss\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f575a4c2-a3e6-49e4-ab76-9b116072d11d",
+          "name": "Get Management API swagger JSON",
+          "request": {
+            "name": "Get Management API swagger JSON",
+            "description": {
+              "content": "The endpoint for the Management API JSON document. The JSON conforms to the [OpenAPI v3.0.1](https://spec.openapis.org/oas/v3.0.1) (a.k.a. Swagger) specification.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "management.openapi.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aaed3c31-8229-4ff4-9e0a-ecf5da238eb1",
+              "name": "The JSON document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "management.openapi.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa72e526-f269-48a9-bec6-6338075f2dc9",
+          "name": "Get Experience API swagger JSON",
+          "request": {
+            "name": "Get Experience API swagger JSON",
+            "description": {
+              "content": "The endpoint for the Experience API JSON document. The JSON conforms to the [OpenAPI v3.0.1](https://spec.openapis.org/oas/v3.0.1) (a.k.a. Swagger) specification.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "experience.openapi.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed0595fc-5e57-486e-b09e-b9a6895b2126",
+              "name": "The JSON document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "experience.openapi.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a16780a0-e4f4-448a-9e03-58c2c1250e4c",
+          "name": "Get User API swagger JSON",
+          "request": {
+            "name": "Get User API swagger JSON",
+            "description": {
+              "content": "The endpoint for the User API JSON document. The JSON conforms to the [OpenAPI v3.0.1](https://spec.openapis.org/oas/v3.0.1) (a.k.a. Swagger) specification.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                ".well-known",
+                "user.openapi.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1693126b-52ad-4007-a654-92f0117f4751",
+              "name": "The JSON document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    ".well-known",
+                    "user.openapi.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0b0822df-3f72-442e-a4e9-fee6b6ed88c1",
+    "name": "Logto API references Account center Well-known API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

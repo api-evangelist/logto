@@ -1,0 +1,454 @@
+{
+  "item": [
+    {
+      "id": "47db8dfc-e740-4c1b-99ef-d222d1fbff45",
+      "name": "Account center",
+      "description": {
+        "content": "Customize your account API settings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ada32920-d147-4a12-b4ff-c3770f9207e9",
+          "name": "Get account center settings",
+          "request": {
+            "name": "Get account center settings",
+            "description": {
+              "content": "Get the account center settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account-center"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d7bc3ab-f41e-425f-8b2f-fa8de3a03668",
+              "name": "Account center settings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"strin\",\n  \"enabled\": false,\n  \"fields\": {\n    \"name\": \"Edit\",\n    \"avatar\": \"Off\",\n    \"profile\": \"ReadOnly\",\n    \"email\": \"Off\",\n    \"phone\": \"ReadOnly\",\n    \"password\": \"Off\",\n    \"username\": \"ReadOnly\",\n    \"social\": \"Edit\",\n    \"customData\": \"Off\",\n    \"mfa\": \"Off\",\n    \"session\": \"ReadOnly\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"deleteAccountUrl\": \"string\",\n  \"customCss\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1389032-ac2f-49d9-a573-5d2dc038cfe2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "70dc8684-80a1-46ff-b89b-3024992f6168",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dad77e48-389d-437c-aa29-1ad9686555cd",
+          "name": "Update account center settings",
+          "request": {
+            "name": "Update account center settings",
+            "description": {
+              "content": "Update the account center settings with the provided settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account-center"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"fields\": {\n    \"name\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"username\": \"<string>\",\n    \"social\": \"<string>\",\n    \"customData\": \"<string>\",\n    \"mfa\": \"<string>\",\n    \"session\": \"<string>\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deleteAccountUrl\": \"<object>\",\n  \"customCss\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6914bf32-9c89-4586-a73e-a6336c9f40a9",
+              "name": "Updated account center settings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"fields\": {\n    \"name\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"username\": \"<string>\",\n    \"social\": \"<string>\",\n    \"customData\": \"<string>\",\n    \"mfa\": \"<string>\",\n    \"session\": \"<string>\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deleteAccountUrl\": \"<object>\",\n  \"customCss\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"strin\",\n  \"enabled\": false,\n  \"fields\": {\n    \"name\": \"Edit\",\n    \"avatar\": \"Off\",\n    \"profile\": \"ReadOnly\",\n    \"email\": \"Off\",\n    \"phone\": \"ReadOnly\",\n    \"password\": \"Off\",\n    \"username\": \"ReadOnly\",\n    \"social\": \"Edit\",\n    \"customData\": \"Off\",\n    \"mfa\": \"Off\",\n    \"session\": \"ReadOnly\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"deleteAccountUrl\": \"string\",\n  \"customCss\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5438538e-8116-44b4-a623-914887eccb15",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"fields\": {\n    \"name\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"username\": \"<string>\",\n    \"social\": \"<string>\",\n    \"customData\": \"<string>\",\n    \"mfa\": \"<string>\",\n    \"session\": \"<string>\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deleteAccountUrl\": \"<object>\",\n  \"customCss\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "094491bf-a748-4290-8f7f-062a45bea607",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"fields\": {\n    \"name\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"username\": \"<string>\",\n    \"social\": \"<string>\",\n    \"customData\": \"<string>\",\n    \"mfa\": \"<string>\",\n    \"session\": \"<string>\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deleteAccountUrl\": \"<object>\",\n  \"customCss\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62f62f9b-ce81-4acf-b5bb-5a3d6121469c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account-center"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"fields\": {\n    \"name\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"password\": \"<string>\",\n    \"username\": \"<string>\",\n    \"social\": \"<string>\",\n    \"customData\": \"<string>\",\n    \"mfa\": \"<string>\",\n    \"session\": \"<string>\"\n  },\n  \"webauthnRelatedOrigins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deleteAccountUrl\": \"<object>\",\n  \"customCss\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "efccf21e-ce14-47e6-a2b6-c3b1b9c2b2cd",
+    "name": "Logto API references Account center API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

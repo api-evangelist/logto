@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Captcha provider API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Captcha provider",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get captcha provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/captcha-provider"
+          },
+          "docs": "Get the captcha provider, you can only have one captcha provider."
+        },
+        {
+          "info": {
+            "name": "Update captcha provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/captcha-provider",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the captcha provider with the provided settings."
+        },
+        {
+          "info": {
+            "name": "Delete captcha provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/captcha-provider"
+          },
+          "docs": "Delete the captcha provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

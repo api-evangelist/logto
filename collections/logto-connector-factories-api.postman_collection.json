@@ -1,0 +1,503 @@
+{
+  "item": [
+    {
+      "id": "c96047c6-0518-4dcf-9711-251dbdc090ee",
+      "name": "Connector factories",
+      "description": {
+        "content": "Connector factories are used to create connectors. They can be treated as preconfigured templates for connectors.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6012f59d-4a5c-4b4b-8097-1ae6faf5e816",
+          "name": "Get connector factories",
+          "request": {
+            "name": "Get connector factories",
+            "description": {
+              "content": "Get all connector factories data available in Logto.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connector-factories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2aede8c7-f619-44b6-b8e2-31794291ea39",
+              "name": "An array of connector factories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"Sms\",\n    \"id\": \"string\",\n    \"target\": \"string\",\n    \"name\": {},\n    \"description\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\",\n    \"readme\": \"string\",\n    \"platform\": \"Universal\",\n    \"isDemo\": false,\n    \"configTemplate\": \"string\",\n    \"formItems\": [\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": false,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": false,\n        \"isDevFeature\": true\n      },\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": true,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": true,\n        \"isDevFeature\": false\n      }\n    ],\n    \"customData\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"fromEmail\": \"string\",\n    \"isStandard\": false,\n    \"isTokenStorageSupported\": true\n  },\n  {\n    \"type\": \"Sms\",\n    \"id\": \"string\",\n    \"target\": \"string\",\n    \"name\": {},\n    \"description\": {},\n    \"logo\": \"string\",\n    \"logoDark\": \"string\",\n    \"readme\": \"string\",\n    \"platform\": \"Web\",\n    \"isDemo\": true,\n    \"configTemplate\": \"string\",\n    \"formItems\": [\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": true,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": true,\n        \"isDevFeature\": false\n      },\n      {\n        \"type\": \"string\",\n        \"selectItems\": [\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"value\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"key\": \"string\",\n        \"label\": \"string\",\n        \"placeholder\": \"string\",\n        \"required\": false,\n        \"defaultValue\": {},\n        \"showConditions\": [\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          },\n          {\n            \"targetKey\": \"string\",\n            \"expectValue\": {}\n          }\n        ],\n        \"description\": \"string\",\n        \"tooltip\": \"string\",\n        \"isConfidential\": true,\n        \"isDevFeature\": true\n      }\n    ],\n    \"customData\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"fromEmail\": \"string\",\n    \"isStandard\": false,\n    \"isTokenStorageSupported\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "528e16e5-f386-452c-88b0-13656acb0fd7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5769c15f-fb8c-4454-b7f3-513a348fc10f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdb686ad-fe53-4784-ad9c-5778d6d45699",
+          "name": "Get connector factory",
+          "request": {
+            "name": "Get connector factory",
+            "description": {
+              "content": "Get connector factory by the given ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "connector-factories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the connector factory."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6d26935-2176-4178-b2b0-e82b52647d93",
+              "name": "Connector factory data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"Social\",\n  \"id\": \"string\",\n  \"target\": \"string\",\n  \"name\": {},\n  \"description\": {},\n  \"logo\": \"string\",\n  \"logoDark\": \"string\",\n  \"readme\": \"string\",\n  \"platform\": \"Web\",\n  \"isDemo\": true,\n  \"configTemplate\": \"string\",\n  \"formItems\": [\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": true,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": false,\n      \"isDevFeature\": true\n    },\n    {\n      \"type\": \"string\",\n      \"selectItems\": [\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"key\": \"string\",\n      \"label\": \"string\",\n      \"placeholder\": \"string\",\n      \"required\": true,\n      \"defaultValue\": {},\n      \"showConditions\": [\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        },\n        {\n          \"targetKey\": \"string\",\n          \"expectValue\": {}\n        }\n      ],\n      \"description\": \"string\",\n      \"tooltip\": \"string\",\n      \"isConfidential\": true,\n      \"isDevFeature\": false\n    }\n  ],\n  \"customData\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {}\n  },\n  \"fromEmail\": \"string\",\n  \"isStandard\": false,\n  \"isTokenStorageSupported\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03bb7c5e-9bd7-4eae-a3cf-00e7fbc03596",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "130140a5-5ff4-4cbb-a48d-44aabd8a8518",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5dbaa0aa-e82d-4eba-96f3-7c3fbe6da63e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75417491-7566-4ccf-947c-c3bd5fcaddb5",
+              "name": "Connector factory not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "connector-factories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the connector factory."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9f3bc8f2-759d-415f-aba7-20754e15ada8",
+    "name": "Logto API references Account center Connector factories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1214 @@
+{
+  "item": [
+    {
+      "id": "ef003c24-00e5-4348-ab21-62a5deb86368",
+      "name": "Sign-in experience",
+      "description": {
+        "content": "Endpoints for customizing Logto sign-in experience. See [🎨 Customize sign-in experience](https://docs.logto.io/docs/recipes/customize-sie/) to learn more about how the configuration works and reflects on the user interface.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1421cba2-3695-49bb-bc79-52226df033f9",
+          "name": "Get default sign-in experience settings",
+          "request": {
+            "name": "Get default sign-in experience settings",
+            "description": {
+              "content": "Get the default sign-in experience settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sign-in-exp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfbd8cc2-c3cb-4437-930a-597adceb691c",
+              "name": "Default sign-in experience settings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"color\": {\n    \"primaryColor\": \"/#75c62b/i\",\n    \"isDarkModeEnabled\": true,\n    \"darkPrimaryColor\": \"/#059650/i\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"string\",\n    \"darkLogoUrl\": \"string\",\n    \"favicon\": \"string\",\n    \"darkFavicon\": \"string\"\n  },\n  \"hideLogtoBranding\": false,\n  \"languageInfo\": {\n    \"autoDetect\": true,\n    \"fallbackLanguage\": \"ar-AR\"\n  },\n  \"termsOfUseUrl\": \"string\",\n  \"privacyPolicyUrl\": \"string\",\n  \"agreeToTermsPolicy\": \"ManualRegistrationOnly\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"phone\",\n        \"password\": true,\n        \"verificationCode\": false,\n        \"isPasswordPrimary\": true\n      },\n      {\n        \"identifier\": \"phone\",\n        \"password\": false,\n        \"verificationCode\": true,\n        \"isPasswordPrimary\": true\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"username\",\n      \"username\"\n    ],\n    \"password\": false,\n    \"verify\": true,\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"username\",\n        \"verify\": false\n      },\n      {\n        \"identifier\": \"username\",\n        \"verify\": true\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": false,\n    \"skipRequiredIdentifiers\": true\n  },\n  \"socialSignInConnectorTargets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"signInMode\": \"Register\",\n  \"customCss\": \"string\",\n  \"customContent\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"string\",\n    \"createdAt\": 4773.41041780879\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"Totp\",\n      \"EmailVerificationCode\"\n    ],\n    \"policy\": \"PromptOnlyAtSignInMandatory\",\n    \"organizationRequiredMfaPolicy\": \"Mandatory\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": false\n  },\n  \"singleSignOnEnabled\": true,\n  \"supportEmail\": \"string\",\n  \"supportWebsiteUrl\": \"string\",\n  \"unknownSessionRedirectUrl\": \"string\",\n  \"captchaPolicy\": {\n    \"enabled\": true\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": 8842.622545892871,\n    \"lockoutDuration\": 867.3433300270483\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": false,\n    \"blockSubaddressing\": true,\n    \"customBlocklist\": [\n      \"string\",\n      \"string\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"EmailVerificationCode\",\n    \"PhoneVerificationCode\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": true,\n    \"showPasskeyButton\": true,\n    \"allowAutofill\": true\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"string\"\n    },\n    {\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74f938cc-6262-4557-a19a-fb5615b28263",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17ff5c4d-7fdc-4ed1-9fb4-fd7026ca8bef",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7832f192-ad25-428f-8c28-448d7b56b0fa",
+              "name": "Default sign-in experience settings not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2954cccc-010d-4b52-8e7b-51e5a913779e",
+          "name": "Update default sign-in experience settings",
+          "request": {
+            "name": "Update default sign-in experience settings",
+            "description": {
+              "content": "Update the default sign-in experience settings with the provided data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sign-in-exp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "removeUnusedDemoSocialConnector",
+                  "value": "<string>",
+                  "description": "Whether to remove unused demo social connectors. (These demo social connectors are only used during cloud user onboarding)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1455b4ec-ce85-4392-bdae-9145027494e7",
+              "name": "Updated default sign-in experience settings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "removeUnusedDemoSocialConnector",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"color\": {\n    \"primaryColor\": \"/#f2ef27/i\",\n    \"isDarkModeEnabled\": true,\n    \"darkPrimaryColor\": \"/#58a90b/i\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"string\",\n    \"darkLogoUrl\": \"string\",\n    \"favicon\": \"string\",\n    \"darkFavicon\": \"string\"\n  },\n  \"hideLogtoBranding\": true,\n  \"languageInfo\": {\n    \"autoDetect\": false,\n    \"fallbackLanguage\": \"km-KH\"\n  },\n  \"termsOfUseUrl\": \"string\",\n  \"privacyPolicyUrl\": \"string\",\n  \"agreeToTermsPolicy\": \"Manual\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"email\",\n        \"password\": true,\n        \"verificationCode\": true,\n        \"isPasswordPrimary\": false\n      },\n      {\n        \"identifier\": \"phone\",\n        \"password\": false,\n        \"verificationCode\": true,\n        \"isPasswordPrimary\": true\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"email\",\n      \"username\"\n    ],\n    \"password\": false,\n    \"verify\": false,\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"username\",\n        \"verify\": true\n      },\n      {\n        \"identifier\": \"email\",\n        \"verify\": false\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": true,\n    \"skipRequiredIdentifiers\": true\n  },\n  \"socialSignInConnectorTargets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"signInMode\": \"SignIn\",\n  \"customCss\": \"string\",\n  \"customContent\": {\n    \"key_0\": \"string\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"string\",\n    \"createdAt\": 5940.418141609622\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"BackupCode\",\n      \"PhoneVerificationCode\"\n    ],\n    \"policy\": \"PromptAtSignInAndSignUpMandatory\",\n    \"organizationRequiredMfaPolicy\": \"NoPrompt\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": false\n  },\n  \"singleSignOnEnabled\": false,\n  \"supportEmail\": \"string\",\n  \"supportWebsiteUrl\": \"string\",\n  \"unknownSessionRedirectUrl\": \"string\",\n  \"captchaPolicy\": {\n    \"enabled\": true\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": 9712.212034145308,\n    \"lockoutDuration\": 9255.220975588703\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": false,\n    \"blockSubaddressing\": false,\n    \"customBlocklist\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"forgotPasswordMethods\": [\n    \"EmailVerificationCode\",\n    \"EmailVerificationCode\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": true,\n    \"showPasskeyButton\": false,\n    \"allowAutofill\": true\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"string\"\n    },\n    {\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b39ab31-26f9-4aed-8455-244293d7ec8c",
+              "name": "Bad request. Invalid data provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "removeUnusedDemoSocialConnector",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d992533e-8f4e-41f2-8cfc-25f2fa0b37ab",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "removeUnusedDemoSocialConnector",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac8f9ab5-c305-4fdb-bb56-92ced29c38e5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "removeUnusedDemoSocialConnector",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "628c0c6e-0051-45d3-b9f3-af0f51287e5c",
+              "name": "Default sign-in experience settings not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "removeUnusedDemoSocialConnector",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "719be90a-ac6c-4324-892e-bbb333ab74fc",
+              "name": "Unprocessable Entity. Invalid data provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "removeUnusedDemoSocialConnector",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"color\": {\n    \"primaryColor\": \"<regex>\",\n    \"isDarkModeEnabled\": \"<boolean>\",\n    \"darkPrimaryColor\": \"<regex>\"\n  },\n  \"branding\": {\n    \"logoUrl\": \"<url>\",\n    \"darkLogoUrl\": \"<url>\",\n    \"favicon\": \"<url>\",\n    \"darkFavicon\": \"<url>\"\n  },\n  \"hideLogtoBranding\": \"<boolean>\",\n  \"languageInfo\": {\n    \"autoDetect\": \"<boolean>\",\n    \"fallbackLanguage\": \"<string>\"\n  },\n  \"agreeToTermsPolicy\": \"<string>\",\n  \"signIn\": {\n    \"methods\": [\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"password\": \"<boolean>\",\n        \"verificationCode\": \"<boolean>\",\n        \"isPasswordPrimary\": \"<boolean>\"\n      }\n    ]\n  },\n  \"signUp\": {\n    \"identifiers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"password\": \"<boolean>\",\n    \"verify\": \"<boolean>\",\n    \"secondaryIdentifiers\": [\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"verify\": \"<boolean>\"\n      }\n    ]\n  },\n  \"socialSignIn\": {\n    \"automaticAccountLinking\": \"<boolean>\",\n    \"skipRequiredIdentifiers\": \"<boolean>\"\n  },\n  \"socialSignInConnectorTargets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"signInMode\": \"<string>\",\n  \"customCss\": \"<string>\",\n  \"customContent\": {\n    \"key_0\": \"<string>\"\n  },\n  \"customUiAssets\": {\n    \"id\": \"<string>\",\n    \"createdAt\": \"<number>\"\n  },\n  \"passwordPolicy\": {\n    \"length\": {},\n    \"characterTypes\": {},\n    \"rejects\": {}\n  },\n  \"mfa\": {\n    \"factors\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"policy\": \"<string>\",\n    \"organizationRequiredMfaPolicy\": \"<string>\"\n  },\n  \"adaptiveMfa\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"singleSignOnEnabled\": \"<boolean>\",\n  \"captchaPolicy\": {\n    \"enabled\": \"<boolean>\"\n  },\n  \"sentinelPolicy\": {\n    \"maxAttempts\": \"<number>\",\n    \"lockoutDuration\": \"<number>\"\n  },\n  \"emailBlocklistPolicy\": {\n    \"blockDisposableAddresses\": \"<boolean>\",\n    \"blockSubaddressing\": \"<boolean>\",\n    \"customBlocklist\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"blockDisposableAddress\": {}\n  },\n  \"forgotPasswordMethods\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"passkeySignIn\": {\n    \"enabled\": \"<boolean>\",\n    \"showPasskeyButton\": \"<boolean>\",\n    \"allowAutofill\": \"<boolean>\"\n  },\n  \"signUpProfileFields\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"termsOfUseUrl\": \"<url>\",\n  \"privacyPolicyUrl\": \"<url>\",\n  \"supportEmail\": \"<email>\",\n  \"supportWebsiteUrl\": \"<url>\",\n  \"unknownSessionRedirectUrl\": \"<url>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d1102d8-9557-4c9c-9c57-0a94c7093fa7",
+          "name": "Check if a password meets the password policy",
+          "request": {
+            "name": "Check if a password meets the password policy",
+            "description": {
+              "content": "Check if a password meets the password policy in the sign-in experience settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sign-in-exp",
+                "default",
+                "check-password"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6be5bcaa-bc0a-499b-bfda-697f3c83f935",
+              "name": "The password meets the password policy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "check-password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c92cd2b8-955c-4654-bd0d-c1618115bbaf",
+              "name": "The password does not meet the password policy or no user ID provided.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "check-password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "76ba024d-3094-4eea-93bb-ad46dc08ccaa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "check-password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38c9db1f-ff6c-413b-b6fe-20b7ec5d0462",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "check-password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c7d28f3-fe44-4386-8990-7217e5cf36a4",
+          "name": "Upload custom UI assets",
+          "request": {
+            "name": "Upload custom UI assets",
+            "description": {
+              "content": "Upload a zip file containing custom web assets such as HTML, CSS, and JavaScript files, then replace the default sign-in experience with the custom UI assets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sign-in-exp",
+                "default",
+                "custom-ui-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "value": "{}",
+                  "type": "text",
+                  "description": "The zip file containing custom web assets such as HTML, CSS, and JavaScript files."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a83b6632-7aac-471e-a063-50cd918ba58e",
+              "name": "An JSON object containing the custom UI assets ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "custom-ui-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The zip file containing custom web assets such as HTML, CSS, and JavaScript files.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customUiAssetId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1735467-7571-418e-9acc-70dc3df6800a",
+              "name": "Bad request. The request body is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "custom-ui-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The zip file containing custom web assets such as HTML, CSS, and JavaScript files.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f69567f5-87b6-46d8-8c17-26161c0403bd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "custom-ui-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The zip file containing custom web assets such as HTML, CSS, and JavaScript files.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "066dd52a-2886-4230-a310-ff0bc2db8663",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "custom-ui-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The zip file containing custom web assets such as HTML, CSS, and JavaScript files.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df43949e-cff0-4655-bb65-e4f05ec22f77",
+              "name": "Failed to unzip or upload the custom UI assets to storage provider.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sign-in-exp",
+                    "default",
+                    "custom-ui-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The zip file containing custom web assets such as HTML, CSS, and JavaScript files.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "249dda6f-3a22-4189-a408-09050b45b397",
+    "name": "Logto API references Account center Sign-in experience API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

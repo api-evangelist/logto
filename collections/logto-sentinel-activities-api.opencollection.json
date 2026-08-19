@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center Sentinel activities API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sentinel activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk delete sentinel activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/sentinel-activities/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove sentinel activity reports based on the provided target value(identifier).Use this endpoint to unblock users who may be locked out due to too many failed authentication attempts."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

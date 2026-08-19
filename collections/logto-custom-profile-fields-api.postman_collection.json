@@ -1,0 +1,1884 @@
+{
+  "item": [
+    {
+      "id": "f4264555-a384-4464-a4c0-e23f18d75cf3",
+      "name": "Custom profile fields",
+      "description": {
+        "content": "An admin feature used to create a customized user profile form, which is used to collect additional user information upon successful registrations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e8859c2-46c3-4ed4-bac4-1e7c1e2410a6",
+          "name": "Get all custom profile fields",
+          "request": {
+            "name": "Get all custom profile fields",
+            "description": {
+              "content": "Get all custom profile fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f618440-a92d-4c37-bc78-8681fc3d9340",
+              "name": "Custom profile fields ordered by sieOrder (Sign-in Experience order).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"st\",\n    \"name\": \"string\",\n    \"type\": \"Number\",\n    \"label\": \"string\",\n    \"description\": \"string\",\n    \"required\": false,\n    \"config\": {\n      \"placeholder\": \"string\",\n      \"minLength\": 3362.944214446439,\n      \"maxLength\": 5646.201154250443,\n      \"minValue\": 2894.8719789828115,\n      \"maxValue\": 5589.13069294599,\n      \"format\": \"string\",\n      \"customFormat\": \"string\",\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"defaultValue\": \"string\",\n      \"parts\": [\n        {\n          \"enabled\": true,\n          \"name\": \"string\",\n          \"type\": \"Number\",\n          \"required\": false,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 4594.9040849135245,\n            \"maxLength\": 7136.5330908894275,\n            \"minValue\": 8829.4595793336,\n            \"maxValue\": 2848.08985310656,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        },\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Date\",\n          \"required\": true,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 1254.4011491635965,\n            \"maxLength\": 2738.7187205151176,\n            \"minValue\": 753.3982805841199,\n            \"maxValue\": 5011.540213852507,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        }\n      ]\n    },\n    \"createdAt\": 8996.045353656038,\n    \"sieOrder\": 120.34109104063995\n  },\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"strin\",\n    \"name\": \"string\",\n    \"type\": \"Number\",\n    \"label\": \"string\",\n    \"description\": \"string\",\n    \"required\": false,\n    \"config\": {\n      \"placeholder\": \"string\",\n      \"minLength\": 5798.65438309301,\n      \"maxLength\": 100.18451444929299,\n      \"minValue\": 4067.1038635102254,\n      \"maxValue\": 1378.874053310649,\n      \"format\": \"string\",\n      \"customFormat\": \"string\",\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"defaultValue\": \"string\",\n      \"parts\": [\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Checkbox\",\n          \"required\": false,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 6828.408974538232,\n            \"maxLength\": 7040.226031222331,\n            \"minValue\": 7367.991497125663,\n            \"maxValue\": 1856.9241771915379,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        },\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Text\",\n          \"required\": true,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 7805.080963821652,\n            \"maxLength\": 312.2553447083032,\n            \"minValue\": 3916.0306105397312,\n            \"maxValue\": 9636.270446942834,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        }\n      ]\n    },\n    \"createdAt\": 391.5830668146858,\n    \"sieOrder\": 6308.1032475446345\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c20134df-9d7d-4681-9c29-cfab06344bf0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f06f933-75fa-4392-a75e-f69829b8c921",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3137c7ad-251e-4fc0-a064-ec0731e65b4c",
+          "name": "Create a custom profile field",
+          "request": {
+            "name": "Create a custom profile field",
+            "description": {
+              "content": "Create a custom profile field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "133155e3-9930-4521-aec2-d51acdb8b13a",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"Fullname\",\n  \"label\": \"string\",\n  \"description\": \"string\",\n  \"required\": false,\n  \"config\": {\n    \"placeholder\": \"string\",\n    \"minLength\": 8699.98948748577,\n    \"maxLength\": 9575.831103285107,\n    \"minValue\": 135.57558473081488,\n    \"maxValue\": 2219.688598426879,\n    \"format\": \"string\",\n    \"customFormat\": \"string\",\n    \"options\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ],\n    \"defaultValue\": \"string\",\n    \"parts\": [\n      {\n        \"enabled\": true,\n        \"name\": \"string\",\n        \"type\": \"Url\",\n        \"required\": true,\n        \"label\": \"string\",\n        \"description\": \"string\",\n        \"config\": {\n          \"placeholder\": \"string\",\n          \"minLength\": 9123.091659077902,\n          \"maxLength\": 4731.165131254494,\n          \"minValue\": 2959.510674650028,\n          \"maxValue\": 6424.590891260422,\n          \"format\": \"string\",\n          \"customFormat\": \"string\",\n          \"options\": [\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            },\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            }\n          ],\n          \"defaultValue\": \"string\"\n        }\n      },\n      {\n        \"enabled\": false,\n        \"name\": \"string\",\n        \"type\": \"Date\",\n        \"required\": true,\n        \"label\": \"st\",\n        \"description\": \"string\",\n        \"config\": {\n          \"placeholder\": \"string\",\n          \"minLength\": 110.54467517642053,\n          \"maxLength\": 5325.9636778293025,\n          \"minValue\": 2975.5951069035136,\n          \"maxValue\": 9990.728911074873,\n          \"format\": \"string\",\n          \"customFormat\": \"string\",\n          \"options\": [\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            },\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            }\n          ],\n          \"defaultValue\": \"string\"\n        }\n      }\n    ]\n  },\n  \"createdAt\": 5840.413311937893,\n  \"sieOrder\": 7822.7216752844715\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c04ab11-ff19-48bf-a2da-84d1336b9855",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7acc1596-e79d-48a2-a660-8c61e61c5ddd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0552cabf-5a8e-4616-bbeb-cbf345465e02",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e796b2f-1b73-4540-b5fd-ac393bf3ff67",
+          "name": "Get a custom profile field by name",
+          "request": {
+            "name": "Get a custom profile field by name",
+            "description": {
+              "content": "Get a custom profile field by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fbc062a-b9ae-4f4b-8e51-b22b95ed4bd5",
+              "name": "Custom profile field found successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"Fullname\",\n  \"label\": \"string\",\n  \"description\": \"string\",\n  \"required\": false,\n  \"config\": {\n    \"placeholder\": \"string\",\n    \"minLength\": 8699.98948748577,\n    \"maxLength\": 9575.831103285107,\n    \"minValue\": 135.57558473081488,\n    \"maxValue\": 2219.688598426879,\n    \"format\": \"string\",\n    \"customFormat\": \"string\",\n    \"options\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ],\n    \"defaultValue\": \"string\",\n    \"parts\": [\n      {\n        \"enabled\": true,\n        \"name\": \"string\",\n        \"type\": \"Url\",\n        \"required\": true,\n        \"label\": \"string\",\n        \"description\": \"string\",\n        \"config\": {\n          \"placeholder\": \"string\",\n          \"minLength\": 9123.091659077902,\n          \"maxLength\": 4731.165131254494,\n          \"minValue\": 2959.510674650028,\n          \"maxValue\": 6424.590891260422,\n          \"format\": \"string\",\n          \"customFormat\": \"string\",\n          \"options\": [\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            },\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            }\n          ],\n          \"defaultValue\": \"string\"\n        }\n      },\n      {\n        \"enabled\": false,\n        \"name\": \"string\",\n        \"type\": \"Date\",\n        \"required\": true,\n        \"label\": \"st\",\n        \"description\": \"string\",\n        \"config\": {\n          \"placeholder\": \"string\",\n          \"minLength\": 110.54467517642053,\n          \"maxLength\": 5325.9636778293025,\n          \"minValue\": 2975.5951069035136,\n          \"maxValue\": 9990.728911074873,\n          \"format\": \"string\",\n          \"customFormat\": \"string\",\n          \"options\": [\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            },\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            }\n          ],\n          \"defaultValue\": \"string\"\n        }\n      }\n    ]\n  },\n  \"createdAt\": 5840.413311937893,\n  \"sieOrder\": 7822.7216752844715\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8dfbcd6-9541-44e3-8faf-6cc32177ac7c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43ed9772-4c79-45b1-8ba4-0c3a682cec8f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78393139-2803-44d8-b582-621ff6ce14b3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee4990fa-806d-4c40-991d-190191ce6329",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beac9732-74a6-41ef-9054-6b53bf276857",
+          "name": "Update a custom profile field by name",
+          "request": {
+            "name": "Update a custom profile field by name",
+            "description": {
+              "content": "Update a custom profile field by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17775bd3-c9ca-4300-a97b-2d01fe22045a",
+              "name": "Custom profile field updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tenantId\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"Fullname\",\n  \"label\": \"string\",\n  \"description\": \"string\",\n  \"required\": false,\n  \"config\": {\n    \"placeholder\": \"string\",\n    \"minLength\": 8699.98948748577,\n    \"maxLength\": 9575.831103285107,\n    \"minValue\": 135.57558473081488,\n    \"maxValue\": 2219.688598426879,\n    \"format\": \"string\",\n    \"customFormat\": \"string\",\n    \"options\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ],\n    \"defaultValue\": \"string\",\n    \"parts\": [\n      {\n        \"enabled\": true,\n        \"name\": \"string\",\n        \"type\": \"Url\",\n        \"required\": true,\n        \"label\": \"string\",\n        \"description\": \"string\",\n        \"config\": {\n          \"placeholder\": \"string\",\n          \"minLength\": 9123.091659077902,\n          \"maxLength\": 4731.165131254494,\n          \"minValue\": 2959.510674650028,\n          \"maxValue\": 6424.590891260422,\n          \"format\": \"string\",\n          \"customFormat\": \"string\",\n          \"options\": [\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            },\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            }\n          ],\n          \"defaultValue\": \"string\"\n        }\n      },\n      {\n        \"enabled\": false,\n        \"name\": \"string\",\n        \"type\": \"Date\",\n        \"required\": true,\n        \"label\": \"st\",\n        \"description\": \"string\",\n        \"config\": {\n          \"placeholder\": \"string\",\n          \"minLength\": 110.54467517642053,\n          \"maxLength\": 5325.9636778293025,\n          \"minValue\": 2975.5951069035136,\n          \"maxValue\": 9990.728911074873,\n          \"format\": \"string\",\n          \"customFormat\": \"string\",\n          \"options\": [\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            },\n            {\n              \"value\": \"string\",\n              \"label\": \"string\"\n            }\n          ],\n          \"defaultValue\": \"string\"\n        }\n      }\n    ]\n  },\n  \"createdAt\": 5840.413311937893,\n  \"sieOrder\": 7822.7216752844715\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f97d6ce-d1ce-491f-90ee-45de3d3ecfca",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3675f744-5c02-4433-a4a9-6ff1f746428d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2754f7ed-9725-42f6-ba4b-17c3b29ee2e2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d9f23bf-b351-452b-982d-3092e9316a8a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<\\\"Text\\\">\",\n  \"required\": \"<boolean>\",\n  \"label\": \"<string>\",\n  \"description\": \"<string>\",\n  \"config\": {\n    \"placeholder\": \"<string>\",\n    \"minLength\": \"<number>\",\n    \"maxLength\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c657f95d-fdaa-4213-80c1-bd81ffa1749f",
+          "name": "Delete a custom profile field by name",
+          "request": {
+            "name": "Delete a custom profile field by name",
+            "description": {
+              "content": "Delete a custom profile field by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7a42c2e-e69c-4e43-85b1-16cddadbaaab",
+              "name": "Custom profile field deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ac56cf7-a73c-48d3-901c-9ed1aecf0f0c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd8d9a46-c012-4e02-865e-9680ca05bff2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90bd0174-63c7-4dc9-bff0-3f05b5147b6d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "991f458a-dab2-48b2-91a9-8fa632b3ca40",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43ac8996-3e51-4d6a-ab80-40e2a336c856",
+          "name": "Batch create custom profile fields",
+          "request": {
+            "name": "Batch create custom profile fields",
+            "description": {
+              "content": "Create multiple custom profile fields in a single request (max 20 items).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35103bf7-9318-42c8-b649-0e8badb4462a",
+              "name": "Custom profile fields created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"st\",\n    \"name\": \"string\",\n    \"type\": \"Number\",\n    \"label\": \"string\",\n    \"description\": \"string\",\n    \"required\": false,\n    \"config\": {\n      \"placeholder\": \"string\",\n      \"minLength\": 3362.944214446439,\n      \"maxLength\": 5646.201154250443,\n      \"minValue\": 2894.8719789828115,\n      \"maxValue\": 5589.13069294599,\n      \"format\": \"string\",\n      \"customFormat\": \"string\",\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"defaultValue\": \"string\",\n      \"parts\": [\n        {\n          \"enabled\": true,\n          \"name\": \"string\",\n          \"type\": \"Number\",\n          \"required\": false,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 4594.9040849135245,\n            \"maxLength\": 7136.5330908894275,\n            \"minValue\": 8829.4595793336,\n            \"maxValue\": 2848.08985310656,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        },\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Date\",\n          \"required\": true,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 1254.4011491635965,\n            \"maxLength\": 2738.7187205151176,\n            \"minValue\": 753.3982805841199,\n            \"maxValue\": 5011.540213852507,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        }\n      ]\n    },\n    \"createdAt\": 8996.045353656038,\n    \"sieOrder\": 120.34109104063995\n  },\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"strin\",\n    \"name\": \"string\",\n    \"type\": \"Number\",\n    \"label\": \"string\",\n    \"description\": \"string\",\n    \"required\": false,\n    \"config\": {\n      \"placeholder\": \"string\",\n      \"minLength\": 5798.65438309301,\n      \"maxLength\": 100.18451444929299,\n      \"minValue\": 4067.1038635102254,\n      \"maxValue\": 1378.874053310649,\n      \"format\": \"string\",\n      \"customFormat\": \"string\",\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"defaultValue\": \"string\",\n      \"parts\": [\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Checkbox\",\n          \"required\": false,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 6828.408974538232,\n            \"maxLength\": 7040.226031222331,\n            \"minValue\": 7367.991497125663,\n            \"maxValue\": 1856.9241771915379,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        },\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Text\",\n          \"required\": true,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 7805.080963821652,\n            \"maxLength\": 312.2553447083032,\n            \"minValue\": 3916.0306105397312,\n            \"maxValue\": 9636.270446942834,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        }\n      ]\n    },\n    \"createdAt\": 391.5830668146858,\n    \"sieOrder\": 6308.1032475446345\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06cefbdd-34da-4488-b2d9-e4af5cc9d0d8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a4c4bda3-b1b4-4299-89d3-1a481a6162fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d214182-93d9-4b3c-abd9-d41e649ae8a7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<\\\"Text\\\">\",\n    \"required\": \"<boolean>\",\n    \"label\": \"<string>\",\n    \"description\": \"<string>\",\n    \"config\": {\n      \"placeholder\": \"<string>\",\n      \"minLength\": \"<number>\",\n      \"maxLength\": \"<number>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "847ad0f9-1ff4-436a-9e7a-6aaac42851c6",
+          "name": "Update the display order of the custom profile fields in Sign-in Experience.",
+          "request": {
+            "name": "Update the display order of the custom profile fields in Sign-in Experience.",
+            "description": {
+              "content": "Update the display order of the custom profile fields in Sign-in Experience.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "custom-profile-fields",
+                "properties",
+                "sie-order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order\": [\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8edba5db-c782-4d7e-9a88-b2abb13ded09",
+              "name": "Custom profile fields updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "properties",
+                    "sie-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": [\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"st\",\n    \"name\": \"string\",\n    \"type\": \"Number\",\n    \"label\": \"string\",\n    \"description\": \"string\",\n    \"required\": false,\n    \"config\": {\n      \"placeholder\": \"string\",\n      \"minLength\": 3362.944214446439,\n      \"maxLength\": 5646.201154250443,\n      \"minValue\": 2894.8719789828115,\n      \"maxValue\": 5589.13069294599,\n      \"format\": \"string\",\n      \"customFormat\": \"string\",\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"defaultValue\": \"string\",\n      \"parts\": [\n        {\n          \"enabled\": true,\n          \"name\": \"string\",\n          \"type\": \"Number\",\n          \"required\": false,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 4594.9040849135245,\n            \"maxLength\": 7136.5330908894275,\n            \"minValue\": 8829.4595793336,\n            \"maxValue\": 2848.08985310656,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        },\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Date\",\n          \"required\": true,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 1254.4011491635965,\n            \"maxLength\": 2738.7187205151176,\n            \"minValue\": 753.3982805841199,\n            \"maxValue\": 5011.540213852507,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        }\n      ]\n    },\n    \"createdAt\": 8996.045353656038,\n    \"sieOrder\": 120.34109104063995\n  },\n  {\n    \"tenantId\": \"string\",\n    \"id\": \"strin\",\n    \"name\": \"string\",\n    \"type\": \"Number\",\n    \"label\": \"string\",\n    \"description\": \"string\",\n    \"required\": false,\n    \"config\": {\n      \"placeholder\": \"string\",\n      \"minLength\": 5798.65438309301,\n      \"maxLength\": 100.18451444929299,\n      \"minValue\": 4067.1038635102254,\n      \"maxValue\": 1378.874053310649,\n      \"format\": \"string\",\n      \"customFormat\": \"string\",\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"defaultValue\": \"string\",\n      \"parts\": [\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Checkbox\",\n          \"required\": false,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 6828.408974538232,\n            \"maxLength\": 7040.226031222331,\n            \"minValue\": 7367.991497125663,\n            \"maxValue\": 1856.9241771915379,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        },\n        {\n          \"enabled\": false,\n          \"name\": \"string\",\n          \"type\": \"Text\",\n          \"required\": true,\n          \"label\": \"string\",\n          \"description\": \"string\",\n          \"config\": {\n            \"placeholder\": \"string\",\n            \"minLength\": 7805.080963821652,\n            \"maxLength\": 312.2553447083032,\n            \"minValue\": 3916.0306105397312,\n            \"maxValue\": 9636.270446942834,\n            \"format\": \"string\",\n            \"customFormat\": \"string\",\n            \"options\": [\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              },\n              {\n                \"value\": \"string\",\n                \"label\": \"string\"\n              }\n            ],\n            \"defaultValue\": \"string\"\n          }\n        }\n      ]\n    },\n    \"createdAt\": 391.5830668146858,\n    \"sieOrder\": 6308.1032475446345\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4c9a4d4-c673-4ab8-83f1-96ac09f16549",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "properties",
+                    "sie-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": [\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d742107-7aa2-4247-b6b5-cb3173c5dede",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "properties",
+                    "sie-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": [\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31037b1e-8341-4455-8ba6-0bf392aa049e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "custom-profile-fields",
+                    "properties",
+                    "sie-order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": [\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"sieOrder\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://[tenant_id].logto.app/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "all"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "/oidc/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "94238f0d-4183-4e9e-baea-e3e91a0e756f",
+    "name": "Logto API references Account center Custom profile fields API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API references for Logto services.\n\nNote: The documentation is for Logto Cloud. If you are using Logto OSS, please refer to the response of `/api/swagger.json` endpoint on your Logto instance.",
+      "type": "text/plain"
+    }
+  }
+}

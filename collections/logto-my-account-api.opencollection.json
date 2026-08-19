@@ -1,0 +1,471 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Logto API references Account center My account API",
+    "version": "Cloud"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "/oidc/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "My account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account"
+          },
+          "docs": "Get profile for the user."
+        },
+        {
+          "info": {
+            "name": "Update profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/my-account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update profile for the user, only the fields that are passed in will be updated. Updating or deleting username requires a logto-verification-id header for checking sensitive permissions. Removing any sign-in identifier, including username, is rejected if it would remove the user's last identifier."
+        },
+        {
+          "info": {
+            "name": "Update other profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/my-account/profile",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update other profile for the user, only the fields that are passed in will be updated, to update the address, the user must have the address scope."
+        },
+        {
+          "info": {
+            "name": "Update password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update password for the user, a logto-verification-id in header is required for checking sensitive permissions."
+        },
+        {
+          "info": {
+            "name": "Get MFA settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-settings"
+          },
+          "docs": "Get MFA settings for the user. This endpoint requires the Identities scope. Returns current MFA configuration preferences."
+        },
+        {
+          "info": {
+            "name": "Update MFA settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update MFA settings for the user. This endpoint requires identity verification and the Identities scope. Controls whether MFA verification is required during sign-in when the user has MFA configured."
+        },
+        {
+          "info": {
+            "name": "Get logto config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/logto-configs"
+          },
+          "docs": "Retrieve the exposed portion of the current user's logto config. This includes MFA states (enabled, skipped, skipMfaOnSignIn) and passkey sign-in binding states (skipped). Passkey is a WebAuthn MFA factor and shares the same account center field access control as MFA."
+        },
+        {
+          "info": {
+            "name": "Update logto config",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/my-account/logto-configs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the exposed portion of the current user's logto config. Supports updating MFA states (enabled, skipped, skipMfaOnSignIn) and passkey sign-in binding states (skipped). Passkey is a WebAuthn MFA factor and shares the same account center field access control as MFA."
+        },
+        {
+          "info": {
+            "name": "Retrieve the access token issued by a third-party social provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/identities/:target/access-token",
+            "params": [
+              {
+                "name": "target",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This API retrieves the access token issued by a third-party social provider for a given social target. \nAccess is only available if token storage is enabled for the corresponding social connector.\nWhen a user authenticates through a social provider, Logto automatically stores the provider’s tokens in an encrypted form.\nYou can use this API to securely retrieve the stored access token and use it to access third-party APIs on behalf of the user."
+        },
+        {
+          "info": {
+            "name": "Update the access token for a social identity by verification ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/my-account/identities/:target/access-token",
+            "params": [
+              {
+                "name": "target",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API updates the token storage for a social identity by a given social verification ID. \nIt is used to fetch a new access token from the social provider and store it securely in Logto."
+        },
+        {
+          "info": {
+            "name": "Retrieve the access token issued by a third-party enterprise SSO provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/sso-identities/:connectorId/access-token",
+            "params": [
+              {
+                "name": "connectorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the connector."
+              }
+            ]
+          },
+          "docs": "This API retrieves the access token issued by a third-party enterprise SSO provider for a given SSO connector ID. \nAccess is only available if token storage is enabled for the corresponding connector.\nWhen a user authenticates through a SSO provider, Logto automatically stores the provider’s tokens in an encrypted form.\nYou can use this API to securely retrieve the stored access token and use it to access third-party APIs on behalf of the user."
+        },
+        {
+          "info": {
+            "name": "Update primary email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/primary-email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update primary email for the user, a logto-verification-id in header is required for checking sensitive permissions, and a new identifier verification record is required for the new email ownership verification."
+        },
+        {
+          "info": {
+            "name": "Delete primary email",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/my-account/primary-email"
+          },
+          "docs": "Delete primary email for the user, a logto-verification-id header is required for checking sensitive permissions. The request is rejected if it would remove the user's last identifier."
+        },
+        {
+          "info": {
+            "name": "Update primary phone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/primary-phone",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update primary phone for the user, a logto-verification-id in header is required for checking sensitive permissions, and a new identifier verification record is required for the new phone ownership verification."
+        },
+        {
+          "info": {
+            "name": "Delete primary phone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/my-account/primary-phone"
+          },
+          "docs": "Delete primary phone for the user, a logto-verification-id header is required for checking sensitive permissions. The request is rejected if it would remove the user's last identifier."
+        },
+        {
+          "info": {
+            "name": "Add a user identity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/identities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an identity (social identity) to the user, a logto-verification-id in header is required for checking sensitive permissions, and a verification record for the social identity is required."
+        },
+        {
+          "info": {
+            "name": "Delete a user identity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/my-account/identities/:target",
+            "params": [
+              {
+                "name": "target",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an identity (social identity) from the user, a logto-verification-id in header is required for checking sensitive permissions. The request is rejected if it would remove the user's last identifier."
+        },
+        {
+          "info": {
+            "name": "Get MFA verifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications"
+          },
+          "docs": "Get MFA verifications for the user."
+        },
+        {
+          "info": {
+            "name": "Add a MFA verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a MFA verification to the user, a logto-verification-id in header is required for checking sensitive permissions."
+        },
+        {
+          "info": {
+            "name": "Create or replace the authenticator app",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications/totp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or replace the user's TOTP MFA verification with a new authenticator app binding. If the user already has a TOTP verification, it will be replaced; otherwise, a new one will be created. Requires a logto-verification-id header for sensitive permission checks, a valid TOTP secret, and a valid TOTP code generated from the secret."
+        },
+        {
+          "info": {
+            "name": "Generate a TOTP secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications/totp-secret/generate"
+          },
+          "docs": "Generate a TOTP secret for the user."
+        },
+        {
+          "info": {
+            "name": "Generate backup codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications/backup-codes/generate"
+          },
+          "docs": "Generate backup codes for the user."
+        },
+        {
+          "info": {
+            "name": "Get backup codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications/backup-codes"
+          },
+          "docs": "Get all backup codes for the user with their usage status. Requires identity verification."
+        },
+        {
+          "info": {
+            "name": "Update a MFA verification name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications/:verificationId/name",
+            "params": [
+              {
+                "name": "verificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the verification."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a MFA verification name, a logto-verification-id in header is required for checking sensitive permissions. Only WebAuthn is supported for now."
+        },
+        {
+          "info": {
+            "name": "Delete an MFA verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/my-account/mfa-verifications/:verificationId",
+            "params": [
+              {
+                "name": "verificationId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the verification."
+              }
+            ]
+          },
+          "docs": "Delete an MFA verification, a logto-verification-id in header is required for checking sensitive permissions."
+        },
+        {
+          "info": {
+            "name": "Get all active sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/sessions"
+          },
+          "docs": "Retrieve all non-expired sessions for the user, including session metadata and interaction details when available. A logto-verification-id in header is required for checking sensitive session details."
+        },
+        {
+          "info": {
+            "name": "Revoke a session by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/my-account/sessions/:sessionId",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the session."
+              },
+              {
+                "name": "revokeGrantsTarget",
+                "value": "",
+                "type": "query",
+                "description": "Optional target for revoking associated grants and tokens. 'all' revokes grants for every application authorized by this session. 'firstParty' revokes only first-party app grants; third-party app grants remain active. If omitted, grants remain active when the session authorizations include offline_access; otherwise they are revoked."
+              }
+            ]
+          },
+          "docs": "Revoke a specific user session by its ID, optionally revoking target associated grants and tokens.  A logto-verification-id in header is required for revoking sessions."
+        },
+        {
+          "info": {
+            "name": "Get all active grants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://[tenant_id].logto.app/api/my-account/grants",
+            "params": [
+              {
+                "name": "appType",
+                "value": "",
+                "type": "query",
+                "description": "Optional application type filter. Use 'firstParty' to return grants from first-party applications only, or 'thirdParty' for third-party applications only."
+              }
+            ]
+          },
+          "docs": "Retrieve all active application grants for the user. A logto-verification-id in header is required for checking grant details."
+        },
+        {
+          "info": {
+            "name": "Revoke a grant by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://[tenant_id].logto.app/api/my-account/grants/:grantId",
+            "params": [
+              {
+                "name": "grantId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the grant."
+              }
+            ]
+          },
+          "docs": "Revoke a specific user application grant by grant ID and remove the related session authorization. A logto-verification-id in header is required for revoking grants."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
