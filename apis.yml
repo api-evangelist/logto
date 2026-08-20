@@ -22,6 +22,13 @@ tags:
 - Authorization
 - Identity
 - OIDC
+- SAML
+- Open-Source
+tags_raw:
+- Authentication
+- Authorization
+- Identity
+- OIDC
 - OAuth
 - SAML
 - Open Source
@@ -71,6 +78,8 @@ apis:
     control.
   humanURL: https://docs.logto.io
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -86,6 +95,8 @@ apis:
     not include activities in Logto Console.
   humanURL: https://docs.logto.io
   tags:
+  - Audit Logs
+  tags_raw:
   - Audit logs
   properties:
   - type: OpenAPI
@@ -243,6 +254,8 @@ apis:
     and password resets.
   humanURL: https://docs.logto.io
   tags:
+  - Email Templates
+  tags_raw:
   - Email templates
   properties:
   - type: OpenAPI
@@ -288,6 +301,8 @@ apis:
     with access tokens.
   humanURL: https://docs.logto.io
   tags:
+  - My Account
+  tags_raw:
   - My account
   properties:
   - type: OpenAPI
@@ -318,6 +333,8 @@ apis:
     and contain a link that the user can click to accept the invitation and join the organization.
   humanURL: https://docs.logto.io
   tags:
+  - Organization Invitations
+  tags_raw:
   - Organization invitations
   properties:
   - type: OpenAPI
@@ -338,6 +355,8 @@ apis:
     to get started with organizations and organization template.
   humanURL: https://docs.logto.io
   tags:
+  - Organization Roles
+  tags_raw:
   - Organization roles
   properties:
   - type: OpenAPI
@@ -378,6 +397,8 @@ apis:
     to get started with organizations and organization template.
   humanURL: https://docs.logto.io
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -607,6 +628,8 @@ apis:
     for more insights.
   humanURL: https://docs.logto.io
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -640,6 +663,8 @@ apis:
     Endpoints for creating and validating verification records, which can be used in Profile routes.
   humanURL: https://docs.logto.io
   tags:
+  - Verification
+  tags_raw:
   - Verifications
   properties:
   - type: OpenAPI
@@ -655,6 +680,8 @@ apis:
     need for authentication.
   humanURL: https://docs.logto.io
   tags:
+  - .well Known
+  tags_raw:
   - Well-known
   properties:
   - type: OpenAPI
