@@ -3,6 +3,19 @@ name: Logto
 description: Logto is an open source identity infrastructure platform with authentication, authorization, user management,
   and multi-tenancy supporting OIDC, OAuth, and SAML.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: MPL-2.0
+  open_source: true
+  commercial: false
+  callable_host: true
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -691,6 +704,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/logto-io/logto
 common:
+- type: CapabilityMap
+  url: capabilities/logto-capability-edges.yml
+  name: Logto Business Capability Map
 - type: IssueTracker
   url: https://github.com/logto-io/logto/issues
 - type: Releases
