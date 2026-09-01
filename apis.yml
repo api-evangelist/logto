@@ -267,7 +267,7 @@ apis:
     and password resets.
   humanURL: https://docs.logto.io
   tags:
-  - Email templates
+  - Email Templates
   tags_raw:
   - Email templates
   properties:
@@ -314,7 +314,7 @@ apis:
     with access tokens.
   humanURL: https://docs.logto.io
   tags:
-  - My account
+  - My Account
   tags_raw:
   - My account
   properties:
@@ -346,7 +346,7 @@ apis:
     and contain a link that the user can click to accept the invitation and join the organization.
   humanURL: https://docs.logto.io
   tags:
-  - Organization invitations
+  - Organization Invitations
   tags_raw:
   - Organization invitations
   properties:
@@ -368,7 +368,7 @@ apis:
     to get started with organizations and organization template.
   humanURL: https://docs.logto.io
   tags:
-  - Organization roles
+  - Organization Roles
   tags_raw:
   - Organization roles
   properties:
@@ -676,7 +676,7 @@ apis:
     Endpoints for creating and validating verification records, which can be used in Profile routes.
   humanURL: https://docs.logto.io
   tags:
-  - Verifications
+  - Verification
   tags_raw:
   - Verifications
   properties:
@@ -693,7 +693,7 @@ apis:
     need for authentication.
   humanURL: https://docs.logto.io
   tags:
-  - Well-known
+  - .well Known
   tags_raw:
   - Well-known
   properties:
