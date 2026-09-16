@@ -1,7 +1,7 @@
 aid: logto
 name: Logto
-description: Logto is an open source identity infrastructure platform with authentication, authorization, user management,
-  and multi-tenancy supporting OIDC, OAuth, and SAML.
+description: Logto is an open source identity infrastructure platform with authentication, authorization,
+  user management, and multi-tenancy supporting OIDC, OAuth, and SAML.
 type: Index
 deliveryModel:
   model: self-hosted
@@ -37,6 +37,7 @@ tags:
 - OIDC
 - SAML
 - Open-Source
+- Identity Federation
 tags_raw:
 - Authentication
 - Authorization
@@ -45,9 +46,10 @@ tags_raw:
 - OAuth
 - SAML
 - Open Source
+- Identity Federation
 url: https://raw.githubusercontent.com/api-evangelist/logto/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: logto:logto-account-center-api
@@ -65,10 +67,9 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-applications-api
   name: Logto Applications API
-  description: >-
-    Application represents your registered software program or service that has been authorized to access
-    user information and perform actions on behalf of users within the system. Currently, Logto supports
-    four types of applications:
+  description: 'Application represents your registered software program or service that has been authorized
+    to access user information and perform actions on behalf of users within the system. Currently, Logto
+    supports four types of applications:
 
 
     - Traditional web
@@ -88,7 +89,7 @@ apis:
 
     Role-based access control (RBAC) is supported for machine-to-machine applications. See [🔐 Role-based
     access control (RBAC)](https://docs.logto.io/docs/recipes/rbac/) to get started with role-based access
-    control.
+    control.'
   humanURL: https://docs.logto.io
   tags:
   - Application
@@ -103,9 +104,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-audit-logs-api
   name: Logto Audit logs API
-  description: >-
-    Audit logs are used to track end-user activities in Logto sign-in experience and other flows. It does
-    not include activities in Logto Console.
+  description: Audit logs are used to track end-user activities in Logto sign-in experience and other
+    flows. It does not include activities in Logto Console.
   humanURL: https://docs.logto.io
   tags:
   - Audit Logs
@@ -146,13 +146,12 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-configs-api
   name: Logto Configs API
-  description: >-
-    Endpoints for managing Logto global configurations for the tenant, such as admin console config and
-    OIDC signing keys.
+  description: 'Endpoints for managing Logto global configurations for the tenant, such as admin console
+    config and OIDC signing keys.
 
 
     See [🔑 Signing keys](https://docs.logto.io/docs/recipes/signing-keys-rotation/) to learn more about
-    signing keys and key rotation.
+    signing keys and key rotation.'
   humanURL: https://docs.logto.io
   tags:
   - Configs
@@ -165,9 +164,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-connector-factories-api
   name: Logto Connector factories API
-  description: >-
-    Connector factories are used to create connectors. They can be treated as preconfigured templates
-    for connectors.
+  description: Connector factories are used to create connectors. They can be treated as preconfigured
+    templates for connectors.
   humanURL: https://docs.logto.io
   tags:
   - Connector factories
@@ -180,12 +178,11 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-connectors-api
   name: Logto Connectors API
-  description: >-
-    Connectors are the bridge between Logto and other third-party vendors who provide short message service
-    (SMS), email service, or user information on wildly accepted social media.
+  description: 'Connectors are the bridge between Logto and other third-party vendors who provide short
+    message service (SMS), email service, or user information on wildly accepted social media.
 
 
-    To learn more about connectors, please see [🪛 Configure connectors](https://docs.logto.io/docs/recipes/configure-connectors/).
+    To learn more about connectors, please see [🪛 Configure connectors](https://docs.logto.io/docs/recipes/configure-connectors/).'
   humanURL: https://docs.logto.io
   tags:
   - Connectors
@@ -198,13 +195,12 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-custom-phrases-api
   name: Logto Custom phrases API
-  description: >-
-    Endpoints for managing custom phrases that allow you to customize the phrases displayed in the sign-in
-    experience.
+  description: 'Endpoints for managing custom phrases that allow you to customize the phrases displayed
+    in the sign-in experience.
 
 
     See [Localized language](https://docs.logto.io/docs/recipes/customize-sie/localized-language/) to
-    learn more about custom phrases for localization.
+    learn more about custom phrases for localization.'
   humanURL: https://docs.logto.io
   tags:
   - Custom phrases
@@ -217,9 +213,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-custom-profile-fields-api
   name: Logto Custom profile fields API
-  description: >-
-    An admin feature used to create a customized user profile form, which is used to collect additional
-    user information upon successful registrations.
+  description: An admin feature used to create a customized user profile form, which is used to collect
+    additional user information upon successful registrations.
   humanURL: https://docs.logto.io
   tags:
   - Custom profile fields
@@ -232,8 +227,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-dashboard-api
   name: Logto Dashboard API
-  description: >-
-    Endpoints that power the dashboard page of Console to show the statistics of the current tenant.
+  description: Endpoints that power the dashboard page of Console to show the statistics of the current
+    tenant.
   humanURL: https://docs.logto.io
   tags:
   - Dashboard
@@ -246,10 +241,9 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-domains-api
   name: Logto Domains API
-  description: >-
-    Custom domain lets you present a consistent brand by having your own domain name on the sign-in and
-    registration pages. See [🌍 Custom domain](https://docs.logto.io/docs/recipes/custom-domain/) for more
-    details.
+  description: Custom domain lets you present a consistent brand by having your own domain name on the
+    sign-in and registration pages. See [🌍 Custom domain](https://docs.logto.io/docs/recipes/custom-domain/)
+    for more details.
   humanURL: https://docs.logto.io
   tags:
   - Domains
@@ -262,9 +256,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-email-templates-api
   name: Logto Email templates API
-  description: >-
-    Manage custom i18n email templates for various types of emails, such as sign-in verification codes
-    and password resets.
+  description: Manage custom i18n email templates for various types of emails, such as sign-in verification
+    codes and password resets.
   humanURL: https://docs.logto.io
   tags:
   - Email Templates
@@ -279,9 +272,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-experience-api
   name: Logto Experience API
-  description: >-
-    The Experience endpoints allow end-users to interact with Logto for identity verification and profile
-    completion.
+  description: The Experience endpoints allow end-users to interact with Logto for identity verification
+    and profile completion.
   humanURL: https://docs.logto.io
   tags:
   - Experience
@@ -294,9 +286,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-hooks-api
   name: Logto Hooks API
-  description: >-
-    Hook enables you to effortlessly receive real-time updates regarding specific events, such as user
-    registration, sign-in, or password reset. See [🪝 Webhooks] to get started and learn more.
+  description: Hook enables you to effortlessly receive real-time updates regarding specific events, such
+    as user registration, sign-in, or password reset. See [🪝 Webhooks] to get started and learn more.
   humanURL: https://docs.logto.io
   tags:
   - Hooks
@@ -309,9 +300,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-my-account-api
   name: Logto My account API
-  description: >-
-    Account routes provide functionality for managing user profile for the end user to interact directly
-    with access tokens.
+  description: Account routes provide functionality for managing user profile for the end user to interact
+    directly with access tokens.
   humanURL: https://docs.logto.io
   tags:
   - My Account
@@ -326,9 +316,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-one-time-tokens-api
   name: Logto One-time tokens API
-  description: >-
-    One-time tokens are used for various authentication and verification purposes. They are typically
-    sent via email and have an expiration time.
+  description: One-time tokens are used for various authentication and verification purposes. They are
+    typically sent via email and have an expiration time.
   humanURL: https://docs.logto.io
   tags:
   - One-time tokens
@@ -341,9 +330,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-organization-invitations-api
   name: Logto Organization invitations API
-  description: >-
-    Organization invitations are used to invite users to join an organization. They are sent via email
-    and contain a link that the user can click to accept the invitation and join the organization.
+  description: Organization invitations are used to invite users to join an organization. They are sent
+    via email and contain a link that the user can click to accept the invitation and join the organization.
   humanURL: https://docs.logto.io
   tags:
   - Organization Invitations
@@ -358,14 +346,13 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-organization-roles-api
   name: Logto Organization roles API
-  description: >-
-    Organization roles are used to define a set of organization scopes that can be assigned to users.
-    Every organization role is a part of the organization template.
+  description: 'Organization roles are used to define a set of organization scopes that can be assigned
+    to users. Every organization role is a part of the organization template.
 
 
     Organization roles will only be meaningful within an organization context. For example, a user may
     have an `admin` role for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/)
-    to get started with organizations and organization template.
+    to get started with organizations and organization template.'
   humanURL: https://docs.logto.io
   tags:
   - Organization Roles
@@ -380,14 +367,13 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-organization-scopes-api
   name: Logto Organization scopes API
-  description: >-
-    Organization scopes (permissions) are used to define actions that can be performed on a organization.
-    Every organization scope is a part of the organization template.
+  description: 'Organization scopes (permissions) are used to define actions that can be performed on
+    a organization. Every organization scope is a part of the organization template.
 
 
     Organization scopes will only be meaningful within an organization context. For example, a user may
     have a `read` scope for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/)
-    to get started with organizations and organization template.
+    to get started with organizations and organization template.'
   humanURL: https://docs.logto.io
   tags:
   - Organization scopes
@@ -400,14 +386,13 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-organizations-api
   name: Logto Organizations API
-  description: >-
-    Organization is a concept that brings together multiple identities (mostly users). Logto supports
-    multiple organizations, and each organization can have multiple users.
+  description: 'Organization is a concept that brings together multiple identities (mostly users). Logto
+    supports multiple organizations, and each organization can have multiple users.
 
 
     Every organization shares the same set (organization template) of roles and permissions. Each user
     can have different roles in different organizations. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/)
-    to get started with organizations and organization template.
+    to get started with organizations and organization template.'
   humanURL: https://docs.logto.io
   tags:
   - Organization
@@ -422,14 +407,13 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-resources-api
   name: Logto Resources API
-  description: >-
-    Resources (API resources) represent the APIs that you want to protect with Logto. Each resource has
-    a unique indicator (URI) and a set of scopes (permissions). The resources will be used in the authorization
-    process which conforms to [RFC 8707: Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html).
+  description: 'Resources (API resources) represent the APIs that you want to protect with Logto. Each
+    resource has a unique indicator (URI) and a set of scopes (permissions). The resources will be used
+    in the authorization process which conforms to [RFC 8707: Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html).
 
 
     See [⚔️ Protect your API](https://docs.logto.io/docs/recipes/protect-your-api/) to learn more about
-    how to define API resources and protect your APIs with Logto.
+    how to define API resources and protect your APIs with Logto.'
   humanURL: https://docs.logto.io
   tags:
   - Resources
@@ -442,9 +426,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-roles-api
   name: Logto Roles API
-  description: >-
-    Role management for API resource RBAC (role-based access control). See [🔐 Role-based access control
-    (RBAC)](https://docs.logto.io/docs/recipes/rbac/) to get started with role-based access control.
+  description: Role management for API resource RBAC (role-based access control). See [🔐 Role-based access
+    control (RBAC)](https://docs.logto.io/docs/recipes/rbac/) to get started with role-based access control.
   humanURL: https://docs.logto.io
   tags:
   - Roles
@@ -457,10 +440,9 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-saml-applications-api
   name: Logto SAML applications API
-  description: >-
-    SAML (Security Assertion Markup Language) applications represent applications that use SAML protocol
-    for single sign-on (SSO). These endpoints allow you to manage SAML applications, including their configurations
-    and signing certificates.
+  description: SAML (Security Assertion Markup Language) applications represent applications that use
+    SAML protocol for single sign-on (SSO). These endpoints allow you to manage SAML applications, including
+    their configurations and signing certificates.
   humanURL: https://docs.logto.io
   tags:
   - SAML applications
@@ -486,9 +468,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-secrets-api
   name: Logto Secrets API
-  description: >-
-    Secrets are used to store sensitive information such as API keys, third-party tokens, and other confidential
-    data in Logto's Secret Vault.
+  description: Secrets are used to store sensitive information such as API keys, third-party tokens, and
+    other confidential data in Logto's Secret Vault.
   humanURL: https://docs.logto.io
   tags:
   - Secrets
@@ -501,11 +482,10 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-sentinel-activities-api
   name: Logto Sentinel activities API
-  description: >-
-    Sentinel activities are used to track and manage user authentication attempts, including successful
-    and failed attempts. Based on your sentinel policy settings, Logto will automatically block users
-    after a certain number of failed attempts. This helps to prevent unauthorized access and protect sensitive
-    data.
+  description: Sentinel activities are used to track and manage user authentication attempts, including
+    successful and failed attempts. Based on your sentinel policy settings, Logto will automatically block
+    users after a certain number of failed attempts. This helps to prevent unauthorized access and protect
+    sensitive data.
   humanURL: https://docs.logto.io
   tags:
   - Sentinel activities
@@ -518,8 +498,7 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-sign-in-experience-api
   name: Logto Sign-in experience API
-  description: >-
-    Endpoints for customizing Logto sign-in experience. See [🎨 Customize sign-in experience](https://docs.logto.io/docs/recipes/customize-sie/)
+  description: Endpoints for customizing Logto sign-in experience. See [🎨 Customize sign-in experience](https://docs.logto.io/docs/recipes/customize-sie/)
     to learn more about how the configuration works and reflects on the user interface.
   humanURL: https://docs.logto.io
   tags:
@@ -533,11 +512,10 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-sso-connector-providers-api
   name: Logto SSO connector providers API
-  description: >-
-    Endpoints for SSO (single sign-on) connector providers.
+  description: 'Endpoints for SSO (single sign-on) connector providers.
 
 
-    SSO connector providers provide the metadata and configuration templates for creating SSO connectors.
+    SSO connector providers provide the metadata and configuration templates for creating SSO connectors.'
   humanURL: https://docs.logto.io
   tags:
   - SSO connector providers
@@ -550,12 +528,12 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-sso-connectors-api
   name: Logto SSO connectors API
-  description: >-
-    Endpoints for managing single sign-on (SSO) connectors. Your sign-in experience can use these well-configured
-    SSO connectors to authenticate users and sync user attributes from external identity providers (IdPs).
+  description: 'Endpoints for managing single sign-on (SSO) connectors. Your sign-in experience can use
+    these well-configured SSO connectors to authenticate users and sync user attributes from external
+    identity providers (IdPs).
 
 
-    SSO connectors are created by SSO connector provider factories.
+    SSO connectors are created by SSO connector provider factories.'
   humanURL: https://docs.logto.io
   tags:
   - SSO connectors
@@ -581,9 +559,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-subject-tokens-api
   name: Logto Subject tokens API
-  description: >-
-    The subject token API provides the ability to create a new subject token for the use of impersonating
-    the user.
+  description: The subject token API provides the ability to create a new subject token for the use of
+    impersonating the user.
   humanURL: https://docs.logto.io
   tags:
   - Subject tokens
@@ -635,9 +612,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-users-api
   name: Logto Users API
-  description: >-
-    Endpoints for user management. Including creating, updating, deleting, and querying users with flexible
-    filters. In addition to the endpoints, see [🧑‍🚀 Manage users](https://docs.logto.io/docs/recipes/manage-users/)
+  description: Endpoints for user management. Including creating, updating, deleting, and querying users
+    with flexible filters. In addition to the endpoints, see [🧑‍🚀 Manage users](https://docs.logto.io/docs/recipes/manage-users/)
     for more insights.
   humanURL: https://docs.logto.io
   tags:
@@ -653,15 +629,16 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-verification-codes-api
   name: Logto Verification codes API
-  description: >-
-    Endpoints for handling verification codes. It is helpful when building a custom profile page in your
-    app. See [👤 User profile](https://docs.logto.io/docs/recipes/user-profile/#optional-validate-verification-code)
+  description: 'Endpoints for handling verification codes. It is helpful when building a custom profile
+    page in your app. See [👤 User profile](https://docs.logto.io/docs/recipes/user-profile/#optional-validate-verification-code)
     for more details.
 
 
-    Note: Before you call the endpoints, you need to setup your email/SMS connector first.
+    Note: Before you call the endpoints, you need to setup your email/SMS connector first.'
   humanURL: https://docs.logto.io
   tags:
+  - Verification Codes
+  tags_raw:
   - Verification codes
   properties:
   - type: OpenAPI
@@ -672,8 +649,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-verifications-api
   name: Logto Verifications API
-  description: >-
-    Endpoints for creating and validating verification records, which can be used in Profile routes.
+  description: Endpoints for creating and validating verification records, which can be used in Profile
+    routes.
   humanURL: https://docs.logto.io
   tags:
   - Verification
@@ -688,9 +665,8 @@ apis:
     url: https://github.com/logto-io/logto
 - aid: logto:logto-well-known-api
   name: Logto Well-known API
-  description: >-
-    Well-Known routes provide information and resources that can be discovered by clients without the
-    need for authentication.
+  description: Well-Known routes provide information and resources that can be discovered by clients without
+    the need for authentication.
   humanURL: https://docs.logto.io
   tags:
   - .well Known
