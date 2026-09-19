@@ -231,6 +231,8 @@ apis:
     tenant.
   humanURL: https://docs.logto.io
   tags:
+  - Dashboards
+  tags_raw:
   - Dashboard
   properties:
   - type: OpenAPI
