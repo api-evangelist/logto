@@ -11,6 +11,10 @@ pricing_basis: tiered-subscription
 delivery: open-core
 delivery_method: page
 delivery_evidence: Running Logto on your own infrastructure?
+open_source_repository:
+  repo: logto-io/logto
+  license: MPL-2.0
+  stars: 14601
 managed_premium:
   grade: A
   usd_per_month: 24.0
