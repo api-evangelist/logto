@@ -682,6 +682,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/logto-io/logto
 common:
+- type: RateLimits
+  url: rate-limits/logto-rate-limits.yml
 - type: Pricing
   url: https://logto.io/pricing
 - type: Plans
