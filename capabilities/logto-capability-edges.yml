@@ -1,0 +1,215 @@
+slug: logto
+provider: Logto
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 20
+edges:
+- tag: Roles
+  spec_file: logto-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.92
+  evidence: POST /api/roles/{id}/users  CreateRoleUser  Assign role to users; GET /api/roles/{id}/scopes  ListRoleScopes
+  reason: Role-based access control administration — creating roles and assigning them to users/applications
+    with scopes — is squarely Identity & Access Management.
+- tag: Organization roles
+  spec_file: logto-organization-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: POST /api/organization-roles/{id}/scopes CreateOrganizationRoleScope — Assign organization
+    scopes to organization role
+  reason: Definition of roles and assignment of scopes/resource scopes to them is role-based authorisation
+    modelling, squarely Identity & Access Management.
+- tag: Experience
+  spec_file: logto-experience-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /api/experience/identification IdentifyUser — Identify user for the current interaction;
+    POST /api/experience/verification/password — Create password verification record; CreateAndSendMfaVerificationCode
+  reason: 'The operations run the end-user sign-in/registration interaction: identification, password
+    verification, MFA codes, social/SSO verification. This is authentication and access management, the
+    core of Identity & Access Management.'
+- tag: My account
+  spec_file: logto-my-account-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /api/my-account/password UpdatePassword; GET /api/my-account/mfa-settings — Get MFA settings;
+    GetSocialIdentityAccessToken — Retrieve the access token issued by a third-party social provider
+  reason: Self-service management of the authenticated user's credentials, MFA settings, linked social/enterprise
+    SSO identities and primary email — identity and credential administration.
+- tag: Organization scopes
+  spec_file: logto-organization-scopes-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /api/organization-scopes CreateOrganizationScope — Create an organization scope
+  reason: CRUD over permission scopes used in the authorisation model of the identity platform; access-rights
+    definition within IAM.
+- tag: SAML applications
+  spec_file: logto-saml-applications-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /api/saml-applications  CreateSamlApplication  Create SAML application; GET /api/saml-applications/{id}/metadata
+  reason: Registration and credential (secret/metadata) management of SAML service-provider applications
+    is federation configuration within IAM, not a business-domain capability.
+- tag: SAML applications auth flow
+  spec_file: logto-saml-applications-auth-flow-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: GET /api/saml/{id}/authn  GetSamlAuthn  Handle SAML authentication request (Redirect binding)
+  reason: Runtime handling of SAML authentication requests is federated authentication, i.e. Identity
+    & Access Management.
+- tag: SSO connectors
+  spec_file: logto-sso-connectors-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /api/sso-connectors  CreateSsoConnector  Create SSO connector
+  reason: Lifecycle management of single sign-on connectors to external identity providers is federation/IAM
+    configuration.
+- tag: Users
+  spec_file: logto-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /api/users CreateUser 'Create user'; PATCH /api/users/{userId}/password 'Update user
+    password'; POST /api/users/{userId}/password/verify 'Verify user password'
+  reason: Logto is identity infrastructure; the Users tag performs user account lifecycle and credential
+    management, which is Identity & Access Management. Could alternatively be seen as tenant identity,
+    but the surface is the core IAM user directory.
+- tag: Applications
+  spec_file: logto-applications-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /api/applications  CreateApplication; POST /api/applications/{applicationId}/roles  AssignApplicationRoles  Assign
+    API resource roles to application; schema ApplicationLegacySecret
+  reason: Operations register OAuth/OIDC client applications, manage their secrets and assign API-resource
+    roles — client identity and access-role administration on an identity platform. Some ambiguity with
+    developer credential management, but IAM is the core reading.
+- tag: Authn
+  spec_file: logto-authn-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /api/authn/saml/{connectorId}  AssertSaml  SAML ACS endpoint (social); POST /api/authn/single-sign-on/saml/{connectorId}  AssertSingleSignOnSaml  SAML
+    ACS endpoint (SSO)
+  reason: SAML assertion consumer endpoints and an auth hook implement federated single sign-on. Authentication
+    is normally plumbing, but here it is the vendor's product function, mapping to identity federation
+    within Identity & Access Management.
+- tag: Verifications
+  spec_file: logto-verifications-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /api/verifications/password 'Create a record by password'; POST /api/verifications/web-authn/registration
+    'Generate WebAuthn registration options'
+  reason: Authentication factor verification (password, social, WebAuthn) is core identity/authentication
+    functionality mapping to Identity & Access Management.
+- tag: Resources
+  spec_file: logto-resources-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: POST /api/resources CreateResource — Create an API resource; POST /api/resources/{resourceId}/scopes
+    — Create API resource scope
+  reason: Registration of protected API resources and their permission scopes — the authorisation target
+    model of an OAuth/OIDC identity platform, part of Identity & Access Management.
+- tag: One-time tokens
+  spec_file: logto-one-time-tokens-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /api/one-time-tokens AddOneTimeTokens — Create one-time token; POST /api/one-time-tokens/verify
+    — Verify one-time token
+  reason: Issuance, verification and revocation of one-time authentication tokens used to authenticate/onboard
+    users; a credential mechanism within Identity & Access Management.
+- tag: SSO connector providers
+  spec_file: logto-sso-connector-providers-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: GET /api/sso-connector-providers  ListSsoConnectorProviders  List all the supported SSO connector
+    provider details
+  reason: Single read-only listing of supported SSO identity providers; supports federation configuration
+    under IAM, though the surface is thin.
+- tag: Hooks
+  spec_file: logto-hooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.72
+  evidence: POST /api/hooks CreateHook — Create a hook; GET /api/hooks/{id}/recent-logs — Get recent logs
+    for a hook; PATCH /api/hooks/{id}/signing-key — Update signing key for a hook
+  reason: Full lifecycle of outbound webhook subscriptions including creation, signing keys, test delivery
+    and delivery logs — matching Webhook & Event Subscription Management. Some risk this is judged pure
+    plumbing, hence moderate confidence.
+- tag: Connectors
+  spec_file: logto-connectors-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /api/connectors/{factoryId}/test  CreateConnectorTest  Test passwordless connector; POST
+    /api/connectors/{connectorId}/authorization-uri  Get connector's authorization URI
+  reason: Connectors configure social/passwordless identity providers and their authorization URIs, i.e.
+    identity federation setup on an identity platform. Slightly generic tag wording keeps confidence moderate.
+- tag: Organization invitations
+  spec_file: logto-organization-invitations-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /api/organization-invitations CreateOrganizationInvitation — Create organization invitation;
+    POST /api/organization-invitations/{id}/message — Resend invitation message
+  reason: Invitation lifecycle that grants users membership of an organization in the identity platform
+    — user onboarding/provisioning into access groups, i.e. joiner handling within IAM rather than any
+    HR or CRM process.
+- tag: Subject tokens
+  spec_file: logto-subject-tokens-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /api/subject-tokens  CreateSubjectToken  Create a new subject token.
+  reason: Issuing subject tokens (token exchange/impersonation) is an authentication/authorisation token
+    operation under IAM, though only one operation is shown.
+- tag: Verification codes
+  spec_file: logto-verification-codes-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: POST /api/verification-codes 'Request and send a verification code'; POST /api/verification-codes/verify
+    'Verify a verification code'
+  reason: One-time passcode issuance and verification is an authentication factor mechanism, part of Identity
+    & Access Management. Somewhat plumbing-like, hence moderate confidence.
