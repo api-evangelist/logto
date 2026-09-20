@@ -682,6 +682,10 @@ apis:
   - type: GitHubRepository
     url: https://github.com/logto-io/logto
 common:
+- type: Pricing
+  url: https://logto.io/pricing
+- type: Plans
+  url: plans/logto-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/logto-capability-edges.yml
   name: Logto Business Capability Map
