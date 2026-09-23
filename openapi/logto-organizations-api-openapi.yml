@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Organizations API
+  title: Logto API references Organizations API
   description: 'API references for Logto services.
 
 
@@ -17,7 +17,7 @@ tags:
   description: 'Organization is a concept that brings together multiple identities (mostly users). Logto supports multiple organizations, and each organization can have multiple users.
 
 
-    Every organization shares the same set (organization template) of roles and permissions. Each user can have different roles in different organizations. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/) to get started with organizations and organization template.'
+    Every organization shares the same set (organization template) of roles and permissions. Each user can have different roles in different organizations. See 🏢 Organizations (Multi-tenancy) to get started with organizations and organization template.'
 paths:
   /api/organizations:
     post:
@@ -43,9 +43,10 @@ paths:
                   maxLength: 128
                   description: The name of the organization.
                 description:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                   description: The description of the organization.
                 customData:
                   type: object
@@ -81,8 +82,9 @@ paths:
                       type: string
                       format: url
                 customCss:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 createdAt:
                   type: number
       responses:
@@ -116,9 +118,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -153,8 +156,9 @@ paths:
                         type: string
                         format: url
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: number
         '400':
@@ -237,9 +241,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -274,8 +279,9 @@ paths:
                           type: string
                           format: url
                     customCss:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     createdAt:
                       type: number
                     usersCount:
@@ -294,13 +300,15 @@ paths:
                             minLength: 1
                             maxLength: 12
                           avatar:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 2048
-                            nullable: true
                           name:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 128
-                            nullable: true
         '400':
           description: Bad Request
         '401':
@@ -347,9 +355,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -384,8 +393,9 @@ paths:
                         type: string
                         format: url
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: number
         '400':
@@ -424,9 +434,10 @@ paths:
                   maxLength: 128
                   description: The updated name of the organization.
                 description:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                   description: The updated description of the organization.
                 customData:
                   type: object
@@ -462,8 +473,9 @@ paths:
                       type: string
                       format: url
                 customCss:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 createdAt:
                   type: number
       responses:
@@ -497,9 +509,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -534,8 +547,9 @@ paths:
                         type: string
                         format: url
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: number
         '400':
@@ -630,25 +644,30 @@ paths:
                       minLength: 1
                       maxLength: 12
                     username:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     primaryEmail:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     primaryPhone:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     name:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     avatar:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 2048
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -665,8 +684,9 @@ paths:
                             type: object
                             description: arbitrary
                     lastSignInAt:
-                      type: number
-                      nullable: true
+                      type:
+                      - number
+                      - 'null'
                     createdAt:
                       type: number
                     updatedAt:
@@ -712,9 +732,10 @@ paths:
                             country:
                               type: string
                     applicationId:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 21
-                      nullable: true
                     isSuspended:
                       type: boolean
                     organizationRoles:
@@ -939,9 +960,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     type:
                       type: string
                       enum:
@@ -1107,9 +1129,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
         '400':
           description: Bad Request
         '401':
@@ -1256,8 +1279,9 @@ paths:
                     secret:
                       $ref: '#/components/schemas/ApplicationLegacySecret'
                     description:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     type:
                       type: string
                       enum:
@@ -1317,7 +1341,9 @@ paths:
                         maxAllowedGrants:
                           type: number
                     protectedAppMetadata:
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       required:
                       - host
                       - origin
@@ -1360,8 +1386,9 @@ paths:
                                 - Active
                                 - Error
                               errorMessage:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               dnsRecords:
                                 type: array
                                 items:
@@ -1378,7 +1405,9 @@ paths:
                                     value:
                                       type: string
                               cloudflareData:
-                                type: object
+                                type:
+                                - object
+                                - 'null'
                                 required:
                                 - id
                                 - status
@@ -1408,8 +1437,6 @@ paths:
                                     type: array
                                     items:
                                       type: string
-                                nullable: true
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -1556,9 +1583,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     type:
                       type: string
                       enum:
@@ -1887,9 +1915,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     type:
                       type: string
                       enum:
@@ -2179,19 +2208,7 @@ paths:
       summary: Remove organization JIT SSO connector
       description: Remove an enterprise SSO connector for just-in-time provisioning of users in the organization.
 components:
-  schemas:
-    ApplicationLegacySecret:
-      type: string
-      deprecated: true
-      description: The internal client secret. Note it is only used for internal validation, and the actual secrets should be retrieved from `/api/applications/{id}/secrets` endpoints.
   parameters:
-    applicationId:
-      in: path
-      description: The unique identifier of the application.
-      required: true
-      schema:
-        type: string
-      name: applicationId
     organizationId-root:
       in: path
       description: The unique identifier of the organization.
@@ -2206,13 +2223,6 @@ components:
       schema:
         type: string
       name: ssoConnectorId
-    organizationRoleId:
-      in: path
-      description: The unique identifier of the organization role.
-      required: true
-      schema:
-        type: string
-      name: organizationRoleId
     userId:
       in: path
       description: The unique identifier of the user.
@@ -2220,6 +2230,25 @@ components:
       schema:
         type: string
       name: userId
+    organizationRoleId:
+      in: path
+      description: The unique identifier of the organization role.
+      required: true
+      schema:
+        type: string
+      name: organizationRoleId
+    applicationId:
+      in: path
+      description: The unique identifier of the application.
+      required: true
+      schema:
+        type: string
+      name: applicationId
+  schemas:
+    ApplicationLegacySecret:
+      type: string
+      deprecated: true
+      description: The internal client secret. Note it is only used for internal validation, and the actual secrets should be retrieved from `/api/applications/{id}/secrets` endpoints.
   securitySchemes:
     OAuth2:
       type: oauth2

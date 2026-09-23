@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Domains API
+  title: Logto API references Domains API
   description: 'API references for Logto services.
 
 
@@ -14,7 +14,7 @@ security:
   - all
 tags:
 - name: Domains
-  description: Custom domain lets you present a consistent brand by having your own domain name on the sign-in and registration pages. See [🌍 Custom domain](https://docs.logto.io/docs/recipes/custom-domain/) for more details.
+  description: Custom domain lets you present a consistent brand by having your own domain name on the sign-in and registration pages. See 🌍 Custom domain for more details.
 paths:
   /api/domains:
     get:
@@ -55,9 +55,10 @@ paths:
                       - Active
                       - Error
                     errorMessage:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 1024
-                      nullable: true
                     dnsRecords:
                       type: array
                       items:
@@ -131,9 +132,10 @@ paths:
                     - Active
                     - Error
                   errorMessage:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 1024
-                    nullable: true
                   dnsRecords:
                     type: array
                     items:
@@ -199,9 +201,10 @@ paths:
                     - Active
                     - Error
                   errorMessage:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 1024
-                    nullable: true
                   dnsRecords:
                     type: array
                     items:

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Experience API
+  title: Logto API references Experience API
   description: 'API references for Logto services.
 
 
@@ -121,7 +121,11 @@ paths:
           description: The user account cannot be created due to validation errors, check error message for more details (Register only). <br/>- `user.<identifier>_already_in_use:` The given identifier is already in use by another user account. <br/>- `user.missing_profile:` Sign-in experience required user identifier or profile data is missing. (Register only)
       security: []
       summary: Identify user for the current interaction
-      description: 'This API identifies the user based on the verificationId within the current experience interaction: <br/>- `SignIn` and `ForgotPassword` interactions: Verifies the user''s identity using the provided `verificationId`. <br/>- `Register` interaction: Creates a new user account using the profile data from the current interaction. If a verificationId is provided, the profile data will first be updated with the verification record before creating the account. If not, the account is created directly from the stored profile data.'
+      description: 'This API identifies the user based on the verificationId within the current experience interaction:
+
+        - `SignIn` and `ForgotPassword` interactions: Verifies the user''s identity using the provided `verificationId`.
+
+        - `Register` interaction: Creates a new user account using the profile data from the current interaction. If a verificationId is provided, the profile data will first be updated with the verification record before creating the account. If not, the account is created directly from the stored profile data.'
   /api/experience/submit:
     post:
       operationId: SubmitInteraction
@@ -150,7 +154,13 @@ paths:
           description: The user profile can not been processed, check error message for more details. <br/>- The profile data is invalid or conflicts with existing user data. <br/>- Required profile data is missing. <br/>- The profile data is already in use by another user account.
       security: []
       summary: Submit interaction
-      description: Submit the current interaction. <br/>- Submit the verified user identity to the OIDC provider for further authentication (SignIn and Register). <br/>- Update the user's profile data if any (SignIn and Register). <br/>- Reset the password and clear all the interaction records (ForgotPassword).
+      description: 'Submit the current interaction.
+
+        - Submit the verified user identity to the OIDC provider for further authentication (SignIn and Register).
+
+        - Update the user''s profile data if any (SignIn and Register).
+
+        - Reset the password and clear all the interaction records (ForgotPassword).'
   /api/experience/interaction:
     get:
       operationId: GetInteraction
@@ -180,25 +190,30 @@ paths:
                     type: object
                     properties:
                       avatar:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 2048
-                        nullable: true
                       name:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 128
-                        nullable: true
                       username:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 128
-                        nullable: true
                       primaryEmail:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 128
-                        nullable: true
                       primaryPhone:
-                        type: string
+                        type:
+                        - string
+                        - 'null'
                         maxLength: 128
-                        nullable: true
                       profile:
                         type: object
                         properties:
@@ -266,7 +281,9 @@ paths:
                               avatar:
                                 type: string
                               rawData:
-                                type: object
+                                type:
+                                - object
+                                - 'null'
                                 oneOf:
                                 - type: object
                                   description: arbitrary JSON object
@@ -276,15 +293,15 @@ paths:
                                     - type: string
                                     - type: number
                                     - type: boolean
-                                    - type: string
-                                      nullable: true
+                                    - type:
+                                      - string
+                                      - 'null'
                                       description: null value
                                     - type: object
                                       description: arbitrary JSON object
                                 - type: string
                                 - type: number
                                 - type: boolean
-                                nullable: true
                       enterpriseSsoIdentity:
                         type: object
                         required:
@@ -549,7 +566,9 @@ paths:
                               avatar:
                                 type: string
                               rawData:
-                                type: object
+                                type:
+                                - object
+                                - 'null'
                                 oneOf:
                                 - type: object
                                   description: arbitrary JSON object
@@ -559,15 +578,15 @@ paths:
                                     - type: string
                                     - type: number
                                     - type: boolean
-                                    - type: string
-                                      nullable: true
+                                    - type:
+                                      - string
+                                      - 'null'
                                       description: null value
                                     - type: object
                                       description: arbitrary JSON object
                                 - type: string
                                 - type: number
                                 - type: boolean
-                                nullable: true
                       - type: object
                         required:
                         - id
@@ -597,7 +616,9 @@ paths:
                               avatar:
                                 type: string
                               rawData:
-                                type: object
+                                type:
+                                - object
+                                - 'null'
                                 oneOf:
                                 - type: object
                                   description: arbitrary JSON object
@@ -607,15 +628,15 @@ paths:
                                     - type: string
                                     - type: number
                                     - type: boolean
-                                    - type: string
-                                      nullable: true
+                                    - type:
+                                      - string
+                                      - 'null'
                                       description: null value
                                     - type: object
                                       description: arbitrary JSON object
                                 - type: string
                                 - type: number
                                 - type: boolean
-                                nullable: true
                           issuer:
                             type: string
                       - type: object
@@ -2257,7 +2278,13 @@ paths:
           description: The user profile can not been processed, check error message for more details. <br/>- The profile data is invalid or conflicts with existing user data. <br/>- The profile data is already in use by another user account. <br/>- The email address is enterprise SSO enabled, can only be linked through the SSO connector.
       security: []
       summary: Add user profile
-      description: 'Adds user profile data to the current experience interaction. <br/>- For `Register`: The profile data provided before the identification request will be used to create a new user account. <br/>- For `SignIn` and `Register`: The profile data provided after the user is identified will be used to update the user''s profile when the interaction is submitted. <br/>- `ForgotPassword`: Not supported.'
+      description: 'Adds user profile data to the current experience interaction.
+
+        - For `Register`: The profile data provided before the identification request will be used to create a new user account.
+
+        - For `SignIn` and `Register`: The profile data provided after the user is identified will be used to update the user''s profile when the interaction is submitted.
+
+        - `ForgotPassword`: Not supported.'
   /api/experience/profile/password:
     put:
       operationId: ResetUserPassword

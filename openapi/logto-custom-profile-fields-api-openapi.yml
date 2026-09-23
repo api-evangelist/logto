@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Custom profile fields API
+  title: Logto API references Custom profile fields API
   description: 'API references for Logto services.
 
 
@@ -70,9 +70,10 @@ paths:
                       type: string
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     required:
                       type: boolean
                     config:
@@ -631,9 +632,10 @@ paths:
                     type: string
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   required:
                     type: boolean
                   config:
@@ -805,9 +807,10 @@ paths:
                     type: string
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   required:
                     type: boolean
                   config:
@@ -1349,9 +1352,10 @@ paths:
                     type: string
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   required:
                     type: boolean
                   config:
@@ -1943,9 +1947,10 @@ paths:
                       type: string
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     required:
                       type: boolean
                     config:
@@ -2134,9 +2139,10 @@ paths:
                       type: string
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     required:
                       type: boolean
                     config:
@@ -2248,7 +2254,7 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-      summary: Update the display order of the custom profile fields in Sign-in Experience.
+      summary: Update the display order of the custom profile fields in Sign-in Experience
       description: Update the display order of the custom profile fields in Sign-in Experience.
 components:
   securitySchemes:

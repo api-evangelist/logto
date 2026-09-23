@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Logto API references Account center API
   description: 'API references for Logto services.
@@ -121,12 +121,14 @@ paths:
                     items:
                       type: string
                   deleteAccountUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
         '401':
           description: Unauthorized
         '403':
@@ -224,12 +226,14 @@ paths:
                     type: string
                   description: The allowed domains for webauthn.
                 deleteAccountUrl:
-                  type: object
+                  type:
+                  - object
+                  - 'null'
                   description: The custom endpoint URL for account deletion.
-                  nullable: true
                 customCss:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
       responses:
         '200':
           description: Updated account center settings.
@@ -329,12 +333,14 @@ paths:
                     items:
                       type: string
                   deleteAccountUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
         '400':
           description: Bad Request
         '401':

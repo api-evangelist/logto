@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Authn API
+  title: Logto API references Authn API
   description: 'API references for Logto services.
 
 
@@ -51,7 +51,7 @@ paths:
           description: Unauthorized
       security: []
       summary: Hasura auth hook endpoint
-      description: The `HASURA_GRAPHQL_AUTH_HOOK` endpoint for Hasura auth. Use this endpoint to integrate Hasura's [webhook authentication flow](https://hasura.io/docs/latest/auth/authentication/webhook/).
+      description: The `HASURA_GRAPHQL_AUTH_HOOK` endpoint for Hasura auth. Use this endpoint to integrate Hasura's webhook authentication flow.
   /api/authn/saml/{connectorId}:
     post:
       operationId: AssertSaml

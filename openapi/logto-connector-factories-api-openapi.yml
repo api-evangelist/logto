@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Connector factories API
+  title: Logto API references Connector factories API
   description: 'API references for Logto services.
 
 
@@ -63,8 +63,9 @@ paths:
                     logo:
                       type: string
                     logoDark:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     readme:
                       type: string
                     configTemplate:
@@ -222,12 +223,13 @@ paths:
                     fromEmail:
                       type: string
                     platform:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       enum:
                       - Native
                       - Universal
                       - Web
-                      nullable: true
                     isStandard:
                       type: boolean
                     isTokenStorageSupported:
@@ -284,8 +286,9 @@ paths:
                   logo:
                     type: string
                   logoDark:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   readme:
                     type: string
                   configTemplate:
@@ -443,12 +446,13 @@ paths:
                   fromEmail:
                     type: string
                   platform:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Native
                     - Universal
                     - Web
-                    nullable: true
                   isStandard:
                     type: boolean
                   isTokenStorageSupported:

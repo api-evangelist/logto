@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Organization scopes API
+  title: Logto API references Organization scopes API
   description: 'API references for Logto services.
 
 
@@ -17,7 +17,7 @@ tags:
   description: 'Organization scopes (permissions) are used to define actions that can be performed on a organization. Every organization scope is a part of the organization template.
 
 
-    Organization scopes will only be meaningful within an organization context. For example, a user may have a `read` scope for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/) to get started with organizations and organization template.'
+    Organization scopes will only be meaningful within an organization context. For example, a user may have a `read` scope for organization A, but not for organization B. See 🏢 Organizations (Multi-tenancy) to get started with organizations and organization template.'
 paths:
   /api/organization-scopes:
     get:
@@ -73,9 +73,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
         '400':
           description: Bad Request
         '401':
@@ -107,9 +108,10 @@ paths:
                   maxLength: 128
                   description: The name of the organization scope. It must be unique within the organization template.
                 description:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                   description: The description of the organization scope.
       responses:
         '201':
@@ -136,9 +138,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -181,9 +184,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -220,9 +224,10 @@ paths:
                   maxLength: 128
                   description: The updated name of the organization scope. It must be unique within the organization template.
                 description:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                   description: The updated description of the organization scope.
       responses:
         '200':
@@ -249,9 +254,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
         '400':
           description: Bad Request
         '401':

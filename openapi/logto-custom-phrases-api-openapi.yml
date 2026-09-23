@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Custom phrases API
+  title: Logto API references Custom phrases API
   description: 'API references for Logto services.
 
 
@@ -17,7 +17,7 @@ tags:
   description: 'Endpoints for managing custom phrases that allow you to customize the phrases displayed in the sign-in experience.
 
 
-    See [Localized language](https://docs.logto.io/docs/recipes/customize-sie/localized-language/) to learn more about custom phrases for localization.'
+    See Localized language to learn more about custom phrases for localization.'
 paths:
   /api/custom-phrases:
     get:

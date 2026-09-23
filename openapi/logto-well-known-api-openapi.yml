@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Well-known API
+  title: Logto API references Well Known API
   description: 'API references for Logto services.
 
 
@@ -13,14 +13,14 @@ security:
 - OAuth2:
   - all
 tags:
-- name: Well-known
+- name: .well Known
   description: Well-Known routes provide information and resources that can be discovered by clients without the need for authentication.
 paths:
   /api/.well-known/sign-in-exp:
     get:
       operationId: GetSignInExperienceConfig
       tags:
-      - Well-known
+      - .well Known
       parameters:
       - name: organizationId
         in: query
@@ -257,13 +257,15 @@ paths:
                         - zh-TW
                         - zz-TR
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   agreeToTermsPolicy:
                     type: string
                     enum:
@@ -353,14 +355,17 @@ paths:
                     - Register
                     - SignInAndRegister
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   customContent:
                     type: object
                     additionalProperties:
                       type: string
                   customUiAssets:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - id
                     - createdAt
@@ -369,7 +374,6 @@ paths:
                         type: string
                       createdAt:
                         type: number
-                    nullable: true
                   passwordPolicy:
                     type: object
                     properties:
@@ -457,14 +461,17 @@ paths:
                   singleSignOnEnabled:
                     type: boolean
                   supportEmail:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   supportWebsiteUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   unknownSessionRedirectUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   captchaPolicy:
                     type: object
                     properties:
@@ -498,7 +505,9 @@ paths:
                       allowAutofill:
                         type: boolean
                   signUpProfileFields:
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: object
                       required:
@@ -506,7 +515,6 @@ paths:
                       properties:
                         name:
                           type: string
-                    nullable: true
                   socialConnectors:
                     type: array
                     items:
@@ -529,17 +537,19 @@ paths:
                         logo:
                           type: string
                         logoDark:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         fromEmail:
                           type: string
                         platform:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           enum:
                           - Native
                           - Universal
                           - Web
-                          nullable: true
                         isStandard:
                           type: boolean
                         isTokenStorageSupported:
@@ -654,9 +664,10 @@ paths:
                           type: string
                           maxLength: 128
                         description:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 256
-                          nullable: true
                         required:
                           type: boolean
                         config:
@@ -772,7 +783,7 @@ paths:
     get:
       operationId: GetSignInExperiencePhrases
       tags:
-      - Well-known
+      - .well Known
       parameters:
       - name: lng
         in: query
@@ -802,7 +813,7 @@ paths:
     get:
       operationId: GetWellKnownExperience
       tags:
-      - Well-known
+      - .well Known
       parameters:
       - name: organizationId
         in: query
@@ -1039,13 +1050,15 @@ paths:
                         - zh-TW
                         - zz-TR
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   agreeToTermsPolicy:
                     type: string
                     enum:
@@ -1135,14 +1148,17 @@ paths:
                     - Register
                     - SignInAndRegister
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   customContent:
                     type: object
                     additionalProperties:
                       type: string
                   customUiAssets:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - id
                     - createdAt
@@ -1151,7 +1167,6 @@ paths:
                         type: string
                       createdAt:
                         type: number
-                    nullable: true
                   passwordPolicy:
                     type: object
                     properties:
@@ -1239,14 +1254,17 @@ paths:
                   singleSignOnEnabled:
                     type: boolean
                   supportEmail:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   supportWebsiteUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   unknownSessionRedirectUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   captchaPolicy:
                     type: object
                     properties:
@@ -1280,7 +1298,9 @@ paths:
                       allowAutofill:
                         type: boolean
                   signUpProfileFields:
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: object
                       required:
@@ -1288,7 +1308,6 @@ paths:
                       properties:
                         name:
                           type: string
-                    nullable: true
                   socialConnectors:
                     type: array
                     items:
@@ -1311,17 +1330,19 @@ paths:
                         logo:
                           type: string
                         logoDark:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         fromEmail:
                           type: string
                         platform:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           enum:
                           - Native
                           - Universal
                           - Web
-                          nullable: true
                         isStandard:
                           type: boolean
                         isTokenStorageSupported:
@@ -1436,9 +1457,10 @@ paths:
                           type: string
                           maxLength: 128
                         description:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 256
-                          nullable: true
                         required:
                           type: boolean
                         config:
@@ -1553,7 +1575,7 @@ paths:
     get:
       operationId: GetWellKnownAccountCenter
       tags:
-      - Well-known
+      - .well Known
       parameters: []
       responses:
         '200':
@@ -1654,12 +1676,14 @@ paths:
                     items:
                       type: string
                   deleteAccountUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
       security: []
       summary: Get default account center
       description: Get the default account center configuration.
@@ -1667,7 +1691,7 @@ paths:
     get:
       operationId: GetWellKnownManagementOpenapiJson
       tags:
-      - Well-known
+      - .well Known
       parameters: []
       responses:
         '200':
@@ -1676,12 +1700,12 @@ paths:
             application/json: {}
       security: []
       summary: Get Management API swagger JSON
-      description: The endpoint for the Management API JSON document. The JSON conforms to the [OpenAPI v3.0.1](https://spec.openapis.org/oas/v3.0.1) (a.k.a. Swagger) specification.
+      description: The endpoint for the Management API JSON document. The JSON conforms to the OpenAPI v3.0.1 (a.k.a. Swagger) specification.
   /api/.well-known/experience.openapi.json:
     get:
       operationId: GetWellKnownExperienceOpenapiJson
       tags:
-      - Well-known
+      - .well Known
       parameters: []
       responses:
         '200':
@@ -1690,12 +1714,12 @@ paths:
             application/json: {}
       security: []
       summary: Get Experience API swagger JSON
-      description: The endpoint for the Experience API JSON document. The JSON conforms to the [OpenAPI v3.0.1](https://spec.openapis.org/oas/v3.0.1) (a.k.a. Swagger) specification.
+      description: The endpoint for the Experience API JSON document. The JSON conforms to the OpenAPI v3.0.1 (a.k.a. Swagger) specification.
   /api/.well-known/user.openapi.json:
     get:
       operationId: GetWellKnownUserOpenapiJson
       tags:
-      - Well-known
+      - .well Known
       parameters: []
       responses:
         '200':
@@ -1704,7 +1728,7 @@ paths:
             application/json: {}
       security: []
       summary: Get User API swagger JSON
-      description: The endpoint for the User API JSON document. The JSON conforms to the [OpenAPI v3.0.1](https://spec.openapis.org/oas/v3.0.1) (a.k.a. Swagger) specification.
+      description: The endpoint for the User API JSON document. The JSON conforms to the OpenAPI v3.0.1 (a.k.a. Swagger) specification.
 components:
   securitySchemes:
     OAuth2:

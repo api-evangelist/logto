@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Connectors API
+  title: Logto API references Connectors API
   description: 'API references for Logto services.
 
 
@@ -17,7 +17,7 @@ tags:
   description: 'Connectors are the bridge between Logto and other third-party vendors who provide short message service (SMS), email service, or user information on wildly accepted social media.
 
 
-    To learn more about connectors, please see [🪛 Configure connectors](https://docs.logto.io/docs/recipes/configure-connectors/).'
+    To learn more about connectors, please see 🪛 Configure connectors.'
 paths:
   /api/connectors:
     post:
@@ -53,8 +53,9 @@ paths:
                     logo:
                       type: string
                     logoDark:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                   description: Custom connector metadata, will be used to overwrite the default connector factory metadata.
                 syncProfile:
                   type: boolean
@@ -109,8 +110,9 @@ paths:
                       logo:
                         type: string
                       logoDark:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                   connectorId:
                     type: string
                     minLength: 1
@@ -126,8 +128,9 @@ paths:
                   logo:
                     type: string
                   logoDark:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   readme:
                     type: string
                   configTemplate:
@@ -285,12 +288,13 @@ paths:
                   fromEmail:
                     type: string
                   platform:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Native
                     - Universal
                     - Web
-                    nullable: true
                   isStandard:
                     type: boolean
                   isTokenStorageSupported:
@@ -375,8 +379,9 @@ paths:
                         logo:
                           type: string
                         logoDark:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                     connectorId:
                       type: string
                       minLength: 1
@@ -392,8 +397,9 @@ paths:
                     logo:
                       type: string
                     logoDark:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     readme:
                       type: string
                     configTemplate:
@@ -551,12 +557,13 @@ paths:
                     fromEmail:
                       type: string
                     platform:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       enum:
                       - Native
                       - Universal
                       - Web
-                      nullable: true
                     isStandard:
                       type: boolean
                     isTokenStorageSupported:
@@ -633,8 +640,9 @@ paths:
                       logo:
                         type: string
                       logoDark:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                   connectorId:
                     type: string
                     minLength: 1
@@ -650,8 +658,9 @@ paths:
                   logo:
                     type: string
                   logoDark:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   readme:
                     type: string
                   configTemplate:
@@ -809,12 +818,13 @@ paths:
                   fromEmail:
                     type: string
                   platform:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Native
                     - Universal
                     - Web
-                    nullable: true
                   isStandard:
                     type: boolean
                   isTokenStorageSupported:
@@ -870,8 +880,9 @@ paths:
                     logo:
                       type: string
                     logoDark:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                   description: Custom connector metadata, will be used to overwrite the default connector metadata.
                 syncProfile:
                   type: boolean
@@ -921,8 +932,9 @@ paths:
                       logo:
                         type: string
                       logoDark:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                   connectorId:
                     type: string
                     minLength: 1
@@ -938,8 +950,9 @@ paths:
                   logo:
                     type: string
                   logoDark:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   readme:
                     type: string
                   configTemplate:
@@ -1097,12 +1110,13 @@ paths:
                   fromEmail:
                     type: string
                   platform:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Native
                     - Universal
                     - Web
-                    nullable: true
                   isStandard:
                     type: boolean
                   isTokenStorageSupported:
@@ -1254,13 +1268,6 @@ components:
       schema:
         type: string
       name: id
-    connectorId:
-      in: path
-      description: The unique identifier of the connector.
-      required: true
-      schema:
-        type: string
-      name: connectorId
     factoryId:
       in: path
       description: The unique identifier of the factory.
@@ -1268,6 +1275,13 @@ components:
       schema:
         type: string
       name: factoryId
+    connectorId:
+      in: path
+      description: The unique identifier of the connector.
+      required: true
+      schema:
+        type: string
+      name: connectorId
   securitySchemes:
     OAuth2:
       type: oauth2

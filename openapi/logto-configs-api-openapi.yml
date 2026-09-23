@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Configs API
+  title: Logto API references Configs API
   description: 'API references for Logto services.
 
 
@@ -17,7 +17,7 @@ tags:
   description: 'Endpoints for managing Logto global configurations for the tenant, such as admin console config and OIDC signing keys.
 
 
-    See [🔑 Signing keys](https://docs.logto.io/docs/recipes/signing-keys-rotation/) to learn more about signing keys and key rotation.'
+    See 🔑 Signing keys to learn more about signing keys and key rotation.'
 paths:
   /api/configs/admin-console:
     get:
@@ -181,7 +181,7 @@ paths:
         '403':
           description: Forbidden
       summary: Get OIDC session config
-      description: 'Get the OIDC session configuration for the tenant. '
+      description: Get the OIDC session configuration for the tenant.
     patch:
       operationId: UpdateOidcSessionConfig
       tags:
@@ -438,25 +438,30 @@ paths:
                               minLength: 1
                               maxLength: 12
                             username:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryEmail:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryPhone:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             name:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             avatar:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 2048
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -473,8 +478,9 @@ paths:
                                     type: object
                                     description: arbitrary
                             lastSignInAt:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                             createdAt:
                               type: number
                             updatedAt:
@@ -520,9 +526,10 @@ paths:
                                     country:
                                       type: string
                             applicationId:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 21
-                              nullable: true
                             isSuspended:
                               type: boolean
                             hasPassword:
@@ -599,8 +606,9 @@ paths:
                                           minLength: 1
                                           maxLength: 256
                                         description:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         resourceId:
                                           type: string
                                           minLength: 1
@@ -650,9 +658,10 @@ paths:
                                     minLength: 1
                                     maxLength: 128
                                   description:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 256
-                                    nullable: true
                             organizationRoles:
                               type: array
                               items:
@@ -905,7 +914,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -915,15 +926,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                 - type: object
                                   required:
                                   - id
@@ -953,7 +964,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -963,15 +976,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                     issuer:
                                       type: string
                                 - type: object
@@ -1116,8 +1129,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -1177,7 +1191,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -1220,8 +1236,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -1238,7 +1255,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -1268,8 +1287,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -1337,8 +1354,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -1398,7 +1416,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -1441,8 +1461,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -1459,7 +1480,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -1489,8 +1512,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -1547,25 +1568,30 @@ paths:
                               minLength: 1
                               maxLength: 12
                             username:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryEmail:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryPhone:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             name:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             avatar:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 2048
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -1582,8 +1608,9 @@ paths:
                                     type: object
                                     description: arbitrary
                             lastSignInAt:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                             createdAt:
                               type: number
                             updatedAt:
@@ -1629,9 +1656,10 @@ paths:
                                     country:
                                       type: string
                             applicationId:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 21
-                              nullable: true
                             isSuspended:
                               type: boolean
                             hasPassword:
@@ -1708,8 +1736,9 @@ paths:
                                           minLength: 1
                                           maxLength: 256
                                         description:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         resourceId:
                                           type: string
                                           minLength: 1
@@ -1759,9 +1788,10 @@ paths:
                                     minLength: 1
                                     maxLength: 128
                                   description:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 256
-                                    nullable: true
                             organizationRoles:
                               type: array
                               items:
@@ -2014,7 +2044,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -2024,15 +2056,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                 - type: object
                                   required:
                                   - id
@@ -2062,7 +2094,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -2072,15 +2106,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                     issuer:
                                       type: string
                                 - type: object
@@ -2225,8 +2259,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -2286,7 +2321,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -2329,8 +2366,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -2347,7 +2385,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -2377,8 +2417,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -2446,8 +2484,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -2507,7 +2546,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -2550,8 +2591,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -2568,7 +2610,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -2598,8 +2642,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -2696,25 +2738,30 @@ paths:
                               minLength: 1
                               maxLength: 12
                             username:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryEmail:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryPhone:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             name:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             avatar:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 2048
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -2731,8 +2778,9 @@ paths:
                                     type: object
                                     description: arbitrary
                             lastSignInAt:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                             createdAt:
                               type: number
                             updatedAt:
@@ -2778,9 +2826,10 @@ paths:
                                     country:
                                       type: string
                             applicationId:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 21
-                              nullable: true
                             isSuspended:
                               type: boolean
                             hasPassword:
@@ -2857,8 +2906,9 @@ paths:
                                           minLength: 1
                                           maxLength: 256
                                         description:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         resourceId:
                                           type: string
                                           minLength: 1
@@ -2908,9 +2958,10 @@ paths:
                                     minLength: 1
                                     maxLength: 128
                                   description:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 256
-                                    nullable: true
                             organizationRoles:
                               type: array
                               items:
@@ -3163,7 +3214,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -3173,15 +3226,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                 - type: object
                                   required:
                                   - id
@@ -3211,7 +3264,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -3221,15 +3276,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                     issuer:
                                       type: string
                                 - type: object
@@ -3374,8 +3429,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -3435,7 +3491,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -3478,8 +3536,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -3496,7 +3555,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -3526,8 +3587,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -3595,8 +3654,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -3656,7 +3716,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -3699,8 +3761,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -3717,7 +3780,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -3747,8 +3812,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -3830,25 +3893,30 @@ paths:
                               minLength: 1
                               maxLength: 12
                             username:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryEmail:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             primaryPhone:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             name:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 128
-                              nullable: true
                             avatar:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 2048
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -3865,8 +3933,9 @@ paths:
                                     type: object
                                     description: arbitrary
                             lastSignInAt:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                             createdAt:
                               type: number
                             updatedAt:
@@ -3912,9 +3981,10 @@ paths:
                                     country:
                                       type: string
                             applicationId:
-                              type: string
+                              type:
+                              - string
+                              - 'null'
                               maxLength: 21
-                              nullable: true
                             isSuspended:
                               type: boolean
                             hasPassword:
@@ -3991,8 +4061,9 @@ paths:
                                           minLength: 1
                                           maxLength: 256
                                         description:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         resourceId:
                                           type: string
                                           minLength: 1
@@ -4042,9 +4113,10 @@ paths:
                                     minLength: 1
                                     maxLength: 128
                                   description:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 256
-                                    nullable: true
                             organizationRoles:
                               type: array
                               items:
@@ -4297,7 +4369,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -4307,15 +4381,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                 - type: object
                                   required:
                                   - id
@@ -4345,7 +4419,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -4355,15 +4431,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                     issuer:
                                       type: string
                                 - type: object
@@ -4508,8 +4584,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -4569,7 +4646,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -4612,8 +4691,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -4630,7 +4710,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -4660,8 +4742,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -4729,8 +4809,9 @@ paths:
                               minLength: 1
                               maxLength: 256
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             type:
                               type: string
                               enum:
@@ -4790,7 +4871,9 @@ paths:
                                 maxAllowedGrants:
                                   type: number
                             protectedAppMetadata:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - host
                               - origin
@@ -4833,8 +4916,9 @@ paths:
                                         - Active
                                         - Error
                                       errorMessage:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       dnsRecords:
                                         type: array
                                         items:
@@ -4851,7 +4935,9 @@ paths:
                                             value:
                                               type: string
                                       cloudflareData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         required:
                                         - id
                                         - status
@@ -4881,8 +4967,6 @@ paths:
                                             type: array
                                             items:
                                               type: string
-                                        nullable: true
-                              nullable: true
                             customData:
                               type: object
                               description: arbitrary
@@ -4994,25 +5078,30 @@ paths:
                                     minLength: 1
                                     maxLength: 12
                                   username:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 128
-                                    nullable: true
                                   primaryEmail:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 128
-                                    nullable: true
                                   primaryPhone:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 128
-                                    nullable: true
                                   name:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 128
-                                    nullable: true
                                   avatar:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 2048
-                                    nullable: true
                                   customData:
                                     type: object
                                     description: arbitrary
@@ -5029,8 +5118,9 @@ paths:
                                           type: object
                                           description: arbitrary
                                   lastSignInAt:
-                                    type: number
-                                    nullable: true
+                                    type:
+                                    - number
+                                    - 'null'
                                   createdAt:
                                     type: number
                                   updatedAt:
@@ -5076,9 +5166,10 @@ paths:
                                           country:
                                             type: string
                                   applicationId:
-                                    type: string
+                                    type:
+                                    - string
+                                    - 'null'
                                     maxLength: 21
-                                    nullable: true
                                   isSuspended:
                                     type: boolean
                                   hasPassword:
@@ -5155,8 +5246,9 @@ paths:
                                                 minLength: 1
                                                 maxLength: 256
                                               description:
-                                                type: string
-                                                nullable: true
+                                                type:
+                                                - string
+                                                - 'null'
                                               resourceId:
                                                 type: string
                                                 minLength: 1
@@ -5206,9 +5298,10 @@ paths:
                                           minLength: 1
                                           maxLength: 128
                                         description:
-                                          type: string
+                                          type:
+                                          - string
+                                          - 'null'
                                           maxLength: 256
-                                          nullable: true
                                   organizationRoles:
                                     type: array
                                     items:
@@ -5461,7 +5554,9 @@ paths:
                                               avatar:
                                                 type: string
                                               rawData:
-                                                type: object
+                                                type:
+                                                - object
+                                                - 'null'
                                                 oneOf:
                                                 - type: object
                                                   description: arbitrary JSON object
@@ -5471,15 +5566,15 @@ paths:
                                                     - type: string
                                                     - type: number
                                                     - type: boolean
-                                                    - type: string
-                                                      nullable: true
+                                                    - type:
+                                                      - string
+                                                      - 'null'
                                                       description: null value
                                                     - type: object
                                                       description: arbitrary JSON object
                                                 - type: string
                                                 - type: number
                                                 - type: boolean
-                                                nullable: true
                                       - type: object
                                         required:
                                         - id
@@ -5509,7 +5604,9 @@ paths:
                                               avatar:
                                                 type: string
                                               rawData:
-                                                type: object
+                                                type:
+                                                - object
+                                                - 'null'
                                                 oneOf:
                                                 - type: object
                                                   description: arbitrary JSON object
@@ -5519,15 +5616,15 @@ paths:
                                                     - type: string
                                                     - type: number
                                                     - type: boolean
-                                                    - type: string
-                                                      nullable: true
+                                                    - type:
+                                                      - string
+                                                      - 'null'
                                                       description: null value
                                                     - type: object
                                                       description: arbitrary JSON object
                                                 - type: string
                                                 - type: number
                                                 - type: boolean
-                                                nullable: true
                                           issuer:
                                             type: string
                                       - type: object
@@ -5672,8 +5769,9 @@ paths:
                                     minLength: 1
                                     maxLength: 256
                                   description:
-                                    type: string
-                                    nullable: true
+                                    type:
+                                    - string
+                                    - 'null'
                                   type:
                                     type: string
                                     enum:
@@ -5733,7 +5831,9 @@ paths:
                                       maxAllowedGrants:
                                         type: number
                                   protectedAppMetadata:
-                                    type: object
+                                    type:
+                                    - object
+                                    - 'null'
                                     required:
                                     - host
                                     - origin
@@ -5776,8 +5876,9 @@ paths:
                                               - Active
                                               - Error
                                             errorMessage:
-                                              type: string
-                                              nullable: true
+                                              type:
+                                              - string
+                                              - 'null'
                                             dnsRecords:
                                               type: array
                                               items:
@@ -5794,7 +5895,9 @@ paths:
                                                   value:
                                                     type: string
                                             cloudflareData:
-                                              type: object
+                                              type:
+                                              - object
+                                              - 'null'
                                               required:
                                               - id
                                               - status
@@ -5824,8 +5927,6 @@ paths:
                                                   type: array
                                                   items:
                                                     type: string
-                                              nullable: true
-                                    nullable: true
                                   customData:
                                     type: object
                                     description: arbitrary
@@ -5902,8 +6003,9 @@ paths:
                                     minLength: 1
                                     maxLength: 256
                                   description:
-                                    type: string
-                                    nullable: true
+                                    type:
+                                    - string
+                                    - 'null'
                                   type:
                                     type: string
                                     enum:
@@ -5963,7 +6065,9 @@ paths:
                                       maxAllowedGrants:
                                         type: number
                                   protectedAppMetadata:
-                                    type: object
+                                    type:
+                                    - object
+                                    - 'null'
                                     required:
                                     - host
                                     - origin
@@ -6006,8 +6110,9 @@ paths:
                                               - Active
                                               - Error
                                             errorMessage:
-                                              type: string
-                                              nullable: true
+                                              type:
+                                              - string
+                                              - 'null'
                                             dnsRecords:
                                               type: array
                                               items:
@@ -6024,7 +6129,9 @@ paths:
                                                   value:
                                                     type: string
                                             cloudflareData:
-                                              type: object
+                                              type:
+                                              - object
+                                              - 'null'
                                               required:
                                               - id
                                               - status
@@ -6054,8 +6161,6 @@ paths:
                                                   type: array
                                                   items:
                                                     type: string
-                                              nullable: true
-                                    nullable: true
                                   customData:
                                     type: object
                                     description: arbitrary
@@ -6160,25 +6265,30 @@ paths:
                             minLength: 1
                             maxLength: 12
                           username:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 128
-                            nullable: true
                           primaryEmail:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 128
-                            nullable: true
                           primaryPhone:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 128
-                            nullable: true
                           name:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 128
-                            nullable: true
                           avatar:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 2048
-                            nullable: true
                           customData:
                             type: object
                             description: arbitrary
@@ -6195,8 +6305,9 @@ paths:
                                   type: object
                                   description: arbitrary
                           lastSignInAt:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                           createdAt:
                             type: number
                           updatedAt:
@@ -6242,9 +6353,10 @@ paths:
                                   country:
                                     type: string
                           applicationId:
-                            type: string
+                            type:
+                            - string
+                            - 'null'
                             maxLength: 21
-                            nullable: true
                           isSuspended:
                             type: boolean
                           hasPassword:
@@ -6321,8 +6433,9 @@ paths:
                                         minLength: 1
                                         maxLength: 256
                                       description:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                       resourceId:
                                         type: string
                                         minLength: 1
@@ -6372,9 +6485,10 @@ paths:
                                   minLength: 1
                                   maxLength: 128
                                 description:
-                                  type: string
+                                  type:
+                                  - string
+                                  - 'null'
                                   maxLength: 256
-                                  nullable: true
                           organizationRoles:
                             type: array
                             items:
@@ -6627,7 +6741,9 @@ paths:
                                       avatar:
                                         type: string
                                       rawData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         oneOf:
                                         - type: object
                                           description: arbitrary JSON object
@@ -6637,15 +6753,15 @@ paths:
                                             - type: string
                                             - type: number
                                             - type: boolean
-                                            - type: string
-                                              nullable: true
+                                            - type:
+                                              - string
+                                              - 'null'
                                               description: null value
                                             - type: object
                                               description: arbitrary JSON object
                                         - type: string
                                         - type: number
                                         - type: boolean
-                                        nullable: true
                               - type: object
                                 required:
                                 - id
@@ -6675,7 +6791,9 @@ paths:
                                       avatar:
                                         type: string
                                       rawData:
-                                        type: object
+                                        type:
+                                        - object
+                                        - 'null'
                                         oneOf:
                                         - type: object
                                           description: arbitrary JSON object
@@ -6685,15 +6803,15 @@ paths:
                                             - type: string
                                             - type: number
                                             - type: boolean
-                                            - type: string
-                                              nullable: true
+                                            - type:
+                                              - string
+                                              - 'null'
                                               description: null value
                                             - type: object
                                               description: arbitrary JSON object
                                         - type: string
                                         - type: number
                                         - type: boolean
-                                        nullable: true
                                   issuer:
                                     type: string
                               - type: object
@@ -6838,8 +6956,9 @@ paths:
                             minLength: 1
                             maxLength: 256
                           description:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           type:
                             type: string
                             enum:
@@ -6899,7 +7018,9 @@ paths:
                               maxAllowedGrants:
                                 type: number
                           protectedAppMetadata:
-                            type: object
+                            type:
+                            - object
+                            - 'null'
                             required:
                             - host
                             - origin
@@ -6942,8 +7063,9 @@ paths:
                                       - Active
                                       - Error
                                     errorMessage:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     dnsRecords:
                                       type: array
                                       items:
@@ -6960,7 +7082,9 @@ paths:
                                           value:
                                             type: string
                                     cloudflareData:
-                                      type: object
+                                      type:
+                                      - object
+                                      - 'null'
                                       required:
                                       - id
                                       - status
@@ -6990,8 +7114,6 @@ paths:
                                           type: array
                                           items:
                                             type: string
-                                      nullable: true
-                            nullable: true
                           customData:
                             type: object
                             description: arbitrary
@@ -7051,8 +7173,9 @@ paths:
                             minLength: 1
                             maxLength: 256
                           description:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           type:
                             type: string
                             enum:
@@ -7112,7 +7235,9 @@ paths:
                               maxAllowedGrants:
                                 type: number
                           protectedAppMetadata:
-                            type: object
+                            type:
+                            - object
+                            - 'null'
                             required:
                             - host
                             - origin
@@ -7155,8 +7280,9 @@ paths:
                                       - Active
                                       - Error
                                     errorMessage:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     dnsRecords:
                                       type: array
                                       items:
@@ -7173,7 +7299,9 @@ paths:
                                           value:
                                             type: string
                                     cloudflareData:
-                                      type: object
+                                      type:
+                                      - object
+                                      - 'null'
                                       required:
                                       - id
                                       - status
@@ -7203,8 +7331,6 @@ paths:
                                           type: array
                                           items:
                                             type: string
-                                      nullable: true
-                            nullable: true
                           customData:
                             type: object
                             description: arbitrary

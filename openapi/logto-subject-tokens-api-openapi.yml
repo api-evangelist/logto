@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Subject tokens API
+  title: Logto API references Subject tokens API
   description: 'API references for Logto services.
 
 
@@ -60,7 +60,7 @@ paths:
           description: Forbidden
         '404':
           description: The user does not exist.
-      summary: Create a new subject token.
+      summary: Create a new subject token
       description: Create a new subject token for the use of impersonating the user.
 components:
   securitySchemes:

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Sign-in experience API
+  title: Logto API references Sign-in experience API
   description: 'API references for Logto services.
 
 
@@ -14,7 +14,7 @@ security:
   - all
 tags:
 - name: Sign-in experience
-  description: Endpoints for customizing Logto sign-in experience. See [🎨 Customize sign-in experience](https://docs.logto.io/docs/recipes/customize-sie/) to learn more about how the configuration works and reflects on the user interface.
+  description: Endpoints for customizing Logto sign-in experience. See 🎨 Customize sign-in experience to learn more about how the configuration works and reflects on the user interface.
 paths:
   /api/sign-in-exp:
     get:
@@ -246,13 +246,15 @@ paths:
                         - zz-TR
                     description: The language detection policy for the sign-in page.
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   agreeToTermsPolicy:
                     type: string
                     enum:
@@ -349,15 +351,18 @@ paths:
                     - Register
                     - SignInAndRegister
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   customContent:
                     type: object
                     additionalProperties:
                       type: string
                     description: Custom content to display on experience flow pages. the page pathname will be the config key, the content will be the config value.
                   customUiAssets:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - id
                     - createdAt
@@ -366,7 +371,6 @@ paths:
                         type: string
                       createdAt:
                         type: number
-                    nullable: true
                   passwordPolicy:
                     type: object
                     properties:
@@ -457,16 +461,19 @@ paths:
                   singleSignOnEnabled:
                     type: boolean
                   supportEmail:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The support email address to display on the error pages.
                   supportWebsiteUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The support website URL to display on the error pages.
                   unknownSessionRedirectUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The fallback URL to redirect users when the sign-in session does not exist or unknown. Client should initiates a new authentication flow after the redirection.
                   captchaPolicy:
                     type: object
@@ -498,13 +505,14 @@ paths:
                         description: Cloud only.  Whether to block disposable email addresses. Once enabled, Logto will check the email domain against a list of known disposable email domains. If the domain is found in the list, the email address will be blocked.
                     description: Define email restriction policies. Users will be prohibited from registering or linking any email addresses that are included in the blocklist.
                   forgotPasswordMethods:
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: string
                       enum:
                       - EmailVerificationCode
                       - PhoneVerificationCode
-                    nullable: true
                   passkeySignIn:
                     type: object
                     properties:
@@ -515,7 +523,9 @@ paths:
                       allowAutofill:
                         type: boolean
                   signUpProfileFields:
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: object
                       required:
@@ -523,7 +533,6 @@ paths:
                       properties:
                         name:
                           type: string
-                    nullable: true
         '401':
           description: Unauthorized
         '403':
@@ -825,15 +834,18 @@ paths:
                   - Register
                   - SignInAndRegister
                 customCss:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 customContent:
                   type: object
                   additionalProperties:
                     type: string
                   description: Custom content to display on experience flow pages. the page pathname will be the config key, the content will be the config value.
                 customUiAssets:
-                  type: object
+                  type:
+                  - object
+                  - 'null'
                   required:
                   - id
                   - createdAt
@@ -842,7 +854,6 @@ paths:
                       type: string
                     createdAt:
                       type: number
-                  nullable: true
                 passwordPolicy:
                   type: object
                   properties:
@@ -962,13 +973,14 @@ paths:
                       description: Cloud only.  Whether to block disposable email addresses. Once enabled, Logto will check the email domain against a list of known disposable email domains. If the domain is found in the list, the email address will be blocked.
                   description: Define email restriction policies. Users will be prohibited from registering or linking any email addresses that are included in the blocklist.
                 forgotPasswordMethods:
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: string
                     enum:
                     - EmailVerificationCode
                     - PhoneVerificationCode
-                  nullable: true
                 passkeySignIn:
                   type: object
                   properties:
@@ -979,7 +991,9 @@ paths:
                     allowAutofill:
                       type: boolean
                 signUpProfileFields:
-                  type: array
+                  type:
+                  - array
+                  - 'null'
                   items:
                     type: object
                     required:
@@ -987,42 +1001,46 @@ paths:
                     properties:
                       name:
                         type: string
-                  nullable: true
                 termsOfUseUrl:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: url
-                    nullable: true
                   - type: string
                     format: empty
                 privacyPolicyUrl:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: url
-                    nullable: true
                   - type: string
                     format: empty
                 supportEmail:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: email
-                    nullable: true
                   - type: string
                     format: empty
                   description: The support email address to display on the error pages.
                 supportWebsiteUrl:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: url
-                    nullable: true
                   - type: string
                     format: empty
                   description: The support website URL to display on the error pages.
                 unknownSessionRedirectUrl:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: url
-                    nullable: true
                   - type: string
                     format: empty
                   description: The fallback URL to redirect users when the sign-in session does not exist or unknown. Client should initiate a new authentication flow after the redirection.
@@ -1247,13 +1265,15 @@ paths:
                         - zh-TW
                         - zz-TR
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   agreeToTermsPolicy:
                     type: string
                     enum:
@@ -1343,14 +1363,17 @@ paths:
                     - Register
                     - SignInAndRegister
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   customContent:
                     type: object
                     additionalProperties:
                       type: string
                   customUiAssets:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - id
                     - createdAt
@@ -1359,7 +1382,6 @@ paths:
                         type: string
                       createdAt:
                         type: number
-                    nullable: true
                   passwordPolicy:
                     type: object
                     properties:
@@ -1447,14 +1469,17 @@ paths:
                   singleSignOnEnabled:
                     type: boolean
                   supportEmail:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   supportWebsiteUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   unknownSessionRedirectUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   captchaPolicy:
                     type: object
                     properties:
@@ -1479,13 +1504,14 @@ paths:
                         items:
                           type: string
                   forgotPasswordMethods:
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: string
                       enum:
                       - EmailVerificationCode
                       - PhoneVerificationCode
-                    nullable: true
                   passkeySignIn:
                     type: object
                     properties:
@@ -1496,7 +1522,9 @@ paths:
                       allowAutofill:
                         type: boolean
                   signUpProfileFields:
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                     items:
                       type: object
                       required:
@@ -1504,7 +1532,6 @@ paths:
                       properties:
                         name:
                           type: string
-                    nullable: true
         '400':
           description: Bad request. Invalid data provided.
         '401':

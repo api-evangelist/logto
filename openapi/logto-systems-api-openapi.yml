@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Systems API
+  title: Logto API references Systems API
   description: 'API references for Logto services.
 
 
@@ -45,7 +45,7 @@ paths:
           description: Forbidden
         '501':
           description: Not Implemented
-      summary: Get the application constants.
+      summary: Get the application constants
       description: Get the application constants.
 components:
   securitySchemes:

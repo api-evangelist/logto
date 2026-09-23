@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Organization invitations API
+  title: Logto API references Organization invitations API
   description: 'API references for Logto services.
 
 
@@ -13,14 +13,14 @@ security:
 - OAuth2:
   - all
 tags:
-- name: Organization invitations
+- name: Organization Invitations
   description: Organization invitations are used to invite users to join an organization. They are sent via email and contain a link that the user can click to accept the invitation and join the organization.
 paths:
   /api/organization-invitations/{id}:
     get:
       operationId: GetOrganizationInvitation
       tags:
-      - Organization invitations
+      - Organization Invitations
       parameters:
       - $ref: '#/components/parameters/organizationInvitationId-root'
       responses:
@@ -51,17 +51,19 @@ paths:
                     minLength: 1
                     maxLength: 21
                   inviterId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   invitee:
                     type: string
                     minLength: 1
                     maxLength: 256
                   acceptedUserId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   organizationId:
                     type: string
                     minLength: 1
@@ -104,7 +106,7 @@ paths:
     delete:
       operationId: DeleteOrganizationInvitation
       tags:
-      - Organization invitations
+      - Organization Invitations
       parameters:
       - $ref: '#/components/parameters/organizationInvitationId-root'
       responses:
@@ -124,7 +126,7 @@ paths:
     get:
       operationId: ListOrganizationInvitations
       tags:
-      - Organization invitations
+      - Organization Invitations
       parameters:
       - name: organizationId
         in: query
@@ -171,17 +173,19 @@ paths:
                       minLength: 1
                       maxLength: 21
                     inviterId:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 21
-                      nullable: true
                     invitee:
                       type: string
                       minLength: 1
                       maxLength: 256
                     acceptedUserId:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 21
-                      nullable: true
                     organizationId:
                       type: string
                       minLength: 1
@@ -222,7 +226,7 @@ paths:
     post:
       operationId: CreateOrganizationInvitation
       tags:
-      - Organization invitations
+      - Organization Invitations
       parameters: []
       requestBody:
         required: true
@@ -237,9 +241,10 @@ paths:
               - messagePayload
               properties:
                 inviterId:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 21
-                  nullable: true
                   description: The ID of the user who is inviting the user to join the organization.
                 invitee:
                   type: string
@@ -303,17 +308,19 @@ paths:
                     minLength: 1
                     maxLength: 21
                   inviterId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   invitee:
                     type: string
                     minLength: 1
                     maxLength: 256
                   acceptedUserId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   organizationId:
                     type: string
                     minLength: 1
@@ -359,7 +366,7 @@ paths:
     post:
       operationId: CreateOrganizationInvitationMessage
       tags:
-      - Organization invitations
+      - Organization Invitations
       parameters:
       - $ref: '#/components/parameters/organizationInvitationId-root'
       requestBody:
@@ -393,7 +400,7 @@ paths:
     put:
       operationId: ReplaceOrganizationInvitationStatus
       tags:
-      - Organization invitations
+      - Organization Invitations
       parameters:
       - $ref: '#/components/parameters/organizationInvitationId-root'
       requestBody:
@@ -406,9 +413,10 @@ paths:
               - status
               properties:
                 acceptedUserId:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 21
-                  nullable: true
                   description: The ID of the user who accepted the organization invitation. Required if the status is "Accepted".
                 status:
                   type: string
@@ -445,17 +453,19 @@ paths:
                     minLength: 1
                     maxLength: 21
                   inviterId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   invitee:
                     type: string
                     minLength: 1
                     maxLength: 256
                   acceptedUserId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   organizationId:
                     type: string
                     minLength: 1

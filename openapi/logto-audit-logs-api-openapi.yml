@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Audit logs API
+  title: Logto API references Audit logs API
   description: 'API references for Logto services.
 
 
@@ -13,14 +13,14 @@ security:
 - OAuth2:
   - all
 tags:
-- name: Audit logs
+- name: Audit Logs
   description: Audit logs are used to track end-user activities in Logto sign-in experience and other flows. It does not include activities in Logto Console.
 paths:
   /api/logs:
     get:
       operationId: ListLogs
       tags:
-      - Audit logs
+      - Audit Logs
       parameters:
       - name: userId
         in: query
@@ -174,7 +174,7 @@ paths:
     get:
       operationId: GetLog
       tags:
-      - Audit logs
+      - Audit Logs
       parameters:
       - $ref: '#/components/parameters/logId-root'
       responses:

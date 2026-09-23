@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Captcha provider API
+  title: Logto API references Captcha provider API
   description: 'API references for Logto services.
 
 

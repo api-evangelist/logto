@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center SSO connectors API
+  title: Logto API references SSO connectors API
   description: 'API references for Logto services.
 
 

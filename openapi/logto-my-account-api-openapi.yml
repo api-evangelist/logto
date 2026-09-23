@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center My account API
+  title: Logto API references My account API
   description: 'API references for Logto services.
 
 
@@ -13,14 +13,14 @@ security:
 - OAuth2:
   - all
 tags:
-- name: My account
+- name: My Account
   description: Account routes provide functionality for managing user profile for the end user to interact directly with access tokens.
 paths:
   /api/my-account:
     get:
       operationId: GetProfile
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -35,25 +35,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -70,8 +75,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -117,9 +123,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -178,7 +185,7 @@ paths:
     patch:
       operationId: UpdateProfile
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -188,19 +195,22 @@ paths:
               type: object
               properties:
                 name:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: The new name for the user.
                 avatar:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   format: url
-                  nullable: true
                   description: The new avatar for the user, must be a URL.
                 username:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   format: regex
                   pattern: /^[A-Z_a-z]\w*$/
-                  nullable: true
                   description: The new username for the user, must be a valid username and unique.
                 customData:
                   type: object
@@ -218,25 +228,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -253,8 +268,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -300,9 +316,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -366,7 +383,7 @@ paths:
     patch:
       operationId: UpdateOtherProfile
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -481,7 +498,7 @@ paths:
     post:
       operationId: UpdatePassword
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -513,7 +530,7 @@ paths:
     get:
       operationId: GetMfaSettings
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -538,7 +555,7 @@ paths:
     patch:
       operationId: UpdateMfaSettings
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -575,7 +592,7 @@ paths:
     get:
       operationId: GetLogtoConfig
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -618,7 +635,7 @@ paths:
     patch:
       operationId: UpdateLogtoConfig
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -689,7 +706,7 @@ paths:
     get:
       operationId: GetSocialIdentityAccessToken
       tags:
-      - My account
+      - My Account
       parameters:
       - name: target
         in: path
@@ -728,11 +745,17 @@ paths:
         '422':
           description: Unprocessable Content
       summary: Retrieve the access token issued by a third-party social provider
-      description: "This API retrieves the access token issued by a third-party social provider for a given social target. \nAccess is only available if token storage is enabled for the corresponding social connector.\nWhen a user authenticates through a social provider, Logto automatically stores the provider’s tokens in an encrypted form.\nYou can use this API to securely retrieve the stored access token and use it to access third-party APIs on behalf of the user."
+      description: 'This API retrieves the access token issued by a third-party social provider for a given social target.
+
+        Access is only available if token storage is enabled for the corresponding social connector.
+
+        When a user authenticates through a social provider, Logto automatically stores the provider’s tokens in an encrypted form.
+
+        You can use this API to securely retrieve the stored access token and use it to access third-party APIs on behalf of the user.'
     put:
       operationId: UpdateSocialIdentityAccessTokenByVerificationId
       tags:
-      - My account
+      - My Account
       parameters:
       - name: target
         in: path
@@ -781,12 +804,14 @@ paths:
         '422':
           description: The verification record is invalid; the social identity does not exist; or the access token is not available.
       summary: Update the access token for a social identity by verification ID
-      description: "This API updates the token storage for a social identity by a given social verification ID. \nIt is used to fetch a new access token from the social provider and store it securely in Logto."
+      description: 'This API updates the token storage for a social identity by a given social verification ID.
+
+        It is used to fetch a new access token from the social provider and store it securely in Logto.'
   /api/my-account/sso-identities/{connectorId}/access-token:
     get:
       operationId: GetEnterpriseSsoIdentityAccessToken
       tags:
-      - My account
+      - My Account
       parameters:
       - $ref: '#/components/parameters/connectorId'
       responses:
@@ -818,12 +843,18 @@ paths:
         '404':
           description: The SSO connector does not exist or the access token is not available.
       summary: Retrieve the access token issued by a third-party enterprise SSO provider
-      description: "This API retrieves the access token issued by a third-party enterprise SSO provider for a given SSO connector ID. \nAccess is only available if token storage is enabled for the corresponding connector.\nWhen a user authenticates through a SSO provider, Logto automatically stores the provider’s tokens in an encrypted form.\nYou can use this API to securely retrieve the stored access token and use it to access third-party APIs on behalf of the user."
+      description: 'This API retrieves the access token issued by a third-party enterprise SSO provider for a given SSO connector ID.
+
+        Access is only available if token storage is enabled for the corresponding connector.
+
+        When a user authenticates through a SSO provider, Logto automatically stores the provider’s tokens in an encrypted form.
+
+        You can use this API to securely retrieve the stored access token and use it to access third-party APIs on behalf of the user.'
   /api/my-account/primary-email:
     post:
       operationId: UpdatePrimaryEmail
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -859,7 +890,7 @@ paths:
     delete:
       operationId: DeletePrimaryEmail
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '204':
@@ -876,7 +907,7 @@ paths:
     post:
       operationId: UpdatePrimaryPhone
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -912,7 +943,7 @@ paths:
     delete:
       operationId: DeletePrimaryPhone
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '204':
@@ -929,7 +960,7 @@ paths:
     post:
       operationId: AddUserIdentities
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -958,7 +989,7 @@ paths:
     delete:
       operationId: DeleteIdentity
       tags:
-      - My account
+      - My Account
       parameters:
       - name: target
         in: path
@@ -982,7 +1013,7 @@ paths:
     get:
       operationId: GetMfaVerifications
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -1029,7 +1060,7 @@ paths:
     post:
       operationId: AddMfaVerification
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -1137,7 +1168,7 @@ paths:
     put:
       operationId: CreateOrReplaceTotpMfaVerification
       tags:
-      - My account
+      - My Account
       parameters: []
       requestBody:
         required: true
@@ -1170,7 +1201,7 @@ paths:
     post:
       operationId: GenerateTotpSecret
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -1187,7 +1218,7 @@ paths:
     post:
       operationId: GenerateMyAccountBackupCodes
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -1204,7 +1235,7 @@ paths:
     get:
       operationId: GetBackupCodes
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -1223,7 +1254,7 @@ paths:
     patch:
       operationId: UpdateMfaVerificationName
       tags:
-      - My account
+      - My Account
       parameters:
       - $ref: '#/components/parameters/verificationId'
       requestBody:
@@ -1255,7 +1286,7 @@ paths:
     delete:
       operationId: DeleteMfaVerification
       tags:
-      - My account
+      - My Account
       parameters:
       - $ref: '#/components/parameters/verificationId'
       responses:
@@ -1273,7 +1304,7 @@ paths:
     get:
       operationId: GetSessions
       tags:
-      - My account
+      - My Account
       parameters: []
       responses:
         '200':
@@ -1334,7 +1365,9 @@ paths:
                                   persistsLogout:
                                     type: boolean
                         lastSubmission:
-                          type: object
+                          type:
+                          - object
+                          - 'null'
                           required:
                           - interactionEvent
                           - userId
@@ -1565,7 +1598,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -1575,15 +1610,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                 - type: object
                                   required:
                                   - id
@@ -1613,7 +1648,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -1623,15 +1660,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                     issuer:
                                       type: string
                                 - type: object
@@ -1761,13 +1798,14 @@ paths:
                               type: object
                               additionalProperties:
                                 type: string
-                          nullable: true
                         clientId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         accountId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         expiresAt:
                           type: number
         '400':
@@ -1784,7 +1822,7 @@ paths:
     delete:
       operationId: DeleteSessionById
       tags:
-      - My account
+      - My Account
       parameters:
       - $ref: '#/components/parameters/sessionId'
       - name: revokeGrantsTarget
@@ -1810,12 +1848,12 @@ paths:
         '500':
           description: Internal Server Error
       summary: Revoke a session by ID
-      description: Revoke a specific user session by its ID, optionally revoking target associated grants and tokens.  A logto-verification-id in header is required for revoking sessions.
+      description: Revoke a specific user session by its ID, optionally revoking target associated grants and tokens. A logto-verification-id in header is required for revoking sessions.
   /api/my-account/grants:
     get:
       operationId: GetGrants
       tags:
-      - My account
+      - My Account
       parameters:
       - name: appType
         in: query
@@ -1886,7 +1924,7 @@ paths:
     delete:
       operationId: DeleteGrantById
       tags:
-      - My account
+      - My Account
       parameters:
       - $ref: '#/components/parameters/grantId'
       responses:
@@ -1906,20 +1944,6 @@ paths:
       description: Revoke a specific user application grant by grant ID and remove the related session authorization. A logto-verification-id in header is required for revoking grants.
 components:
   parameters:
-    verificationId:
-      in: path
-      description: The unique identifier of the verification.
-      required: true
-      schema:
-        type: string
-      name: verificationId
-    connectorId:
-      in: path
-      description: The unique identifier of the connector.
-      required: true
-      schema:
-        type: string
-      name: connectorId
     grantId:
       in: path
       description: The unique identifier of the grant.
@@ -1927,6 +1951,13 @@ components:
       schema:
         type: string
       name: grantId
+    verificationId:
+      in: path
+      description: The unique identifier of the verification.
+      required: true
+      schema:
+        type: string
+      name: verificationId
     sessionId:
       in: path
       description: The unique identifier of the session.
@@ -1934,6 +1965,13 @@ components:
       schema:
         type: string
       name: sessionId
+    connectorId:
+      in: path
+      description: The unique identifier of the connector.
+      required: true
+      schema:
+        type: string
+      name: connectorId
   securitySchemes:
     OAuth2:
       type: oauth2

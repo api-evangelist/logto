@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Email templates API
+  title: Logto API references Email templates API
   description: 'API references for Logto services.
 
 
@@ -13,14 +13,14 @@ security:
 - OAuth2:
   - all
 tags:
-- name: Email templates
+- name: Email Templates
   description: Manage custom i18n email templates for various types of emails, such as sign-in verification codes and password resets.
 paths:
   /api/email-templates:
     put:
       operationId: ReplaceEmailTemplates
       tags:
-      - Email templates
+      - Email Templates
       parameters: []
       requestBody:
         required: true
@@ -159,7 +159,7 @@ paths:
     get:
       operationId: ListEmailTemplates
       tags:
-      - Email templates
+      - Email Templates
       parameters:
       - name: languageTag
         in: query
@@ -258,7 +258,7 @@ paths:
     delete:
       operationId: DeleteEmailTemplates
       tags:
-      - Email templates
+      - Email Templates
       parameters:
       - name: languageTag
         in: query
@@ -311,7 +311,7 @@ paths:
     get:
       operationId: GetEmailTemplate
       tags:
-      - Email templates
+      - Email Templates
       parameters:
       - $ref: '#/components/parameters/emailTemplateId-root'
       responses:
@@ -387,7 +387,7 @@ paths:
     delete:
       operationId: DeleteEmailTemplate
       tags:
-      - Email templates
+      - Email Templates
       parameters:
       - $ref: '#/components/parameters/emailTemplateId-root'
       responses:
@@ -407,7 +407,7 @@ paths:
     patch:
       operationId: UpdateEmailTemplateDetails
       tags:
-      - Email templates
+      - Email Templates
       parameters:
       - $ref: '#/components/parameters/emailTemplateId-root'
       requestBody:

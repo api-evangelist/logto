@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Users API
+  title: Logto API references Users API
   description: 'API references for Logto services.
 
 
@@ -14,7 +14,7 @@ security:
   - all
 tags:
 - name: Users
-  description: Endpoints for user management. Including creating, updating, deleting, and querying users with flexible filters. In addition to the endpoints, see [🧑‍🚀 Manage users](https://docs.logto.io/docs/recipes/manage-users/) for more insights.
+  description: Endpoints for user management. Including creating, updating, deleting, and querying users with flexible filters. In addition to the endpoints, see 🧑‍🚀 Manage users for more insights.
 paths:
   /api/users/{userId}:
     get:
@@ -63,25 +63,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -98,8 +103,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -145,9 +151,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -199,12 +206,15 @@ paths:
                           maxLength: 128
                     description: List of SSO identities associated with the user. Only available when the `includeSsoIdentities` query parameter is provided with a truthy value.
                   passwordDigest:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                     description: The hashed password of the user. Only present when `includePasswordHash` is provided with a truthy value. `null` if the user has no password set.
                   passwordAlgorithm:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Argon2i
                     - Argon2id
@@ -214,7 +224,6 @@ paths:
                     - MD5
                     - Bcrypt
                     - Legacy
-                    nullable: true
                     description: The algorithm used to hash the password. Only present when `includePasswordHash` is provided with a truthy value. `null` if the user has no password set.
         '400':
           description: Bad Request
@@ -246,8 +255,9 @@ paths:
                     pattern: /^[A-Z_a-z]\w*$/
                   - type: string
                     format: empty
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   description: Updated username for the user. It should be unique across all users.
                 primaryEmail:
                   oneOf:
@@ -256,8 +266,9 @@ paths:
                     pattern: /^\S+@\S+\.\S+$/
                   - type: string
                     format: empty
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   description: Updated primary email address for the user. It should be unique across all users.
                 primaryPhone:
                   oneOf:
@@ -266,24 +277,27 @@ paths:
                     pattern: /^\d+$/
                   - type: string
                     format: empty
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   description: Updated primary phone number for the user. It should be unique across all users.
                 name:
                   oneOf:
                   - type: string
                   - type: string
                     format: empty
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 avatar:
                   oneOf:
                   - type: string
                     format: url
                   - type: string
                     format: empty
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 customData:
                   type: object
                   description: 'Custom data object to update for the given user ID. Note this will replace the entire custom data object.
@@ -358,25 +372,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -393,8 +412,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -440,9 +460,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -493,11 +514,14 @@ paths:
                           minLength: 1
                           maxLength: 128
                   passwordDigest:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   passwordAlgorithm:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Argon2i
                     - Argon2id
@@ -507,7 +531,6 @@ paths:
                     - MD5
                     - Bcrypt
                     - Legacy
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -886,8 +909,9 @@ paths:
                     format: url
                   - type: string
                     format: empty
-                  nullable: true
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                 customData:
                   type: object
                   description: arbitrary
@@ -960,25 +984,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -995,8 +1024,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -1042,9 +1072,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -1095,11 +1126,14 @@ paths:
                           minLength: 1
                           maxLength: 128
                   passwordDigest:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   passwordAlgorithm:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Argon2i
                     - Argon2id
@@ -1109,7 +1143,6 @@ paths:
                     - MD5
                     - Bcrypt
                     - Legacy
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -1182,25 +1215,30 @@ paths:
                       minLength: 1
                       maxLength: 12
                     username:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     primaryEmail:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     primaryPhone:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     name:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 128
-                      nullable: true
                     avatar:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 2048
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -1217,8 +1255,9 @@ paths:
                             type: object
                             description: arbitrary
                     lastSignInAt:
-                      type: number
-                      nullable: true
+                      type:
+                      - number
+                      - 'null'
                     createdAt:
                       type: number
                     updatedAt:
@@ -1264,9 +1303,10 @@ paths:
                             country:
                               type: string
                     applicationId:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 21
-                      nullable: true
                     isSuspended:
                       type: boolean
                     hasPassword:
@@ -1317,11 +1357,14 @@ paths:
                             minLength: 1
                             maxLength: 128
                     passwordDigest:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     passwordAlgorithm:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       enum:
                       - Argon2i
                       - Argon2id
@@ -1331,7 +1374,6 @@ paths:
                       - MD5
                       - Bcrypt
                       - Legacy
-                      nullable: true
         '400':
           description: Bad Request
         '401':
@@ -1342,7 +1384,7 @@ paths:
       description: 'Get users with filters and pagination.
 
 
-        Logto provides a very flexible way to query users. You can filter users by almost any fields with multiple modes. To learn more about the query syntax, please refer to [Advanced user search](https://docs.logto.io/docs/recipes/manage-users/advanced-user-search/).'
+        Logto provides a very flexible way to query users. You can filter users by almost any fields with multiple modes. To learn more about the query syntax, please refer to Advanced user search.'
   /api/users/{userId}/password:
     patch:
       operationId: UpdateUserPassword
@@ -1391,25 +1433,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -1426,8 +1473,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -1473,9 +1521,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -1526,11 +1575,14 @@ paths:
                           minLength: 1
                           maxLength: 128
                   passwordDigest:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   passwordAlgorithm:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Argon2i
                     - Argon2id
@@ -1540,7 +1592,6 @@ paths:
                     - MD5
                     - Bcrypt
                     - Legacy
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -1662,25 +1713,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -1697,8 +1753,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -1744,9 +1801,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -1797,11 +1855,14 @@ paths:
                           minLength: 1
                           maxLength: 128
                   passwordDigest:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   passwordAlgorithm:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - Argon2i
                     - Argon2id
@@ -1811,7 +1872,6 @@ paths:
                     - MD5
                     - Bcrypt
                     - Legacy
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -2140,25 +2200,30 @@ paths:
                     minLength: 1
                     maxLength: 12
                   username:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryEmail:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   primaryPhone:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   name:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   avatar:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -2175,8 +2240,9 @@ paths:
                           type: object
                           description: arbitrary
                   lastSignInAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                   createdAt:
                     type: number
                   updatedAt:
@@ -2222,9 +2288,10 @@ paths:
                           country:
                             type: string
                   applicationId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 21
-                    nullable: true
                   isSuspended:
                     type: boolean
                   hasPassword:
@@ -2384,7 +2451,7 @@ paths:
           description: Forbidden
         '404':
           description: User social identity not found.
-      summary: Retrieve a user's social identity and associated token storage .
+      summary: Retrieve a user's social identity and associated token storage
       description: This API retrieves the social identity and its associated token set for the specified user from the Logto Secret Vault. The token set will only be available if token storage is enabled for the corresponding social connector.
   /api/users/{userId}/identities:
     post:
@@ -2487,9 +2554,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -2524,8 +2592,9 @@ paths:
                           type: string
                           format: url
                     customCss:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     createdAt:
                       type: number
                     organizationRoles:
@@ -2857,8 +2926,9 @@ paths:
                     createdAt:
                       type: number
                     expiresAt:
-                      type: number
-                      nullable: true
+                      type:
+                      - number
+                      - 'null'
         '400':
           description: Bad Request
         '401':
@@ -2890,8 +2960,9 @@ paths:
                   maxLength: 256
                   description: The personal access token name. Must be unique within the user.
                 expiresAt:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: The epoch time in milliseconds when the token will expire. If not provided, the token will never expire.
       responses:
         '201':
@@ -2926,8 +2997,9 @@ paths:
                   createdAt:
                     type: number
                   expiresAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
         '400':
           description: Bad Request
         '401':
@@ -2994,8 +3066,9 @@ paths:
                   createdAt:
                     type: number
                   expiresAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
         '400':
           description: Bad Request
         '401':
@@ -3091,8 +3164,9 @@ paths:
                   createdAt:
                     type: number
                   expiresAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
         '400':
           description: Bad Request
         '401':
@@ -3265,7 +3339,7 @@ paths:
           description: Forbidden
         '404':
           description: User enterprise SSO identity not found.
-      summary: Retrieve a user's enterprise SSO identity and associated token secret (if token storage is enabled).
+      summary: Retrieve a user's enterprise SSO identity and associated token secret (if token…
       description: This API retrieves the user's enterprise SSO identity and associated token set record from the Logto Secret Vault. The token set will only be available if token storage is enabled for the corresponding SSO connector.
   /api/users/{userId}/all-identities:
     get:
@@ -3476,7 +3550,7 @@ paths:
           description: Forbidden
         '404':
           description: User not found.
-      summary: Retrieve social identities, enterprise SSO identities and associated token secret (if token storage is enabled) for a user.
+      summary: Retrieve social identities, enterprise SSO identities and associated token…
       description: This API retrieves all identities (social and enterprise SSO) for a user, along with their associated token set records from the Logto Secret Vault. The token sets will only be available if token storage is enabled for the corresponding identity connector.
   /api/users/{userId}/sessions:
     get:
@@ -3544,7 +3618,9 @@ paths:
                                   persistsLogout:
                                     type: boolean
                         lastSubmission:
-                          type: object
+                          type:
+                          - object
+                          - 'null'
                           required:
                           - interactionEvent
                           - userId
@@ -3775,7 +3851,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -3785,15 +3863,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                 - type: object
                                   required:
                                   - id
@@ -3823,7 +3901,9 @@ paths:
                                         avatar:
                                           type: string
                                         rawData:
-                                          type: object
+                                          type:
+                                          - object
+                                          - 'null'
                                           oneOf:
                                           - type: object
                                             description: arbitrary JSON object
@@ -3833,15 +3913,15 @@ paths:
                                               - type: string
                                               - type: number
                                               - type: boolean
-                                              - type: string
-                                                nullable: true
+                                              - type:
+                                                - string
+                                                - 'null'
                                                 description: null value
                                               - type: object
                                                 description: arbitrary JSON object
                                           - type: string
                                           - type: number
                                           - type: boolean
-                                          nullable: true
                                     issuer:
                                       type: string
                                 - type: object
@@ -3971,13 +4051,14 @@ paths:
                               type: object
                               additionalProperties:
                                 type: string
-                          nullable: true
                         clientId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         accountId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         expiresAt:
                           type: number
         '400':
@@ -4050,7 +4131,9 @@ paths:
                             persistsLogout:
                               type: boolean
                   lastSubmission:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - interactionEvent
                     - userId
@@ -4281,7 +4364,9 @@ paths:
                                   avatar:
                                     type: string
                                   rawData:
-                                    type: object
+                                    type:
+                                    - object
+                                    - 'null'
                                     oneOf:
                                     - type: object
                                       description: arbitrary JSON object
@@ -4291,15 +4376,15 @@ paths:
                                         - type: string
                                         - type: number
                                         - type: boolean
-                                        - type: string
-                                          nullable: true
+                                        - type:
+                                          - string
+                                          - 'null'
                                           description: null value
                                         - type: object
                                           description: arbitrary JSON object
                                     - type: string
                                     - type: number
                                     - type: boolean
-                                    nullable: true
                           - type: object
                             required:
                             - id
@@ -4329,7 +4414,9 @@ paths:
                                   avatar:
                                     type: string
                                   rawData:
-                                    type: object
+                                    type:
+                                    - object
+                                    - 'null'
                                     oneOf:
                                     - type: object
                                       description: arbitrary JSON object
@@ -4339,15 +4426,15 @@ paths:
                                         - type: string
                                         - type: number
                                         - type: boolean
-                                        - type: string
-                                          nullable: true
+                                        - type:
+                                          - string
+                                          - 'null'
                                           description: null value
                                         - type: object
                                           description: arbitrary JSON object
                                     - type: string
                                     - type: number
                                     - type: boolean
-                                    nullable: true
                               issuer:
                                 type: string
                           - type: object
@@ -4477,13 +4564,14 @@ paths:
                         type: object
                         additionalProperties:
                           type: string
-                    nullable: true
                   clientId:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   accountId:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   expiresAt:
                     type: number
         '400':
@@ -4531,20 +4619,6 @@ paths:
       description: Revoke a specific user session by its ID, optionally revoking associated target grants and tokens.
 components:
   parameters:
-    ssoConnectorId:
-      in: path
-      description: The unique identifier of the sso connector.
-      required: true
-      schema:
-        type: string
-      name: ssoConnectorId
-    roleId:
-      in: path
-      description: The unique identifier of the role.
-      required: true
-      schema:
-        type: string
-      name: roleId
     grantId:
       in: path
       description: The unique identifier of the grant.
@@ -4552,6 +4626,27 @@ components:
       schema:
         type: string
       name: grantId
+    ssoConnectorId:
+      in: path
+      description: The unique identifier of the sso connector.
+      required: true
+      schema:
+        type: string
+      name: ssoConnectorId
+    userId:
+      in: path
+      description: The unique identifier of the user.
+      required: true
+      schema:
+        type: string
+      name: userId
+    roleId:
+      in: path
+      description: The unique identifier of the role.
+      required: true
+      schema:
+        type: string
+      name: roleId
     verificationId:
       in: path
       description: The unique identifier of the verification.
@@ -4566,13 +4661,6 @@ components:
       schema:
         type: string
       name: sessionId
-    userId:
-      in: path
-      description: The unique identifier of the user.
-      required: true
-      schema:
-        type: string
-      name: userId
   securitySchemes:
     OAuth2:
       type: oauth2

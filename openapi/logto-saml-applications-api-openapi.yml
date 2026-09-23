@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center SAML applications API
+  title: Logto API references SAML applications API
   description: 'API references for Logto services.
 
 
@@ -38,8 +38,9 @@ paths:
                   maxLength: 256
                   description: The name of the SAML application.
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Optional description of the SAML application.
                 customData:
                   type: object
@@ -106,11 +107,14 @@ paths:
                     organization_roles:
                       type: string
                 entityId:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 128
-                  nullable: true
                 acsUrl:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   required:
                   - binding
                   - url
@@ -123,12 +127,12 @@ paths:
                     url:
                       type: string
                       format: url
-                  nullable: true
                   description: The Assertion Consumer Service (ACS) URL where the SAML response will be sent.
                 encryption:
-                  type: object
+                  type:
+                  - object
+                  - 'null'
                   description: Validator function
-                  nullable: true
                 nameIdFormat:
                   default: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
                   type: string
@@ -171,8 +175,9 @@ paths:
                     minLength: 1
                     maxLength: 256
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -251,11 +256,14 @@ paths:
                       organization_roles:
                         type: string
                   entityId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   acsUrl:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - binding
                     - url
@@ -268,11 +276,11 @@ paths:
                       url:
                         type: string
                         format: url
-                    nullable: true
                   encryption:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     description: Validator function
-                    nullable: true
                   nameIdFormat:
                     type: string
                     enum:
@@ -331,8 +339,9 @@ paths:
                     minLength: 1
                     maxLength: 256
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -411,11 +420,14 @@ paths:
                       organization_roles:
                         type: string
                   entityId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   acsUrl:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - binding
                     - url
@@ -428,11 +440,11 @@ paths:
                       url:
                         type: string
                         format: url
-                    nullable: true
                   encryption:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     description: Validator function
-                    nullable: true
                   nameIdFormat:
                     type: string
                     enum:
@@ -471,8 +483,9 @@ paths:
                   maxLength: 256
                   description: The name of the SAML application.
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Description of the SAML application.
                 customData:
                   type: object
@@ -539,11 +552,14 @@ paths:
                     organization_roles:
                       type: string
                 entityId:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 128
-                  nullable: true
                 acsUrl:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   required:
                   - binding
                   - url
@@ -556,12 +572,12 @@ paths:
                     url:
                       type: string
                       format: url
-                  nullable: true
                   description: The Assertion Consumer Service (ACS) URL.
                 encryption:
-                  type: object
+                  type:
+                  - object
+                  - 'null'
                   description: Validator function
-                  nullable: true
                 nameIdFormat:
                   type: string
                   enum:
@@ -603,8 +619,9 @@ paths:
                     minLength: 1
                     maxLength: 256
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -683,11 +700,14 @@ paths:
                       organization_roles:
                         type: string
                   entityId:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 128
-                    nullable: true
                   acsUrl:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - binding
                     - url
@@ -700,11 +720,11 @@ paths:
                       url:
                         type: string
                         format: url
-                    nullable: true
                   encryption:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     description: Validator function
-                    nullable: true
                   nameIdFormat:
                     type: string
                     enum:
@@ -1053,13 +1073,6 @@ paths:
       description: Handle the OIDC callback for SAML application and generate SAML response.
 components:
   parameters:
-    secretId:
-      in: path
-      description: The unique identifier of the secret.
-      required: true
-      schema:
-        type: string
-      name: secretId
     samlApplicationId-root:
       in: path
       description: The unique identifier of the saml application.
@@ -1067,6 +1080,13 @@ components:
       schema:
         type: string
       name: id
+    secretId:
+      in: path
+      description: The unique identifier of the secret.
+      required: true
+      schema:
+        type: string
+      name: secretId
   securitySchemes:
     OAuth2:
       type: oauth2

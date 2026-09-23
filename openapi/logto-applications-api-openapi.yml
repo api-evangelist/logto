@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Applications API
+  title: Logto API references Applications API
   description: 'API references for Logto services.
 
 
@@ -14,23 +14,7 @@ security:
   - all
 tags:
 - name: Applications
-  description: 'Application represents your registered software program or service that has been authorized to access user information and perform actions on behalf of users within the system. Currently, Logto supports four types of applications:
-
-
-    - Traditional web
-
-
-    - Single-page app
-
-    - Native app
-
-    - Machine-to-machine app.
-
-
-    Depending on the application type, it may have different authentication flows and access to the system. See [🔗 Integrate Logto in your application](https://docs.logto.io/docs/recipes/integrate-logto/) to learn more about how to integrate Logto into your application.
-
-
-    Role-based access control (RBAC) is supported for machine-to-machine applications. See [🔐 Role-based access control (RBAC)](https://docs.logto.io/docs/recipes/rbac/) to get started with role-based access control.'
+  description: Application represents your registered software program or service that has been authorized to access user information and perform actions on behalf of users within the system.
 paths:
   /api/applications:
     get:
@@ -143,8 +127,9 @@ paths:
                     secret:
                       $ref: '#/components/schemas/ApplicationLegacySecret'
                     description:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     type:
                       type: string
                       enum:
@@ -204,7 +189,9 @@ paths:
                         maxAllowedGrants:
                           type: number
                     protectedAppMetadata:
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       required:
                       - host
                       - origin
@@ -247,8 +234,9 @@ paths:
                                 - Active
                                 - Error
                               errorMessage:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               dnsRecords:
                                 type: array
                                 items:
@@ -265,7 +253,9 @@ paths:
                                     value:
                                       type: string
                               cloudflareData:
-                                type: object
+                                type:
+                                - object
+                                - 'null'
                                 required:
                                 - id
                                 - status
@@ -295,8 +285,6 @@ paths:
                                     type: array
                                     items:
                                       type: string
-                                nullable: true
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -332,8 +320,9 @@ paths:
                   minLength: 1
                   maxLength: 256
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 type:
                   type: string
                   enum:
@@ -445,8 +434,9 @@ paths:
                   secret:
                     $ref: '#/components/schemas/ApplicationLegacySecret'
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -506,7 +496,9 @@ paths:
                       maxAllowedGrants:
                         type: number
                   protectedAppMetadata:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - host
                     - origin
@@ -549,8 +541,9 @@ paths:
                               - Active
                               - Error
                             errorMessage:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             dnsRecords:
                               type: array
                               items:
@@ -567,7 +560,9 @@ paths:
                                   value:
                                     type: string
                             cloudflareData:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - id
                               - status
@@ -597,8 +592,6 @@ paths:
                                   type: array
                                   items:
                                     type: string
-                              nullable: true
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -661,8 +654,9 @@ paths:
                   secret:
                     $ref: '#/components/schemas/ApplicationLegacySecret'
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -722,7 +716,9 @@ paths:
                       maxAllowedGrants:
                         type: number
                   protectedAppMetadata:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - host
                     - origin
@@ -765,8 +761,9 @@ paths:
                               - Active
                               - Error
                             errorMessage:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             dnsRecords:
                               type: array
                               items:
@@ -783,7 +780,9 @@ paths:
                                   value:
                                     type: string
                             cloudflareData:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - id
                               - status
@@ -813,8 +812,6 @@ paths:
                                   type: array
                                   items:
                                     type: string
-                              nullable: true
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -852,8 +849,9 @@ paths:
                   minLength: 1
                   maxLength: 256
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 oidcClientMetadata:
                   type: object
                   required:
@@ -907,7 +905,9 @@ paths:
                   type: object
                   description: arbitrary
                 protectedAppMetadata:
-                  type: object
+                  type:
+                  - object
+                  - 'null'
                   properties:
                     origin:
                       type: string
@@ -922,7 +922,6 @@ paths:
                         properties:
                           path:
                             type: string
-                  nullable: true
                 isAdmin:
                   type: boolean
                   description: Whether the application has admin access. User can enable the admin access for Machine-to-Machine apps.
@@ -961,8 +960,9 @@ paths:
                   secret:
                     $ref: '#/components/schemas/ApplicationLegacySecret'
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -1022,7 +1022,9 @@ paths:
                       maxAllowedGrants:
                         type: number
                   protectedAppMetadata:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - host
                     - origin
@@ -1065,8 +1067,9 @@ paths:
                               - Active
                               - Error
                             errorMessage:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             dnsRecords:
                               type: array
                               items:
@@ -1083,7 +1086,9 @@ paths:
                                   value:
                                     type: string
                             cloudflareData:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - id
                               - status
@@ -1113,8 +1118,6 @@ paths:
                                   type: array
                                   items:
                                     type: string
-                              nullable: true
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -1402,8 +1405,9 @@ paths:
                       - Active
                       - Error
                     errorMessage:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     dnsRecords:
                       type: array
                       items:
@@ -1420,7 +1424,9 @@ paths:
                           value:
                             type: string
                     cloudflareData:
-                      type: object
+                      type:
+                      - object
+                      - 'null'
                       required:
                       - id
                       - status
@@ -1450,7 +1456,6 @@ paths:
                           type: array
                           items:
                             type: string
-                      nullable: true
         '400':
           description: Faild to sync the domain info from remote provider.
         '401':
@@ -1461,7 +1466,7 @@ paths:
           description: Not Found
         '501':
           description: Not Implemented
-      summary: Get application custom domains.
+      summary: Get application custom domains
       description: Get custom domains of the specified application, the application type should be protected app.
     post:
       operationId: CreateApplicationProtectedAppMetadataCustomDomain
@@ -1500,7 +1505,7 @@ paths:
           description: Exeeded the maximum number of domains allowed or the domain is invalid.
         '501':
           description: Not Implemented
-      summary: Add a custom domain to the application.
+      summary: Add a custom domain to the application
       description: Add a custom domain to the application. You'll need to setup DNS record later.
   /api/applications/{id}/protected-app-metadata/custom-domains/{domain}:
     delete:
@@ -1527,7 +1532,7 @@ paths:
           description: Can not find the domain.
         '501':
           description: Not Implemented
-      summary: Remove custom domain.
+      summary: Remove custom domain
       description: Remove custom domain from the specified application.
   /api/applications/{id}/organizations:
     get:
@@ -1586,9 +1591,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     customData:
                       type: object
                       description: arbitrary
@@ -1623,8 +1629,9 @@ paths:
                           type: string
                           format: url
                     customCss:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     createdAt:
                       type: number
                     organizationRoles:
@@ -1693,8 +1700,9 @@ paths:
                     minLength: 1
                     maxLength: 64
                   description:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   type:
                     type: string
                     enum:
@@ -1754,7 +1762,9 @@ paths:
                       maxAllowedGrants:
                         type: number
                   protectedAppMetadata:
-                    type: object
+                    type:
+                    - object
+                    - 'null'
                     required:
                     - host
                     - origin
@@ -1797,8 +1807,9 @@ paths:
                               - Active
                               - Error
                             errorMessage:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             dnsRecords:
                               type: array
                               items:
@@ -1815,7 +1826,9 @@ paths:
                                   value:
                                     type: string
                             cloudflareData:
-                              type: object
+                              type:
+                              - object
+                              - 'null'
                               required:
                               - id
                               - status
@@ -1845,8 +1858,6 @@ paths:
                                   type: array
                                   items:
                                     type: string
-                              nullable: true
-                    nullable: true
                   customData:
                     type: object
                     description: arbitrary
@@ -1911,8 +1922,9 @@ paths:
                     createdAt:
                       type: number
                     expiresAt:
-                      type: number
-                      nullable: true
+                      type:
+                      - number
+                      - 'null'
         '400':
           description: Bad Request
         '401':
@@ -1944,8 +1956,9 @@ paths:
                   maxLength: 256
                   description: The secret name. Must be unique within the application.
                 expiresAt:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   description: The epoch time in milliseconds when the secret will expire. If not provided, the secret will never expire.
       responses:
         '201':
@@ -1980,8 +1993,9 @@ paths:
                   createdAt:
                     type: number
                   expiresAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
         '400':
           description: Bad Request
         '401':
@@ -2077,8 +2091,9 @@ paths:
                   createdAt:
                     type: number
                   expiresAt:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
         '204':
           description: The secret was updated successfully.
         '400':
@@ -2151,7 +2166,7 @@ paths:
           description: The application is not found
         '422':
           description: Any of the given organization scope, resource scope or user scope is not found
-      summary: Assign user consent scopes to application.
+      summary: Assign user consent scopes to application
       description: Assign the user consent scopes to an application by application id
     get:
       operationId: ListApplicationUserConsentScopes
@@ -2190,9 +2205,10 @@ paths:
                           minLength: 1
                           maxLength: 128
                         description:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 256
-                          nullable: true
                     description: A list of organization scope details assigned to the application.
                   resourceScopes:
                     type: array
@@ -2237,8 +2253,9 @@ paths:
                                 minLength: 1
                                 maxLength: 256
                               description:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                     description: A list of resource scope details grouped by resource id assigned to the application.
                   organizationResourceScopes:
                     type: array
@@ -2283,8 +2300,9 @@ paths:
                                 minLength: 1
                                 maxLength: 256
                               description:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                     description: A list of organization resource scope details grouped by resource id assigned to the application.
                   userScopes:
                     type: array
@@ -2310,7 +2328,7 @@ paths:
           description: Forbidden
         '404':
           description: The application is not found
-      summary: List all the user consent scopes of an application.
+      summary: List all the user consent scopes of an application
       description: List all the user consent scopes of an application by application id
   /api/applications/{applicationId}/user-consent-scopes/{scopeType}/{scopeId}:
     delete:
@@ -2341,7 +2359,7 @@ paths:
           description: Forbidden
         '404':
           description: The application or scope is not found
-      summary: Remove user consent scope from application.
+      summary: Remove user consent scope from application
       description: Remove the user consent scope from an application by application id, scope type and scope id
   /api/applications/{applicationId}/sign-in-experience:
     put:
@@ -2389,26 +2407,30 @@ paths:
                       type: string
                       format: url
                 customCss:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 displayName:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                 termsOfUseUrl:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: url
                     maxLength: 2048
-                    nullable: true
                   - type: string
                     format: empty
                 privacyPolicyUrl:
                   oneOf:
-                  - type: string
+                  - type:
+                    - string
+                    - 'null'
                     format: url
                     maxLength: 2048
-                    nullable: true
                   - type: string
                     format: empty
       responses:
@@ -2464,20 +2486,24 @@ paths:
                         type: string
                         format: url
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   displayName:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
         '201':
           description: A new application level sign-in experience settings was successfully created.
           content:
@@ -2530,20 +2556,24 @@ paths:
                         type: string
                         format: url
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   displayName:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -2555,7 +2585,15 @@ paths:
         '422':
           description: Unprocessable Content
       summary: Update application level sign-in experience
-      description: "Update application level sign-in experience for the specified application. Create a new sign-in experience if it does not exist. \n - Only branding properties and terms links customization is supported for now. \n\n - Only third-party applications can be customized for now. \n\n - Application level sign-in experience customization is optional, if provided, it will override the default branding and terms links."
+      description: 'Update application level sign-in experience for the specified application. Create a new sign-in experience if it does not exist.
+
+        - Only branding properties and terms links customization is supported for now.
+
+
+        - Only third-party applications can be customized for now.
+
+
+        - Application level sign-in experience customization is optional, if provided, it will override the default branding and terms links.'
     get:
       operationId: GetApplicationSignInExperience
       tags:
@@ -2615,20 +2653,24 @@ paths:
                         type: string
                         format: url
                   customCss:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   termsOfUseUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   privacyPolicyUrl:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 2048
-                    nullable: true
                   displayName:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
         '400':
           description: Bad Request
         '401':
@@ -2638,7 +2680,12 @@ paths:
         '404':
           description: The application does not exist or the application level sign-in experience does not exist.
       summary: Get the application level sign-in experience
-      description: "Get application level sign-in experience for a given application. \n - Only branding properties and terms links customization is supported for now. \n\n - Only third-party applications can have the sign-in experience customization for now."
+      description: 'Get application level sign-in experience for a given application.
+
+        - Only branding properties and terms links customization is supported for now.
+
+
+        - Only third-party applications can have the sign-in experience customization for now.'
   /api/applications/{id}/users/{userId}/consent-organizations:
     get:
       operationId: ListApplicationUserConsentOrganizations
@@ -2701,9 +2748,10 @@ paths:
                           minLength: 1
                           maxLength: 128
                         description:
-                          type: string
+                          type:
+                          - string
+                          - 'null'
                           maxLength: 256
-                          nullable: true
                         customData:
                           type: object
                           description: arbitrary
@@ -2738,8 +2786,9 @@ paths:
                               type: string
                               format: url
                         customCss:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         createdAt:
                           type: number
                     description: A list of organization entities granted by the user for the application.
@@ -2753,7 +2802,7 @@ paths:
           description: Not Found
         '422':
           description: Unprocessable Content
-      summary: List all the user consented organizations of a application.
+      summary: List all the user consented organizations of a application
       description: List all the user consented organizations for a application by application id and user id.
     put:
       operationId: ReplaceApplicationUserConsentOrganizations
@@ -2790,8 +2839,12 @@ paths:
           description: The application or user is not found.
         '422':
           description: The user is not a member of one of the organizations, or the application is not a third-party application.
-      summary: Grant a list of organization access of a user for a application.
-      description: Grant a list of organization access of a user for a application by application id and user id. <br/> The user must be a member of all the organizations. <br/> Only third-party application needs to be granted access to organizations, all the other applications can request for all the organizations' access by default.
+      summary: Grant a list of organization access of a user for a application
+      description: 'Grant a list of organization access of a user for a application by application id and user id.
+
+        The user must be a member of all the organizations.
+
+        Only third-party application needs to be granted access to organizations, all the other applications can request for all the organizations'' access by default.'
     post:
       operationId: CreateApplicationUserConsentOrganization
       tags:
@@ -2829,8 +2882,12 @@ paths:
           description: The application or user is not found.
         '422':
           description: The user is not a member of one of the organizations, or the application is not a third-party application.
-      summary: Grant a list of organization access of a user for a application.
-      description: Grant a list of organization access of a user for a application by application id and user id. <br/> The user must be a member of all the organizations. <br/> Only third-party application needs to be granted access to organizations, all the other applications can request for all the organizations' access by default.
+      summary: Grant a list of organization access of a user for a application
+      description: 'Grant a list of organization access of a user for a application by application id and user id.
+
+        The user must be a member of all the organizations.
+
+        Only third-party application needs to be granted access to organizations, all the other applications can request for all the organizations'' access by default.'
   /api/applications/{id}/users/{userId}/consent-organizations/{organizationId}:
     delete:
       operationId: DeleteApplicationUserConsentOrganization
@@ -2853,31 +2910,10 @@ paths:
           description: The application, user or organization is not found.
         '422':
           description: Unprocessable Content
-      summary: Revoke a user's access to an organization for a application.
+      summary: Revoke a user's access to an organization for a application
       description: Revoke a user's access to an organization for a application by application id, user id and organization id.
 components:
   parameters:
-    applicationId:
-      in: path
-      description: The unique identifier of the application.
-      required: true
-      schema:
-        type: string
-      name: applicationId
-    organizationId:
-      in: path
-      description: The unique identifier of the organization.
-      required: true
-      schema:
-        type: string
-      name: organizationId
-    roleId:
-      in: path
-      description: The unique identifier of the role.
-      required: true
-      schema:
-        type: string
-      name: roleId
     userId:
       in: path
       description: The unique identifier of the user.
@@ -2885,6 +2921,20 @@ components:
       schema:
         type: string
       name: userId
+    roleId:
+      in: path
+      description: The unique identifier of the role.
+      required: true
+      schema:
+        type: string
+      name: roleId
+    organizationId:
+      in: path
+      description: The unique identifier of the organization.
+      required: true
+      schema:
+        type: string
+      name: organizationId
     applicationId-root:
       in: path
       description: The unique identifier of the application.
@@ -2899,6 +2949,13 @@ components:
       schema:
         type: string
       name: scopeId
+    applicationId:
+      in: path
+      description: The unique identifier of the application.
+      required: true
+      schema:
+        type: string
+      name: applicationId
   schemas:
     ApplicationLegacySecret:
       type: string

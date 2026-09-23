@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Organization roles API
+  title: Logto API references Organization roles API
   description: 'API references for Logto services.
 
 
@@ -13,17 +13,17 @@ security:
 - OAuth2:
   - all
 tags:
-- name: Organization roles
+- name: Organization Roles
   description: 'Organization roles are used to define a set of organization scopes that can be assigned to users. Every organization role is a part of the organization template.
 
 
-    Organization roles will only be meaningful within an organization context. For example, a user may have an `admin` role for organization A, but not for organization B. See [🏢 Organizations (Multi-tenancy)](https://docs.logto.io/docs/recipes/organizations/) to get started with organizations and organization template.'
+    Organization roles will only be meaningful within an organization context. For example, a user may have an `admin` role for organization A, but not for organization B. See 🏢 Organizations (Multi-tenancy) to get started with organizations and organization template.'
 paths:
   /api/organization-roles/{id}:
     get:
       operationId: GetOrganizationRole
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       responses:
@@ -52,9 +52,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   type:
                     type: string
                     enum:
@@ -73,7 +74,7 @@ paths:
     patch:
       operationId: UpdateOrganizationRole
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       requestBody:
@@ -96,9 +97,10 @@ paths:
                   maxLength: 128
                   description: The updated name of the organization role. It must be unique within the organization template.
                 description:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                   description: The updated description of the organization role.
                 type:
                   type: string
@@ -131,9 +133,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   type:
                     type: string
                     enum:
@@ -154,7 +157,7 @@ paths:
     delete:
       operationId: DeleteOrganizationRole
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       responses:
@@ -174,7 +177,7 @@ paths:
     get:
       operationId: ListOrganizationRoles
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - name: q
         in: query
@@ -227,9 +230,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
                     type:
                       type: string
                       enum:
@@ -281,7 +285,7 @@ paths:
     post:
       operationId: CreateOrganizationRole
       tags:
-      - Organization roles
+      - Organization Roles
       parameters: []
       requestBody:
         required: true
@@ -303,9 +307,10 @@ paths:
                   maxLength: 128
                   description: The name of the organization role. It must be unique within the organization template.
                 description:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   maxLength: 256
-                  nullable: true
                   description: The description of the organization role.
                 type:
                   type: string
@@ -350,9 +355,10 @@ paths:
                     minLength: 1
                     maxLength: 128
                   description:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     maxLength: 256
-                    nullable: true
                   type:
                     type: string
                     enum:
@@ -372,7 +378,7 @@ paths:
     get:
       operationId: ListOrganizationRoleScopes
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       - name: page
@@ -418,9 +424,10 @@ paths:
                       minLength: 1
                       maxLength: 128
                     description:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       maxLength: 256
-                      nullable: true
         '400':
           description: Bad Request
         '401':
@@ -434,7 +441,7 @@ paths:
     post:
       operationId: CreateOrganizationRoleScope
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       requestBody:
@@ -470,7 +477,7 @@ paths:
     put:
       operationId: ReplaceOrganizationRoleScopes
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       requestBody:
@@ -505,7 +512,7 @@ paths:
     delete:
       operationId: DeleteOrganizationRoleScope
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       - $ref: '#/components/parameters/organizationScopeId'
@@ -526,7 +533,7 @@ paths:
     get:
       operationId: ListOrganizationRoleResourceScopes
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       - name: page
@@ -578,8 +585,9 @@ paths:
                       minLength: 1
                       maxLength: 256
                     description:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                     createdAt:
                       type: number
         '400':
@@ -595,7 +603,7 @@ paths:
     post:
       operationId: CreateOrganizationRoleResourceScope
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       requestBody:
@@ -631,7 +639,7 @@ paths:
     put:
       operationId: ReplaceOrganizationRoleResourceScopes
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       requestBody:
@@ -666,7 +674,7 @@ paths:
     delete:
       operationId: DeleteOrganizationRoleResourceScope
       tags:
-      - Organization roles
+      - Organization Roles
       parameters:
       - $ref: '#/components/parameters/organizationRoleId-root'
       - $ref: '#/components/parameters/scopeId'
@@ -685,13 +693,6 @@ paths:
       description: Remove a resource scope assignment from the specified organization role.
 components:
   parameters:
-    organizationRoleId-root:
-      in: path
-      description: The unique identifier of the organization role.
-      required: true
-      schema:
-        type: string
-      name: id
     organizationScopeId:
       in: path
       description: The unique identifier of the organization scope.
@@ -699,6 +700,13 @@ components:
       schema:
         type: string
       name: organizationScopeId
+    organizationRoleId-root:
+      in: path
+      description: The unique identifier of the organization role.
+      required: true
+      schema:
+        type: string
+      name: id
     scopeId:
       in: path
       description: The unique identifier of the scope.

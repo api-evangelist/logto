@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Logto API references Account center Hooks API
+  title: Logto API references Hooks API
   description: 'API references for Logto services.
 
 
@@ -75,7 +75,9 @@ paths:
                       type: string
                       maxLength: 256
                     event:
-                      type: string
+                      type:
+                      - string
+                      - 'null'
                       enum:
                       - PostRegister
                       - PostSignIn
@@ -104,7 +106,6 @@ paths:
                       - OrganizationScope.Deleted
                       - OrganizationScope.Data.Updated
                       - Identifier.Lockout
-                      nullable: true
                     events:
                       type: array
                       items:
@@ -310,7 +311,9 @@ paths:
                     type: string
                     maxLength: 256
                   event:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - PostRegister
                     - PostSignIn
@@ -339,7 +342,6 @@ paths:
                     - OrganizationScope.Deleted
                     - OrganizationScope.Data.Updated
                     - Identifier.Lockout
-                    nullable: true
                   events:
                     type: array
                     items:
@@ -442,7 +444,9 @@ paths:
                     type: string
                     maxLength: 256
                   event:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - PostRegister
                     - PostSignIn
@@ -471,7 +475,6 @@ paths:
                     - OrganizationScope.Deleted
                     - OrganizationScope.Data.Updated
                     - Identifier.Lockout
-                    nullable: true
                   events:
                     type: array
                     items:
@@ -566,7 +569,9 @@ paths:
                   maxLength: 256
                   description: The updated name of the hook.
                 event:
-                  type: string
+                  type:
+                  - string
+                  - 'null'
                   enum:
                   - PostRegister
                   - PostSignIn
@@ -595,7 +600,6 @@ paths:
                   - OrganizationScope.Deleted
                   - OrganizationScope.Data.Updated
                   - Identifier.Lockout
-                  nullable: true
                   deprecated: true
                   description: Use `events` instead.
                 events:
@@ -679,7 +683,9 @@ paths:
                     type: string
                     maxLength: 256
                   event:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - PostRegister
                     - PostSignIn
@@ -708,7 +714,6 @@ paths:
                     - OrganizationScope.Deleted
                     - OrganizationScope.Data.Updated
                     - Identifier.Lockout
-                    nullable: true
                   events:
                     type: array
                     items:
@@ -1049,7 +1054,9 @@ paths:
                     type: string
                     maxLength: 256
                   event:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     enum:
                     - PostRegister
                     - PostSignIn
@@ -1078,7 +1085,6 @@ paths:
                     - OrganizationScope.Deleted
                     - OrganizationScope.Data.Updated
                     - Identifier.Lockout
-                    nullable: true
                   events:
                     type: array
                     items:
