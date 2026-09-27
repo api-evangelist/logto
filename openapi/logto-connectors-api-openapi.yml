@@ -1268,13 +1268,6 @@ components:
       schema:
         type: string
       name: id
-    factoryId:
-      in: path
-      description: The unique identifier of the factory.
-      required: true
-      schema:
-        type: string
-      name: factoryId
     connectorId:
       in: path
       description: The unique identifier of the connector.
@@ -1282,6 +1275,13 @@ components:
       schema:
         type: string
       name: connectorId
+    factoryId:
+      in: path
+      description: The unique identifier of the factory.
+      required: true
+      schema:
+        type: string
+      name: factoryId
   securitySchemes:
     OAuth2:
       type: oauth2

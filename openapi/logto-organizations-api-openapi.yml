@@ -2209,27 +2209,6 @@ paths:
       description: Remove an enterprise SSO connector for just-in-time provisioning of users in the organization.
 components:
   parameters:
-    organizationId-root:
-      in: path
-      description: The unique identifier of the organization.
-      required: true
-      schema:
-        type: string
-      name: id
-    ssoConnectorId:
-      in: path
-      description: The unique identifier of the sso connector.
-      required: true
-      schema:
-        type: string
-      name: ssoConnectorId
-    userId:
-      in: path
-      description: The unique identifier of the user.
-      required: true
-      schema:
-        type: string
-      name: userId
     organizationRoleId:
       in: path
       description: The unique identifier of the organization role.
@@ -2237,6 +2216,20 @@ components:
       schema:
         type: string
       name: organizationRoleId
+    ssoConnectorId:
+      in: path
+      description: The unique identifier of the sso connector.
+      required: true
+      schema:
+        type: string
+      name: ssoConnectorId
+    organizationId-root:
+      in: path
+      description: The unique identifier of the organization.
+      required: true
+      schema:
+        type: string
+      name: id
     applicationId:
       in: path
       description: The unique identifier of the application.
@@ -2244,6 +2237,13 @@ components:
       schema:
         type: string
       name: applicationId
+    userId:
+      in: path
+      description: The unique identifier of the user.
+      required: true
+      schema:
+        type: string
+      name: userId
   schemas:
     ApplicationLegacySecret:
       type: string
