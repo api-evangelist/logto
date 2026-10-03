@@ -1261,13 +1261,6 @@ paths:
       description: Get authorization URI for specified connector by providing redirect URI and randomly generated state.
 components:
   parameters:
-    connectorId-root:
-      in: path
-      description: The unique identifier of the connector.
-      required: true
-      schema:
-        type: string
-      name: id
     connectorId:
       in: path
       description: The unique identifier of the connector.
@@ -1282,6 +1275,13 @@ components:
       schema:
         type: string
       name: factoryId
+    connectorId-root:
+      in: path
+      description: The unique identifier of the connector.
+      required: true
+      schema:
+        type: string
+      name: id
   securitySchemes:
     OAuth2:
       type: oauth2

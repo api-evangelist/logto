@@ -2216,20 +2216,6 @@ components:
       schema:
         type: string
       name: organizationRoleId
-    ssoConnectorId:
-      in: path
-      description: The unique identifier of the sso connector.
-      required: true
-      schema:
-        type: string
-      name: ssoConnectorId
-    organizationId-root:
-      in: path
-      description: The unique identifier of the organization.
-      required: true
-      schema:
-        type: string
-      name: id
     applicationId:
       in: path
       description: The unique identifier of the application.
@@ -2244,6 +2230,20 @@ components:
       schema:
         type: string
       name: userId
+    ssoConnectorId:
+      in: path
+      description: The unique identifier of the sso connector.
+      required: true
+      schema:
+        type: string
+      name: ssoConnectorId
+    organizationId-root:
+      in: path
+      description: The unique identifier of the organization.
+      required: true
+      schema:
+        type: string
+      name: id
   schemas:
     ApplicationLegacySecret:
       type: string

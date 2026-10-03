@@ -1191,6 +1191,13 @@ paths:
       description: Unlink an API resource scope (permission) from a role with the given ID.
 components:
   parameters:
+    applicationId:
+      in: path
+      description: The unique identifier of the application.
+      required: true
+      schema:
+        type: string
+      name: applicationId
     scopeId:
       in: path
       description: The unique identifier of the scope.
@@ -1205,13 +1212,6 @@ components:
       schema:
         type: string
       name: id
-    applicationId:
-      in: path
-      description: The unique identifier of the application.
-      required: true
-      schema:
-        type: string
-      name: applicationId
     userId:
       in: path
       description: The unique identifier of the user.

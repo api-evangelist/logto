@@ -2914,27 +2914,6 @@ paths:
       description: Revoke a user's access to an organization for a application by application id, user id and organization id.
 components:
   parameters:
-    roleId:
-      in: path
-      description: The unique identifier of the role.
-      required: true
-      schema:
-        type: string
-      name: roleId
-    scopeId:
-      in: path
-      description: The unique identifier of the scope.
-      required: true
-      schema:
-        type: string
-      name: scopeId
-    applicationId-root:
-      in: path
-      description: The unique identifier of the application.
-      required: true
-      schema:
-        type: string
-      name: id
     organizationId:
       in: path
       description: The unique identifier of the organization.
@@ -2942,6 +2921,13 @@ components:
       schema:
         type: string
       name: organizationId
+    roleId:
+      in: path
+      description: The unique identifier of the role.
+      required: true
+      schema:
+        type: string
+      name: roleId
     applicationId:
       in: path
       description: The unique identifier of the application.
@@ -2949,6 +2935,13 @@ components:
       schema:
         type: string
       name: applicationId
+    scopeId:
+      in: path
+      description: The unique identifier of the scope.
+      required: true
+      schema:
+        type: string
+      name: scopeId
     userId:
       in: path
       description: The unique identifier of the user.
@@ -2956,6 +2949,13 @@ components:
       schema:
         type: string
       name: userId
+    applicationId-root:
+      in: path
+      description: The unique identifier of the application.
+      required: true
+      schema:
+        type: string
+      name: id
   schemas:
     ApplicationLegacySecret:
       type: string

@@ -1944,13 +1944,6 @@ paths:
       description: Revoke a specific user application grant by grant ID and remove the related session authorization. A logto-verification-id in header is required for revoking grants.
 components:
   parameters:
-    sessionId:
-      in: path
-      description: The unique identifier of the session.
-      required: true
-      schema:
-        type: string
-      name: sessionId
     grantId:
       in: path
       description: The unique identifier of the grant.
@@ -1958,13 +1951,13 @@ components:
       schema:
         type: string
       name: grantId
-    verificationId:
+    sessionId:
       in: path
-      description: The unique identifier of the verification.
+      description: The unique identifier of the session.
       required: true
       schema:
         type: string
-      name: verificationId
+      name: sessionId
     connectorId:
       in: path
       description: The unique identifier of the connector.
@@ -1972,6 +1965,13 @@ components:
       schema:
         type: string
       name: connectorId
+    verificationId:
+      in: path
+      description: The unique identifier of the verification.
+      required: true
+      schema:
+        type: string
+      name: verificationId
   securitySchemes:
     OAuth2:
       type: oauth2
