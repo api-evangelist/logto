@@ -668,13 +668,6 @@ paths:
       description: Delete an API resource scope (permission) from the given resource.
 components:
   parameters:
-    resourceId-root:
-      in: path
-      description: The unique identifier of the resource.
-      required: true
-      schema:
-        type: string
-      name: id
     scopeId:
       in: path
       description: The unique identifier of the scope.
@@ -682,6 +675,13 @@ components:
       schema:
         type: string
       name: scopeId
+    resourceId-root:
+      in: path
+      description: The unique identifier of the resource.
+      required: true
+      schema:
+        type: string
+      name: id
     resourceId:
       in: path
       description: The unique identifier of the resource.

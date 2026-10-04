@@ -4619,13 +4619,6 @@ paths:
       description: Revoke a specific user session by its ID, optionally revoking associated target grants and tokens.
 components:
   parameters:
-    sessionId:
-      in: path
-      description: The unique identifier of the session.
-      required: true
-      schema:
-        type: string
-      name: sessionId
     roleId:
       in: path
       description: The unique identifier of the role.
@@ -4633,20 +4626,6 @@ components:
       schema:
         type: string
       name: roleId
-    grantId:
-      in: path
-      description: The unique identifier of the grant.
-      required: true
-      schema:
-        type: string
-      name: grantId
-    userId:
-      in: path
-      description: The unique identifier of the user.
-      required: true
-      schema:
-        type: string
-      name: userId
     verificationId:
       in: path
       description: The unique identifier of the verification.
@@ -4661,6 +4640,27 @@ components:
       schema:
         type: string
       name: ssoConnectorId
+    grantId:
+      in: path
+      description: The unique identifier of the grant.
+      required: true
+      schema:
+        type: string
+      name: grantId
+    sessionId:
+      in: path
+      description: The unique identifier of the session.
+      required: true
+      schema:
+        type: string
+      name: sessionId
+    userId:
+      in: path
+      description: The unique identifier of the user.
+      required: true
+      schema:
+        type: string
+      name: userId
   securitySchemes:
     OAuth2:
       type: oauth2
