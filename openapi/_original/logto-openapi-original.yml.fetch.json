@@ -1,0 +1,12 @@
+{
+ "url": "https://openapi.logto.io/source.yaml",
+ "requested_url": "https://openapi.logto.io/source.yaml",
+ "status": 200,
+ "content_type": "text/yaml; charset=utf-8",
+ "bytes": 1637821,
+ "sha256": "f6be196bc32747431057eebc78df85bc752709c3f7be11ec00972b65510acc13",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.92), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
