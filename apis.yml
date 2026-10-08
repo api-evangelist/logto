@@ -686,6 +686,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/logto-io/logto
 common:
+- type: FinOps
+  url: finops/logto-finops.yml
 - type: RateLimits
   url: rate-limits/logto-rate-limits.yml
 - type: Pricing
