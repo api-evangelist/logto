@@ -2914,41 +2914,6 @@ paths:
       description: Revoke a user's access to an organization for a application by application id, user id and organization id.
 components:
   parameters:
-    organizationId:
-      in: path
-      description: The unique identifier of the organization.
-      required: true
-      schema:
-        type: string
-      name: organizationId
-    roleId:
-      in: path
-      description: The unique identifier of the role.
-      required: true
-      schema:
-        type: string
-      name: roleId
-    applicationId:
-      in: path
-      description: The unique identifier of the application.
-      required: true
-      schema:
-        type: string
-      name: applicationId
-    scopeId:
-      in: path
-      description: The unique identifier of the scope.
-      required: true
-      schema:
-        type: string
-      name: scopeId
-    userId:
-      in: path
-      description: The unique identifier of the user.
-      required: true
-      schema:
-        type: string
-      name: userId
     applicationId-root:
       in: path
       description: The unique identifier of the application.
@@ -2956,6 +2921,41 @@ components:
       schema:
         type: string
       name: id
+    scopeId:
+      in: path
+      description: The unique identifier of the scope.
+      required: true
+      schema:
+        type: string
+      name: scopeId
+    organizationId:
+      in: path
+      description: The unique identifier of the organization.
+      required: true
+      schema:
+        type: string
+      name: organizationId
+    applicationId:
+      in: path
+      description: The unique identifier of the application.
+      required: true
+      schema:
+        type: string
+      name: applicationId
+    roleId:
+      in: path
+      description: The unique identifier of the role.
+      required: true
+      schema:
+        type: string
+      name: roleId
+    userId:
+      in: path
+      description: The unique identifier of the user.
+      required: true
+      schema:
+        type: string
+      name: userId
   schemas:
     ApplicationLegacySecret:
       type: string

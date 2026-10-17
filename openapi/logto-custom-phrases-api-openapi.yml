@@ -578,9 +578,6 @@ paths:
       description: Delete custom phrases for the specified language tag.
 components:
   schemas:
-    Translation:
-      oneOf:
-      - type: string
     TranslationObject:
       type: object
       properties:
@@ -593,6 +590,9 @@ components:
         action:
           sign_in: Sign In
           continue: Continue
+    Translation:
+      oneOf:
+      - type: string
   securitySchemes:
     OAuth2:
       type: oauth2
