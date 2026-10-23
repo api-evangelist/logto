@@ -359,3 +359,9 @@ components:
           tokenUrl: /oidc/token
           scopes:
             all: All scopes
+x-provenance:
+  method: harvested
+  publisher: Logto
+  source: https://openapi.logto.io/source.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
